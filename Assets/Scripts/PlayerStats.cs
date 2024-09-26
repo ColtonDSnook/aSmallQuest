@@ -10,4 +10,5 @@ public class PlayerStats
 
     public int damage; // affects the damage
     public int attackSpeed; // affects the cooldowns
+    public int currency; // used to purchase upgrades
 }

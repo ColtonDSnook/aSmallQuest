@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            rb.AddForce(new Vector3(0, 0, 0));
+            rb.velocity = Vector3.zero;
         }
         // the player move script will move the player forward and stop it when it encounters the enemy.
         // the player will not be able to move the player character manually

@@ -178,7 +178,7 @@ public class GameManager : MonoBehaviour
 
     public void MovePlayerToSpawnPoint()
     {
-        player.transform.position = spawnPoint.transform.position;
+        //player.transform.position = spawnPoint.transform.position;
     }
 
     public void Back()

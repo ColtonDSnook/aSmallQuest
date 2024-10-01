@@ -97,7 +97,7 @@ public class LevelManager : MonoBehaviour
     {
         if (gameManager.playerSprite.activeSelf == true)
         {
-            gameManager.spawnPoint = GameObject.FindWithTag("SpawnPoint");
+            //gameManager.spawnPoint = GameObject.FindWithTag("SpawnPoint");
             gameManager.MovePlayerToSpawnPoint();
         }
         SceneManager.sceneLoaded -= OnSceneLoaded;

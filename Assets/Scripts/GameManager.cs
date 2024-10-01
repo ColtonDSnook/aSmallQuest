@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager manager;
+
+
     private UIManager uiManager;
     private PlayerMovement player;
     public GameObject playerSprite;
@@ -23,6 +26,19 @@ public class GameManager : MonoBehaviour
 
     public GameState previousGameState;
     public GameState gameState;
+
+    void Awake()
+    {
+        if (manager == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            manager = this;
+        }
+        else if (manager != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

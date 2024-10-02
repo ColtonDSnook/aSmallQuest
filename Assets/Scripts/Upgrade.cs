@@ -14,7 +14,7 @@ public class Upgrade
         Health,
         Damage,
         AttackSpeed,
-        Defense
+        //Defense
     }
 
     public string upgradeName;
@@ -26,12 +26,12 @@ public class Upgrade
 
     //if it is a stat upgrade
     public StatType statType;
-    public float value;
+    public int value;
 
     //if it is a skill upgrade
     public string skillName;
 
-    public Upgrade(string name, string desc, StatType stat, float val)
+    public Upgrade(string name, string desc, StatType stat, int val)
     {
         upgradeName = name;
         description = desc;

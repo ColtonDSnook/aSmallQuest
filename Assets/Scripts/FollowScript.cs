@@ -16,6 +16,7 @@ public class FollowScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = target.transform.position + new Vector3(0, 1, distance);
+        transform.position = target.transform.position + new Vector3(0, 3, distance);
+        transform.rotation = Quaternion.Euler(20, 0, 0);
     }
 }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 9104680862534924571}
   - component: {fileID: -2057916655798295561}
   - component: {fileID: 7728422419066794938}
+  - component: {fileID: -1310169095303373817}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -165,3 +166,20 @@ MonoBehaviour:
   moveSpeed: 15
   rb: {fileID: 9104680862534924571}
   inCombat: 0
+--- !u!114 &-1310169095303373817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6448862624847786948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed83e60c824e38446889354546a4064b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTimer: 0
+  maxCooldownTimer: 5
+  player: 1
+  healthSystem: {fileID: -2057916655798295561}
+  abilityUsed: 0

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public static class PlayerStats
+public class PlayerStats
 {
     //this will be where all the stats for the player are stored and will be called to use and will be affected by the upgrades.
 

@@ -5,16 +5,18 @@ using UnityEngine;
 public class UpgradeManager : MonoBehaviour
 {
     // this is where all the upgrades are stored and saved.
-    // i will be saving these to a file sometime(when i know how)((tomorrow))
+    // i will be saving these to a file sometime
 
     // these upgrades will directly affect the stats of the player.
 
-    public PlayerMovement player;
+    public PlayerStats playerStats;
+
+    public List<Upgrade> upgrades;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<PlayerMovement>();
+        
     }
 
     // Update is called once per frame

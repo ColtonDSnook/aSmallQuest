@@ -1790,6 +1790,19 @@ MonoBehaviour:
   moveSpeed: 15
   rb: {fileID: 1825759172}
   inCombat: 0
+--- !u!114 &1825759177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825759167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f5d579033535e2489f6b9ec7e542505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &1987477767
 GameObject:
   m_ObjectHideFlags: 0
@@ -2480,6 +2493,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1825759173}
+    - targetCorrespondingSourceObject: {fileID: 6448862624847786948, guid: 2c3a15933f2ab1140be13ba419f590d6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1825759177}
   m_SourcePrefab: {fileID: 100100000, guid: 2c3a15933f2ab1140be13ba419f590d6, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

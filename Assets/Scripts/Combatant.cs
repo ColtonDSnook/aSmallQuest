@@ -22,5 +22,11 @@ public class Combatant : MonoBehaviour
     void Update()
     {
         cooldownTimer -= Time.deltaTime;
+
+        if (abilityUsed)
+        {
+            //play timeline for ability
+            cooldownTimer = maxCooldownTimer;
+        }
     }
 }

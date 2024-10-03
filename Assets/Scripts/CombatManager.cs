@@ -26,7 +26,7 @@ public class CombatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        combatants.Add(player);
+        //combatants.Add(player);
         combatState = CombatState.None;
         levelManager = FindObjectOfType<LevelManager>();
     }
@@ -36,6 +36,7 @@ public class CombatManager : MonoBehaviour
     {
         while (combatState == CombatState.InCombat)
         {
+            Debug.Log("Combat Started");
             foreach (Combatant combatant in combatants)
             {
                 if (combatant.cooldownTimer <= 0)
@@ -46,7 +47,7 @@ public class CombatManager : MonoBehaviour
                     }
                     else
                     {
-                        int targetNumber = Random.Range(1, CountOtherCombatants());
+                        int targetNumber = Random.Range(0, CountOtherCombatants() - 1);
                         Attack(combatants[targetNumber]);
                     }
                     //this attack will be in the form of a timeline that will send a signal to deal damage to the opposing force.
@@ -61,6 +62,7 @@ public class CombatManager : MonoBehaviour
 
                 if (combatant.healthSystem.GetCurrentHealth() <= 0)
                 {
+                    Debug.Log(combatant.healthSystem.GetCurrentHealth());
                     if (combatant.player)
                     {
                         combatState = CombatState.Lost;

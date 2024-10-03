@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -1310169095303373817}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5d579033535e2489f6b9ec7e542505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
 --- !u!114 &7728422419066794938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 15
   rb: {fileID: 9104680862534924571}
-  inCombat: 0
+  combatManager: {fileID: 0}
 --- !u!114 &-1310169095303373817
 MonoBehaviour:
   m_ObjectHideFlags: 0

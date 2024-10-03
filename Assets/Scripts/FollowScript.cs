@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class FollowScript : MonoBehaviour
 {
-    public int distance;
-    public int height;
-    public int rotation;
+    public float distance;
+    public float height;
+    public float rotation;
+    public float offset;
+
     public Transform target;
 
     // Start is called before the first frame update
@@ -18,7 +20,7 @@ public class FollowScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = target.transform.position + new Vector3(0, height, distance);
+        transform.position = target.transform.position + new Vector3(offset, height, distance);
         transform.rotation = Quaternion.Euler(rotation, 0, 0);
     }
 }

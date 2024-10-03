@@ -1,22 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private int currentHealth;
-
+    [SerializeField] private int currentHealth;
+    public TextMeshProUGUI healthText;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = PlayerStats.maxHealth;
+        if (tag == "Enemy")
+        {
+            currentHealth = 1;
+        }
+        else
+        {
+            currentHealth = PlayerStats.maxHealth;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        healthText.text = "HP: " + GetCurrentHealth().ToString();
+        GetCurrentHealth();
     }
 
     public void TakeDamage(int damage)

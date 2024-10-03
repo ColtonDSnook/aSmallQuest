@@ -8,6 +8,8 @@ public class Combatant : MonoBehaviour
     public float maxCooldownTimer;
     public bool player;
 
+
+    public CombatManager combatManager;
     public Health healthSystem;
 
     [SerializeField] public bool abilityUsed;
@@ -15,13 +17,18 @@ public class Combatant : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        combatManager = FindObjectOfType<CombatManager>();
         cooldownTimer = maxCooldownTimer;
+        healthSystem = GetComponent<Health>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        cooldownTimer -= Time.deltaTime;
+        if (combatManager.combatState == CombatManager.CombatState.InCombat)
+        {
+            cooldownTimer -= Time.deltaTime;
+        }
 
         if (abilityUsed)
         {

@@ -2,7 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 using static Upgrade;
+using UnityEngine.UI;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.SocialPlatforms.Impl;
+using System.Linq;
 
 public class UpgradeManager : MonoBehaviour
 {
@@ -15,28 +21,78 @@ public class UpgradeManager : MonoBehaviour
     public PlayerSkills playerSkills;
 
     public List<Upgrade> upgrades;
+    public List<UpgradeButton> upgradeButtons;
+
+    public GameObject descriptionUI;
+    public TextMeshProUGUI descriptionText;
+    public Button confirmButton;
+
+    private int selectedUpgradeIndex = -1;
+
+    private string saveFilePath;
 
     // Start is called before the first frame update
     void Start()
     {
-        InitializeUpgrades(); 
+        saveFilePath = Application.persistentDataPath + "/playerInfo.dat";
+        
+        if (File.Exists(saveFilePath))
+        {
+            Load();
+        }
+        else
+        {
+            InitializeUpgrades();
+        }
+
+        InitializeUpgradeButtons();
+        descriptionUI.SetActive(false);
     }
-    
-    public void ApplyUpgrade(int upgradeIndex)
+
+    private void Update()
+    {
+        foreach (UpgradeButton upgradeButton in upgradeButtons)
+        {
+            if (upgrades[upgradeButton.upgradeIndex].isPurchased)
+            {
+                upgradeButton.GetComponent<Image>().color = Color.gray;
+            }
+        }
+    }
+
+    public void ShowUpgradeDescription(int upgradeIndex)
     {
         if (upgradeIndex >= 0 && upgradeIndex < upgrades.Count)
         {
             Upgrade upgrade = upgrades[upgradeIndex];
+            descriptionText.text = upgrade.description;
+            selectedUpgradeIndex = upgradeIndex;
+            descriptionUI.SetActive(true);
+        }
+    }
+
+    public void ConfirmUpgrade()
+    {
+        if (selectedUpgradeIndex >= 0 && selectedUpgradeIndex < upgrades.Count)
+        {
+            Upgrade upgrade = upgrades[selectedUpgradeIndex];
 
             switch (upgrade.upgradeType)
             {
-                case Upgrade.UpgradeType.Stat:
+                case UpgradeType.Stat:
                     ApplyStatUpgrade(upgrade);
+                    Debug.Log("upgraded" + upgrade.description);
                     break;
-                case Upgrade.UpgradeType.Skill:
+                case UpgradeType.Skill:
                     ApplySkillUpgrade(upgrade);
                     break;
             }
+
+            upgrade.isPurchased = true;
+            Save();
+            descriptionText.text = "";
+            descriptionUI.SetActive(false);
+
         }
     }
 
@@ -45,7 +101,9 @@ public class UpgradeManager : MonoBehaviour
         switch (upgrade.statType)
         {
             case StatType.Health:
+                Debug.Log(PlayerStats.maxHealth);
                 PlayerStats.maxHealth += upgrade.value;
+                Debug.Log(PlayerStats.maxHealth);
                 break;
             case StatType.Damage:
                 PlayerStats.damage += upgrade.value;
@@ -75,8 +133,52 @@ public class UpgradeManager : MonoBehaviour
     public void InitializeUpgrades()
     {
         upgrades.Add(new Upgrade("Health Boost", "Increase max health by 20", StatType.Health, 20));
-        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 5", StatType.Damage, 5));
+        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 20%", StatType.Damage, 20));
         upgrades.Add(new Upgrade("Unlock Spin Attack", "Unlock the Spin Attack skill", "SpinAttack"));
-        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 1", StatType.Damage, 1));
+        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 20$", StatType.Damage, 20));
+    }
+
+    public void InitializeUpgradeButtons()
+    {
+        UpgradeButton[] upgradeButtonsArray = FindObjectsOfType<UpgradeButton>();
+        upgradeButtons = upgradeButtonsArray.ToList<UpgradeButton>();
+    }
+
+
+    // Save player data to a file
+    public void Save()
+    {
+        // Create a BinaryFormatter and a FileStream
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(saveFilePath);
+
+        // Create a new PlayerData object and set its properties
+        SaveData saveData = new SaveData();
+        saveData.playerStats = playerStats;
+        saveData.playerSkills = playerSkills;
+        saveData.upgrades = upgrades;
+
+        bf.Serialize(file, saveData);
+        file.Close();
+    }
+
+    public void Load()
+    {
+        if (File.Exists(saveFilePath))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(saveFilePath, FileMode.Open);
+
+            SaveData saveData = (SaveData)bf.Deserialize(file);
+            file.Close();
+
+            playerSkills = saveData.playerSkills;
+            playerStats = saveData.playerStats;
+            upgrades = saveData.upgrades;
+        }
+        else
+        {
+            Debug.LogWarning("Save file not found");
+        }
     }
 }

@@ -7,10 +7,10 @@ using UnityEngine;
 public class PlayerStats
 {
     //this will be where all the stats for the player are stored and will be called to use and will be affected by the upgrades.
-    public static int maxHealth;
-    public static int damage; // affects the damage
-    public static int attackSpeed; // affects the cooldowns
-    public static int currency; // used to purchase upgrades
+    public static int maxHealth = 100;
+    public static int damage = 100; // affects the damage (%)
+    public static int attackSpeed = 100; // affects the cooldowns (%)
+    public static int currency = 0; // used to purchase upgrades
 }
 
 [Serializable]

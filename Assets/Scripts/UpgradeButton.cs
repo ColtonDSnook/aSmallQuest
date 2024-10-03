@@ -8,6 +8,14 @@ public class UpgradeButton : MonoBehaviour
 
     public void OnButtonClick()
     {
-        upgradeManager.ApplyUpgrade(upgradeIndex);
+        if (upgradeManager.upgrades[upgradeIndex].isPurchased)
+        {
+            Debug.Log("Cannot Repurchase");
+        }
+        else
+        {
+            upgradeManager.ShowUpgradeDescription(upgradeIndex);
+            Debug.Log("Clicked");
+        }
     }
 }

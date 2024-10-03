@@ -176,6 +176,11 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Credits;
     }
 
+    public void OpenUpgrades()
+    {
+        gameState = GameState.Upgrades;
+    }
+
     public void MovePlayerToSpawnPoint()
     {
         //player.transform.position = spawnPoint.transform.position;
@@ -183,9 +188,14 @@ public class GameManager : MonoBehaviour
 
     public void Back()
     {
-        if (previousGameState != GameState.MainMenu)
+        if (gameState == GameState.Upgrades)
+        {
+            gameState = GameState.MainMenu;
+        }
+        else if (previousGameState != GameState.MainMenu)
         {
             gameState = GameState.Pause;
+            Debug.Log("backed");
         }
         else
         {

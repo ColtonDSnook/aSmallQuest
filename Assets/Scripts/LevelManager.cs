@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     GameManager gameManager;
+    CombatManager combatManager;
     public string previousScene;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        combatManager = FindObjectOfType<CombatManager>();
     }
 
     // Update is called once per frame
@@ -75,7 +77,14 @@ public class LevelManager : MonoBehaviour
         //}
         if (levelName == "Post-Run")
         {
-            gameManager.gameState = GameManager.GameState.RunEnd;
+            if (combatManager.combatState == CombatManager.CombatState.Won)
+            {
+                gameManager.gameState = GameManager.GameState.RunWin;
+            }
+            else if (combatManager.combatState == CombatManager.CombatState.Lost)
+            {
+                gameManager.gameState = GameManager.GameState.RunEnd;
+            }
         }
         if (levelName == "Settings")
         {
@@ -85,10 +94,6 @@ public class LevelManager : MonoBehaviour
         {
             Time.timeScale = 1;
             gameManager.gameState = GameManager.GameState.MainMenu;
-        }
-        if (levelName == "RunEnd")
-        {
-            gameManager.gameState = GameManager.GameState.RunEnd;
         }
         SceneManager.LoadScene(levelName);
     }

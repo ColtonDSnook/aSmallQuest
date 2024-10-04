@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatManager: {fileID: 0}
-  player: {fileID: -1310169095303373817, guid: 2c3a15933f2ab1140be13ba419f590d6, type: 3}
+  player: {fileID: 0}
   enemyPrefab: {fileID: 6885232520928741374, guid: b8cff4859bff1fc4c8da58c14e5dc415,
     type: 3}
   height: 0.5
@@ -201,7 +201,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 742e119fb5a962446b468735dfe30fe6, type: 2}
+  - {fileID: 2100000, guid: 4e33e225dd1d68a48bd1395aeec39bcf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

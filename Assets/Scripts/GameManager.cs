@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -11,6 +12,12 @@ public class GameManager : MonoBehaviour
     private PlayerMovement player;
     public GameObject playerSprite;
     public GameObject spawnPoint;
+
+    public PlayerStats playerStats;
+
+    public TextMeshProUGUI damageText;
+    public TextMeshProUGUI speedText;
+    public TextMeshProUGUI goldText;
 
     public enum GameState
     {
@@ -51,6 +58,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateText();
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseGame();
@@ -203,4 +212,18 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
         }
     }
+
+    public void UpdateText()
+    {
+        damageText.text = "DMG: " + playerStats.damage.ToString();
+        speedText.text = "SPD: " + playerStats.attackSpeed.ToString();
+        goldText.text = "GLD: " + playerStats.currency.ToString();
+    }
+
+    public void UpdatePlayerStats(PlayerStats updatedStats)
+    {
+        playerStats = updatedStats;
+        UpdateText();  // Update the UI after stats are updated
+    }
+
 }

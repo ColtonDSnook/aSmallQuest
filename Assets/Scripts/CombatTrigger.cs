@@ -6,27 +6,27 @@ public class CombatTrigger : MonoBehaviour
 {
     public CombatManager combatManager;
 
-    public Combatant player;
+    public GameObject player;
 
     public GameObject enemyPrefab;
 
-    public float height = 0.5f;
+    public float height = -0.5f;
 
     public List<Vector3> positions;
 
     private void Start()
     {
         combatManager = FindObjectOfType<CombatManager>();
-        AddPositions();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        AddPositions();
+        Debug.Log(positions[1]);
         InstantiateEnemies();
 
-        combatManager.combatants.Add(player);
-
-        combatManager.combatState = CombatManager.CombatState.InCombat;
+        combatManager.combatState = CombatManager.CombatState.Start;
 
         Debug.Log("In Combat");
     }
@@ -42,15 +42,13 @@ public class CombatTrigger : MonoBehaviour
 
     void InstantiateEnemies()
     {
-        int numEnemies = Random.Range(1,5);
-
-        for (int i = 1; i == numEnemies; i++)
+        int numEnemies = Random.Range(2,5);
+        for (int i = 1; i <= numEnemies; i++)
         {
-            GameObject enemy = Instantiate(enemyPrefab, positions[i], Quaternion.identity);
+            Instantiate(enemyPrefab, positions[i], Quaternion.identity);
+            //Combatant enemyCombatant = enemy.GetComponent<Combatant>();
 
-            Combatant enemyCombatant = enemy.GetComponent<Combatant>();
-
-            combatManager.combatants.Add(enemyCombatant);
+            //combatManager.combatants.Add(enemyCombatant);
         }
     }
 

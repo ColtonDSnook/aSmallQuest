@@ -75,7 +75,7 @@ public class LevelManager : MonoBehaviour
         //}
         if (levelName == "Post-Run")
         {
-            gameManager.gameState = GameManager.GameState.Upgrades;
+            gameManager.gameState = GameManager.GameState.RunEnd;
         }
         if (levelName == "Settings")
         {

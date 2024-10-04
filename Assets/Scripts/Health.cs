@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
     [SerializeField] private int currentHealth;
     public TextMeshProUGUI healthText;
 
+    public PlayerStats playerStats;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,15 +19,23 @@ public class Health : MonoBehaviour
         }
         else
         {
-            currentHealth = PlayerStats.maxHealth;
+            currentHealth = playerStats.maxHealth;
         }
     }
 
     // Update is called once per frame
     void Update()
-    {
-        healthText.text = "HP: " + GetCurrentHealth().ToString();
-        GetCurrentHealth();
+    { 
+        if (CompareTag("Player"))
+        {
+            healthText.text = "HP: " + GetCurrentHealth().ToString();
+        }
+
+        if (healthText == null)
+        {
+            return;
+        }
+        //GetCurrentHealth();
     }
 
     public void TakeDamage(int damage)

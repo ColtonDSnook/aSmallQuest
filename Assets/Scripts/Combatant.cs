@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,4 +37,10 @@ public class Combatant : MonoBehaviour
             cooldownTimer = maxCooldownTimer;
         }
     }
+
+    public void Kill()
+    {
+        Destroy(gameObject);
+    }
+
 }

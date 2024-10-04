@@ -18,4 +18,12 @@ public class UpgradeButton : MonoBehaviour
             Debug.Log("Clicked");
         }
     }
+
+    private void Update()
+    {
+        if (upgradeManager.upgrades[upgradeIndex].isPurchased)
+        {
+            GetComponent<Image>().color = Color.gray;
+        }
+    }
 }

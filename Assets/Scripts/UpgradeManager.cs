@@ -20,8 +20,9 @@ public class UpgradeManager : MonoBehaviour
     public PlayerStats playerStats;
     public PlayerSkills playerSkills;
 
+    public GameManager gameManager;
+
     public List<Upgrade> upgrades;
-    public List<UpgradeButton> upgradeButtons;
 
     public GameObject descriptionUI;
     public TextMeshProUGUI descriptionText;
@@ -34,6 +35,15 @@ public class UpgradeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
+
+        if (playerStats == null)
+            playerStats = new PlayerStats();
+
+        if (playerSkills == null)
+            playerSkills = new PlayerSkills();
+
+
         saveFilePath = Application.persistentDataPath + "/playerInfo.dat";
         
         if (File.Exists(saveFilePath))
@@ -45,19 +55,7 @@ public class UpgradeManager : MonoBehaviour
             InitializeUpgrades();
         }
 
-        InitializeUpgradeButtons();
         descriptionUI.SetActive(false);
-    }
-
-    private void Update()
-    {
-        foreach (UpgradeButton upgradeButton in upgradeButtons)
-        {
-            if (upgrades[upgradeButton.upgradeIndex].isPurchased)
-            {
-                upgradeButton.GetComponent<Image>().color = Color.gray;
-            }
-        }
     }
 
     public void ShowUpgradeDescription(int upgradeIndex)
@@ -101,20 +99,21 @@ public class UpgradeManager : MonoBehaviour
         switch (upgrade.statType)
         {
             case StatType.Health:
-                Debug.Log(PlayerStats.maxHealth);
-                PlayerStats.maxHealth += upgrade.value;
-                Debug.Log(PlayerStats.maxHealth);
+                playerStats.maxHealth += upgrade.value;
                 break;
             case StatType.Damage:
-                PlayerStats.damage += upgrade.value;
+                Debug.Log(playerStats.damage);
+                playerStats.damage += upgrade.value;
+                Debug.Log(playerStats.damage);
                 break;
             case StatType.AttackSpeed:
-                PlayerStats.attackSpeed += upgrade.value;
+                playerStats.attackSpeed += upgrade.value;
                 break;
             //case StatType.Defense:
             //    playerStats.defense += upgrade.value;
             //    break;
         }
+        Save();
     }
 
     public void ApplySkillUpgrade(Upgrade upgrade)
@@ -138,12 +137,6 @@ public class UpgradeManager : MonoBehaviour
         upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 20$", StatType.Damage, 20));
     }
 
-    public void InitializeUpgradeButtons()
-    {
-        UpgradeButton[] upgradeButtonsArray = FindObjectsOfType<UpgradeButton>();
-        upgradeButtons = upgradeButtonsArray.ToList<UpgradeButton>();
-    }
-
 
     // Save player data to a file
     public void Save()
@@ -157,6 +150,8 @@ public class UpgradeManager : MonoBehaviour
         saveData.playerStats = playerStats;
         saveData.playerSkills = playerSkills;
         saveData.upgrades = upgrades;
+
+        Debug.Log("Saving: Health - " + saveData.playerStats.maxHealth + ", Damage - " + saveData.playerStats.damage);
 
         bf.Serialize(file, saveData);
         file.Close();
@@ -172,9 +167,14 @@ public class UpgradeManager : MonoBehaviour
             SaveData saveData = (SaveData)bf.Deserialize(file);
             file.Close();
 
+            //Debug.Log("Loaded Attack: " + saveData.playerStats.GetStat("Damage"));
+
             playerSkills = saveData.playerSkills;
             playerStats = saveData.playerStats;
             upgrades = saveData.upgrades;
+            Debug.Log("Loading Game");
+            gameManager.UpdatePlayerStats(playerStats);
+            Debug.Log("Loaded: Health - " + playerStats.maxHealth + ", Damage - " + playerStats.damage);
         }
         else
         {

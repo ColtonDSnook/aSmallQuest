@@ -152,7 +152,7 @@ public class UpgradeManager : MonoBehaviour
         saveData.upgrades = upgrades;
 
         Debug.Log("Saving: Health - " + saveData.playerStats.maxHealth + ", Damage - " + saveData.playerStats.damage);
-
+        gameManager.UpdatePlayerStats(playerStats);
         bf.Serialize(file, saveData);
         file.Close();
     }

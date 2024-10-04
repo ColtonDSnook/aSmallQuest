@@ -77,11 +77,11 @@ public class LevelManager : MonoBehaviour
         //}
         if (levelName == "Post-Run")
         {
-            if (combatManager.combatState == CombatManager.CombatState.Won)
+            if (combatManager.previousCombatState == CombatManager.CombatState.Won)
             {
                 gameManager.gameState = GameManager.GameState.RunWin;
             }
-            else if (combatManager.combatState == CombatManager.CombatState.Lost)
+            else if (combatManager.previousCombatState == CombatManager.CombatState.Lost)
             {
                 gameManager.gameState = GameManager.GameState.RunEnd;
             }

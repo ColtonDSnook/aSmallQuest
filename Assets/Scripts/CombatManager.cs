@@ -17,6 +17,8 @@ public class CombatManager : MonoBehaviour
 
     public CombatState combatState;
 
+    public CombatState previousCombatState;
+
     public List<Combatant> combatants;
 
     public Combatant player;
@@ -55,6 +57,7 @@ public class CombatManager : MonoBehaviour
         if (combatState == CombatState.Lost)
         {
             combatants.Clear();
+            previousCombatState = combatState;
             combatState = CombatState.None;
             levelManager.LoadScene("Post-Run");
         }
@@ -62,6 +65,7 @@ public class CombatManager : MonoBehaviour
         if (combatState == CombatState.Won)
         {
             combatants.Clear();
+            previousCombatState = combatState;
             combatState = CombatState.None;
             levelManager.LoadScene("Post-Run");
         }

@@ -174,7 +174,7 @@ public class UpgradeManager : MonoBehaviour
             upgrades = saveData.upgrades;
             Debug.Log("Loading Game");
             gameManager.UpdatePlayerStats(playerStats);
-            Debug.Log("Loaded: Health - " + playerStats.maxHealth + ", Damage - " + playerStats.damage);
+            //Debug.Log("Loaded: Health - " + playerStats.maxHealth + ", Damage - " + playerStats.damage);
         }
         else
         {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class CombatManager : MonoBehaviour
 {
@@ -20,8 +21,11 @@ public class CombatManager : MonoBehaviour
 
     public Combatant player;
 
+    public PlayableDirector slashTimeline;
 
     public LevelManager levelManager;
+
+    [SerializeField] private Combatant currentTarget;
 
     // when an ability is used, block the player from using any other ability until ability use is over.
 
@@ -52,6 +56,11 @@ public class CombatManager : MonoBehaviour
         {
             combatants.Clear();
             combatState = CombatState.None;
+            levelManager.LoadScene("Post-Run");
+        }
+
+        if (combatState == CombatState.Won)
+        {
             levelManager.LoadScene("Post-Run");
         }
         // when attacking the timer will pause for all entities and will let the entity attack.
@@ -107,7 +116,10 @@ public class CombatManager : MonoBehaviour
 
     public void Attack(Combatant target)
     {
-        target.healthSystem.TakeDamage(4);
+        slashTimeline.Play();
+
+        currentTarget = target;
+
         Debug.Log("Attacked");
     }
 
@@ -140,5 +152,10 @@ public class CombatManager : MonoBehaviour
     {
         Combatant[] combatantsArray = FindObjectsOfType<Combatant>();
         combatants = combatantsArray.ToList<Combatant>();
+    }
+
+    public void ApplyDamage()
+    {
+        currentTarget.healthSystem.TakeDamage(4);
     }
 }

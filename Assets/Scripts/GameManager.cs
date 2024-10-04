@@ -223,7 +223,7 @@ public class GameManager : MonoBehaviour
     public void UpdatePlayerStats(PlayerStats updatedStats)
     {
         playerStats = updatedStats;
-        UpdateText();  // Update the UI after stats are updated
+        UpdateText();
     }
 
 }

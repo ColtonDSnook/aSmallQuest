@@ -153,8 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 0.38333333333333336
   m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 0}
+  m_EmitOnce: 1
+  m_Asset: {fileID: 11400000, guid: cb259201a5aa06e47be8d7dfd74cf80c, type: 2}
 --- !u!114 &7121767561364449590
 MonoBehaviour:
   m_ObjectHideFlags: 1

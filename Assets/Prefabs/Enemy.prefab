@@ -5071,8 +5071,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed83e60c824e38446889354546a4064b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTimer: 10
-  maxCooldownTimer: 10
+  cooldownTimer: 2
+  maxCooldownTimer: 2
   player: 0
   combatManager: {fileID: 7926784377501861341, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
     type: 3}
@@ -5092,3 +5092,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   healthText: {fileID: 0}
+  playerStats:
+    maxHealth: 100
+    damage: 100
+    attackSpeed: 100
+    currency: 0

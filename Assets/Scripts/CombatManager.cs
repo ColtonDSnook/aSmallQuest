@@ -83,7 +83,7 @@ public class CombatManager : MonoBehaviour
             {
                 if (!combatant.player)
                 {
-                    Attack(GetPlayer());
+                    EnemyAttack(GetPlayer());
                 }
                 else
                 {
@@ -125,6 +125,14 @@ public class CombatManager : MonoBehaviour
         slashTimeline.Play();
 
         currentTarget = target;
+
+        Debug.Log("Attacked");
+    }
+
+    public void EnemyAttack(Combatant target)
+    {
+        //slashTimeline.Play();
+        target.healthSystem.TakeDamage(4);
 
         Debug.Log("Attacked");
     }

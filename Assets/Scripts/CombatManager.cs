@@ -61,6 +61,8 @@ public class CombatManager : MonoBehaviour
 
         if (combatState == CombatState.Won)
         {
+            combatants.Clear();
+            combatState = CombatState.None;
             levelManager.LoadScene("Post-Run");
         }
         // when attacking the timer will pause for all entities and will let the entity attack.

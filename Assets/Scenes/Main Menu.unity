@@ -4945,6 +4945,11 @@ PrefabInstance:
       objectReference: {fileID: 448061847731428977}
     - target: {fileID: 7926784377501861341, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
         type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 1825759177}
+    - target: {fileID: 7926784377501861341, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
+        type: 3}
       propertyPath: slashTimeline
       value: 
       objectReference: {fileID: 2076202498}

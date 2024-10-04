@@ -23,9 +23,13 @@ public class CombatManager : MonoBehaviour
 
     public Combatant player;
 
+    public Health playerHealth;
+
     public PlayableDirector slashTimeline;
 
     public LevelManager levelManager;
+
+    public PlayerStats playerStats;
 
     [SerializeField] private Combatant currentTarget;
 
@@ -42,6 +46,8 @@ public class CombatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //Debug.Log(player.healthSystem.GetCurrentHealth());
         if (combatState == CombatState.Start)
         {
             InitializeCombatants();
@@ -59,6 +65,7 @@ public class CombatManager : MonoBehaviour
             combatants.Clear();
             previousCombatState = combatState;
             combatState = CombatState.None;
+            playerHealth.SetCurrentHealth();
             levelManager.LoadScene("Post-Run");
         }
 
@@ -67,6 +74,7 @@ public class CombatManager : MonoBehaviour
             combatants.Clear();
             previousCombatState = combatState;
             combatState = CombatState.None;
+            playerHealth.SetCurrentHealth();
             levelManager.LoadScene("Post-Run");
         }
         // when attacking the timer will pause for all entities and will let the entity attack.
@@ -102,7 +110,7 @@ public class CombatManager : MonoBehaviour
 
             if (combatant.healthSystem.GetCurrentHealth() <= 0)
             {
-                Debug.Log(combatant.healthSystem.GetCurrentHealth());
+                //Debug.Log(combatant.healthSystem.GetCurrentHealth());
                 if (combatant.player)
                 {
                     combatState = CombatState.Lost;
@@ -117,6 +125,9 @@ public class CombatManager : MonoBehaviour
         if (CountOtherCombatants() == 0)
         {
             combatState = CombatState.Won;
+
+            //Debug.Log(playerStats.GetStat("Health"));
+
         }
     }
 

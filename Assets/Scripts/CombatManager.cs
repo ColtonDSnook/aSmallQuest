@@ -118,6 +118,7 @@ public class CombatManager : MonoBehaviour
                 //Debug.Log(combatant.healthSystem.GetCurrentHealth());
                 if (combatant.player)
                 {
+                    playerHealth.SetCurrentHealth();
                     combatState = CombatState.Lost;
                     //upgradeManager.Save();
                 }

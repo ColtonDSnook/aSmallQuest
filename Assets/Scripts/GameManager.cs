@@ -193,7 +193,8 @@ public class GameManager : MonoBehaviour
 
     public void MovePlayerToSpawnPoint()
     {
-        //player.transform.position = spawnPoint.transform.position;
+        player.transform.position = spawnPoint.transform.position;
+        Time.timeScale = 1;
     }
 
     public void Back()

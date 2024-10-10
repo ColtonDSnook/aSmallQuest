@@ -58,6 +58,11 @@ public class UpgradeManager : MonoBehaviour
         descriptionUI.SetActive(false);
     }
 
+    private void Update()
+    {
+        Debug.LogWarning("Gold: " + playerStats.currency);
+    }
+
     public void ShowUpgradeDescription(int upgradeIndex)
     {
         if (upgradeIndex >= 0 && upgradeIndex < upgrades.Count)
@@ -147,11 +152,11 @@ public class UpgradeManager : MonoBehaviour
 
         // Create a new PlayerData object and set its properties
         SaveData saveData = new SaveData();
-        saveData.playerStats = playerStats;
+        saveData.playerStats = gameManager.playerStats;
         saveData.playerSkills = playerSkills;
         saveData.upgrades = upgrades;
 
-        Debug.Log("Saving: Health - " + saveData.playerStats.maxHealth + ", Damage - " + saveData.playerStats.damage);
+        Debug.Log("Saving: Health - " + saveData.playerStats.maxHealth + ", Damage - " + saveData.playerStats.damage + ", Gold - " + saveData.playerStats.currency);
         gameManager.UpdatePlayerStats(playerStats);
         bf.Serialize(file, saveData);
         file.Close();
@@ -170,11 +175,10 @@ public class UpgradeManager : MonoBehaviour
             //Debug.Log("Loaded Attack: " + saveData.playerStats.GetStat("Damage"));
 
             playerSkills = saveData.playerSkills;
-            playerStats = saveData.playerStats;
+            gameManager.playerStats = saveData.playerStats;
             upgrades = saveData.upgrades;
             Debug.Log("Loading Game");
-            gameManager.UpdatePlayerStats(playerStats);
-            //Debug.Log("Loaded: Health - " + playerStats.maxHealth + ", Damage - " + playerStats.damage);
+            Debug.Log("Loaded: Health - " + playerStats.maxHealth + ", Damage - " + playerStats.damage + ", Gold - " + saveData.playerStats.currency);
         }
         else
         {

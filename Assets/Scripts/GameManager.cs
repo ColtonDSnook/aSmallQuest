@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager manager;
 
+    public UpgradeManager upgradeManager;
 
     private UIManager uiManager;
     private PlayerMovement player;

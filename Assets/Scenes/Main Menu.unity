@@ -1581,7 +1581,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Main Menu
+  m_text: Upgrades
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1751,6 +1751,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Gameplay
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 534866859}
+        m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
+        m_MethodName: Load
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &451398491
@@ -3102,7 +3114,7 @@ GameObject:
   - component: {fileID: 890483510}
   - component: {fileID: 890483509}
   m_Layer: 5
-  m_Name: MainMenuButton
+  m_Name: EndRunButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3181,7 +3193,19 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Main Menu
+          m_StringArgument: Post-Run
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 534866859}
+        m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
+        m_MethodName: Save
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &890483510
@@ -3316,7 +3340,7 @@ GameObject:
   - component: {fileID: 1183130799}
   - component: {fileID: 1183130798}
   m_Layer: 5
-  m_Name: MainMenuButton
+  m_Name: UpgradesButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3386,10 +3410,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 448061847731428977}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+      - m_Target: {fileID: 448061847731428974}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OpenUpgrades
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3633,7 +3657,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Main Menu
+  m_text: Upgrades
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4168,7 +4192,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Main Menu
+  m_text: End Run
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4272,18 +4296,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572044305}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 977077144}
   - {fileID: 2088308555}
-  m_Father: {fileID: 1830775373}
+  m_Father: {fileID: 2015486423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 115, y: 100}
+  m_AnchoredPosition: {x: -795, y: -344.77502}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1572044308
@@ -5219,6 +5243,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7926784377501861341, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
         type: 3}
+      propertyPath: abilitiesUI
+      value: 
+      objectReference: {fileID: 2015486422}
+    - target: {fileID: 7926784377501861341, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
+        type: 3}
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 448061847731428977}
@@ -5240,6 +5269,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1805031244}
+    - targetCorrespondingSourceObject: {fileID: 7880646047920100083, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1805031245}
   m_SourcePrefab: {fileID: 100100000, guid: 696364c4c43fb1f48b4573aefa3e6dfe, type: 3}
 --- !u!4 &1805031242 stripped
 Transform:
@@ -5289,6 +5322,24 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1805031245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122967642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11683d1604d8ee24787ed2fd601e4f03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats:
+    maxHealth: 100
+    damage: 100
+    attackSpeed: 100
+    currency: 0
+  gameManager: {fileID: 448061847731428974}
 --- !u!1 &1825759167 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6448862624847786948, guid: 2c3a15933f2ab1140be13ba419f590d6,
@@ -5333,7 +5384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownTimer: 0
-  maxCooldownTimer: 5
+  maxCooldownTimer: 10
   player: 1
   abilities:
   - {fileID: 1572044311}
@@ -5963,6 +6014,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003925447}
   m_CullTransparentMesh: 1
+--- !u!1 &2015486422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2015486423}
+  m_Layer: 5
+  m_Name: AbilitiesUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2015486423
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015486422}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1572044306}
+  m_Father: {fileID: 1830775373}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2052205687
 GameObject:
   m_ObjectHideFlags: 0
@@ -5976,7 +6063,7 @@ GameObject:
   - component: {fileID: 2052205690}
   - component: {fileID: 2052205689}
   m_Layer: 5
-  m_Name: MainMenuButton
+  m_Name: UpgradesButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6046,10 +6133,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 448061847731428977}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+      - m_Target: {fileID: 448061847731428974}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OpenUpgrades
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6634,11 +6721,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1636891249004643714, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1572044306}
+      addedObject: {fileID: 16491083}
     - targetCorrespondingSourceObject: {fileID: 1636891249004643714, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 16491083}
+      addedObject: {fileID: 2015486423}
     - targetCorrespondingSourceObject: {fileID: 5195239284839537678, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
       insertIndex: -1

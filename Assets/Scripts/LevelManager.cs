@@ -77,6 +77,12 @@ public class LevelManager : MonoBehaviour
         //}
         if (levelName == "Post-Run")
         {
+            if (gameManager.gameState == GameManager.GameState.Pause)
+            {
+                gameManager.gameState = GameManager.GameState.RunEnd;
+                Time.timeScale = 1;
+            }
+
             if (combatManager.previousCombatState == CombatManager.CombatState.Won)
             {
                 gameManager.gameState = GameManager.GameState.RunWin;

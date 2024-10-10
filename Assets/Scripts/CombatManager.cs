@@ -21,6 +21,12 @@ public class CombatManager : MonoBehaviour
 
     public List<Combatant> combatants;
 
+    CurrencyDropper currencyDropper;
+
+    UpgradeManager upgradeManager;
+
+    public GameObject abilitiesUI;
+
     public Combatant player;
 
     public Health playerHealth;
@@ -38,9 +44,12 @@ public class CombatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        upgradeManager = FindObjectOfType<UpgradeManager>();
         //combatants.Add(player);
         combatState = CombatState.None;
         levelManager = FindObjectOfType<LevelManager>();
+        currencyDropper = FindObjectOfType<CurrencyDropper>();
+        abilitiesUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -51,6 +60,7 @@ public class CombatManager : MonoBehaviour
         if (combatState == CombatState.Start)
         {
             InitializeCombatants();
+            abilitiesUI.SetActive(true);
             Debug.Log("Combat Started");
             combatState = CombatState.InCombat;
         }
@@ -74,8 +84,9 @@ public class CombatManager : MonoBehaviour
             combatants.Clear();
             previousCombatState = combatState;
             combatState = CombatState.None;
-            playerHealth.SetCurrentHealth();
-            levelManager.LoadScene("Post-Run");
+            abilitiesUI.SetActive(false);
+            //playerHealth.SetCurrentHealth();
+            //levelManager.LoadScene("Post-Run");
         }
         // when attacking the timer will pause for all entities and will let the entity attack.
         // combat will occur automatically when the player encounters an enemy "group".
@@ -108,10 +119,12 @@ public class CombatManager : MonoBehaviour
                 if (combatant.player)
                 {
                     combatState = CombatState.Lost;
+                    //upgradeManager.Save();
                 }
                 else
                 {
                     combatants.Remove(combatant);
+                    currencyDropper.DropCurrency();
                     combatant.Kill();
                 }
             }

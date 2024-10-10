@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 951b9c894a884b64bb3b4d00d2dc66ad
+guid: 91b126e11a7e3d641be29a1b9f94358d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: MC_Idle
+      name: MC_Run
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 1
-      lastFrame: 48
+      lastFrame: 19
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -60,7 +60,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []

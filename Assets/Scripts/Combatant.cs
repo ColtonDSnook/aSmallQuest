@@ -9,11 +9,10 @@ public class Combatant : MonoBehaviour
     public float maxCooldownTimer;
     public bool player;
 
+    public List<Ability> abilities;
 
     public CombatManager combatManager;
     public Health healthSystem;
-
-    [SerializeField] public bool abilityUsed;
 
     // Start is called before the first frame update
     void Start()
@@ -29,12 +28,6 @@ public class Combatant : MonoBehaviour
         if (combatManager.combatState == CombatManager.CombatState.InCombat)
         {
             cooldownTimer -= Time.deltaTime;
-        }
-
-        if (abilityUsed)
-        {
-            //play timeline for ability
-            cooldownTimer = maxCooldownTimer;
         }
     }
 

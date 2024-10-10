@@ -101,12 +101,6 @@ public class CombatManager : MonoBehaviour
                 //this attack will be in the form of a timeline that will send a signal to deal damage to the opposing force.
                 combatant.cooldownTimer = combatant.maxCooldownTimer;
             }
-            if (combatant.abilityUsed)
-            {
-                //use ability
-                combatant.cooldownTimer = combatant.maxCooldownTimer;
-                combatant.abilityUsed = false;
-            }
 
             if (combatant.healthSystem.GetCurrentHealth() <= 0)
             {

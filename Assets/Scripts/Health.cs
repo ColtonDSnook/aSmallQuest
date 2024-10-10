@@ -26,7 +26,7 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(playerStats.maxHealth);
+        //Debug.Log(playerStats.maxHealth);
         if (CompareTag("Player"))
         {
             healthText.text = "HP: " + GetCurrentHealth().ToString();

@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] private int currentHealth;
     public TextMeshProUGUI healthText;
-
+    public Image healthBar;
     public PlayerStats playerStats;
 
     // Start is called before the first frame update
@@ -26,10 +27,9 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(playerStats.maxHealth);
         if (CompareTag("Player"))
         {
-            healthText.text = "HP: " + GetCurrentHealth().ToString();
+            healthBar.fillAmount = (float)GetCurrentHealth() / playerStats.maxHealth;
         }
 
         if (healthText == null)

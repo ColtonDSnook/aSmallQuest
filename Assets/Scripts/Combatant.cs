@@ -14,6 +14,8 @@ public class Combatant : MonoBehaviour
     public CombatManager combatManager;
     public Health healthSystem;
 
+    public Animation attackAnimation;
+
     // Start is called before the first frame update
     void Start()
     {

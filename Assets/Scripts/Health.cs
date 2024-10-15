@@ -9,18 +9,20 @@ public class Health : MonoBehaviour
     [SerializeField] private int currentHealth;
     public TextMeshProUGUI healthText;
     public Image healthBar;
-    public PlayerStats playerStats;
+    //public PlayerStats playerStats;
+    public GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         if (tag == "Enemy")
         {
             currentHealth = 10;
         }
         else
         {
-            currentHealth = playerStats.maxHealth;
+            currentHealth = gameManager.maxHealth;
         }
     }
 
@@ -29,7 +31,7 @@ public class Health : MonoBehaviour
     {
         if (CompareTag("Player"))
         {
-            healthBar.fillAmount = (float)GetCurrentHealth() / playerStats.maxHealth;
+            healthBar.fillAmount = (float)GetCurrentHealth() / gameManager.maxHealth;
         }
 
         else
@@ -61,6 +63,6 @@ public class Health : MonoBehaviour
 
     public void SetCurrentHealth()
     {
-        currentHealth = playerStats.maxHealth;
+        currentHealth = gameManager.maxHealth;
     }
 }

@@ -17,10 +17,12 @@ public class UpgradeManager : MonoBehaviour
 
     // these upgrades will directly affect the stats of the player.
 
-    public PlayerStats playerStats;
-    public PlayerSkills playerSkills;
+    //public PlayerStats playerStats;
+    //public PlayerSkills playerSkills;
 
     public GameManager gameManager;
+
+    public DataManagement dataManagement;
 
     public List<Upgrade> upgrades;
 
@@ -37,11 +39,11 @@ public class UpgradeManager : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
 
-        if (playerStats == null)
-            playerStats = new PlayerStats();
+        //if (playerStats == null)
+        //    playerStats = new PlayerStats();
 
-        if (playerSkills == null)
-            playerSkills = new PlayerSkills();
+        //if (playerSkills == null)
+        //    playerSkills = new PlayerSkills();
 
 
         saveFilePath = Application.persistentDataPath + "/playerInfo.dat";
@@ -60,7 +62,7 @@ public class UpgradeManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.LogWarning("Gold: " + playerStats.currency);
+        //Debug.LogWarning("Gold: " + playerStats.currency);
     }
 
     public void ShowUpgradeDescription(int upgradeIndex)
@@ -104,21 +106,21 @@ public class UpgradeManager : MonoBehaviour
         switch (upgrade.statType)
         {
             case StatType.Health:
-                playerStats.maxHealth += upgrade.value;
+                gameManager.maxHealth += upgrade.value;
                 break;
             case StatType.Damage:
-                Debug.Log(playerStats.damage);
-                playerStats.damage += upgrade.value;
-                Debug.Log(playerStats.damage);
+                //Debug.Log(playerStats.damage);
+                gameManager.damage += upgrade.value;
+                //Debug.Log(playerStats.damage);
                 break;
             case StatType.AttackSpeed:
-                playerStats.attackSpeed += upgrade.value;
+                gameManager.attackSpeed += upgrade.value;
                 break;
             //case StatType.Defense:
             //    playerStats.defense += upgrade.value;
             //    break;
         }
-        Save();
+        dataManagement.Save();
     }
 
     public void ApplySkillUpgrade(Upgrade upgrade)
@@ -126,10 +128,10 @@ public class UpgradeManager : MonoBehaviour
         switch (upgrade.skillName)
         {
             case "SpinAttack":
-                playerSkills.spinAttack = true;
+                //playerSkills.spinAttack = true;
                 break;
             case "LargeStab":
-                playerSkills.largeStab = true;
+                //playerSkills.largeStab = true;
                 break;
         }
     }
@@ -152,12 +154,12 @@ public class UpgradeManager : MonoBehaviour
 
         // Create a new PlayerData object and set its properties
         SaveData saveData = new SaveData();
-        saveData.playerStats = gameManager.playerStats;
-        saveData.playerSkills = playerSkills;
+        //saveData.playerStats = gameManager.playerStats;
+        //saveData.playerSkills = playerSkills;
         saveData.upgrades = upgrades;
 
         Debug.Log("Saving: Health - " + saveData.playerStats.maxHealth + ", Damage - " + saveData.playerStats.damage + ", Gold - " + saveData.playerStats.currency);
-        gameManager.UpdatePlayerStats(playerStats);
+        //gameManager.UpdatePlayerStats(playerStats);
         bf.Serialize(file, saveData);
         file.Close();
     }
@@ -174,11 +176,14 @@ public class UpgradeManager : MonoBehaviour
 
             //Debug.Log("Loaded Attack: " + saveData.playerStats.GetStat("Damage"));
 
-            playerSkills = saveData.playerSkills;
-            gameManager.playerStats = saveData.playerStats;
+            //playerSkills = saveData.playerSkills;
+            gameManager.damage = saveData.playerStats.damage;
+            gameManager.maxHealth = saveData.playerStats.maxHealth;
+            gameManager.attackSpeed = saveData.playerStats.attackSpeed;
+            gameManager.gold = saveData.playerStats.currency;
             upgrades = saveData.upgrades;
             Debug.Log("Loading Game");
-            Debug.Log("Loaded: Health - " + playerStats.maxHealth + ", Damage - " + playerStats.damage + ", Gold - " + saveData.playerStats.currency);
+            //Debug.Log("Loaded: Health - " + playerStats.maxHealth + ", Damage - " + playerStats.damage + ", Gold - " + saveData.playerStats.currency);
         }
         else
         {

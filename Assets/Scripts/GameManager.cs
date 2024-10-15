@@ -14,11 +14,16 @@ public class GameManager : MonoBehaviour
     public GameObject playerSprite;
     public GameObject spawnPoint;
 
-    public PlayerStats playerStats;
+    //public PlayerStats playerStats;
 
     public TextMeshProUGUI damageText;
     public TextMeshProUGUI speedText;
     public TextMeshProUGUI goldText;
+
+    public int maxHealth;
+    public int gold;
+    public int damage;
+    public int attackSpeed;
 
     public enum GameState
     {
@@ -217,15 +222,15 @@ public class GameManager : MonoBehaviour
 
     public void UpdateText()
     {
-        damageText.text = "DMG: " + playerStats.damage.ToString();
-        speedText.text = "SPD: " + playerStats.attackSpeed.ToString();
-        goldText.text = "GLD: " + playerStats.currency.ToString();
+        damageText.text = "DMG: " + damage.ToString();
+        speedText.text = "SPD: " + attackSpeed.ToString();
+        goldText.text = "GLD: " + gold.ToString();
     }
 
-    public void UpdatePlayerStats(PlayerStats updatedStats)
-    {
-        playerStats = updatedStats;
-        UpdateText();
-    }
+    //public void UpdatePlayerStats(PlayerStats updatedStats)
+    //{
+    //    playerStats = updatedStats;
+    //    UpdateText();
+    //}
 
 }

@@ -164,7 +164,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -33.930054, y: 0}
+  m_AnchoredPosition: {x: -33.929993, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &75921287
@@ -1091,6 +1091,18 @@ MonoBehaviour:
       - m_Target: {fileID: 534866859}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
         m_MethodName: Load
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1805031243}
+        m_TargetAssemblyTypeName: CombatManager, Assembly-CSharp
+        m_MethodName: ResetCombatState
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2299,7 +2311,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 40, y: 0}
+  m_AnchoredPosition: {x: 39.999878, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &518142951
@@ -4458,6 +4470,18 @@ MonoBehaviour:
   key: 113
   numTargets: 2
   baseDamage: 10
+--- !u!114 &1591561893 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5715196435623320355, guid: 2c3a15933f2ab1140be13ba419f590d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 6879987595786391693}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1658282322
 GameObject:
   m_ObjectHideFlags: 0
@@ -5376,11 +5400,11 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6879987595786391693}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1825759177
+--- !u!114 &1825759177 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 9078261807579048259, guid: 2c3a15933f2ab1140be13ba419f590d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 6879987595786391693}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825759167}
   m_Enabled: 1
@@ -5388,18 +5412,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5d579033535e2489f6b9ec7e542505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
-  healthText: {fileID: 1666068766}
-  playerStats:
-    maxHealth: 100
-    damage: 100
-    attackSpeed: 100
-    currency: 0
---- !u!114 &1825759180
+--- !u!114 &1825759180 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5672942193526491901, guid: 2c3a15933f2ab1140be13ba419f590d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 6879987595786391693}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825759167}
   m_Enabled: 1
@@ -5407,13 +5424,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed83e60c824e38446889354546a4064b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTimer: 0
-  maxCooldownTimer: 10
-  player: 1
-  abilities:
-  - {fileID: 1572044311}
-  combatManager: {fileID: 1805031243}
-  healthSystem: {fileID: 1825759177}
 --- !u!224 &1830775373 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1636891249004643714, guid: f5979bbf107893c49a6a65eb03cd81eb,
@@ -6024,6 +6034,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1805031243}
+        m_TargetAssemblyTypeName: CombatManager, Assembly-CSharp
+        m_MethodName: ResetCombatState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2003925450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6387,7 +6409,7 @@ PrefabInstance:
     - target: {fileID: 1419272070678294235, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1636891249004643714, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
@@ -6477,7 +6499,7 @@ PrefabInstance:
     - target: {fileID: 4388407651280419639, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4689397142838210125, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
@@ -6840,11 +6862,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 279487923}
     m_Modifications:
-    - target: {fileID: -1310169095303373817, guid: 2c3a15933f2ab1140be13ba419f590d6,
-        type: 3}
-      propertyPath: healthSystem
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5596448126703933355, guid: 2c3a15933f2ab1140be13ba419f590d6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6895,15 +6912,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5672942193526491901, guid: 2c3a15933f2ab1140be13ba419f590d6,
+        type: 3}
+      propertyPath: combatManager
+      value: 
+      objectReference: {fileID: 1805031243}
+    - target: {fileID: 5672942193526491901, guid: 2c3a15933f2ab1140be13ba419f590d6,
+        type: 3}
+      propertyPath: abilities.Array.data[0]
+      value: 
+      objectReference: {fileID: 1572044311}
     - target: {fileID: 6448862624847786948, guid: 2c3a15933f2ab1140be13ba419f590d6,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7728422419066794938, guid: 2c3a15933f2ab1140be13ba419f590d6,
-        type: 3}
-      propertyPath: moveSpeed
-      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7728422419066794938, guid: 2c3a15933f2ab1140be13ba419f590d6,
         type: 3}
@@ -6915,20 +6937,20 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[1].value
       value: 
       objectReference: {fileID: 1805031244}
-    m_RemovedComponents:
-    - {fileID: -2057916655798295561, guid: 2c3a15933f2ab1140be13ba419f590d6, type: 3}
-    - {fileID: -1310169095303373817, guid: 2c3a15933f2ab1140be13ba419f590d6, type: 3}
+    - target: {fileID: 9078261807579048259, guid: 2c3a15933f2ab1140be13ba419f590d6,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1591561893}
+    - target: {fileID: 9078261807579048259, guid: 2c3a15933f2ab1140be13ba419f590d6,
+        type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6448862624847786948, guid: 2c3a15933f2ab1140be13ba419f590d6,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1825759177}
-    - targetCorrespondingSourceObject: {fileID: 6448862624847786948, guid: 2c3a15933f2ab1140be13ba419f590d6,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1825759180}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c3a15933f2ab1140be13ba419f590d6, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

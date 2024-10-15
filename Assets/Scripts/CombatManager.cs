@@ -119,6 +119,7 @@ public class CombatManager : MonoBehaviour
                 if (combatant.player)
                 {
                     playerHealth.SetCurrentHealth();
+                    combatant.ResetCooldowns();
                     combatState = CombatState.Lost;
                     //upgradeManager.Save();
                 }
@@ -190,5 +191,10 @@ public class CombatManager : MonoBehaviour
     public void ApplyDamage()
     {
         currentTarget.healthSystem.TakeDamage(4);
+    }
+
+    public void ResetCombatState()
+    {
+        combatState = CombatState.None;
     }
 }

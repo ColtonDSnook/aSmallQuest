@@ -2,12 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Combatant : MonoBehaviour
 {
     [SerializeField] public float cooldownTimer;
     public float maxCooldownTimer;
     public bool player;
+
+    public Image cooldownBar;
 
     public List<Ability> abilities;
 
@@ -31,11 +34,18 @@ public class Combatant : MonoBehaviour
         {
             cooldownTimer -= Time.deltaTime;
         }
+
+        cooldownBar.fillAmount = (float)cooldownTimer / maxCooldownTimer;
     }
 
     public void Kill()
     {
         Destroy(gameObject);
+    }
+
+    public void ResetCooldowns()
+    {
+        cooldownTimer = maxCooldownTimer;
     }
 
 }

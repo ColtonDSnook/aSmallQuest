@@ -16,7 +16,7 @@ public class Health : MonoBehaviour
     {
         if (tag == "Enemy")
         {
-            currentHealth = 1;
+            currentHealth = 10;
         }
         else
         {
@@ -30,6 +30,11 @@ public class Health : MonoBehaviour
         if (CompareTag("Player"))
         {
             healthBar.fillAmount = (float)GetCurrentHealth() / playerStats.maxHealth;
+        }
+
+        else
+        {
+            healthBar.fillAmount = (float)GetCurrentHealth() / 10;
         }
 
         if (healthText == null)

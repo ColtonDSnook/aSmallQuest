@@ -61,7 +61,7 @@ public class UpgradeManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.LogWarning("Gold: " + playerStats.currency);
+        //Debug.LogWarning("Gold: " + playerStats.currency);
     }
 
     public void ShowUpgradeDescription(int upgradeIndex)

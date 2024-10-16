@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
+    public Animator animator;
     [SerializeField] private int currentHealth;
     public TextMeshProUGUI healthText;
     public Image healthBar;
@@ -14,8 +15,9 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (tag == "Enemy")
+        if (CompareTag("Enemy"))
         {
+            animator = GetComponentInChildren<Animator>();
             currentHealth = 10;
         }
         else
@@ -47,6 +49,14 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        if (CompareTag("Enemy"))
+        {
+            animator.Play("Slime_Hurt");
+        }
+        else if (CompareTag("Player"))
+        {
+            animator.Play("MC_Hurt");
+        }
     }
 
     public void Heal(int healing)

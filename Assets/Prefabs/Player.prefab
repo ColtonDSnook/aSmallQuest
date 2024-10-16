@@ -20112,6 +20112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5d579033535e2489f6b9ec7e542505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 537918564590178600}
   currentHealth: 0
   healthText: {fileID: 0}
   healthBar: {fileID: 5715196435623320355}
@@ -20140,7 +20141,7 @@ MonoBehaviour:
   - {fileID: 0}
   combatManager: {fileID: 0}
   healthSystem: {fileID: 9078261807579048259}
-  attackAnimation: {fileID: 0}
+  animator: {fileID: 537918564590178600}
 --- !u!1 &8161637670851799746
 GameObject:
   m_ObjectHideFlags: 0
@@ -20339,14 +20340,14 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8803841364004608491}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -25336,4 +25337,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e9ba1463c802c428fa85431c7f5ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combatManager: {fileID: 0}
   combatState: 1

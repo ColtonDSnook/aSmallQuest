@@ -64,10 +64,11 @@ public class CombatManager : MonoBehaviour
 
         if (encountersCompleted >= encountersRequired)
         {
-            playerHealth.SetCurrentHealth();
+            encountersCompleted = 0;
             levelManager.LoadScene("Post-Run");
             upgradeManager.Save();
-            encountersCompleted = 0;
+            playerHealth.SetCurrentHealth();
+            player.ResetCooldowns();
         }
 
         //Debug.Log(player.healthSystem.GetCurrentHealth());
@@ -86,12 +87,14 @@ public class CombatManager : MonoBehaviour
 
         if (combatState == CombatState.Lost)
         {
+            encountersCompleted = 0;
+            levelManager.LoadScene("Post-Run");
             combatants.Clear();
+            upgradeManager.Save();
             previousCombatState = combatState;
             combatState = CombatState.None;
             playerHealth.SetCurrentHealth();
-            encountersCompleted = 0;
-            levelManager.LoadScene("Post-Run");
+            player.ResetCooldowns();
         }
 
         if (combatState == CombatState.Won)
@@ -118,6 +121,7 @@ public class CombatManager : MonoBehaviour
                 if (!combatant.player)
                 {
                     EnemyAttack(GetPlayer());
+                    combatant.animator.Play("Slime_Attack");
                 }
                 else
                 {
@@ -158,7 +162,7 @@ public class CombatManager : MonoBehaviour
     public void Attack(Combatant target)
     {
         slashTimeline.Play();
-
+        player.animator.Play("MC_Slash");
         currentTarget = target;
 
         Debug.Log("Attacked");

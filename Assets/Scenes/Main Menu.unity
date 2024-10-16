@@ -1019,6 +1019,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1825759180}
+        m_TargetAssemblyTypeName: Combatant, Assembly-CSharp
+        m_MethodName: ResetCooldowns
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &320150632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1705,6 +1717,18 @@ MonoBehaviour:
       - m_Target: {fileID: 534866859}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
         m_MethodName: Load
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1825759180}
+        m_TargetAssemblyTypeName: Combatant, Assembly-CSharp
+        m_MethodName: ResetCooldowns
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3557,6 +3581,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048524532}
   m_CullTransparentMesh: 1
+--- !u!1 &1159767082 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8803841364004608491, guid: 2c3a15933f2ab1140be13ba419f590d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 6879987595786391693}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1183130796
 GameObject:
   m_ObjectHideFlags: 0
@@ -3829,6 +3859,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406718248}
   m_CullTransparentMesh: 1
+--- !u!320 &1420132047 stripped
+PlayableDirector:
+  m_CorrespondingSourceObject: {fileID: 784221036425158660, guid: 2c3a15933f2ab1140be13ba419f590d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 6879987595786391693}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1480216334
 GameObject:
   m_ObjectHideFlags: 0
@@ -4130,6 +4166,7 @@ MonoBehaviour:
   key: 113
   numTargets: 2
   baseDamage: 10
+  spinAttackTimeline: {fileID: 1420132047}
 --- !u!114 &1591561893 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5715196435623320355, guid: 2c3a15933f2ab1140be13ba419f590d6,
@@ -4683,6 +4720,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CombatManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7926784377501861341, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1825759180}
     - target: {fileID: 7926784377501861341, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
         type: 3}
       propertyPath: abilitiesUI
@@ -5310,6 +5352,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1805031243}
         m_TargetAssemblyTypeName: CombatManager, Assembly-CSharp
         m_MethodName: ResetCombatState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1825759180}
+        m_TargetAssemblyTypeName: Combatant, Assembly-CSharp
+        m_MethodName: ResetCooldowns
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6528,6 +6582,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 279487923}
     m_Modifications:
+    - target: {fileID: 784221036425158660, guid: 2c3a15933f2ab1140be13ba419f590d6,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 784221036425158660, guid: 2c3a15933f2ab1140be13ba419f590d6,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[0].key
+      value: 
+      objectReference: {fileID: -5853079751276475226, guid: 091f29b83823f5d498930f3cd152355a,
+        type: 2}
+    - target: {fileID: 784221036425158660, guid: 2c3a15933f2ab1140be13ba419f590d6,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].key
+      value: 
+      objectReference: {fileID: -7527511449017988720, guid: 091f29b83823f5d498930f3cd152355a,
+        type: 2}
+    - target: {fileID: 784221036425158660, guid: 2c3a15933f2ab1140be13ba419f590d6,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].value
+      value: 
+      objectReference: {fileID: 1159767082}
+    - target: {fileID: 4167067997885032973, guid: 2c3a15933f2ab1140be13ba419f590d6,
+        type: 3}
+      propertyPath: combatManager
+      value: 
+      objectReference: {fileID: 1805031243}
     - target: {fileID: 5596448126703933355, guid: 2c3a15933f2ab1140be13ba419f590d6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6592,6 +6673,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684628911815783718, guid: 2c3a15933f2ab1140be13ba419f590d6,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684628911815783718, guid: 2c3a15933f2ab1140be13ba419f590d6,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7728422419066794938, guid: 2c3a15933f2ab1140be13ba419f590d6,
         type: 3}

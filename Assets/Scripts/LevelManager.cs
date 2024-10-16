@@ -24,6 +24,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadScene(string levelName)
     {
+        Debug.Log("Level Loaded: " + levelName);
         previousScene = SceneManager.GetActiveScene().name;
         SceneManager.sceneLoaded += OnSceneLoaded;
 
@@ -31,50 +32,7 @@ public class LevelManager : MonoBehaviour
         {
             gameManager.gameState = GameManager.GameState.Gameplay;
         }
-        //if (levelName == "Gameplay_Town1")
-        //{
-        //    foreach (GameObject gameObject in gameManager.level1Interactables)
-        //    {
-        //        gameObject.SetActive(true);
-        //    }
-        //    foreach (GameObject gameObject in gameManager.level2Interactables)
-        //    {
-        //        gameObject.SetActive(false);
-        //    }
-        //}
-        //if (!levelName.StartsWith("Gameplay"))
-        //{
-        //    foreach (GameObject gameObject in gameManager.level1Interactables)
-        //    {
-        //        gameObject.SetActive(false);
-        //    }
-        //    foreach (GameObject gameObject in gameManager.level2Interactables)
-        //    {
-        //        gameObject.SetActive(false);
-        //    }
-        //}
-        //if (levelName == "Gameplay_Town2")
-        //{
-        //    foreach (GameObject gameObject in gameManager.level1Interactables)
-        //    {
-        //        gameObject.SetActive(false);
-        //    }
-        //    foreach (GameObject gameObject in gameManager.level2Interactables)
-        //    {
-        //        gameObject.SetActive(true);
-        //    }
-        //}
-        //foreach (InteractableObject item in gameManager.interactables)
-        //{
-        //    if (item.scene == levelName && item.active)
-        //    {
-        //        item.gameObject.SetActive(true);
-        //    }
-        //    else
-        //    {
-        //        item.gameObject.SetActive(false);
-        //    }
-        //}
+        
         if (levelName == "Post-Run")
         {
             if (gameManager.gameState == GameManager.GameState.Pause)

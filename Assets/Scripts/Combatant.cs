@@ -17,11 +17,12 @@ public class Combatant : MonoBehaviour
     public CombatManager combatManager;
     public Health healthSystem;
 
-    public Animation attackAnimation;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         combatManager = FindObjectOfType<CombatManager>();
         cooldownTimer = maxCooldownTimer;
         healthSystem = GetComponent<Health>();

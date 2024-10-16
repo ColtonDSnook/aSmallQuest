@@ -10,7 +10,7 @@ public class CombatTrigger : MonoBehaviour
 
     public GameObject enemyPrefab;
 
-    public float height = -0.5f;
+    public float height = -2.5f;
 
     public List<Vector3> positions;
 

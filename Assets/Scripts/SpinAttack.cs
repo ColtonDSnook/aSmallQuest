@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Playables;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class SpinAttack : Ability
 {
     public int numTargets;
     public int baseDamage = 10;
+
+    public PlayableDirector spinAttackTimeline;
 
     public override void UseAbility()
     {
@@ -14,6 +17,7 @@ public class SpinAttack : Ability
         {
             if (combatManager.combatState == CombatManager.CombatState.InCombat)
             {
+                spinAttackTimeline.Play();
                 ability.sprite = abilityGrey;
                 abilityRadial.fillAmount = 1;
             }

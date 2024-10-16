@@ -40,7 +40,7 @@ public class CombatManager : MonoBehaviour
 
     [SerializeField] private Combatant currentTarget;
 
-    public int encountersCompleted = 0;
+    [SerializeField] private int encountersCompleted = 0;
     public int encountersRequired = 5;
     public TextMeshProUGUI encountersText;
 

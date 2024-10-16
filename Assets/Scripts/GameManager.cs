@@ -29,7 +29,8 @@ public class GameManager : MonoBehaviour
         Credits,
         Upgrades,
         RunWin,
-        Settings
+        Settings,
+        Intro
     }
 
     public GameState previousGameState;
@@ -92,6 +93,9 @@ public class GameManager : MonoBehaviour
             case GameState.RunWin:
                 RunWin();
                 break;
+            case GameState.Intro:
+                Intro();
+                break;
         }
     }
 
@@ -152,6 +156,13 @@ public class GameManager : MonoBehaviour
         uiManager.UIRunWin();
     }
 
+    private void Intro()
+    {
+        Cursor.visible = true;
+        playerSprite.SetActive(false);
+        uiManager.UIIntro();
+    }
+
     public void PauseGame()
     {
         if (gameState != GameState.Pause && gameState == GameState.Gameplay)
@@ -189,6 +200,11 @@ public class GameManager : MonoBehaviour
     public void OpenUpgrades()
     {
         gameState = GameState.Upgrades;
+    }
+
+    public void OpenIntro()
+    {
+        gameState = GameState.Intro;
     }
 
     public void MovePlayerToSpawnPoint()

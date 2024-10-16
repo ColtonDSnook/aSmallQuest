@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public GameObject CreditsUI;
     public GameObject UpgradesUI;
     public GameObject RunWinUI;
+    public GameObject IntroUI;
 
     public void UIMainMenu()
     {
@@ -23,6 +24,7 @@ public class UIManager : MonoBehaviour
         CreditsUI.SetActive(false);
         UpgradesUI.SetActive(false);
         RunEndUI.SetActive(false);
+        IntroUI.SetActive(false);
     }
 
     public void UIPause()
@@ -36,6 +38,7 @@ public class UIManager : MonoBehaviour
         GameplayUI.SetActive(false);
         RunWinUI.SetActive(false);
         RunEndUI.SetActive(false);
+        IntroUI.SetActive(false);
     }
 
     public void UIGameplay()
@@ -48,6 +51,7 @@ public class UIManager : MonoBehaviour
         UpgradesUI.SetActive(false);
         RunWinUI.SetActive(false);
         RunEndUI.SetActive(false);
+        IntroUI.SetActive(false);
     }
 
     public void UISettings()
@@ -60,6 +64,7 @@ public class UIManager : MonoBehaviour
         UpgradesUI.SetActive(false);
         RunWinUI.SetActive(false);
         RunEndUI.SetActive(false);
+        IntroUI.SetActive(false);
     }
 
     public void UIRunEnd()
@@ -72,6 +77,7 @@ public class UIManager : MonoBehaviour
         UpgradesUI.SetActive(false);
         RunEndUI.SetActive(true);
         RunWinUI.SetActive(false);
+        IntroUI.SetActive(false);
     }
 
     public void UICredits()
@@ -84,6 +90,7 @@ public class UIManager : MonoBehaviour
         UpgradesUI.SetActive(false);
         RunWinUI.SetActive(false);
         RunEndUI.SetActive(false);
+        IntroUI.SetActive(false);
     }
 
     public void UIRunWin()
@@ -96,6 +103,7 @@ public class UIManager : MonoBehaviour
         UpgradesUI.SetActive(false);
         RunWinUI.SetActive(true);
         RunEndUI.SetActive(false);
+        IntroUI.SetActive(false);
     }
 
     public void UIUpgrades()
@@ -108,5 +116,19 @@ public class UIManager : MonoBehaviour
         UpgradesUI.SetActive(true);
         RunWinUI.SetActive(false);
         RunEndUI.SetActive(false);
+        IntroUI.SetActive(false);
+    }
+
+    public void UIIntro()
+    {
+        MainMenuUI.SetActive(false);
+        PauseUI.SetActive(false);
+        GameplayUI.SetActive(false);
+        SettingsUI.SetActive(false);
+        CreditsUI.SetActive(false);
+        UpgradesUI.SetActive(false);
+        RunWinUI.SetActive(false);
+        RunEndUI.SetActive(false);
+        IntroUI.SetActive(true);
     }
 }

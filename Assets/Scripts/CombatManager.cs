@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -39,6 +40,10 @@ public class CombatManager : MonoBehaviour
 
     [SerializeField] private Combatant currentTarget;
 
+    public int encountersCompleted = 0;
+    public int encountersRequired = 5;
+    public TextMeshProUGUI encountersText;
+
     // when an ability is used, block the player from using any other ability until ability use is over.
 
     // Start is called before the first frame update
@@ -55,6 +60,15 @@ public class CombatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        encountersText.text = "Encounters Completed: " + encountersCompleted + "/" + encountersRequired;
+
+        if (encountersCompleted >= encountersRequired)
+        {
+            playerHealth.SetCurrentHealth();
+            levelManager.LoadScene("Post-Run");
+            upgradeManager.Save();
+            encountersCompleted = 0;
+        }
 
         //Debug.Log(player.healthSystem.GetCurrentHealth());
         if (combatState == CombatState.Start)
@@ -76,6 +90,7 @@ public class CombatManager : MonoBehaviour
             previousCombatState = combatState;
             combatState = CombatState.None;
             playerHealth.SetCurrentHealth();
+            encountersCompleted = 0;
             levelManager.LoadScene("Post-Run");
         }
 
@@ -134,7 +149,7 @@ public class CombatManager : MonoBehaviour
         if (CountOtherCombatants() == 0)
         {
             combatState = CombatState.Won;
-
+            encountersCompleted++;
             //Debug.Log(playerStats.GetStat("Health"));
 
         }

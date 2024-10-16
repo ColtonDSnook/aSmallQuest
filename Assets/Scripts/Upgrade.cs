@@ -31,23 +31,25 @@ public class Upgrade
     //if it is a skill upgrade
     public string skillName;
 
-    public Upgrade(string name, string desc, StatType stat, int val)
+    public Upgrade(string name, string desc, StatType stat, int val, int cost)
     {
         upgradeName = name;
         description = desc;
         upgradeType = UpgradeType.Stat;
         statType = stat;
         value = val;
+        this.cost = cost;
         isPurchased = false;
     }
 
     // Constructor for skill unlock
-    public Upgrade(string name, string desc, string skill)
+    public Upgrade(string name, string desc, string skill, int cost)
     {
         upgradeName = name;
         description = desc;
         upgradeType = UpgradeType.Skill;
         skillName = skill;
+        this.cost = cost;
         isPurchased = false;
     }
 }

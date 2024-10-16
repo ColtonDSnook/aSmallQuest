@@ -26,6 +26,7 @@ public class UpgradeManager : MonoBehaviour
 
     public GameObject descriptionUI;
     public TextMeshProUGUI descriptionText;
+    public TextMeshProUGUI costText;
     public Button confirmButton;
 
     private int selectedUpgradeIndex = -1;
@@ -69,6 +70,7 @@ public class UpgradeManager : MonoBehaviour
         {
             Upgrade upgrade = upgrades[upgradeIndex];
             descriptionText.text = upgrade.description;
+            costText.text = upgrade.cost.ToString() + "g";
             selectedUpgradeIndex = upgradeIndex;
             descriptionUI.SetActive(true);
         }
@@ -84,6 +86,8 @@ public class UpgradeManager : MonoBehaviour
             {
                 case UpgradeType.Stat:
                     ApplyStatUpgrade(upgrade);
+                    //Add logic to check if player can afford upgrade
+                    playerStats.currency -= upgrade.cost;
                     Debug.Log("upgraded" + upgrade.description);
                     break;
                 case UpgradeType.Skill:
@@ -136,10 +140,10 @@ public class UpgradeManager : MonoBehaviour
 
     public void InitializeUpgrades()
     {
-        upgrades.Add(new Upgrade("Health Boost", "Increase max health by 20", StatType.Health, 20));
-        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 20%", StatType.Damage, 20));
-        upgrades.Add(new Upgrade("Unlock Spin Attack", "Unlock the Spin Attack skill", "SpinAttack"));
-        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 20$", StatType.Damage, 20));
+        upgrades.Add(new Upgrade("Health Boost", "Increase max health by 20", StatType.Health, 20, 20));
+        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 20%", StatType.Damage, 20, 20));
+        upgrades.Add(new Upgrade("Unlock Spin Attack", "Unlock the Spin Attack skill", "SpinAttack", 20));
+        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 20$", StatType.Damage, 20, 20));
     }
 
 

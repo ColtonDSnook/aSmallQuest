@@ -9,12 +9,15 @@ public class Health : MonoBehaviour
     public Animator animator;
     [SerializeField] private int currentHealth;
     public TextMeshProUGUI healthText;
+    public TextMeshProUGUI damageText;
+
     public Image healthBar;
     public PlayerStats playerStats;
 
     // Start is called before the first frame update
     void Start()
     {
+        damageText.text = "";
         if (CompareTag("Enemy"))
         {
             animator = GetComponentInChildren<Animator>();
@@ -57,6 +60,7 @@ public class Health : MonoBehaviour
         {
             animator.Play("MC_Hurt");
         }
+        StartCoroutine(ShowDamageNumbers(damage));
     }
 
     public void Heal(int healing)
@@ -72,5 +76,12 @@ public class Health : MonoBehaviour
     public void SetCurrentHealth()
     {
         currentHealth = playerStats.maxHealth;
+    }
+
+    public IEnumerator ShowDamageNumbers(int damage)
+    {
+        damageText.text = damage.ToString();
+        yield return new WaitForSeconds(0.5f);
+        damageText.text = "";
     }
 }

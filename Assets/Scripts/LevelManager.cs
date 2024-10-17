@@ -40,12 +40,44 @@ public class LevelManager : MonoBehaviour
                 gameManager.gameState = GameManager.GameState.RunEnd;
                 Time.timeScale = 1;
             }
+        }
+        if (levelName == "Settings")
+        {
+            gameManager.gameState = GameManager.GameState.Settings;
+        }
+        if (levelName == "Main Menu")
+        {
+            Time.timeScale = 1;
+            gameManager.gameState = GameManager.GameState.MainMenu;
+        }
+        SceneManager.LoadScene(levelName);
+    }
 
-            if (combatManager.previousCombatState == CombatManager.CombatState.Won)
+
+    public void LoadScene(string levelName, bool won = false)
+    {
+        Debug.Log("Level Loaded: " + levelName);
+        previousScene = SceneManager.GetActiveScene().name;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+        if (levelName.StartsWith("Gameplay"))
+        {
+            gameManager.gameState = GameManager.GameState.Gameplay;
+        }
+
+        if (levelName == "Post-Run")
+        {
+            if (gameManager.gameState == GameManager.GameState.Pause)
+            {
+                gameManager.gameState = GameManager.GameState.RunEnd;
+                Time.timeScale = 1;
+            }
+
+            if (won)
             {
                 gameManager.gameState = GameManager.GameState.RunWin;
             }
-            else if (combatManager.previousCombatState == CombatManager.CombatState.Lost)
+            else if (!won)
             {
                 gameManager.gameState = GameManager.GameState.RunEnd;
             }

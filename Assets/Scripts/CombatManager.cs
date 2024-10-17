@@ -22,9 +22,11 @@ public class CombatManager : MonoBehaviour
 
     public List<Combatant> combatants;
 
-    CurrencyDropper currencyDropper;
+    public CurrencyDropper currencyDropper;
 
-    UpgradeManager upgradeManager;
+    public UpgradeManager upgradeManager;
+
+    public GameManager gameManager;
 
     public GameObject abilitiesUI;
 
@@ -38,6 +40,16 @@ public class CombatManager : MonoBehaviour
 
     public PlayerStats playerStats;
 
+
+    //Variables for end of run stats
+    public int coinsGainedCurrentRun;
+    public int enemiesDefeatedCurrentRun;
+    public int coinsTotal;
+
+    public TextMeshProUGUI coinsGainedText;
+    public TextMeshProUGUI enemiesDefeatedText;
+    public TextMeshProUGUI coinsTotalText;
+
     [SerializeField] private Combatant currentTarget;
 
     [SerializeField] private int encountersCompleted = 0;
@@ -49,6 +61,9 @@ public class CombatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        coinsGainedCurrentRun = 0;
+        enemiesDefeatedCurrentRun = 0;
+
         upgradeManager = FindObjectOfType<UpgradeManager>();
         //combatants.Add(player);
         combatState = CombatState.None;
@@ -65,7 +80,7 @@ public class CombatManager : MonoBehaviour
         if (encountersCompleted >= encountersRequired)
         {
             encountersCompleted = 0;
-            levelManager.LoadScene("Post-Run");
+            levelManager.LoadScene("Post-Run", true);
             upgradeManager.Save();
             playerHealth.SetCurrentHealth();
             player.ResetCooldowns();
@@ -87,8 +102,13 @@ public class CombatManager : MonoBehaviour
 
         if (combatState == CombatState.Lost)
         {
+            coinsGainedText.text = "Coins Collected: " + coinsGainedCurrentRun;
+            enemiesDefeatedText.text = "Enemies Defeated: " + enemiesDefeatedCurrentRun;
+            coinsTotal = gameManager.playerStats.currency;
+            coinsTotalText.text = "Coins Total: " + "\n" + coinsTotal;
+
             encountersCompleted = 0;
-            levelManager.LoadScene("Post-Run");
+            levelManager.LoadScene("Post-Run", false);
             combatants.Clear();
             upgradeManager.Save();
             previousCombatState = combatState;
@@ -145,7 +165,8 @@ public class CombatManager : MonoBehaviour
                 else
                 {
                     combatants.Remove(combatant);
-                    currencyDropper.DropCurrency();
+                    coinsGainedCurrentRun += currencyDropper.DropCurrency();
+                    enemiesDefeatedCurrentRun++;
                     combatant.Kill();
                 }
             }

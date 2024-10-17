@@ -50,6 +50,10 @@ public class CombatManager : MonoBehaviour
     public TextMeshProUGUI enemiesDefeatedText;
     public TextMeshProUGUI coinsTotalText;
 
+    public TextMeshProUGUI coinsGainedWonText;
+    public TextMeshProUGUI enemiesDefeatedWonText;
+    public TextMeshProUGUI coinsTotalWonText;
+
     [SerializeField] private Combatant currentTarget;
 
     [SerializeField] private int encountersCompleted = 0;
@@ -79,6 +83,11 @@ public class CombatManager : MonoBehaviour
 
         if (encountersCompleted >= encountersRequired)
         {
+            coinsGainedWonText.text = "Coins Collected: " + coinsGainedCurrentRun;
+            enemiesDefeatedWonText.text = "Enemies Defeated: " + enemiesDefeatedCurrentRun;
+            coinsTotal = gameManager.playerStats.currency;
+            coinsTotalWonText.text = "Coins Total: " + "\n" + coinsTotal;
+
             encountersCompleted = 0;
             levelManager.LoadScene("Post-Run", true);
             upgradeManager.Save();

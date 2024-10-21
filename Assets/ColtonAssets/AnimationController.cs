@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static CombatManager;
+//using static CombatManager;
 
 public class AnimationController : MonoBehaviour
 {
     private Animator mAnimator;
     public CombatManager combatManager;
-    public CombatState combatState;
+    //public CombatState combatState;
     // Start is called before the first frame update
     void Start()
     {

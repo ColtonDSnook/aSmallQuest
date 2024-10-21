@@ -180,11 +180,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3680951394419377828, guid: 3f6424302d32ecc4e9d9ca7ea7c2b3a3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6639b9c50d7929d40aa491ae7305c111, type: 2}
+    - target: {fileID: -3403346777641218308, guid: 3f6424302d32ecc4e9d9ca7ea7c2b3a3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7d992f2bed7f04e4eae6411be486bb56, type: 2}
     - target: {fileID: 919132149155446097, guid: 3f6424302d32ecc4e9d9ca7ea7c2b3a3,
         type: 3}
       propertyPath: m_Name
       value: Kobold_Idle
       objectReference: {fileID: 0}
+    - target: {fileID: 7136824001578926228, guid: 3f6424302d32ecc4e9d9ca7ea7c2b3a3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7d992f2bed7f04e4eae6411be486bb56, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10698,6 +10713,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -728557975872275479, guid: 106274dfb50eb804590c6590f2c5289e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c08a6f488926f64478e3de71db0612ee, type: 2}
     - target: {fileID: 919132149155446097, guid: 106274dfb50eb804590c6590f2c5289e,
         type: 3}
       propertyPath: m_Name
@@ -30800,11 +30820,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8501255930730120236, guid: c13bcf8bdb22f3d408ccab5eb0953ee4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8a314efef4a2ebe45bad999819529f7d, type: 2}
     - target: {fileID: 919132149155446097, guid: c13bcf8bdb22f3d408ccab5eb0953ee4,
         type: 3}
       propertyPath: m_Name
       value: Goblin_Idle
       objectReference: {fileID: 0}
+    - target: {fileID: 3944137074477612353, guid: c13bcf8bdb22f3d408ccab5eb0953ee4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 87dc982ce4adba34b887a35642c1c986, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

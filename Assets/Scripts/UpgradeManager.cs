@@ -141,7 +141,7 @@ public class UpgradeManager : MonoBehaviour
         upgrades.Add(new Upgrade("Health Boost", "Increase max health by 20", StatType.Health, 20, 20));
         upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 20%", StatType.Damage, 20, 20));
         upgrades.Add(new Upgrade("Unlock Spin Attack", "Unlock the Spin Attack skill", "SpinAttack", 20));
-        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 20$", StatType.Damage, 20, 20));
+        upgrades.Add(new Upgrade("Attack Speed Boost", "Increase attack speed by 20%", StatType.AttackSpeed, 20, 20));
     }
 
 

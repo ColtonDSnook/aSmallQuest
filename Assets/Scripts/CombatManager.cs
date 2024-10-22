@@ -85,12 +85,12 @@ public class CombatManager : MonoBehaviour
         {
             coinsGainedWonText.text = "Coins Collected: " + coinsGainedCurrentRun;
             enemiesDefeatedWonText.text = "Enemies Defeated: " + enemiesDefeatedCurrentRun;
-            coinsTotal = gameManager.playerStats.currency;
+            coinsTotal = gameManager.gold;
             coinsTotalWonText.text = "Coins Total: " + "\n" + coinsTotal;
 
             encountersCompleted = 0;
             levelManager.LoadScene("Post-Run", true);
-            upgradeManager.Save();
+            gameManager.Save();
             playerHealth.SetCurrentHealth();
             player.ResetCooldowns();
         }
@@ -113,13 +113,13 @@ public class CombatManager : MonoBehaviour
         {
             coinsGainedText.text = "Coins Collected: " + coinsGainedCurrentRun;
             enemiesDefeatedText.text = "Enemies Defeated: " + enemiesDefeatedCurrentRun;
-            coinsTotal = gameManager.playerStats.currency;
+            coinsTotal = gameManager.gold;
             coinsTotalText.text = "Coins Total: " + "\n" + coinsTotal;
 
             encountersCompleted = 0;
             levelManager.LoadScene("Post-Run", false);
             combatants.Clear();
-            upgradeManager.Save();
+            gameManager.Save();
             previousCombatState = combatState;
             combatState = CombatState.None;
             playerHealth.SetCurrentHealth();

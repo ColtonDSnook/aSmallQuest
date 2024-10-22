@@ -1,6 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -14,11 +18,17 @@ public class GameManager : MonoBehaviour
     public GameObject playerSprite;
     public GameObject spawnPoint;
 
-    public PlayerStats playerStats;
+    //public PlayerStats playerStats;
+    public PlayerSkills playerSkills;
 
     public TextMeshProUGUI damageText;
     public TextMeshProUGUI speedText;
     public TextMeshProUGUI goldText;
+
+    public int gold = 0;
+    public int damage = 100;
+    public int maxHealth = 100;
+    public int attackSpeed = 100;
 
     public enum GameState
     {
@@ -35,6 +45,8 @@ public class GameManager : MonoBehaviour
 
     public GameState previousGameState;
     public GameState gameState;
+
+    private string saveFilePath;
 
     void Awake()
     {
@@ -55,6 +67,23 @@ public class GameManager : MonoBehaviour
         uiManager = FindObjectOfType<UIManager>();
         player = FindObjectOfType<PlayerMovement>();
         gameState = GameState.MainMenu;
+
+        saveFilePath = Application.persistentDataPath + "/playerInfo.dat";
+
+        if (File.Exists(saveFilePath))
+        {
+            Load();
+        }
+        else
+        {
+            upgradeManager.InitializeUpgrades();
+
+            //if (playerStats == null)
+            //    playerStats = new PlayerStats();
+
+            if (playerSkills == null)
+                playerSkills = new PlayerSkills();
+        }
     }
 
     // Update is called once per frame
@@ -233,15 +262,84 @@ public class GameManager : MonoBehaviour
 
     public void UpdateText()
     {
-        damageText.text = "DMG: " + playerStats.damage.ToString();
-        speedText.text = "SPD: " + playerStats.attackSpeed.ToString();
-        goldText.text = "GLD: " + playerStats.currency.ToString();
+        damageText.text = "DMG: " + damage.ToString();
+        speedText.text = "SPD: " + attackSpeed.ToString();
+        goldText.text = "GLD: " + gold.ToString();
     }
 
-    public void UpdatePlayerStats(PlayerStats updatedStats)
+    //public void UpdatePlayerStats(PlayerStats updatedStats)
+    //{
+    //    playerStats = updatedStats;
+    //    UpdateText();
+    //}
+
+    public void Save()
     {
-        playerStats = updatedStats;
-        UpdateText();
+        try
+        {
+            // Create a BinaryFormatter and use a 'using' statement to ensure the file is closed properly
+            BinaryFormatter bf = new BinaryFormatter();
+
+            // Ensure the file stream is closed properly after saving data
+            using (FileStream file = File.Create(saveFilePath))
+            {
+                // Create a new SaveData object and set its properties
+                SaveData saveData = new SaveData();
+                saveData.playerStats = new PlayerStats(); // Ensure playerStats is initialized
+                saveData.playerStats.currency = gold;
+                saveData.playerStats.damage = damage;
+                saveData.playerStats.attackSpeed = attackSpeed;
+                saveData.playerStats.maxHealth = maxHealth;
+                saveData.playerSkills = playerSkills;
+                saveData.upgrades = upgradeManager.upgrades;
+
+                Debug.Log("Saving: Health - " + saveData.playerStats.maxHealth + ", Damage - " + saveData.playerStats.damage + ", Gold - " + saveData.playerStats.currency);
+
+                // Serialize the save data
+                bf.Serialize(file, saveData);
+            } // File is automatically closed here
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("Failed to save data: " + ex.Message);
+        }
+    }
+
+    public void Load()
+    {
+        if (File.Exists(saveFilePath))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(saveFilePath, FileMode.Open);
+
+
+
+            if (file.Length > 0)
+            {
+                SaveData saveData = (SaveData)bf.Deserialize(file);
+
+                // Load the data from saveData
+                playerSkills = saveData.playerSkills;
+                gold = saveData.playerStats.currency;
+                damage = saveData.playerStats.damage;
+                maxHealth = saveData.playerStats.maxHealth;
+                attackSpeed = saveData.playerStats.attackSpeed;
+                upgradeManager.upgrades = saveData.upgrades;
+
+                Debug.Log("Game Loaded Successfully");
+            }
+            else
+            {
+                Debug.LogError("The save file is empty. Unable to load data.");
+            }
+
+            file.Close();
+            //Debug.Log("Loaded: Health - " + playerStats.maxHealth + ", Damage - " + playerStats.damage + ", Gold - " + saveData.playerStats.currency);
+        }
+        else
+        {
+            Debug.LogWarning("Save file not found");
+        }
     }
 
 }

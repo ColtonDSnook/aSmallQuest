@@ -31,30 +31,21 @@ public class UpgradeManager : MonoBehaviour
 
     private int selectedUpgradeIndex = -1;
 
-    private string saveFilePath;
+    //private string saveFilePath;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
 
-        if (playerStats == null)
-            playerStats = new PlayerStats();
+        //if (playerStats == null)
+        //    playerStats = new PlayerStats();
 
-        if (playerSkills == null)
-            playerSkills = new PlayerSkills();
+        //if (playerSkills == null)
+        //    playerSkills = new PlayerSkills();
 
 
-        saveFilePath = Application.persistentDataPath + "/playerInfo.dat";
-        
-        if (File.Exists(saveFilePath))
-        {
-            Load();
-        }
-        else
-        {
-            InitializeUpgrades();
-        }
+        //saveFilePath = Application.persistentDataPath + "/playerInfo.dat";
 
         descriptionUI.SetActive(false);
     }
@@ -81,24 +72,30 @@ public class UpgradeManager : MonoBehaviour
         if (selectedUpgradeIndex >= 0 && selectedUpgradeIndex < upgrades.Count)
         {
             Upgrade upgrade = upgrades[selectedUpgradeIndex];
-
-            switch (upgrade.upgradeType)
+            if (gameManager.gold >= upgrade.cost)
             {
-                case UpgradeType.Stat:
-                    ApplyStatUpgrade(upgrade);
-                    //Add logic to check if player can afford upgrade
-                    playerStats.currency -= upgrade.cost;
-                    Debug.Log("upgraded" + upgrade.description);
-                    break;
-                case UpgradeType.Skill:
-                    ApplySkillUpgrade(upgrade);
-                    break;
-            }
+                switch (upgrade.upgradeType)
+                {
+                    case UpgradeType.Stat:
+                        ApplyStatUpgrade(upgrade);
+                        //Add logic to check if player can afford upgrade
+                        gameManager.gold -= upgrade.cost;
+                        Debug.Log("upgraded" + upgrade.description);
+                        break;
+                    case UpgradeType.Skill:
+                        ApplySkillUpgrade(upgrade);
+                        break;
+                }
 
-            upgrade.isPurchased = true;
-            Save();
-            descriptionText.text = "";
-            descriptionUI.SetActive(false);
+                upgrade.isPurchased = true;
+                gameManager.Save();
+                descriptionText.text = "";
+                descriptionUI.SetActive(false);
+            }
+            else
+            {
+                Debug.Log("Cannot Afford Upgrade");
+            }
 
         }
     }
@@ -108,21 +105,21 @@ public class UpgradeManager : MonoBehaviour
         switch (upgrade.statType)
         {
             case StatType.Health:
-                playerStats.maxHealth += upgrade.value;
+                gameManager.maxHealth += upgrade.value;
                 break;
             case StatType.Damage:
                 Debug.Log(playerStats.damage);
-                playerStats.damage += upgrade.value;
+                gameManager.damage += upgrade.value;
                 Debug.Log(playerStats.damage);
                 break;
             case StatType.AttackSpeed:
-                playerStats.attackSpeed += upgrade.value;
+                gameManager.attackSpeed += upgrade.value;
                 break;
             //case StatType.Defense:
             //    playerStats.defense += upgrade.value;
             //    break;
         }
-        Save();
+        gameManager.Save();
     }
 
     public void ApplySkillUpgrade(Upgrade upgrade)
@@ -140,6 +137,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void InitializeUpgrades()
     {
+        Debug.Log("initialized upgrades");
         upgrades.Add(new Upgrade("Health Boost", "Increase max health by 20", StatType.Health, 20, 20));
         upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 20%", StatType.Damage, 20, 20));
         upgrades.Add(new Upgrade("Unlock Spin Attack", "Unlock the Spin Attack skill", "SpinAttack", 20));
@@ -148,45 +146,45 @@ public class UpgradeManager : MonoBehaviour
 
 
     // Save player data to a file
-    public void Save()
-    {
-        // Create a BinaryFormatter and a FileStream
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(saveFilePath);
+    //public void Save()
+    //{
+    //    // Create a BinaryFormatter and a FileStream
+    //    BinaryFormatter bf = new BinaryFormatter();
+    //    FileStream file = File.Create(saveFilePath);
 
-        // Create a new PlayerData object and set its properties
-        SaveData saveData = new SaveData();
-        saveData.playerStats = gameManager.playerStats;
-        saveData.playerSkills = playerSkills;
-        saveData.upgrades = upgrades;
+    //    // Create a new PlayerData object and set its properties
+    //    SaveData saveData = new SaveData();
+    //    saveData.playerStats = gameManager.playerStats;
+    //    saveData.playerSkills = playerSkills;
+    //    saveData.upgrades = upgrades;
 
-        Debug.Log("Saving: Health - " + saveData.playerStats.maxHealth + ", Damage - " + saveData.playerStats.damage + ", Gold - " + saveData.playerStats.currency);
-        gameManager.UpdatePlayerStats(playerStats);
-        bf.Serialize(file, saveData);
-        file.Close();
-    }
+    //    Debug.Log("Saving: Health - " + saveData.playerStats.maxHealth + ", Damage - " + saveData.playerStats.damage + ", Gold - " + saveData.playerStats.currency);
+    //    gameManager.UpdatePlayerStats(playerStats);
+    //    bf.Serialize(file, saveData);
+    //    file.Close();
+    //}
 
-    public void Load()
-    {
-        if (File.Exists(saveFilePath))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(saveFilePath, FileMode.Open);
+    //public void Load()
+    //{
+    //    if (File.Exists(saveFilePath))
+    //    {
+    //        BinaryFormatter bf = new BinaryFormatter();
+    //        FileStream file = File.Open(saveFilePath, FileMode.Open);
 
-            SaveData saveData = (SaveData)bf.Deserialize(file);
-            file.Close();
+    //        SaveData saveData = (SaveData)bf.Deserialize(file);
+    //        file.Close();
 
-            //Debug.Log("Loaded Attack: " + saveData.playerStats.GetStat("Damage"));
+    //        //Debug.Log("Loaded Attack: " + saveData.playerStats.GetStat("Damage"));
 
-            playerSkills = saveData.playerSkills;
-            gameManager.playerStats = saveData.playerStats;
-            upgrades = saveData.upgrades;
-            Debug.Log("Loading Game");
-            Debug.Log("Loaded: Health - " + playerStats.maxHealth + ", Damage - " + playerStats.damage + ", Gold - " + saveData.playerStats.currency);
-        }
-        else
-        {
-            Debug.LogWarning("Save file not found");
-        }
-    }
+    //        playerSkills = saveData.playerSkills;
+    //        gameManager.playerStats = saveData.playerStats;
+    //        upgrades = saveData.upgrades;
+    //        Debug.Log("Loading Game");
+    //        Debug.Log("Loaded: Health - " + playerStats.maxHealth + ", Damage - " + playerStats.damage + ", Gold - " + saveData.playerStats.currency);
+    //    }
+    //    else
+    //    {
+    //        Debug.LogWarning("Save file not found");
+    //    }
+    //}
 }

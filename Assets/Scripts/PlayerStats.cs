@@ -4,10 +4,10 @@ using System;
 public class PlayerStats
 {
     //this will be where all the stats for the player are stored and will be called to use and will be affected by the upgrades.
-    public int maxHealth = 100;
-    public int damage = 100; // affects the damage (%)
-    public int attackSpeed = 100; // affects the cooldowns (%)
-    public int currency = 0; // used to purchase upgrades
+    public int maxHealth;
+    public int damage; // affects the damage (%)
+    public int attackSpeed; // affects the cooldowns (%)
+    public int currency; // used to purchase upgrades
 
     public int GetStat(string stat)
     {

@@ -25,7 +25,7 @@ public class Health : MonoBehaviour
         }
         else
         {
-            currentHealth = playerStats.maxHealth;
+            currentHealth = GameManager.manager.maxHealth;
         }
     }
 
@@ -75,7 +75,7 @@ public class Health : MonoBehaviour
 
     public void SetCurrentHealth()
     {
-        currentHealth = playerStats.maxHealth;
+        currentHealth = GameManager.manager.maxHealth;
     }
 
     public IEnumerator ShowDamageNumbers(int damage)

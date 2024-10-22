@@ -21,9 +21,18 @@ public class UpgradeButton : MonoBehaviour
 
     private void Update()
     {
-        if (upgradeManager.upgrades[upgradeIndex].isPurchased)
+        // Ensure the upgradeIndex is within the bounds of the upgrades list
+        if (upgradeIndex >= 0 && upgradeIndex < upgradeManager.upgrades.Count)
         {
-            GetComponent<Image>().color = Color.gray;
+            // Check if the upgrade is purchased
+            if (upgradeManager.upgrades[upgradeIndex].isPurchased)
+            {
+                GetComponent<Image>().color = Color.gray;
+            }
+        }
+        else
+        {
+            Debug.LogWarning("upgradeIndex is out of range: " + upgradeIndex);
         }
     }
 }

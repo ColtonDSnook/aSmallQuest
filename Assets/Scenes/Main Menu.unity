@@ -984,10 +984,8 @@ MonoBehaviour:
   player: {fileID: 1825759180}
   ability: {fileID: 189279633}
   abilityRadial: {fileID: 532169568}
-  abilitiesColor: []
-  abilityColor: {fileID: 0}
-  abilityGrey: {fileID: 0}
-  abilitiesGrey: []
+  abilityColor: {fileID: 21300000, guid: f578f68268f6ec440ae3f9219eb958a0, type: 3}
+  abilityGrey: {fileID: 21300000, guid: 36444d499ca078c4699791e76dabf74d, type: 3}
   timerText: {fileID: 649383309}
   timeRemaining: 0
   maxCountDownTime: 8
@@ -2362,9 +2360,9 @@ MonoBehaviour:
           m_StringArgument: Gameplay
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 534866859}
-        m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
-        m_MethodName: Load
+      - m_Target: {fileID: 448061847731428974}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Save
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4189,8 +4187,8 @@ MonoBehaviour:
           m_StringArgument: Post-Run
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 534866859}
-        m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
+      - m_Target: {fileID: 448061847731428974}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: Save
         m_Mode: 1
         m_Arguments:
@@ -5522,12 +5520,8 @@ MonoBehaviour:
   player: {fileID: 1825759180}
   ability: {fileID: 0}
   abilityRadial: {fileID: 977077145}
-  abilitiesColor:
-  - {fileID: 21300000, guid: 482275b4dc9b32a43b04982fbc373c9c, type: 3}
   abilityColor: {fileID: 21300000, guid: 482275b4dc9b32a43b04982fbc373c9c, type: 3}
   abilityGrey: {fileID: 21300000, guid: 79aa46f8756eb5447816da662ca3fb8a, type: 3}
-  abilitiesGrey:
-  - {fileID: 21300000, guid: 79aa46f8756eb5447816da662ca3fb8a, type: 3}
   timerText: {fileID: 2088308556}
   timeRemaining: 0
   maxCountDownTime: 5
@@ -8011,7 +8005,17 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 8598065787117851300, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598065787117851300, guid: f5979bbf107893c49a6a65eb03cd81eb,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598065787117851300, guid: f5979bbf107893c49a6a65eb03cd81eb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8598065787117851300, guid: f5979bbf107893c49a6a65eb03cd81eb,
@@ -8021,8 +8025,23 @@ PrefabInstance:
       objectReference: {fileID: 448061847731428974}
     - target: {fileID: 8598065787117851300, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 448061847731428974}
+    - target: {fileID: 8598065787117851300, guid: f5979bbf107893c49a6a65eb03cd81eb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598065787117851300, guid: f5979bbf107893c49a6a65eb03cd81eb,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenIntro
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598065787117851300, guid: f5979bbf107893c49a6a65eb03cd81eb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Load
       objectReference: {fileID: 0}
     - target: {fileID: 8598065787117851300, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
@@ -8031,8 +8050,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8598065787117851300, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598065787117851300, guid: f5979bbf107893c49a6a65eb03cd81eb,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Gameplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598065787117851300, guid: f5979bbf107893c49a6a65eb03cd81eb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8603160949112278665, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}

@@ -14,7 +14,7 @@ public class CurrencyDropper : MonoBehaviour
 
         //gameManager.UpdatePlayerStats(playerStats);
 
-        gameManager.playerStats.currency += randomInt;
+        gameManager.gold += randomInt;
 
         return randomInt;
         //this will be called when the enemy dies and will drop currency for the player to pick up.

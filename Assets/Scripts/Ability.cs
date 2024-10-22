@@ -17,10 +17,8 @@ public abstract class Ability : MonoBehaviour
 
     public Image ability;
     public Image abilityRadial;
-    public Sprite[] abilitiesColor;
     public Sprite abilityColor;
     public Sprite abilityGrey;
-    public Sprite[] abilitiesGrey;
 
     public TextMeshProUGUI timerText;
 
@@ -32,9 +30,6 @@ public abstract class Ability : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        abilityColor = abilitiesColor[0];
-        abilityGrey = abilitiesGrey[0];
-
         timerText.text = "";
         ability = GetComponent<Image>();
 

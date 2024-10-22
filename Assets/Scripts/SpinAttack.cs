@@ -16,7 +16,7 @@ public class SpinAttack : Ability
         {
             if (combatManager.combatState == CombatManager.CombatState.InCombat)
             {
-                spinAttackTimeline.Play();
+                //spinAttackTimeline.Play();
                 ability.sprite = abilityGrey;
                 abilityRadial.fillAmount = 1;
             }

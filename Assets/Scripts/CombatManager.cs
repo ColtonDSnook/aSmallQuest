@@ -191,7 +191,8 @@ public class CombatManager : MonoBehaviour
 
     public void Attack(Combatant target)
     {
-        slashTimeline.Play();
+        //slashTimeline.Play();
+        target.healthSystem.TakeDamage(4);
         player.animator.Play("MC_Slash");
         currentTarget = target;
 

@@ -25,10 +25,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI speedText;
     public TextMeshProUGUI goldText;
 
-    public int gold = 0;
-    public int damage = 100;
-    public int maxHealth = 100;
-    public int attackSpeed = 100;
+    public int gold = 0; //#
+    public int damage = 10; //#
+    public int maxHealth = 100; //#
+    public int attackSpeed = 100; //%
 
     public enum GameState
     {

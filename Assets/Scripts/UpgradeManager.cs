@@ -139,52 +139,21 @@ public class UpgradeManager : MonoBehaviour
     {
         Debug.Log("initialized upgrades");
         upgrades.Add(new Upgrade("Health Boost", "Increase max health by 20", StatType.Health, 20, 20));
+        upgrades.Add(new Upgrade("Health Boost", "Increase max health by 20", StatType.Health, 20, 40));
+        upgrades.Add(new Upgrade("Health Boost", "Increase max health by 20", StatType.Health, 20, 60));
+        upgrades.Add(new Upgrade("Health Boost", "Increase max health by 20", StatType.Health, 20, 80));
+        upgrades.Add(new Upgrade("Health Boost", "Increase max health by 20", StatType.Health, 20, 100));
         upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 20%", StatType.Damage, 20, 20));
-        upgrades.Add(new Upgrade("Unlock Spin Attack", "Unlock the Spin Attack skill", "SpinAttack", 20));
+        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 20%", StatType.Damage, 20, 40));
+        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 20%", StatType.Damage, 20, 60));
+        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 20%", StatType.Damage, 20, 80));
+        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 20%", StatType.Damage, 20, 100));
         upgrades.Add(new Upgrade("Attack Speed Boost", "Increase attack speed by 20%", StatType.AttackSpeed, 20, 20));
+        upgrades.Add(new Upgrade("Attack Speed Boost", "Increase attack speed by 20%", StatType.AttackSpeed, 20, 40));
+        upgrades.Add(new Upgrade("Attack Speed Boost", "Increase attack speed by 20%", StatType.AttackSpeed, 20, 60));
+        upgrades.Add(new Upgrade("Attack Speed Boost", "Increase attack speed by 20%", StatType.AttackSpeed, 20, 80));
+        upgrades.Add(new Upgrade("Attack Speed Boost", "Increase attack speed by 20%", StatType.AttackSpeed, 20, 100));
+        upgrades.Add(new Upgrade("Unlock Spin Attack", "Unlock the Spin Attack skill", "SpinAttack", 100));
+        upgrades.Add(new Upgrade("Unlock Large Stab Attack", "Unlock the Large Stab Attack skill", "LargeStab", 100));
     }
-
-
-    // Save player data to a file
-    //public void Save()
-    //{
-    //    // Create a BinaryFormatter and a FileStream
-    //    BinaryFormatter bf = new BinaryFormatter();
-    //    FileStream file = File.Create(saveFilePath);
-
-    //    // Create a new PlayerData object and set its properties
-    //    SaveData saveData = new SaveData();
-    //    saveData.playerStats = gameManager.playerStats;
-    //    saveData.playerSkills = playerSkills;
-    //    saveData.upgrades = upgrades;
-
-    //    Debug.Log("Saving: Health - " + saveData.playerStats.maxHealth + ", Damage - " + saveData.playerStats.damage + ", Gold - " + saveData.playerStats.currency);
-    //    gameManager.UpdatePlayerStats(playerStats);
-    //    bf.Serialize(file, saveData);
-    //    file.Close();
-    //}
-
-    //public void Load()
-    //{
-    //    if (File.Exists(saveFilePath))
-    //    {
-    //        BinaryFormatter bf = new BinaryFormatter();
-    //        FileStream file = File.Open(saveFilePath, FileMode.Open);
-
-    //        SaveData saveData = (SaveData)bf.Deserialize(file);
-    //        file.Close();
-
-    //        //Debug.Log("Loaded Attack: " + saveData.playerStats.GetStat("Damage"));
-
-    //        playerSkills = saveData.playerSkills;
-    //        gameManager.playerStats = saveData.playerStats;
-    //        upgrades = saveData.upgrades;
-    //        Debug.Log("Loading Game");
-    //        Debug.Log("Loaded: Health - " + playerStats.maxHealth + ", Damage - " + playerStats.damage + ", Gold - " + saveData.playerStats.currency);
-    //    }
-    //    else
-    //    {
-    //        Debug.LogWarning("Save file not found");
-    //    }
-    //}
 }

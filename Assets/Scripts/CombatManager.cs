@@ -247,4 +247,16 @@ public class CombatManager : MonoBehaviour
     {
         combatState = CombatState.None;
     }
+
+    public void ResetAll()
+    {
+        ResetCombatState();
+        playerHealth.SetCurrentHealth();
+        foreach (Combatant combatant in combatants)
+        {
+            combatant.ResetCooldowns();
+        }
+        player.ResetCooldowns();
+        encountersCompleted = 0;
+    }
 }

@@ -6,7 +6,7 @@ public class UpgradeButton : MonoBehaviour
     public int upgradeIndex; // The index of the upgrade this button applies
     public UpgradeManager upgradeManager;
 
-    public bool isDisabled;
+    public bool isDisabled = true;
     public UpgradeButton previousUpgrade;
 
     public void OnButtonClick()

@@ -342,4 +342,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void DeleteSave()
+    {
+        if (File.Exists(saveFilePath))
+        {
+            File.Delete(saveFilePath);
+
+            gold = 0;
+            damage = 10;
+            maxHealth = 100;
+            attackSpeed = 100;
+
+            upgradeManager.upgrades.Clear();
+            upgradeManager.InitializeUpgrades();
+
+            if (playerSkills == null)
+                playerSkills = new PlayerSkills();
+        }
+        else
+        {
+            Debug.LogWarning("Save file failed to delete");
+        }
+    }
+
 }

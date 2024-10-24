@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI speedText;
     public TextMeshProUGUI goldText;
 
+    public TextMeshProUGUI upgradesGoldText;
+
     public float gold = 0; //#
     public float damage = 10; //#
     public float maxHealth = 100; //#
@@ -273,6 +275,7 @@ public class GameManager : MonoBehaviour
         damageText.text = "DMG: " + damage.ToString();
         speedText.text = "SPD: " + attackSpeed.ToString();
         goldText.text = "GLD: " + gold.ToString();
+        upgradesGoldText.text = "Gold: " + gold.ToString();
     }
 
     //public void UpdatePlayerStats(PlayerStats updatedStats)

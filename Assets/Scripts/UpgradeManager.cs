@@ -115,6 +115,18 @@ public class UpgradeManager : MonoBehaviour
             case StatType.AttackSpeed:
                 gameManager.attackSpeed += upgrade.value;
                 break;
+            case StatType.NumTargets:
+                gameManager.numTargets += upgrade.value;
+                break;
+            case StatType.Bursts:
+                gameManager.bursts += upgrade.value;
+                break;
+            case StatType.Healing:
+                gameManager.bursts += upgrade.value;
+                break;
+            case StatType.StabDamage:
+                gameManager.stabDamage += upgrade.value;
+                break;
             //case StatType.Defense:
             //    playerStats.defense += upgrade.value;
             //    break;
@@ -138,22 +150,43 @@ public class UpgradeManager : MonoBehaviour
     public void InitializeUpgrades()
     {
         Debug.Log("initialized upgrades");
+
+        // Player Upgrades
         upgrades.Add(new Upgrade("Health Boost", "Increase max health by 20", StatType.Health, 20, 20));
         upgrades.Add(new Upgrade("Health Boost", "Increase max health by 20", StatType.Health, 20, 40));
         upgrades.Add(new Upgrade("Health Boost", "Increase max health by 20", StatType.Health, 20, 60));
         upgrades.Add(new Upgrade("Health Boost", "Increase max health by 20", StatType.Health, 20, 80));
         upgrades.Add(new Upgrade("Health Boost", "Increase max health by 20", StatType.Health, 20, 100));
-        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 20%", StatType.Damage, 20, 20));
-        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 20%", StatType.Damage, 20, 40));
-        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 20%", StatType.Damage, 20, 60));
-        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 20%", StatType.Damage, 20, 80));
-        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 20%", StatType.Damage, 20, 100));
-        upgrades.Add(new Upgrade("Attack Speed Boost", "Increase attack speed by 20%", StatType.AttackSpeed, 20, 20));
-        upgrades.Add(new Upgrade("Attack Speed Boost", "Increase attack speed by 20%", StatType.AttackSpeed, 20, 40));
-        upgrades.Add(new Upgrade("Attack Speed Boost", "Increase attack speed by 20%", StatType.AttackSpeed, 20, 60));
-        upgrades.Add(new Upgrade("Attack Speed Boost", "Increase attack speed by 20%", StatType.AttackSpeed, 20, 80));
-        upgrades.Add(new Upgrade("Attack Speed Boost", "Increase attack speed by 20%", StatType.AttackSpeed, 20, 100));
+        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 2", StatType.Damage, 2, 20));
+        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 2", StatType.Damage, 2, 40));
+        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 2", StatType.Damage, 2, 60));
+        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 2", StatType.Damage, 2, 80));
+        upgrades.Add(new Upgrade("Damage Boost", "Increase attack power by 2", StatType.Damage, 2, 100));
+        upgrades.Add(new Upgrade("Attack Speed Boost", "Increase attack speed by 20%", StatType.AttackSpeed, 0.2f, 20)); // 20%
+        upgrades.Add(new Upgrade("Attack Speed Boost", "Increase attack speed by 20%", StatType.AttackSpeed, 0.2f, 40)); // 20%
+        upgrades.Add(new Upgrade("Attack Speed Boost", "Increase attack speed by 20%", StatType.AttackSpeed, 0.2f, 60)); // 20%
+        upgrades.Add(new Upgrade("Attack Speed Boost", "Increase attack speed by 20%", StatType.AttackSpeed, 0.2f, 80)); // 20%
+        upgrades.Add(new Upgrade("Attack Speed Boost", "Increase attack speed by 20%", StatType.AttackSpeed, 0.2f, 100)); // 20%
+
+        // Ability unlocks
         upgrades.Add(new Upgrade("Unlock Spin Attack", "Unlock the Spin Attack skill", "SpinAttack", 100));
         upgrades.Add(new Upgrade("Unlock Large Stab Attack", "Unlock the Large Stab Attack skill", "LargeStab", 100));
+
+        // Spin Attack upgrades
+        upgrades.Add(new Upgrade("Targets Increase", "Increase amount of targets attacked by the spin attack", StatType.NumTargets, 1, 150));
+        upgrades.Add(new Upgrade("Targets Increase", "Increase amount of targets attacked by the spin attack", StatType.NumTargets, 1, 170));
+        upgrades.Add(new Upgrade("Targets Increase", "Increase amount of targets attacked by the spin attack", StatType.NumTargets, 1, 200));
+        upgrades.Add(new Upgrade("Bursts Increase", "Increase amount of bursts of damage done by the spin attack", StatType.Bursts, 1, 150));
+        upgrades.Add(new Upgrade("Bursts Increase", "Increase amount of bursts of damage done by the spin attack", StatType.Bursts, 1, 170));
+        upgrades.Add(new Upgrade("Bursts Increase", "Increase amount of bursts of damage done by the spin attack", StatType.Bursts, 1, 200));
+
+        // Stab Attack upgrades
+        upgrades.Add(new Upgrade("Healing", "Heals player for 10% of damage dealt by stab attack", StatType.Healing, 0.1f, 150)); // 10%
+        upgrades.Add(new Upgrade("Increase Healing", "Increase healing by 10%", StatType.Healing, 0.1f, 170)); // 10%
+        upgrades.Add(new Upgrade("Increase Healing", "Increase healing by 10%", StatType.Healing, 0.1f, 200)); // 10%
+        upgrades.Add(new Upgrade("Stab Damage Increase", "Increases stab damage by 200%", StatType.StabDamage, 2, 150)); // 200%
+        upgrades.Add(new Upgrade("Stab Damage Increase", "Increases stab damage by 200%", StatType.StabDamage, 2, 170)); // 200%
+        upgrades.Add(new Upgrade("Stab Damage Increase", "Increases stab damage by 200%", StatType.StabDamage, 2, 200)); // 200%
+
     }
 }

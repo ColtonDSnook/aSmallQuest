@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     public Animator animator;
-    [SerializeField] private int currentHealth;
+    [SerializeField] private float currentHealth;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI damageText;
 
@@ -49,7 +49,7 @@ public class Health : MonoBehaviour
         //GetCurrentHealth();
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         if (CompareTag("Enemy"))
@@ -68,7 +68,7 @@ public class Health : MonoBehaviour
         currentHealth += healing;
     }
 
-    public int GetCurrentHealth()
+    public float GetCurrentHealth()
     {
         return currentHealth;
     }
@@ -78,7 +78,7 @@ public class Health : MonoBehaviour
         currentHealth = GameManager.manager.maxHealth;
     }
 
-    public IEnumerator ShowDamageNumbers(int damage)
+    public IEnumerator ShowDamageNumbers(float damage)
     {
         damageText.text = damage.ToString();
         yield return new WaitForSeconds(0.5f);

@@ -5,10 +5,15 @@ using UnityEngine.Playables;
 
 public class SpinAttack : Ability
 {
-    public int numTargets;
-    public int baseDamage = 10;
+    public float numTargets;
+    public int baseDamage = 2; //200%
 
     public PlayableDirector spinAttackTimeline;
+
+    public void Update()
+    {
+        numTargets = GameManager.manager.numTargets;
+    }
 
     public override void UseAbility()
     {
@@ -57,7 +62,8 @@ public class SpinAttack : Ability
 
             Combatant selectedCombatant = availableTargets[randomIndex];
 
-            if (availableTargets.Count == 1)
+            // CHANGE THIS FOR HIGHER TARGET COUNTS
+            if (availableTargets.Count == numTargets - 1)
             {
                 selectedTargets.Add(selectedCombatant);
                 break;
@@ -73,8 +79,8 @@ public class SpinAttack : Ability
 
         foreach (Combatant target in selectedTargets)
         {
-            target.healthSystem.TakeDamage(baseDamage);
-            Debug.Log("Spin attack hit " + target.name + " for " + baseDamage + " damage.");
+            target.healthSystem.TakeDamage(gameManager.damage * baseDamage);
+            Debug.Log("Spin attack hit " + target.name + " for " + gameManager.damage * baseDamage + " damage.");
         }
 
         timeRemaining = maxCountDownTime;

@@ -255,8 +255,8 @@ public class CombatManager : MonoBehaviour
         }
         player.ResetCooldowns();
         encountersCompleted = 0;
-        stabAttack.timeRemaining = 0;
-        spinAttack.timeRemaining = 0;
+        stabAttack.RefreshAbility();
+        spinAttack.RefreshAbility();
     }
 
     public void DisplayEndResults(bool won)

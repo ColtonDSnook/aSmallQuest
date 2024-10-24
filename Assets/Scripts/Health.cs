@@ -34,7 +34,7 @@ public class Health : MonoBehaviour
     {
         if (CompareTag("Player"))
         {
-            healthBar.fillAmount = (float)GetCurrentHealth() / playerStats.maxHealth;
+            healthBar.fillAmount = (float)GetCurrentHealth() / GameManager.manager.maxHealth;
         }
 
         else
@@ -63,9 +63,19 @@ public class Health : MonoBehaviour
         StartCoroutine(ShowDamageNumbers(damage));
     }
 
-    public void Heal(int healing)
+    public void Heal(float healing)
     {
-        currentHealth += healing;
+        if ((currentHealth += healing) > GameManager.manager.maxHealth)
+        {
+            currentHealth = GameManager.manager.maxHealth;
+        }
+        else
+        {
+            currentHealth += healing;
+        }
+
+        Debug.Log(gameObject.name + " Has healed " + healing);
+        
     }
 
     public float GetCurrentHealth()

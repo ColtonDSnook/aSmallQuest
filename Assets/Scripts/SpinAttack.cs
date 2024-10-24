@@ -12,7 +12,27 @@ public class SpinAttack : Ability
 
     public void Update()
     {
-        numTargets = GameManager.manager.numTargets;
+        numTargets = gameManager.numTargets;
+
+        if (timeRemaining > 0)
+        {
+            if (timeRemaining < 1)
+            {
+                timerText.text = timeRemaining.ToString("N1");
+                timeRemaining -= Time.deltaTime;
+                abilityRadial.fillAmount = timeRemaining / maxCountDownTime;
+            }
+            else
+            {
+                timerText.text = timeRemaining.ToString("N0");
+                timeRemaining -= Time.deltaTime;
+                abilityRadial.fillAmount = timeRemaining / maxCountDownTime;
+            }
+        }
+        else
+        {
+            RefreshAbility();
+        }
     }
 
     public override void UseAbility()

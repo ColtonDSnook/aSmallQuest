@@ -11,6 +11,26 @@ public class StabAttack : Ability
     public void Update()
     {
         baseDamage = gameManager.stabDamage;
+
+        if (timeRemaining > 0)
+        {
+            if (timeRemaining < 1)
+            {
+                timerText.text = timeRemaining.ToString("N1");
+                timeRemaining -= Time.deltaTime;
+                abilityRadial.fillAmount = timeRemaining / maxCountDownTime;
+            }
+            else
+            {
+                timerText.text = timeRemaining.ToString("N0");
+                timeRemaining -= Time.deltaTime;
+                abilityRadial.fillAmount = timeRemaining / maxCountDownTime;
+            }
+        }
+        else
+        {
+            RefreshAbility();
+        }
     }
 
     public override void UseAbility()

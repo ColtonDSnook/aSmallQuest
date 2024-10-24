@@ -40,6 +40,9 @@ public class CombatManager : MonoBehaviour
 
     public PlayerStats playerStats;
 
+    public Ability spinAttack;
+    public Ability stabAttack;
+
 
     //Variables for end of run stats
     public int coinsGainedCurrentRun;
@@ -83,10 +86,7 @@ public class CombatManager : MonoBehaviour
 
         if (encountersCompleted >= encountersRequired)
         {
-            coinsGainedWonText.text = "Coins Collected: " + coinsGainedCurrentRun;
-            enemiesDefeatedWonText.text = "Enemies Defeated: " + enemiesDefeatedCurrentRun;
-            coinsTotal = gameManager.gold;
-            coinsTotalWonText.text = "Coins Total: " + "\n" + coinsTotal;
+            DisplayEndResults(true);
 
             encountersCompleted = 0;
             levelManager.LoadScene("Post-Run", true);
@@ -111,10 +111,7 @@ public class CombatManager : MonoBehaviour
 
         if (combatState == CombatState.Lost)
         {
-            coinsGainedText.text = "Coins Collected: " + coinsGainedCurrentRun;
-            enemiesDefeatedText.text = "Enemies Defeated: " + enemiesDefeatedCurrentRun;
-            coinsTotal = gameManager.gold;
-            coinsTotalText.text = "Coins Total: " + "\n" + coinsTotal;
+            DisplayEndResults(false);
 
             encountersCompleted = 0;
             levelManager.LoadScene("Post-Run", false);
@@ -258,5 +255,25 @@ public class CombatManager : MonoBehaviour
         }
         player.ResetCooldowns();
         encountersCompleted = 0;
+        stabAttack.timeRemaining = 0;
+        spinAttack.timeRemaining = 0;
+    }
+
+    public void DisplayEndResults(bool won)
+    {
+        if (!won)
+        {
+            coinsGainedText.text = "Coins Collected: " + coinsGainedCurrentRun;
+            enemiesDefeatedText.text = "Enemies Defeated: " + enemiesDefeatedCurrentRun;
+            coinsTotal = gameManager.gold;
+            coinsTotalText.text = "Coins Total: " + "\n" + coinsTotal;
+        }
+        else if (won)
+        {
+            coinsGainedWonText.text = "Coins Collected: " + coinsGainedCurrentRun;
+            enemiesDefeatedWonText.text = "Enemies Defeated: " + enemiesDefeatedCurrentRun;
+            coinsTotal = gameManager.gold;
+            coinsTotalWonText.text = "Coins Total: " + "\n" + coinsTotal;
+        }
     }
 }

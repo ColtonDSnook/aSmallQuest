@@ -40,32 +40,9 @@ public abstract class Ability : MonoBehaviour
         RefreshAbility();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (timeRemaining > 0)
-        {
-            if (timeRemaining < 1)
-            {
-                timerText.text = timeRemaining.ToString("N1");
-                timeRemaining -= Time.deltaTime;
-                abilityRadial.fillAmount = timeRemaining / maxCountDownTime;
-            }
-            else
-            {
-                timerText.text = timeRemaining.ToString("N0");
-                timeRemaining -= Time.deltaTime;
-                abilityRadial.fillAmount = timeRemaining / maxCountDownTime;
-            }
-        }
-        else
-        {
-            RefreshAbility();
-        }
-    }
-
     public void RefreshAbility()
     {
+        Debug.Log("Refreshed Ability");
         ability.sprite = abilityColor;
         timerText.text = "";
         timeRemaining = 0;

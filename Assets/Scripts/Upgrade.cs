@@ -14,6 +14,10 @@ public class Upgrade
         Health,
         Damage,
         AttackSpeed,
+        NumTargets,
+        StabDamage,
+        Healing,
+        Bursts
         //Defense
     }
 
@@ -26,12 +30,13 @@ public class Upgrade
 
     //if it is a stat upgrade
     public StatType statType;
-    public int value;
+    public float value;
 
     //if it is a skill upgrade
     public string skillName;
 
-    public Upgrade(string name, string desc, StatType stat, int val, int cost)
+    // Constructor for stat unlock
+    public Upgrade(string name, string desc, StatType stat, float val, int cost)
     {
         upgradeName = name;
         description = desc;

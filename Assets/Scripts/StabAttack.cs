@@ -5,8 +5,13 @@ using UnityEngine.Playables;
 
 public class StabAttack : Ability
 {
-    public int baseDamage;
+    public float baseDamage;
     public PlayableDirector stabAttackTimeline;
+
+    public void Update()
+    {
+        baseDamage = gameManager.stabDamage;
+    }
 
     public override void UseAbility()
     {
@@ -33,7 +38,7 @@ public class StabAttack : Ability
 
         int targetNumber = Random.Range(0, combatManager.CountOtherCombatants() - 1);
         Combatant target = combatManager.combatants[targetNumber];
-        target.healthSystem.TakeDamage(baseDamage);
+        target.healthSystem.TakeDamage(gameManager.damage * baseDamage);
 
         timeRemaining = maxCountDownTime;
         player.cooldownTimer = player.maxCooldownTimer;

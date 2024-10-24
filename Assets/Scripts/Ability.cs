@@ -10,6 +10,7 @@ public abstract class Ability : MonoBehaviour
     public string abilityName;
 
     public CombatManager combatManager;
+    public GameManager gameManager;
 
     public GameObject abilityUI;
 
@@ -33,6 +34,7 @@ public abstract class Ability : MonoBehaviour
         timerText.text = "";
         ability = GetComponent<Image>();
 
+        gameManager = FindObjectOfType<GameManager>();
         combatManager = FindObjectOfType<CombatManager>();
 
         RefreshAbility();

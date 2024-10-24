@@ -25,10 +25,18 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI speedText;
     public TextMeshProUGUI goldText;
 
-    public int gold = 0; //#
-    public int damage = 10; //#
-    public int maxHealth = 100; //#
-    public int attackSpeed = 100; //%
+    public float gold = 0; //#
+    public float damage = 10; //#
+    public float maxHealth = 100; //#
+    public float attackSpeed = 1; //%
+
+    //stats for spin attack
+    public float numTargets = 2; //#
+    public float bursts = 1; //#
+
+    //stats for stab attack
+    public float healing = 0; //%
+    public float stabDamage = 10; // 1000% base
 
     public enum GameState
     {
@@ -290,6 +298,10 @@ public class GameManager : MonoBehaviour
                 saveData.playerStats.damage = damage;
                 saveData.playerStats.attackSpeed = attackSpeed;
                 saveData.playerStats.maxHealth = maxHealth;
+                saveData.playerStats.stabDamage = stabDamage;
+                saveData.playerStats.healing = healing;
+                saveData.playerStats.bursts = bursts;
+                saveData.playerStats.numTargets = numTargets;
                 saveData.playerSkills = playerSkills;
                 saveData.upgrades = upgradeManager.upgrades;
 

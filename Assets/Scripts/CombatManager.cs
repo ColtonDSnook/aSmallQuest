@@ -44,7 +44,7 @@ public class CombatManager : MonoBehaviour
     //Variables for end of run stats
     public int coinsGainedCurrentRun;
     public int enemiesDefeatedCurrentRun;
-    public int coinsTotal;
+    public float coinsTotal;
 
     public TextMeshProUGUI coinsGainedText;
     public TextMeshProUGUI enemiesDefeatedText;

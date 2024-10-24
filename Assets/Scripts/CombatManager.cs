@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
+using static GlobalVariables;
 
 public class CombatManager : MonoBehaviour
 {
@@ -63,7 +64,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private Combatant currentTarget;
 
     [SerializeField] private int encountersCompleted = 0;
-    public int encountersRequired = 5;
+    public int encountersRequired = defaultEncountersRequired;
     public TextMeshProUGUI encountersText;
 
     // when an ability is used, block the player from using any other ability until ability use is over.

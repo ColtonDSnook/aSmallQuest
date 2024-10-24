@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using static GlobalVariables;
 
 public class SpinAttack : Ability
 {
     public float numTargets;
-    public int baseDamage = 2; //200%
+    public int baseDamage = spinAttackBaseDamage; //200%
 
     public PlayableDirector spinAttackTimeline;
 

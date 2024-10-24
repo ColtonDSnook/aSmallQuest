@@ -6,6 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using static GlobalVariables;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,20 +25,20 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI upgradesGoldText;
 
-    public float gold = 0; //#
-    public float damage = 10; //#
-    public float maxHealth = 100; //#
-    public float attackSpeed = 1; //%
+    public float gold = defaultGold; //#
+    public float damage = defaultDamage; //#
+    public float maxHealth = defaultMaxHealth; //#
+    public float attackSpeed = defaultAttackSpeed; //%
 
-    public bool spinAttack = false;
+    public bool spinAttack = defaultSpinAttack;
     //stats for spin attack
-    public float numTargets = 2; //#
-    public float bursts = 1; //#
+    public float numTargets = defaultNumTargets; //#
+    public float bursts = defaultBursts; //#
 
-    public bool stabAttack = false;
+    public bool stabAttack = defaultStabAttack;
     //stats for stab attack
-    public float healing = 0; //%
-    public float stabDamage = 10; // 1000% base
+    public float healing = defaultHealing; //%
+    public float stabDamage = defaultStabDamage; // 1000% base
 
     public enum GameState
     {
@@ -271,11 +272,22 @@ public class GameManager : MonoBehaviour
         upgradesGoldText.text = "Gold: " + gold.ToString();
     }
 
-    //public void UpdatePlayerStats(PlayerStats updatedStats)
-    //{
-    //    playerStats = updatedStats;
-    //    UpdateText();
-    //}
+    public void ResetValues()
+    {
+        gold = defaultGold;
+        damage = defaultDamage;
+        maxHealth = defaultMaxHealth;
+        attackSpeed = defaultAttackSpeed;
+
+        spinAttack = defaultSpinAttack;
+        stabAttack = defaultStabAttack;
+
+        healing = defaultHealing;
+        stabDamage = defaultStabDamage;
+
+        numTargets = defaultNumTargets;
+        bursts = defaultBursts;
+    }
 
     public void Save()
     {
@@ -363,21 +375,7 @@ public class GameManager : MonoBehaviour
         {
             File.Delete(saveFilePath);
 
-            gold = 0;
-            damage = 10;
-            maxHealth = 100;
-            attackSpeed = 1;
-
-            spinAttack = false;
-            stabAttack = false;
-
-            healing = 0;
-            stabDamage = 10;
-
-            numTargets = 2;
-            bursts = 1;
-
-            
+            ResetValues();
 
             upgradeManager.upgrades.Clear();
             upgradeManager.InitializeUpgrades();

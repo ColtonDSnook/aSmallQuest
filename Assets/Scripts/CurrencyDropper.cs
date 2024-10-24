@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GlobalVariables;
 
 public class CurrencyDropper : MonoBehaviour
 {
     public PlayerStats playerStats;
     public GameManager gameManager;
-    public int DropCurrency(int min = 15, int max = 25)
+    public int DropCurrency(int min = minGoldDropped, int max = maxGoldDropped)
     {
         //return Random.Range(15, 25);
 

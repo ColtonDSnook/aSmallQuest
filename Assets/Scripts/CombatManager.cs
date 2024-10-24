@@ -30,6 +30,9 @@ public class CombatManager : MonoBehaviour
 
     public GameObject abilitiesUI;
 
+    public GameObject spinAttackUI;
+    public GameObject stabAttackUI;
+
     public Combatant player;
 
     public Health playerHealth;
@@ -100,6 +103,7 @@ public class CombatManager : MonoBehaviour
         {
             InitializeCombatants();
             abilitiesUI.SetActive(true);
+            CheckAbilities();
             Debug.Log("Combat Started");
             combatState = CombatState.InCombat;
         }
@@ -257,6 +261,8 @@ public class CombatManager : MonoBehaviour
         encountersCompleted = 0;
         stabAttack.RefreshAbility();
         spinAttack.RefreshAbility();
+        coinsGainedCurrentRun = 0;
+        enemiesDefeatedCurrentRun = 0;
     }
 
     public void DisplayEndResults(bool won)
@@ -274,6 +280,27 @@ public class CombatManager : MonoBehaviour
             enemiesDefeatedWonText.text = "Enemies Defeated: " + enemiesDefeatedCurrentRun;
             coinsTotal = gameManager.gold;
             coinsTotalWonText.text = "Coins Total: " + "\n" + coinsTotal;
+        }
+    }
+
+    public void CheckAbilities()
+    {
+        if (gameManager.spinAttack)
+        {
+            spinAttackUI.SetActive(true);
+        }
+        else
+        {
+            spinAttackUI.SetActive(false);
+        }
+
+        if (gameManager.stabAttack)
+        {
+            stabAttackUI.SetActive(true);
+        }
+        else
+        {
+            stabAttackUI.SetActive(false);
         }
     }
 }

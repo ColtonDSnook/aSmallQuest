@@ -18,9 +18,6 @@ public class GameManager : MonoBehaviour
     public GameObject playerSprite;
     public GameObject spawnPoint;
 
-    //public PlayerStats playerStats;
-    public PlayerSkills playerSkills;
-
     public TextMeshProUGUI damageText;
     public TextMeshProUGUI speedText;
     public TextMeshProUGUI goldText;
@@ -32,10 +29,12 @@ public class GameManager : MonoBehaviour
     public float maxHealth = 100; //#
     public float attackSpeed = 1; //%
 
+    public bool spinAttack = false;
     //stats for spin attack
     public float numTargets = 2; //#
     public float bursts = 1; //#
 
+    public bool stabAttack = false;
     //stats for stab attack
     public float healing = 0; //%
     public float stabDamage = 10; // 1000% base
@@ -87,12 +86,6 @@ public class GameManager : MonoBehaviour
         else
         {
             upgradeManager.InitializeUpgrades();
-
-            //if (playerStats == null)
-            //    playerStats = new PlayerStats();
-
-            if (playerSkills == null)
-                playerSkills = new PlayerSkills();
         }
     }
 
@@ -297,6 +290,7 @@ public class GameManager : MonoBehaviour
                 // Create a new SaveData object and set its properties
                 SaveData saveData = new SaveData();
                 saveData.playerStats = new PlayerStats(); // Ensure playerStats is initialized
+                saveData.playerSkills = new PlayerSkills();
                 saveData.playerStats.currency = gold;
                 saveData.playerStats.damage = damage;
                 saveData.playerStats.attackSpeed = attackSpeed;
@@ -305,7 +299,8 @@ public class GameManager : MonoBehaviour
                 saveData.playerStats.healing = healing;
                 saveData.playerStats.bursts = bursts;
                 saveData.playerStats.numTargets = numTargets;
-                saveData.playerSkills = playerSkills;
+                saveData.playerSkills.spinAttack = spinAttack;
+                saveData.playerSkills.largeStab = stabAttack;
                 saveData.upgrades = upgradeManager.upgrades;
 
                 Debug.Log("Saving: Health - " + saveData.playerStats.maxHealth + ", Damage - " + saveData.playerStats.damage + ", Gold - " + saveData.playerStats.currency);
@@ -334,7 +329,12 @@ public class GameManager : MonoBehaviour
                 SaveData saveData = (SaveData)bf.Deserialize(file);
 
                 // Load the data from saveData
-                playerSkills = saveData.playerSkills;
+                stabAttack = saveData.playerSkills.largeStab;
+                spinAttack = saveData.playerSkills.spinAttack;
+                healing = saveData.playerStats.healing;
+                stabDamage = saveData.playerStats.stabDamage;
+                bursts = saveData.playerStats.bursts;
+                numTargets = saveData.playerStats.numTargets;
                 gold = saveData.playerStats.currency;
                 damage = saveData.playerStats.damage;
                 maxHealth = saveData.playerStats.maxHealth;
@@ -366,13 +366,21 @@ public class GameManager : MonoBehaviour
             gold = 0;
             damage = 10;
             maxHealth = 100;
-            attackSpeed = 100;
+            attackSpeed = 1;
+
+            spinAttack = false;
+            stabAttack = false;
+
+            healing = 0;
+            stabDamage = 10;
+
+            numTargets = 2;
+            bursts = 1;
+
+            
 
             upgradeManager.upgrades.Clear();
             upgradeManager.InitializeUpgrades();
-
-            if (playerSkills == null)
-                playerSkills = new PlayerSkills();
         }
         else
         {

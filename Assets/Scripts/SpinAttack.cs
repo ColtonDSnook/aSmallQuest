@@ -99,8 +99,8 @@ public class SpinAttack : Ability
 
         foreach (Combatant target in selectedTargets)
         {
-            target.healthSystem.TakeDamage(gameManager.damage * baseDamage);
-            Debug.Log("Spin attack hit " + target.name + " for " + gameManager.damage * baseDamage + " damage.");
+            float damage = target.healthSystem.TakeDamage(gameManager.damage * baseDamage);
+            Debug.Log("Spin attack hit " + target.name + " for " + damage + " damage.");
         }
 
         timeRemaining = maxCountDownTime;

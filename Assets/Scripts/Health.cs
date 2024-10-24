@@ -49,18 +49,32 @@ public class Health : MonoBehaviour
         //GetCurrentHealth();
     }
 
-    public void TakeDamage(float damage)
+    public float TakeDamage(float damage)
     {
-        currentHealth -= damage;
+        float startingHealth = currentHealth;
         if (CompareTag("Enemy"))
         {
             animator.Play("Slime_Hurt");
+            if (damage > 10)
+            {
+                currentHealth = 0;
+                return startingHealth - currentHealth;
+            }
+            else
+            {
+                currentHealth -= damage;
+                return startingHealth - currentHealth;
+            }
+
         }
         else if (CompareTag("Player"))
         {
+            currentHealth -= damage;
             animator.Play("MC_Hurt");
+            return startingHealth - currentHealth;
         }
         StartCoroutine(ShowDamageNumbers(damage));
+        return 0;
     }
 
     public void Heal(float healing)

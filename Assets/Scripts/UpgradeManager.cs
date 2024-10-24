@@ -78,12 +78,12 @@ public class UpgradeManager : MonoBehaviour
                 {
                     case UpgradeType.Stat:
                         ApplyStatUpgrade(upgrade);
-                        //Add logic to check if player can afford upgrade
                         gameManager.gold -= upgrade.cost;
-                        Debug.Log("upgraded" + upgrade.description);
+                        //Debug.Log("upgraded" + upgrade.description);
                         break;
                     case UpgradeType.Skill:
                         ApplySkillUpgrade(upgrade);
+                        gameManager.gold -= upgrade.cost;
                         break;
                 }
 
@@ -139,10 +139,10 @@ public class UpgradeManager : MonoBehaviour
         switch (upgrade.skillName)
         {
             case "SpinAttack":
-                playerSkills.spinAttack = true;
+                gameManager.spinAttack = true;
                 break;
             case "LargeStab":
-                playerSkills.largeStab = true;
+                gameManager.stabAttack = true;
                 break;
         }
     }
@@ -181,7 +181,7 @@ public class UpgradeManager : MonoBehaviour
         upgrades.Add(new Upgrade("Bursts Increase", "Increase amount of bursts of damage done by the spin attack", StatType.Bursts, 1, 200)); // 22
 
         // Stab Attack upgrades
-        upgrades.Add(new Upgrade("Healing", "Heals player for 10% of damage dealt by stab attack", StatType.Healing, 0.1f, 150)); // 10%  23
+        upgrades.Add(new Upgrade("Healing", "Heals player for 10% of damage dealt by stab attack", StatType.Healing, 10, 150)); // 10%  23
         upgrades.Add(new Upgrade("Increase Healing", "Increase healing by 10%", StatType.Healing, 0.1f, 170)); // 10%  24
         upgrades.Add(new Upgrade("Increase Healing", "Increase healing by 10%", StatType.Healing, 0.1f, 200)); // 10%  25
         upgrades.Add(new Upgrade("Stab Damage Increase", "Increases stab damage by 200%", StatType.StabDamage, 2, 150)); // 200%  26

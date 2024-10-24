@@ -42,7 +42,7 @@ public abstract class Ability : MonoBehaviour
 
     public void RefreshAbility()
     {
-        Debug.Log("Refreshed Ability");
+        //Debug.Log("Refreshed Ability");
         ability.sprite = abilityColor;
         timerText.text = "";
         timeRemaining = 0;

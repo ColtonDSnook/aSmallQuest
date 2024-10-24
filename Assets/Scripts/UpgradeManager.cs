@@ -122,7 +122,7 @@ public class UpgradeManager : MonoBehaviour
                 gameManager.bursts += upgrade.value;
                 break;
             case StatType.Healing:
-                gameManager.bursts += upgrade.value;
+                gameManager.healing += upgrade.value;
                 break;
             case StatType.StabDamage:
                 gameManager.stabDamage += upgrade.value;

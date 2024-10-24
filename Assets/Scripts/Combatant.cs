@@ -8,6 +8,7 @@ public class Combatant : MonoBehaviour
 {
     [SerializeField] public float cooldownTimer;
     public float maxCooldownTimer;
+    public float defaultCooldownTimer = 2;
     public bool player;
 
     public Image cooldownBar;
@@ -31,6 +32,11 @@ public class Combatant : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player)
+        {
+            maxCooldownTimer = defaultCooldownTimer / GameManager.manager.attackSpeed;
+        }
+
         if (combatManager.combatState == CombatManager.CombatState.InCombat)
         {
             cooldownTimer -= Time.deltaTime;

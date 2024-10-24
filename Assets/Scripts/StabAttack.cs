@@ -6,6 +6,7 @@ using UnityEngine.Playables;
 public class StabAttack : Ability
 {
     public float baseDamage;
+
     public PlayableDirector stabAttackTimeline;
 
     public void Update()
@@ -59,6 +60,7 @@ public class StabAttack : Ability
         int targetNumber = Random.Range(0, combatManager.CountOtherCombatants() - 1);
         Combatant target = combatManager.combatants[targetNumber];
         target.healthSystem.TakeDamage(gameManager.damage * baseDamage);
+        player.healthSystem.Heal(gameManager.damage * baseDamage * gameManager.healing);
 
         timeRemaining = maxCountDownTime;
         player.cooldownTimer = player.maxCooldownTimer;

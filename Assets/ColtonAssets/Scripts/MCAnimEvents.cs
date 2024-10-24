@@ -16,4 +16,8 @@ public class MCAnimEvents : MonoBehaviour
     {
         spinSlash.Play();
     }
+    void MCStabEvent()
+    {
+        stabAttack.Play();
+    }
 }

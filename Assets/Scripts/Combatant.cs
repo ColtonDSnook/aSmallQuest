@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static GlobalVariables;
 
 public class Combatant : MonoBehaviour
 {
     [SerializeField] public float cooldownTimer;
     public float maxCooldownTimer;
-    public float defaultCooldownTimer = 2;
+    public float defaultCooldownTimer = defaultPlayerCooldown;
     public bool player;
 
     public Image cooldownBar;

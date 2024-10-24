@@ -59,8 +59,8 @@ public class StabAttack : Ability
 
         int targetNumber = Random.Range(0, combatManager.CountOtherCombatants() - 1);
         Combatant target = combatManager.combatants[targetNumber];
-        target.healthSystem.TakeDamage(gameManager.damage * baseDamage);
-        player.healthSystem.Heal(gameManager.damage * baseDamage * gameManager.healing);
+        float damage = target.healthSystem.TakeDamage(gameManager.damage * baseDamage);
+        player.healthSystem.Heal(damage * gameManager.healing);
 
         timeRemaining = maxCountDownTime;
         player.cooldownTimer = player.maxCooldownTimer;

@@ -78,12 +78,12 @@ public class UpgradeManager : MonoBehaviour
                 {
                     case UpgradeType.Stat:
                         ApplyStatUpgrade(upgrade);
-                        //Add logic to check if player can afford upgrade
                         gameManager.gold -= upgrade.cost;
-                        Debug.Log("upgraded" + upgrade.description);
+                        //Debug.Log("upgraded" + upgrade.description);
                         break;
                     case UpgradeType.Skill:
                         ApplySkillUpgrade(upgrade);
+                        gameManager.gold -= upgrade.cost;
                         break;
                 }
 
@@ -139,10 +139,10 @@ public class UpgradeManager : MonoBehaviour
         switch (upgrade.skillName)
         {
             case "SpinAttack":
-                playerSkills.spinAttack = true;
+                gameManager.spinAttack = true;
                 break;
             case "LargeStab":
-                playerSkills.largeStab = true;
+                gameManager.stabAttack = true;
                 break;
         }
     }

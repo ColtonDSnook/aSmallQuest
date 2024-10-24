@@ -5431,7 +5431,7 @@ GameObject:
   - component: {fileID: 2476153725317987205}
   - component: {fileID: -6477555972206425958}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

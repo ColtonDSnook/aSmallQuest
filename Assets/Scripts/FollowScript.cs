@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GlobalVariables;
 
 public class FollowScript : MonoBehaviour
 {
-    public float distance;
-    public float height;
-    public float rotation;
-    public float offset;
+    [SerializeField] private float distance = cameraDistance;
+    [SerializeField] private float height = cameraHeight;
+    [SerializeField] private float rotation = cameraRotation;
+    [SerializeField] private float offset = cameraOffset;
 
     public Transform target;
 

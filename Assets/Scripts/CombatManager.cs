@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
+using static GlobalVariables;
 
 public class CombatManager : MonoBehaviour
 {
@@ -29,6 +30,9 @@ public class CombatManager : MonoBehaviour
     public GameManager gameManager;
 
     public GameObject abilitiesUI;
+
+    public GameObject spinAttackUI;
+    public GameObject stabAttackUI;
 
     public Combatant player;
 
@@ -60,7 +64,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private Combatant currentTarget;
 
     [SerializeField] private int encountersCompleted = 0;
-    public int encountersRequired = 5;
+    public int encountersRequired = defaultEncountersRequired;
     public TextMeshProUGUI encountersText;
 
     // when an ability is used, block the player from using any other ability until ability use is over.
@@ -100,6 +104,7 @@ public class CombatManager : MonoBehaviour
         {
             InitializeCombatants();
             abilitiesUI.SetActive(true);
+            CheckAbilities();
             Debug.Log("Combat Started");
             combatState = CombatState.InCombat;
         }
@@ -189,7 +194,7 @@ public class CombatManager : MonoBehaviour
     public void Attack(Combatant target)
     {
         //slashTimeline.Play();
-        target.healthSystem.TakeDamage(4);
+        target.healthSystem.TakeDamage(gameManager.damage);
         player.animator.Play("MC_Slash");
         currentTarget = target;
 
@@ -257,6 +262,8 @@ public class CombatManager : MonoBehaviour
         encountersCompleted = 0;
         stabAttack.RefreshAbility();
         spinAttack.RefreshAbility();
+        coinsGainedCurrentRun = 0;
+        enemiesDefeatedCurrentRun = 0;
     }
 
     public void DisplayEndResults(bool won)
@@ -274,6 +281,27 @@ public class CombatManager : MonoBehaviour
             enemiesDefeatedWonText.text = "Enemies Defeated: " + enemiesDefeatedCurrentRun;
             coinsTotal = gameManager.gold;
             coinsTotalWonText.text = "Coins Total: " + "\n" + coinsTotal;
+        }
+    }
+
+    public void CheckAbilities()
+    {
+        if (gameManager.spinAttack)
+        {
+            spinAttackUI.SetActive(true);
+        }
+        else
+        {
+            spinAttackUI.SetActive(false);
+        }
+
+        if (gameManager.stabAttack)
+        {
+            stabAttackUI.SetActive(true);
+        }
+        else
+        {
+            stabAttackUI.SetActive(false);
         }
     }
 }

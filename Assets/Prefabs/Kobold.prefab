@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1193541295743435708}
+  - component: {fileID: -8002608639157340078}
+  - component: {fileID: -2060022418016694001}
   m_Layer: 0
   m_Name: Kobold
   m_TagString: Untagged
@@ -33,6 +35,53 @@ Transform:
   - {fileID: 3043505119304138642}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-8002608639157340078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275595652522921980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f5d579033535e2489f6b9ec7e542505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  currentHealth: 0
+  healthText: {fileID: 0}
+  damageText: {fileID: 0}
+  healthBar: {fileID: 0}
+  playerStats:
+    maxHealth: 0
+    damage: 0
+    attackSpeed: 0
+    currency: 0
+    numTargets: 0
+    bursts: 0
+    healing: 0
+    stabDamage: 0
+--- !u!114 &-2060022418016694001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275595652522921980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed83e60c824e38446889354546a4064b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTimer: 0
+  maxCooldownTimer: 0
+  defaultCooldownTimer: 2
+  player: 0
+  cooldownBar: {fileID: 0}
+  abilities: []
+  combatManager: {fileID: 0}
+  healthSystem: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1 &3454241070472585340
 GameObject:
   m_ObjectHideFlags: 0

@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatManager: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 6448862624847786948, guid: 2c3a15933f2ab1140be13ba419f590d6, type: 3}
   enemyPrefab: {fileID: 6885232520928741374, guid: b8cff4859bff1fc4c8da58c14e5dc415,
     type: 3}
   height: 0.5
@@ -1147,7 +1147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatManager: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 6448862624847786948, guid: 2c3a15933f2ab1140be13ba419f590d6, type: 3}
   enemyPrefab: {fileID: 6885232520928741374, guid: b8cff4859bff1fc4c8da58c14e5dc415,
     type: 3}
   height: 0.5
@@ -1550,7 +1550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatManager: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 6448862624847786948, guid: 2c3a15933f2ab1140be13ba419f590d6, type: 3}
   enemyPrefab: {fileID: 6885232520928741374, guid: b8cff4859bff1fc4c8da58c14e5dc415,
     type: 3}
   height: 0.5
@@ -1674,7 +1674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatManager: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 6448862624847786948, guid: 2c3a15933f2ab1140be13ba419f590d6, type: 3}
   enemyPrefab: {fileID: 6885232520928741374, guid: b8cff4859bff1fc4c8da58c14e5dc415,
     type: 3}
   height: 0.5
@@ -1922,7 +1922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatManager: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 6448862624847786948, guid: 2c3a15933f2ab1140be13ba419f590d6, type: 3}
   enemyPrefab: {fileID: 6885232520928741374, guid: b8cff4859bff1fc4c8da58c14e5dc415,
     type: 3}
   height: 0.5
@@ -2170,7 +2170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatManager: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 6448862624847786948, guid: 2c3a15933f2ab1140be13ba419f590d6, type: 3}
   enemyPrefab: {fileID: 6885232520928741374, guid: b8cff4859bff1fc4c8da58c14e5dc415,
     type: 3}
   height: 0.5
@@ -2542,7 +2542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatManager: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 6448862624847786948, guid: 2c3a15933f2ab1140be13ba419f590d6, type: 3}
   enemyPrefab: {fileID: 6885232520928741374, guid: b8cff4859bff1fc4c8da58c14e5dc415,
     type: 3}
   height: 0.5
@@ -3281,7 +3281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatManager: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 6448862624847786948, guid: 2c3a15933f2ab1140be13ba419f590d6, type: 3}
   enemyPrefab: {fileID: 6885232520928741374, guid: b8cff4859bff1fc4c8da58c14e5dc415,
     type: 3}
   height: 0.5
@@ -4001,7 +4001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatManager: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 6448862624847786948, guid: 2c3a15933f2ab1140be13ba419f590d6, type: 3}
   enemyPrefab: {fileID: 6885232520928741374, guid: b8cff4859bff1fc4c8da58c14e5dc415,
     type: 3}
   height: 0.5
@@ -4125,7 +4125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatManager: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 6448862624847786948, guid: 2c3a15933f2ab1140be13ba419f590d6, type: 3}
   enemyPrefab: {fileID: 6885232520928741374, guid: b8cff4859bff1fc4c8da58c14e5dc415,
     type: 3}
   height: 0.5

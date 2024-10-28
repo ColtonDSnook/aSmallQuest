@@ -64,7 +64,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private Combatant currentTarget;
 
     [SerializeField] private int encountersCompleted = 0;
-    public int encountersRequired = defaultEncountersRequired;
+    private int encountersRequired = defaultEncountersRequired;
     public TextMeshProUGUI encountersText;
 
     // when an ability is used, block the player from using any other ability until ability use is over.
@@ -151,8 +151,8 @@ public class CombatManager : MonoBehaviour
             {
                 if (!combatant.player)
                 {
-                    EnemyAttack(GetPlayer());
-                    combatant.animator.Play("Slime_Attack");
+                    EnemyAttack(GetPlayer(), combatant.damage);
+                    //combatant.animator.Play("Slime_Attack");
                 }
                 else
                 {
@@ -201,10 +201,10 @@ public class CombatManager : MonoBehaviour
         Debug.Log("Attacked");
     }
 
-    public void EnemyAttack(Combatant target)
+    public void EnemyAttack(Combatant target, float damage)
     {
         //slashTimeline.Play();
-        target.healthSystem.TakeDamage(4);
+        target.healthSystem.TakeDamage(damage);
 
         Debug.Log("Attacked");
     }

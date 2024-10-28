@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static GlobalVariables;
 
 public class Health : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Health : MonoBehaviour
     [SerializeField] private float currentHealth;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI damageText;
+
+    public float maxHealth;
 
     public Image healthBar;
     public PlayerStats playerStats;
@@ -21,7 +24,26 @@ public class Health : MonoBehaviour
         if (CompareTag("Enemy"))
         {
             animator = GetComponentInChildren<Animator>();
-            currentHealth = 10;
+
+            switch(name)
+            {
+                case "Slime(Clone)":
+                    currentHealth = defaultSlimeHealth;
+                    maxHealth = currentHealth;
+                    break;
+                case "Goblin(Clone)":
+                    currentHealth = defaultGoblinHealth;
+                    maxHealth = currentHealth;
+                    break;
+                case "Kobold(Clone)":
+                    currentHealth = defaultKoboldHealth;
+                    maxHealth = currentHealth;
+                    break;
+                case "DungeonMaster(Clone)":
+                    currentHealth = defaultDungeonMasterHealth;
+                    maxHealth = currentHealth;
+                    break;
+            }
         }
         else
         {
@@ -39,7 +61,7 @@ public class Health : MonoBehaviour
 
         else
         {
-            healthBar.fillAmount = (float)GetCurrentHealth() / 10;
+            healthBar.fillAmount = (float)GetCurrentHealth() / maxHealth;
         }
 
         if (healthText == null)
@@ -54,15 +76,17 @@ public class Health : MonoBehaviour
         float startingHealth = currentHealth;
         if (CompareTag("Enemy"))
         {
-            animator.Play("Slime_Hurt");
-            if (damage > 10)
+            //animator.Play("Slime_Hurt");
+            if (damage > maxHealth)
             {
                 currentHealth = 0;
+                StartCoroutine(ShowDamageNumbers(startingHealth - currentHealth));
                 return startingHealth - currentHealth;
             }
             else
             {
                 currentHealth -= damage;
+                StartCoroutine(ShowDamageNumbers(startingHealth - currentHealth));
                 return startingHealth - currentHealth;
             }
 
@@ -71,9 +95,9 @@ public class Health : MonoBehaviour
         {
             currentHealth -= damage;
             animator.Play("MC_Hurt");
+            StartCoroutine(ShowDamageNumbers(startingHealth - currentHealth));
             return startingHealth - currentHealth;
         }
-        StartCoroutine(ShowDamageNumbers(damage));
         return 0;
     }
 
@@ -104,6 +128,7 @@ public class Health : MonoBehaviour
 
     public IEnumerator ShowDamageNumbers(float damage)
     {
+        //Debug.Log("showing damage numbers");
         damageText.text = damage.ToString();
         yield return new WaitForSeconds(0.5f);
         damageText.text = "";

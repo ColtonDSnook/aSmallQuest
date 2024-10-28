@@ -9,6 +9,8 @@ public class Combatant : MonoBehaviour
 {
     [SerializeField] public float cooldownTimer;
     public float maxCooldownTimer;
+    public float damage;
+
     public float defaultCooldownTimer = defaultPlayerCooldown;
     public bool player;
 
@@ -28,6 +30,26 @@ public class Combatant : MonoBehaviour
         combatManager = FindObjectOfType<CombatManager>();
         cooldownTimer = maxCooldownTimer;
         healthSystem = GetComponent<Health>();
+
+        switch (name)
+        {
+            case "Slime(Clone)":
+                maxCooldownTimer = defaultCooldownTimer / defaultSlimeAttackSpeed;
+                damage = defaultSlimeDamage;
+                break;
+            case "Goblin(Clone)":
+                maxCooldownTimer = defaultCooldownTimer / defaultGoblinAttackSpeed;
+                damage = defaultGoblinDamage;
+                break;
+            case "Kobold(Clone)":
+                maxCooldownTimer = defaultCooldownTimer / defaultKoboldAttackSpeed;
+                damage = defaultKoboldDamage;
+                break;
+            case "DungeonMaster(Clone)":
+                maxCooldownTimer = defaultCooldownTimer / defaultDungeonMasterAttackSpeed;
+                damage = defaultDungeonMasterDamage;
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -36,6 +58,7 @@ public class Combatant : MonoBehaviour
         if (player)
         {
             maxCooldownTimer = defaultCooldownTimer / GameManager.manager.attackSpeed;
+            damage = GameManager.manager.damage;
         }
 
         if (combatManager.combatState == CombatManager.CombatState.InCombat)

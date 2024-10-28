@@ -9845,7 +9845,7 @@ GameObject:
   - component: {fileID: 5182845075795482908}
   m_Layer: 0
   m_Name: DungeonMaster
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9883,6 +9883,7 @@ MonoBehaviour:
   currentHealth: 0
   healthText: {fileID: 0}
   damageText: {fileID: 0}
+  maxHealth: 0
   healthBar: {fileID: 0}
   playerStats:
     maxHealth: 0
@@ -9907,6 +9908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldownTimer: 0
   maxCooldownTimer: 0
+  damage: 0
   defaultCooldownTimer: 2
   player: 0
   cooldownBar: {fileID: 0}

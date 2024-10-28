@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Enemy
   - SpawnPoint
+  - Slime
+  - Goblin
+  - Kobold
+  - DungeonMaster
   layers:
   - Default
   - TransparentFX

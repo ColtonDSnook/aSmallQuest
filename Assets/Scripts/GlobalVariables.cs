@@ -5,7 +5,7 @@ using UnityEngine;
 public static class GlobalVariables
 {
     // Player Variables
-    public const int defaultPlayerCooldown = 2;
+    public const int defaultPlayerCooldown = 3;
 
     public const float defaultGold = 0;
     public const float defaultMaxHealth = 100;
@@ -23,24 +23,24 @@ public static class GlobalVariables
     public const int spinAttackBaseDamage = 2;
 
     // Enemies Variables
-    public const float defaultSlimeHealth = 20;
-    public const float defaultSlimeCooldown = 5;
-    public const float defaultSlimeDamage = 4;
+    public const float defaultSlimeHealth = 15;
+    public const float defaultSlimeDamage = 2;
+    public const float defaultSlimeAttackSpeed = 0.5f;
 
-    public const float defaultGoblinHealth = 50;
-    public const float defaultGoblinCooldown = 4;
-    public const float defaultGoblinDamage = 5;
+    public const float defaultGoblinHealth = 20;
+    public const float defaultGoblinDamage = 3;
+    public const float defaultGoblinAttackSpeed = 1;
 
-    public const float defaultKoboldHealth = 60;
-    public const float defaultKoboldCooldown = 7;
-    public const float defaultKoboldDamage = 8;
+    public const float defaultKoboldHealth = 30;
+    public const float defaultKoboldDamage = 10;
+    public const float defaultKoboldAttackSpeed = 0.5f;
 
-    public const float defaultDungeonMasterHealth = 150;
-    public const float defaultDungeonMasterCooldown = 10;
-    public const float defaultDungeonMasterDamage = 30;
+    public const float defaultDungeonMasterHealth = 80;
+    public const float defaultDungeonMasterDamage = 20;
+    public const float defaultDungeonMasterAttackSpeed = 0.75f;
 
     // Encounters
-    public const int defaultEncountersRequired = 2;
+    public const int defaultEncountersRequired = 31; // 31  (3 enemy types x 10 each + 1 boss)
 
     // Gold Dropping
     public const int minGoldDropped = 15;

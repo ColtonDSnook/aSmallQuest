@@ -9109,6 +9109,7 @@ MonoBehaviour:
   maxCountDownTime: 5
   key: 113
   numTargets: 2
+  bursts: 0
   baseDamage: 10
   spinAttackTimeline: {fileID: 0}
 --- !u!114 &1591561893 stripped
@@ -12808,6 +12809,11 @@ PrefabInstance:
       propertyPath: damageText
       value: 
       objectReference: {fileID: 542473849}
+    - target: {fileID: 8846163470736910986, guid: f5979bbf107893c49a6a65eb03cd81eb,
+        type: 3}
+      propertyPath: stabDamage
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8846163470736910986, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
       propertyPath: playerSprite

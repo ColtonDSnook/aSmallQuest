@@ -17,25 +17,25 @@ public static class GlobalVariables
     public const float defaultBursts = 1;
 
     public const bool defaultStabAttack = false;
-    public const float defaultStabDamage = 10;
+    public const float defaultStabDamage = 3;
     public const float defaultHealing = 0;
 
-    public const int spinAttackBaseDamage = 2;
+    public const float spinAttackBaseDamage = 0.4f; // 40%
 
     // Enemies Variables
-    public const float defaultSlimeHealth = 15;
-    public const float defaultSlimeDamage = 2;
+    public const float defaultSlimeHealth = 25;
+    public const float defaultSlimeDamage = 5;
     public const float defaultSlimeAttackSpeed = 0.5f;
 
-    public const float defaultGoblinHealth = 20;
-    public const float defaultGoblinDamage = 3;
+    public const float defaultGoblinHealth = 40;
+    public const float defaultGoblinDamage = 9;
     public const float defaultGoblinAttackSpeed = 1;
 
-    public const float defaultKoboldHealth = 30;
-    public const float defaultKoboldDamage = 10;
+    public const float defaultKoboldHealth = 60;
+    public const float defaultKoboldDamage = 15;
     public const float defaultKoboldAttackSpeed = 0.5f;
 
-    public const float defaultDungeonMasterHealth = 80;
+    public const float defaultDungeonMasterHealth = 150;
     public const float defaultDungeonMasterDamage = 20;
     public const float defaultDungeonMasterAttackSpeed = 0.75f;
 

@@ -7,7 +7,8 @@ using static GlobalVariables;
 public class SpinAttack : Ability
 {
     public float numTargets;
-    public int baseDamage = spinAttackBaseDamage; //200%
+    public float bursts = defaultBursts;
+    public float baseDamage = spinAttackBaseDamage; //40%
 
     public PlayableDirector spinAttackTimeline;
 
@@ -100,13 +101,30 @@ public class SpinAttack : Ability
             }
         }
 
-        foreach (Combatant target in selectedTargets)
-        {
-            float damage = target.healthSystem.TakeDamage(gameManager.damage * baseDamage);
-            Debug.Log("Spin attack hit " + target.name + " for " + damage + " damage.");
-        }
+        StartCoroutine(SpinAttackBursts(selectedTargets));
 
         timeRemaining = maxCountDownTime;
         player.cooldownTimer = player.maxCooldownTimer;
+    }
+
+    public IEnumerator SpinAttackBursts(List<Combatant> selectedTargets)
+    {
+        for (int i = 0; i < bursts; i++)
+        {
+            //spinAttackTimeline.Play();
+
+            foreach (Combatant target in selectedTargets)
+            {
+                // Check if the target is still alive
+                if (target.healthSystem.GetCurrentHealth() > 0)
+                {
+                    float damage = target.healthSystem.TakeDamage(gameManager.damage * baseDamage);
+                    Debug.Log("Spin attack hit " + target.name + " for " + damage + " damage.");
+                }
+            }
+
+            // Pause briefly between bursts (if needed)
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 }

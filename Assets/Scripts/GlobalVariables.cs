@@ -43,8 +43,8 @@ public static class GlobalVariables
     public const int defaultEncountersRequired = 31; // 31  (3 enemy types x 10 each + 1 boss)
 
     // Gold Dropping
-    public const int minGoldDropped = 15;
-    public const int maxGoldDropped = 25;
+    public const int minGoldDropped = 5;
+    public const int maxGoldDropped = 15;
 
     // Camera
     public const float cameraOffset = 4.5f;

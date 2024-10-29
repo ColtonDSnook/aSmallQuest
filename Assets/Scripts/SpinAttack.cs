@@ -83,10 +83,12 @@ public class SpinAttack : Ability
 
             Combatant selectedCombatant = availableTargets[randomIndex];
 
-            // CHANGE THIS FOR HIGHER TARGET COUNTS
-            if (availableTargets.Count == numTargets - 1)
+            if (availableTargets.Count < numTargets)
             {
-                selectedTargets.Add(selectedCombatant);
+                foreach (Combatant combatant in availableTargets)
+                {
+                    selectedTargets.Add(combatant);
+                }
                 break;
             }
             else

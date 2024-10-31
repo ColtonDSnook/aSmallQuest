@@ -5523,6 +5523,7 @@ MonoBehaviour:
     type: 3}
   healthSystem: {fileID: -3301884364226067057}
   animator: {fileID: 0}
+  combatantType: 2
 --- !u!1001 &911619502881214256
 PrefabInstance:
   m_ObjectHideFlags: 0

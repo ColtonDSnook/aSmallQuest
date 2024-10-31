@@ -23,6 +23,19 @@ public class Combatant : MonoBehaviour
 
     public Animator animator;
 
+    public string animPrefix;
+
+    public enum CombatantType
+    {
+        Player,
+        Slime,
+        Goblin,
+        Kobold,
+        DungeonMaster
+    }
+
+    public CombatantType combatantType;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,23 +44,27 @@ public class Combatant : MonoBehaviour
         cooldownTimer = maxCooldownTimer;
         healthSystem = GetComponent<Health>();
 
-        switch (name)
+        switch (combatantType)
         {
-            case "Slime(Clone)":
+            case CombatantType.Slime:
                 maxCooldownTimer = defaultCooldownTimer / defaultSlimeAttackSpeed;
                 damage = defaultSlimeDamage;
+                animPrefix = slimeAnimPrefix;
                 break;
-            case "Goblin(Clone)":
+            case CombatantType.Goblin:
                 maxCooldownTimer = defaultCooldownTimer / defaultGoblinAttackSpeed;
                 damage = defaultGoblinDamage;
+                animPrefix = goblinAnimPrefix;
                 break;
-            case "Kobold(Clone)":
+            case CombatantType.Kobold:
                 maxCooldownTimer = defaultCooldownTimer / defaultKoboldAttackSpeed;
                 damage = defaultKoboldDamage;
+                animPrefix = koboldAnimPrefix;
                 break;
-            case "DungeonMaster(Clone)":
+            case CombatantType.DungeonMaster:
                 maxCooldownTimer = defaultCooldownTimer / defaultDungeonMasterAttackSpeed;
                 damage = defaultDungeonMasterDamage;
+                animPrefix = dungeonMasterAnimPrefix;
                 break;
         }
     }
@@ -69,8 +86,10 @@ public class Combatant : MonoBehaviour
         cooldownBar.fillAmount = (float)cooldownTimer / maxCooldownTimer;
     }
 
-    public void Kill()
+    public IEnumerator Kill()
     {
+        yield return new WaitForSeconds(2);
+        animator.Play(animPrefix + "_Death");
         Destroy(gameObject);
     }
 

@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.UI;
 using static GlobalVariables;
 
 public class CombatManager : MonoBehaviour
@@ -38,8 +39,6 @@ public class CombatManager : MonoBehaviour
 
     public Health playerHealth;
 
-    public PlayableDirector slashTimeline;
-
     public LevelManager levelManager;
 
     public PlayerStats playerStats;
@@ -67,6 +66,8 @@ public class CombatManager : MonoBehaviour
     private int encountersRequired = defaultEncountersRequired;
     public TextMeshProUGUI encountersText;
 
+    public Slider progressBar;
+
     // when an ability is used, block the player from using any other ability until ability use is over.
 
     // Start is called before the first frame update
@@ -86,7 +87,8 @@ public class CombatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        encountersText.text = "Encounters Completed: " + encountersCompleted + "/" + encountersRequired;
+        progressBar.value = encountersCompleted;
+        //encountersText.text = "Encounters Completed: " + encountersCompleted + "/" + encountersRequired;
 
         if (encountersCompleted >= encountersRequired)
         {
@@ -151,13 +153,13 @@ public class CombatManager : MonoBehaviour
             {
                 if (!combatant.player)
                 {
-                    EnemyAttack(GetPlayer(), combatant.damage);
-                    //combatant.animator.Play("Slime_Attack");
+                    combatant.animator.Play(combatant.animPrefix + "_Attack");
+                    StartCoroutine(EnemyAttack(GetPlayer(), combatant.damage));
                 }
                 else
                 {
                     int targetNumber = Random.Range(0, CountOtherCombatants() - 1);
-                    Attack(combatants[targetNumber]);
+                    StartCoroutine(Attack(combatants[targetNumber]));
                 }
                 //this attack will be in the form of a timeline that will send a signal to deal damage to the opposing force.
                 combatant.cooldownTimer = combatant.maxCooldownTimer;
@@ -178,7 +180,7 @@ public class CombatManager : MonoBehaviour
                     combatants.Remove(combatant);
                     coinsGainedCurrentRun += currencyDropper.DropCurrency();
                     enemiesDefeatedCurrentRun++;
-                    combatant.Kill();
+                    StartCoroutine(combatant.Kill());
                 }
             }
         }
@@ -191,19 +193,20 @@ public class CombatManager : MonoBehaviour
         }
     }
 
-    public void Attack(Combatant target)
+    public IEnumerator Attack(Combatant target)
     {
-        //slashTimeline.Play();
-        target.healthSystem.TakeDamage(gameManager.damage);
         player.animator.Play("MC_Slash");
+        yield return new WaitForSeconds(0.5f);
+        target.healthSystem.TakeDamage(gameManager.damage);
         currentTarget = target;
 
         Debug.Log("Attacked");
     }
 
-    public void EnemyAttack(Combatant target, float damage)
+    public IEnumerator EnemyAttack(Combatant target, float damage)
     {
-        //slashTimeline.Play();
+
+        yield return new WaitForSeconds(1f);
         target.healthSystem.TakeDamage(damage);
 
         Debug.Log("Attacked");

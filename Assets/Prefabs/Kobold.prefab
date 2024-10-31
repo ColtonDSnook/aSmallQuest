@@ -161,6 +161,7 @@ MonoBehaviour:
     type: 3}
   healthSystem: {fileID: -8002608639157340078}
   animator: {fileID: 0}
+  combatantType: 3
 --- !u!1 &2156923714923266743
 GameObject:
   m_ObjectHideFlags: 0

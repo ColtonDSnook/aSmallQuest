@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using System;
 using static GlobalVariables;
 
 public class SpinAttack : Ability
 {
     public float numTargets;
     public float bursts = defaultBursts;
-    public float baseDamage = spinAttackBaseDamage; //40%
+    private float baseDamage = spinAttackBaseDamage; //40%
 
     public PlayableDirector spinAttackTimeline;
 
     public void Update()
     {
         numTargets = gameManager.numTargets;
+        bursts = gameManager.bursts;
 
         if (timeRemaining > 0)
         {
@@ -80,7 +82,7 @@ public class SpinAttack : Ability
         List<Combatant> selectedTargets = new List<Combatant>();
         while (selectedTargets.Count < numTargets)
         {
-            int randomIndex = Random.Range(0, availableTargets.Count);
+            int randomIndex = UnityEngine.Random.Range(0, availableTargets.Count);
 
             Combatant selectedCombatant = availableTargets[randomIndex];
 
@@ -111,20 +113,19 @@ public class SpinAttack : Ability
     {
         for (int i = 0; i < bursts; i++)
         {
-            //spinAttackTimeline.Play();
 
             foreach (Combatant target in selectedTargets)
             {
                 // Check if the target is still alive
                 if (target.healthSystem.GetCurrentHealth() > 0)
                 {
-                    float damage = target.healthSystem.TakeDamage(gameManager.damage * baseDamage);
+                    float damage = target.healthSystem.TakeDamage((float)Math.Round(gameManager.damage * baseDamage));
                     Debug.Log("Spin attack hit " + target.name + " for " + damage + " damage.");
                 }
             }
 
             // Pause briefly between bursts (if needed)
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
         }
     }
 }

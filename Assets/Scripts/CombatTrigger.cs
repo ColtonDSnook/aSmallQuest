@@ -36,7 +36,7 @@ public class CombatTrigger : MonoBehaviour
         positions.Add(player.transform.position + new Vector3(5.13f, height, 0));
         positions.Add(player.transform.position + new Vector3(7.04f, height, -2.74f));
         positions.Add(player.transform.position + new Vector3(7.84f, height, 2.74f));
-        positions.Add(player.transform.position + new Vector3(3.28f, height, -4.41f));
+        positions.Add(player.transform.position + new Vector3(3.28f, height, -3.84f));
         positions.Add(player.transform.position + new Vector3(3.14f, height, 4.5f));
     }
 

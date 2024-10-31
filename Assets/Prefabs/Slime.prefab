@@ -5550,6 +5550,7 @@ MonoBehaviour:
     type: 3}
   healthSystem: {fileID: 0}
   animator: {fileID: 0}
+  combatantType: 1
 --- !u!114 &-6477555972206425958
 MonoBehaviour:
   m_ObjectHideFlags: 0

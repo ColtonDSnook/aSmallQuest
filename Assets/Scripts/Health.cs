@@ -16,30 +16,32 @@ public class Health : MonoBehaviour
 
     public Image healthBar;
     public PlayerStats playerStats;
+    public Combatant combatant;
 
     // Start is called before the first frame update
     void Start()
     {
+        combatant = GetComponent<Combatant>();
         damageText.text = "";
         if (CompareTag("Enemy"))
         {
             animator = GetComponentInChildren<Animator>();
 
-            switch(name)
+            switch(combatant.combatantType)
             {
-                case "Slime(Clone)":
+                case Combatant.CombatantType.Slime:
                     currentHealth = defaultSlimeHealth;
                     maxHealth = currentHealth;
                     break;
-                case "Goblin(Clone)":
+                case Combatant.CombatantType.Goblin:
                     currentHealth = defaultGoblinHealth;
                     maxHealth = currentHealth;
                     break;
-                case "Kobold(Clone)":
+                case Combatant.CombatantType.Kobold:
                     currentHealth = defaultKoboldHealth;
                     maxHealth = currentHealth;
                     break;
-                case "DungeonMaster(Clone)":
+                case Combatant.CombatantType.DungeonMaster:
                     currentHealth = defaultDungeonMasterHealth;
                     maxHealth = currentHealth;
                     break;
@@ -76,7 +78,7 @@ public class Health : MonoBehaviour
         float startingHealth = currentHealth;
         if (CompareTag("Enemy"))
         {
-            //animator.Play("Slime_Hurt");
+            animator.Play(combatant.animPrefix + "_Hurt");
             if (damage > maxHealth)
             {
                 currentHealth = 0;

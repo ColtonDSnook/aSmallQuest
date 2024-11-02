@@ -1058,6 +1058,7 @@ MonoBehaviour:
   CreditsUI: {fileID: 1350584879896369641}
   UpgradesUI: {fileID: 7300796832222217886}
   RunWinUI: {fileID: 3428469763537486961}
+  IntroUI: {fileID: 0}
 --- !u!1 &4640675333761327354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1698,8 +1699,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc58a4752cd26394a8f1632e3c580ced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeManager: {fileID: 0}
   playerSprite: {fileID: 0}
   spawnPoint: {fileID: 0}
+  damageText: {fileID: 0}
+  speedText: {fileID: 0}
+  goldText: {fileID: 0}
+  upgradesGoldText: {fileID: 0}
+  gold: 0
+  damage: 10
+  maxHealth: 100
+  attackSpeed: 1
+  spinAttack: 0
+  numTargets: 2
+  bursts: 1
+  stabAttack: 0
+  healing: 0
+  stabDamage: 3
   previousGameState: 0
   gameState: 0
 --- !u!1 &6915107852683926370

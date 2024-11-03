@@ -124,6 +124,7 @@ public class Combatant : MonoBehaviour
 
     public void PauseTimer()
     {
+        Debug.Log("Paused Timer");
         timersPaused = true;
     }
 
@@ -131,6 +132,7 @@ public class Combatant : MonoBehaviour
     {
         if (!combatManager.lostCombat)
         {
+            Debug.Log("Unpaused Timer");
             timersPaused = false;
         }
     }

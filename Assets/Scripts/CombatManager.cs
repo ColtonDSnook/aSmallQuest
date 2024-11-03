@@ -117,6 +117,7 @@ public class CombatManager : MonoBehaviour
             InitializeCombatants();
             abilitiesUI.SetActive(true);
             CheckAbilities();
+            player.UnpauseTimer();
             Debug.Log("Combat Started");
             combatState = CombatState.InCombat;
         }

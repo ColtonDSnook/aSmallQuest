@@ -20,4 +20,18 @@ public class MCAnimEvents : MonoBehaviour
     {
         stabAttack.Play();
     }
+    void MCAttackS()
+    {
+        SoundManager.Instance.PlaySFX("MCAttack");
+    }
+
+    void MCHurtS()
+    {
+        SoundManager.Instance.PlaySFX("MCHurt");
+    }
+
+    void MCDeathS()
+    {
+        SoundManager.Instance.PlaySFX("MCDeath");
+    }
 }

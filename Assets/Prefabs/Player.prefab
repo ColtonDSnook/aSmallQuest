@@ -5004,7 +5004,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.8
+      scalar: 0.6
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -9902,7 +9902,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.8
+      scalar: 0.6
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -29977,6 +29977,7 @@ MonoBehaviour:
   currentHealth: 0
   healthText: {fileID: 0}
   damageText: {fileID: 8282725488515922820}
+  maxHealth: 0
   healthBar: {fileID: 5715196435623320355}
   playerStats:
     maxHealth: 100
@@ -29987,6 +29988,7 @@ MonoBehaviour:
     bursts: 0
     healing: 0
     stabDamage: 0
+  combatant: {fileID: 0}
 --- !u!114 &5672942193526491901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30001,6 +30003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldownTimer: 0
   maxCooldownTimer: 2
+  damage: 0
   defaultCooldownTimer: 2
   player: 1
   cooldownBar: {fileID: 9187105532848578013}
@@ -30009,6 +30012,8 @@ MonoBehaviour:
   combatManager: {fileID: 0}
   healthSystem: {fileID: 9078261807579048259}
   animator: {fileID: 0}
+  animPrefix: 
+  combatantType: 0
 --- !u!1 &8428179554080330985
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance;
     public Sound[] musicSounds, sfxSounds;
     public AudioSource musicSource, sfxSource;
+    public GameManager.GameState gameState;
 
     private void Awake()
     {
@@ -24,9 +25,19 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Gameplay()
     {
-        PlayMusic("MenuMusic");
+        if (gameState == GameManager.GameState.Gameplay)
+        {
+            SoundManager.Instance.musicSource.Stop();
+            PlayMusic("GameplayMusic");
+        }
+
+        else
+        {
+            SoundManager.Instance.musicSource.Stop();
+            PlayMusic("MenuMusic");
+        }
     }
 
     public void PlayMusic(String clipName)

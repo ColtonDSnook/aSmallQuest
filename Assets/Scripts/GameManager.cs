@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public static GameManager manager;
 
     public UpgradeManager upgradeManager;
+    public CombatManager combatManager;
 
     private UIManager uiManager;
     private PlayerMovement player;
@@ -74,6 +75,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        combatManager = FindObjectOfType<CombatManager>();
         uiManager = FindObjectOfType<UIManager>();
         player = FindObjectOfType<PlayerMovement>();
         gameState = GameState.MainMenu;
@@ -266,9 +268,9 @@ public class GameManager : MonoBehaviour
 
     public void UpdateText()
     {
-        damageText.text = "DMG: " + damage.ToString();
-        speedText.text = "SPD: " + attackSpeed.ToString();
-        goldText.text = "GLD: " + gold.ToString();
+        //damageText.text = "DMG: " + damage.ToString();
+        //speedText.text = "SPD: " + attackSpeed.ToString();
+        goldText.text = combatManager.coinsGainedCurrentRun.ToString();
         upgradesGoldText.text = "Gold: " + gold.ToString();
     }
 

@@ -27,7 +27,7 @@ public class CombatTrigger : MonoBehaviour
         InstantiateEnemies();
 
         combatManager.combatState = CombatManager.CombatState.Start;
-
+        Destroy(this);
         Debug.Log("In Combat");
     }
 

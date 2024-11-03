@@ -21,6 +21,8 @@ public abstract class Ability : MonoBehaviour
     public Sprite abilityColor;
     public Sprite abilityGrey;
 
+    public Animator animator;
+
     public TextMeshProUGUI timerText;
 
     public float timeRemaining;

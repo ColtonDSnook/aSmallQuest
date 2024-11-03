@@ -7,8 +7,6 @@ public class StabAttack : Ability
 {
     public float baseDamage;
 
-    public PlayableDirector stabAttackTimeline;
-
     public void Update()
     {
         baseDamage = gameManager.stabDamage;
@@ -40,7 +38,7 @@ public class StabAttack : Ability
         {
             if (combatManager.combatState == CombatManager.CombatState.InCombat)
             {
-                //stabAttackTimeline.Play();
+                animator.Play("MC_Stab");
                 ability.sprite = abilityGrey;
                 abilityRadial.fillAmount = 1;
             }
@@ -57,12 +55,20 @@ public class StabAttack : Ability
             return;
         }
 
+        StartCoroutine(Stab());
+
+        timeRemaining = maxCountDownTime;
+        player.cooldownTimer = player.maxCooldownTimer;
+    }
+
+    public IEnumerator Stab()
+    {
+        player.PauseTimer();
+        yield return new WaitForSeconds(0.5f);
         int targetNumber = Random.Range(0, combatManager.CountOtherCombatants() - 1);
         Combatant target = combatManager.combatants[targetNumber];
         float damage = target.healthSystem.TakeDamage(gameManager.damage * baseDamage);
         player.healthSystem.Heal(damage * gameManager.healing);
-
-        timeRemaining = maxCountDownTime;
-        player.cooldownTimer = player.maxCooldownTimer;
+        player.UnpauseTimer();
     }
 }

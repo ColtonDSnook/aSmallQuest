@@ -122,6 +122,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &8208114 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2023964327277468223, guid: 2c3a15933f2ab1140be13ba419f590d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 6879987595786391693}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &13916312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,8 +1087,6 @@ MonoBehaviour:
   musicSource: {fileID: 1352847505}
   sfxSource: {fileID: 916172588}
   gameManager: {fileID: 0}
-  isPlayingMenuMusic: 0
-  isPlayingGameMusic: 0
 --- !u!1 &122967642 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7880646047920100083, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
@@ -1785,6 +1789,7 @@ MonoBehaviour:
   abilityRadial: {fileID: 532169568}
   abilityColor: {fileID: 21300000, guid: f578f68268f6ec440ae3f9219eb958a0, type: 3}
   abilityGrey: {fileID: 21300000, guid: 36444d499ca078c4699791e76dabf74d, type: 3}
+  animator: {fileID: 8208114}
   timerText: {fileID: 649383309}
   timeRemaining: 0
   maxCountDownTime: 8
@@ -12643,6 +12648,7 @@ MonoBehaviour:
   abilityRadial: {fileID: 977077145}
   abilityColor: {fileID: 21300000, guid: 482275b4dc9b32a43b04982fbc373c9c, type: 3}
   abilityGrey: {fileID: 21300000, guid: 79aa46f8756eb5447816da662ca3fb8a, type: 3}
+  animator: {fileID: 8208114}
   timerText: {fileID: 2088308556}
   timeRemaining: 0
   maxCountDownTime: 5

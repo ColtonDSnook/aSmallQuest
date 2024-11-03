@@ -11,8 +11,6 @@ public class SpinAttack : Ability
     public float bursts = defaultBursts;
     private float baseDamage = spinAttackBaseDamage; //40%
 
-    public PlayableDirector spinAttackTimeline;
-
     public void Update()
     {
         numTargets = gameManager.numTargets;
@@ -111,9 +109,11 @@ public class SpinAttack : Ability
 
     public IEnumerator SpinAttackBursts(List<Combatant> selectedTargets)
     {
+        player.PauseTimer();
         for (int i = 0; i < bursts; i++)
         {
-
+            animator.Play("MC_SpinSlash");
+            yield return new WaitForSeconds(0.5f);
             foreach (Combatant target in selectedTargets)
             {
                 // Check if the target is still alive
@@ -125,7 +125,8 @@ public class SpinAttack : Ability
             }
 
             // Pause briefly between bursts (if needed)
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.35f);
         }
+        player.UnpauseTimer();
     }
 }

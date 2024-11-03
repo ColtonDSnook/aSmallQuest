@@ -25,6 +25,8 @@ public class Combatant : MonoBehaviour
 
     public string animPrefix;
 
+    public bool timersPaused = false;
+
     public enum CombatantType
     {
         Player,
@@ -80,7 +82,10 @@ public class Combatant : MonoBehaviour
 
         if (combatManager.combatState == CombatManager.CombatState.InCombat)
         {
-            cooldownTimer -= Time.deltaTime;
+            if (!timersPaused)
+            {
+                cooldownTimer -= Time.deltaTime;
+            }
         }
 
         cooldownBar.fillAmount = (float)cooldownTimer / maxCooldownTimer;
@@ -96,6 +101,16 @@ public class Combatant : MonoBehaviour
     public void ResetCooldowns()
     {
         cooldownTimer = maxCooldownTimer;
+    }
+
+    public void PauseTimer()
+    {
+        timersPaused = true;
+    }
+
+    public void UnpauseTimer()
+    {
+        timersPaused = false;
     }
 
 }

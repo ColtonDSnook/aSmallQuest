@@ -128,6 +128,7 @@ public class CombatManager : MonoBehaviour
             combatState = CombatState.None;
             playerHealth.SetCurrentHealth();
             player.ResetCooldowns();
+            player.UnpauseTimer();
         }
 
         if (combatState == CombatState.Won)
@@ -136,6 +137,7 @@ public class CombatManager : MonoBehaviour
             previousCombatState = combatState;
             combatState = CombatState.None;
             abilitiesUI.SetActive(false);
+            player.UnpauseTimer();
             //playerHealth.SetCurrentHealth();
             //levelManager.LoadScene("Post-Run");
         }
@@ -195,20 +197,19 @@ public class CombatManager : MonoBehaviour
 
     public IEnumerator Attack(Combatant target)
     {
+        player.PauseTimer();
         player.animator.Play("MC_Slash");
         yield return new WaitForSeconds(0.5f);
         target.healthSystem.TakeDamage(gameManager.damage);
         currentTarget = target;
-
+        player.UnpauseTimer();
         Debug.Log("Attacked");
     }
 
     public IEnumerator EnemyAttack(Combatant target, float damage)
     {
-
         yield return new WaitForSeconds(1f);
         target.healthSystem.TakeDamage(damage);
-
         Debug.Log("Attacked");
     }
 
@@ -267,6 +268,7 @@ public class CombatManager : MonoBehaviour
         spinAttack.RefreshAbility();
         coinsGainedCurrentRun = 0;
         enemiesDefeatedCurrentRun = 0;
+        player.UnpauseTimer();
     }
 
     public void DisplayEndResults(bool won)

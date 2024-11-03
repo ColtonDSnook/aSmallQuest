@@ -158,7 +158,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 1275595652522921980, guid: 42d0ff8cb9f760146af41626008f2726,
     type: 3}
-  height: 0.5
+  height: -1
   positions: []
 --- !u!65 &170313425
 BoxCollider:
@@ -282,7 +282,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 7919278818258867303, guid: 3859f032e5a2a1d4092e1002151f24c9,
     type: 3}
-  height: 0.5
+  height: -1
   positions: []
 --- !u!65 &264329992
 BoxCollider:
@@ -530,7 +530,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 1275595652522921980, guid: 42d0ff8cb9f760146af41626008f2726,
     type: 3}
-  height: 0.5
+  height: -1
   positions: []
 --- !u!65 &327407978
 BoxCollider:
@@ -654,7 +654,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 1275595652522921980, guid: 42d0ff8cb9f760146af41626008f2726,
     type: 3}
-  height: 0.5
+  height: -1
   positions: []
 --- !u!65 &371704838
 BoxCollider:
@@ -778,7 +778,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 7919278818258867303, guid: 3859f032e5a2a1d4092e1002151f24c9,
     type: 3}
-  height: 0.5
+  height: -1
   positions: []
 --- !u!65 &407905494
 BoxCollider:
@@ -902,7 +902,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 7919278818258867303, guid: 3859f032e5a2a1d4092e1002151f24c9,
     type: 3}
-  height: 0.5
+  height: -1
   positions: []
 --- !u!65 &490072843
 BoxCollider:
@@ -1026,7 +1026,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 7919278818258867303, guid: 3859f032e5a2a1d4092e1002151f24c9,
     type: 3}
-  height: 0.5
+  height: -1
   positions: []
 --- !u!65 &499930370
 BoxCollider:
@@ -1274,7 +1274,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 7919278818258867303, guid: 3859f032e5a2a1d4092e1002151f24c9,
     type: 3}
-  height: 0.5
+  height: -1
   positions: []
 --- !u!65 &550032715
 BoxCollider:
@@ -1398,7 +1398,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 1275595652522921980, guid: 42d0ff8cb9f760146af41626008f2726,
     type: 3}
-  height: 0.5
+  height: -1
   positions: []
 --- !u!65 &693472920
 BoxCollider:
@@ -1801,7 +1801,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 7919278818258867303, guid: 3859f032e5a2a1d4092e1002151f24c9,
     type: 3}
-  height: 0.5
+  height: -1
   positions: []
 --- !u!65 &1053254893
 BoxCollider:
@@ -2049,7 +2049,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 1275595652522921980, guid: 42d0ff8cb9f760146af41626008f2726,
     type: 3}
-  height: 0.5
+  height: -1
   positions: []
 --- !u!65 &1184838081
 BoxCollider:
@@ -2297,7 +2297,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 1275595652522921980, guid: 42d0ff8cb9f760146af41626008f2726,
     type: 3}
-  height: 0.5
+  height: -1
   positions: []
 --- !u!65 &1258256654
 BoxCollider:
@@ -2421,7 +2421,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 1275595652522921980, guid: 42d0ff8cb9f760146af41626008f2726,
     type: 3}
-  height: 0.5
+  height: -1
   positions: []
 --- !u!65 &1325661567
 BoxCollider:
@@ -2669,7 +2669,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 7919278818258867303, guid: 3859f032e5a2a1d4092e1002151f24c9,
     type: 3}
-  height: 0.5
+  height: -1
   positions: []
 --- !u!65 &1483515293
 BoxCollider:
@@ -2899,7 +2899,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 1275595652522921980, guid: 42d0ff8cb9f760146af41626008f2726,
     type: 3}
-  height: 0.5
+  height: -1
   positions: []
 --- !u!65 &1547828876
 BoxCollider:
@@ -3023,7 +3023,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 7919278818258867303, guid: 3859f032e5a2a1d4092e1002151f24c9,
     type: 3}
-  height: 0.5
+  height: -1
   positions: []
 --- !u!65 &1607725063
 BoxCollider:
@@ -3408,7 +3408,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 7919278818258867303, guid: 3859f032e5a2a1d4092e1002151f24c9,
     type: 3}
-  height: 0.5
+  height: -1
   positions: []
 --- !u!65 &1657832373
 BoxCollider:
@@ -3756,7 +3756,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 7919278818258867303, guid: 3859f032e5a2a1d4092e1002151f24c9,
     type: 3}
-  height: 0.5
+  height: -1
   positions: []
 --- !u!65 &1863667226
 BoxCollider:
@@ -3880,7 +3880,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 7286844961674179435, guid: ac3397cd9bbf61f4c85dec89b0ce5a2f,
     type: 3}
-  height: 0.5
+  height: -0.5
   positions: []
 --- !u!65 &1948402243
 BoxCollider:
@@ -4252,7 +4252,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 1275595652522921980, guid: 42d0ff8cb9f760146af41626008f2726,
     type: 3}
-  height: 0.5
+  height: -1
   positions: []
 --- !u!65 &1968352466
 BoxCollider:
@@ -4376,7 +4376,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 1275595652522921980, guid: 42d0ff8cb9f760146af41626008f2726,
     type: 3}
-  height: 0.5
+  height: -1
   positions: []
 --- !u!65 &2058588314
 BoxCollider:

@@ -25,6 +25,8 @@ public class Combatant : MonoBehaviour
 
     public string animPrefix;
 
+    public float attackAnimTime;
+
     public bool timersPaused = false;
 
     public GameObject healthBarObject;
@@ -54,21 +56,25 @@ public class Combatant : MonoBehaviour
                 maxCooldownTimer = defaultCooldownTimer / defaultSlimeAttackSpeed;
                 damage = defaultSlimeDamage;
                 animPrefix = slimeAnimPrefix;
+                attackAnimTime = defaultSlimeAttackAnimTime;
                 break;
             case CombatantType.Goblin:
                 maxCooldownTimer = defaultCooldownTimer / defaultGoblinAttackSpeed;
                 damage = defaultGoblinDamage;
                 animPrefix = goblinAnimPrefix;
+                attackAnimTime = defaultGoblinAttackAnimTime;
                 break;
             case CombatantType.Kobold:
                 maxCooldownTimer = defaultCooldownTimer / defaultKoboldAttackSpeed;
                 damage = defaultKoboldDamage;
                 animPrefix = koboldAnimPrefix;
+                attackAnimTime = defaultKoboldAttackAnimTime;
                 break;
             case CombatantType.DungeonMaster:
                 maxCooldownTimer = defaultCooldownTimer / defaultDungeonMasterAttackSpeed;
                 damage = defaultDungeonMasterDamage;
                 animPrefix = dungeonMasterAnimPrefix;
+                attackAnimTime = defaultDungeonMasterAttackAnimTime;
                 break;
         }
         cooldownTimer = maxCooldownTimer;

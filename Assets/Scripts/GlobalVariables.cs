@@ -26,21 +26,25 @@ public static class GlobalVariables
     public const float defaultSlimeHealth = 25;
     public const float defaultSlimeDamage = 5;
     public const float defaultSlimeAttackSpeed = 0.5f;
+    public const float defaultSlimeAttackAnimTime = 1f;
     public const string slimeAnimPrefix = "Slime";
 
     public const float defaultGoblinHealth = 40;
     public const float defaultGoblinDamage = 9;
     public const float defaultGoblinAttackSpeed = 1;
+    public const float defaultGoblinAttackAnimTime = 0.5f;
     public const string goblinAnimPrefix = "Goblin";
 
     public const float defaultKoboldHealth = 60;
     public const float defaultKoboldDamage = 15;
     public const float defaultKoboldAttackSpeed = 0.5f;
+    public const float defaultKoboldAttackAnimTime = 0.5f;
     public const string koboldAnimPrefix = "Kobold";
 
     public const float defaultDungeonMasterHealth = 150;
     public const float defaultDungeonMasterDamage = 20;
     public const float defaultDungeonMasterAttackSpeed = 0.75f;
+    public const float defaultDungeonMasterAttackAnimTime = 1f;
     public const string dungeonMasterAnimPrefix = "DM";
 
     // Encounters

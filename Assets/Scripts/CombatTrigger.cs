@@ -42,7 +42,16 @@ public class CombatTrigger : MonoBehaviour
 
     void InstantiateEnemies()
     {
-        int numEnemies = Random.Range(2,5);
+        int numEnemies;
+        if (enemyPrefab.name == "DungeonMaster")
+        {
+            numEnemies = 1;
+        }
+        else
+        {
+            numEnemies = Random.Range(2, 5);
+        }
+
         for (int i = 1; i <= numEnemies; i++)
         {
             Instantiate(enemyPrefab, positions[i], Quaternion.identity);

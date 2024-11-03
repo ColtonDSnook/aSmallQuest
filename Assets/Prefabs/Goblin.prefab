@@ -497,7 +497,7 @@ MonoBehaviour:
   m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5012319914231599768
@@ -5559,7 +5559,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   currentHealth: 0
-  healthText: {fileID: 0}
   damageText: {fileID: 2176994425720641693}
   maxHealth: 0
   healthBar: {fileID: 974516770643404327}

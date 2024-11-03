@@ -227,7 +227,7 @@ public class CombatManager : MonoBehaviour
     public IEnumerator EnemyAttack(Combatant user, Combatant target, float damage)
     {
         user.animator.Play(user.animPrefix + "_Attack");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(user.attackAnimTime);
         target.healthSystem.TakeDamage(damage);
         Debug.Log("Attacked");
     }

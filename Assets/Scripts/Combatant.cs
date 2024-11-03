@@ -27,6 +27,8 @@ public class Combatant : MonoBehaviour
 
     public float attackAnimTime;
 
+    public GameObject gold;
+
     public bool timersPaused = false;
 
     public GameObject healthBarObject;
@@ -46,6 +48,10 @@ public class Combatant : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!player)
+        {
+            gold.SetActive(false);
+        }
         animator = GetComponentInChildren<Animator>();
         combatManager = FindObjectOfType<CombatManager>();
         healthSystem = GetComponent<Health>();
@@ -106,6 +112,7 @@ public class Combatant : MonoBehaviour
         PauseTimer();
         coolDownBarObject.SetActive(false);
         healthBarObject.SetActive(false);
+        gold.SetActive(true);
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
     }

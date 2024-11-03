@@ -85,6 +85,8 @@ public class CombatManager : MonoBehaviour
         currencyDropper = FindObjectOfType<CurrencyDropper>();
         abilitiesUI.SetActive(false);
         lostCombat = false;
+        encountersCompleted = 0;
+        progressBar.value = 0;
     }
 
     // Update is called once per frame
@@ -98,6 +100,7 @@ public class CombatManager : MonoBehaviour
             DisplayEndResults(true);
 
             encountersCompleted = 0;
+            progressBar.value = 0;
             levelManager.LoadScene("Post-Run", true);
             gameManager.Save();
             playerHealth.SetCurrentHealth();
@@ -129,6 +132,7 @@ public class CombatManager : MonoBehaviour
 
             lostCombat = false;
             encountersCompleted = 0;
+            progressBar.value = 0;
             levelManager.LoadScene("Post-Run", false);
             combatants.Clear();
             gameManager.Save();
@@ -282,11 +286,12 @@ public class CombatManager : MonoBehaviour
             combatant.ResetCooldowns();
         }
         player.ResetCooldowns();
-        encountersCompleted = 0;
         stabAttack.RefreshAbility();
         spinAttack.RefreshAbility();
         coinsGainedCurrentRun = 0;
         enemiesDefeatedCurrentRun = 0;
+        encountersCompleted = 0;
+        progressBar.value = 0;
         lostCombat = false;
         player.UnpauseTimer();
         player.healthBarObject.SetActive(true);

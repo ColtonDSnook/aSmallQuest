@@ -20,7 +20,7 @@ public static class GlobalVariables
     public const float defaultStabDamage = 3;
     public const float defaultHealing = 0;
 
-    public const float spinAttackBaseDamage = 0.4f; // 40%
+    public const float spinAttackBaseDamage = 0.5f; // 50%
 
     // Enemies Variables
     public const float defaultSlimeHealth = 25;
@@ -31,13 +31,13 @@ public static class GlobalVariables
 
     public const float defaultGoblinHealth = 40;
     public const float defaultGoblinDamage = 9;
-    public const float defaultGoblinAttackSpeed = 1;
+    public const float defaultGoblinAttackSpeed = 0.5f;
     public const float defaultGoblinAttackAnimTime = 0.5f;
     public const string goblinAnimPrefix = "Goblin";
 
-    public const float defaultKoboldHealth = 60;
-    public const float defaultKoboldDamage = 15;
-    public const float defaultKoboldAttackSpeed = 0.5f;
+    public const float defaultKoboldHealth = 50;
+    public const float defaultKoboldDamage = 20;
+    public const float defaultKoboldAttackSpeed = 0.25f;
     public const float defaultKoboldAttackAnimTime = 0.5f;
     public const string koboldAnimPrefix = "Kobold";
 

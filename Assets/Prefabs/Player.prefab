@@ -30049,7 +30049,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2023964327277468223}
   currentHealth: 0
-  healthText: {fileID: 0}
   damageText: {fileID: 8282725488515922820}
   maxHealth: 0
   healthBar: {fileID: 5715196435623320355}
@@ -30087,6 +30086,8 @@ MonoBehaviour:
   healthSystem: {fileID: 9078261807579048259}
   animator: {fileID: 0}
   animPrefix: 
+  attackAnimTime: 0
+  gold: {fileID: 0}
   timersPaused: 0
   healthBarObject: {fileID: 6115463253270359144}
   coolDownBarObject: {fileID: 4317424296335225727}

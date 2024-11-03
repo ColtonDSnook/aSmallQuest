@@ -790,7 +790,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.2
-    functionName: SlimeHurtS
+    functionName: SlimeDeathS
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

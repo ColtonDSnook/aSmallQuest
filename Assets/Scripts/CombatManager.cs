@@ -68,6 +68,8 @@ public class CombatManager : MonoBehaviour
 
     public Slider progressBar;
 
+    public bool lostCombat = false;
+
     // when an ability is used, block the player from using any other ability until ability use is over.
 
     // Start is called before the first frame update
@@ -82,6 +84,7 @@ public class CombatManager : MonoBehaviour
         levelManager = FindObjectOfType<LevelManager>();
         currencyDropper = FindObjectOfType<CurrencyDropper>();
         abilitiesUI.SetActive(false);
+        lostCombat = false;
     }
 
     // Update is called once per frame
@@ -99,6 +102,10 @@ public class CombatManager : MonoBehaviour
             gameManager.Save();
             playerHealth.SetCurrentHealth();
             player.ResetCooldowns();
+            lostCombat = false;
+            player.UnpauseTimer();
+            player.healthBarObject.SetActive(true);
+            player.coolDownBarObject.SetActive(true);
         }
 
         //Debug.Log(player.healthSystem.GetCurrentHealth());
@@ -120,6 +127,7 @@ public class CombatManager : MonoBehaviour
         {
             DisplayEndResults(false);
 
+            lostCombat = false;
             encountersCompleted = 0;
             levelManager.LoadScene("Post-Run", false);
             combatants.Clear();
@@ -129,6 +137,8 @@ public class CombatManager : MonoBehaviour
             playerHealth.SetCurrentHealth();
             player.ResetCooldowns();
             player.UnpauseTimer();
+            player.healthBarObject.SetActive(true);
+            player.coolDownBarObject.SetActive(true);
         }
 
         if (combatState == CombatState.Won)
@@ -155,8 +165,7 @@ public class CombatManager : MonoBehaviour
             {
                 if (!combatant.player)
                 {
-                    combatant.animator.Play(combatant.animPrefix + "_Attack");
-                    StartCoroutine(EnemyAttack(GetPlayer(), combatant.damage));
+                    StartCoroutine(EnemyAttack(combatant, GetPlayer(), combatant.damage));
                 }
                 else
                 {
@@ -170,14 +179,12 @@ public class CombatManager : MonoBehaviour
             if (combatant.healthSystem.GetCurrentHealth() <= 0)
             {
                 //Debug.Log(combatant.healthSystem.GetCurrentHealth());
-                if (combatant.player)
+                if (combatant.player && !lostCombat)
                 {
-                    playerHealth.SetCurrentHealth();
-                    combatant.ResetCooldowns();
-                    combatState = CombatState.Lost;
+                    StartCoroutine(LoseCombat());
                     //upgradeManager.Save();
                 }
-                else
+                else if (!combatant.player)
                 {
                     combatants.Remove(combatant);
                     coinsGainedCurrentRun += currencyDropper.DropCurrency();
@@ -195,6 +202,17 @@ public class CombatManager : MonoBehaviour
         }
     }
 
+    public IEnumerator LoseCombat()
+    {
+        player.PauseTimer();
+        player.healthBarObject.SetActive(false);
+        player.coolDownBarObject.SetActive(false);
+        player.animator.Play("MC_Death");
+        lostCombat = true;
+        yield return new WaitForSeconds(3);
+        combatState = CombatState.Lost;
+    }
+
     public IEnumerator Attack(Combatant target)
     {
         player.PauseTimer();
@@ -206,8 +224,9 @@ public class CombatManager : MonoBehaviour
         Debug.Log("Attacked");
     }
 
-    public IEnumerator EnemyAttack(Combatant target, float damage)
+    public IEnumerator EnemyAttack(Combatant user, Combatant target, float damage)
     {
+        user.animator.Play(user.animPrefix + "_Attack");
         yield return new WaitForSeconds(1f);
         target.healthSystem.TakeDamage(damage);
         Debug.Log("Attacked");
@@ -268,7 +287,10 @@ public class CombatManager : MonoBehaviour
         spinAttack.RefreshAbility();
         coinsGainedCurrentRun = 0;
         enemiesDefeatedCurrentRun = 0;
+        lostCombat = false;
         player.UnpauseTimer();
+        player.healthBarObject.SetActive(true);
+        player.coolDownBarObject.SetActive(true);
     }
 
     public void DisplayEndResults(bool won)

@@ -9,7 +9,6 @@ public class Health : MonoBehaviour
 {
     public Animator animator;
     [SerializeField] private float currentHealth;
-    public TextMeshProUGUI healthText;
     public TextMeshProUGUI damageText;
 
     public float maxHealth;
@@ -64,11 +63,6 @@ public class Health : MonoBehaviour
         else
         {
             healthBar.fillAmount = (float)GetCurrentHealth() / maxHealth;
-        }
-
-        if (healthText == null)
-        {
-            return;
         }
         //GetCurrentHealth();
     }

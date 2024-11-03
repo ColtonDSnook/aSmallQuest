@@ -27,6 +27,9 @@ public class Combatant : MonoBehaviour
 
     public bool timersPaused = false;
 
+    public GameObject healthBarObject;
+    public GameObject coolDownBarObject;
+
     public enum CombatantType
     {
         Player,
@@ -43,7 +46,6 @@ public class Combatant : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         combatManager = FindObjectOfType<CombatManager>();
-        cooldownTimer = maxCooldownTimer;
         healthSystem = GetComponent<Health>();
 
         switch (combatantType)
@@ -69,6 +71,7 @@ public class Combatant : MonoBehaviour
                 animPrefix = dungeonMasterAnimPrefix;
                 break;
         }
+        cooldownTimer = maxCooldownTimer;
     }
 
     // Update is called once per frame
@@ -93,8 +96,11 @@ public class Combatant : MonoBehaviour
 
     public IEnumerator Kill()
     {
-        yield return new WaitForSeconds(2);
         animator.Play(animPrefix + "_Death");
+        PauseTimer();
+        coolDownBarObject.SetActive(false);
+        healthBarObject.SetActive(false);
+        yield return new WaitForSeconds(2);
         Destroy(gameObject);
     }
 
@@ -110,7 +116,10 @@ public class Combatant : MonoBehaviour
 
     public void UnpauseTimer()
     {
-        timersPaused = false;
+        if (!combatManager.lostCombat)
+        {
+            timersPaused = false;
+        }
     }
 
 }

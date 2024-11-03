@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI damageText;
     public TextMeshProUGUI speedText;
     public TextMeshProUGUI goldText;
+    public TextMeshProUGUI healthText;
 
     public TextMeshProUGUI upgradesGoldText;
 
@@ -152,14 +153,14 @@ public class GameManager : MonoBehaviour
     private void Settings()
     {
         Cursor.visible = true;
-        playerSprite.SetActive(false);
+        playerSprite.SetActive(true);
         uiManager.UISettings();
     }
 
     private void Pause()
     {
         Cursor.visible = true;
-        playerSprite.SetActive(false);
+        playerSprite.SetActive(true);
         uiManager.UIPause();
     }
 
@@ -254,6 +255,10 @@ public class GameManager : MonoBehaviour
         {
             gameState = GameState.MainMenu;
         }
+        else if (previousGameState == GameState.Upgrades)
+        {
+            gameState = GameState.Upgrades;
+        }
         else if (previousGameState != GameState.MainMenu)
         {
             gameState = GameState.Pause;
@@ -268,10 +273,12 @@ public class GameManager : MonoBehaviour
 
     public void UpdateText()
     {
-        //damageText.text = "DMG: " + damage.ToString();
-        //speedText.text = "SPD: " + attackSpeed.ToString();
+        damageText.text = "DMG: " + damage.ToString();
+        speedText.text = "SPD: " + attackSpeed.ToString();
+        upgradesGoldText.text = "GLD: " + gold.ToString();
+        healthText.text = "HP: " + maxHealth.ToString();
+
         goldText.text = combatManager.coinsGainedCurrentRun.ToString();
-        upgradesGoldText.text = "Gold: " + gold.ToString();
     }
 
     public void ResetValues()

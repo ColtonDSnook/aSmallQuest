@@ -1080,7 +1080,9 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: ebe79d88bc83385418651420ddf6b858, type: 3}
   musicSource: {fileID: 1352847505}
   sfxSource: {fileID: 916172588}
-  gameState: 0
+  gameManager: {fileID: 0}
+  isPlayingMenuMusic: 0
+  isPlayingGameMusic: 0
 --- !u!1 &122967642 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7880646047920100083, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
@@ -1995,7 +1997,7 @@ RectTransform:
   m_Father: {fileID: 1174804936}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 100, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -16922,7 +16924,7 @@ PrefabInstance:
     - target: {fileID: 4388407651280419639, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4418753496238487025, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
@@ -17118,7 +17120,7 @@ PrefabInstance:
     - target: {fileID: 7300796832222217886, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7984210094911437765, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}

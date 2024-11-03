@@ -9,7 +9,10 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance;
     public Sound[] musicSounds, sfxSounds;
     public AudioSource musicSource, sfxSource;
-    public GameManager.GameState gameState;
+    public GameManager gameManager;
+
+    private bool isPlayingMenuMusic = false;
+    private bool isPlayingGameMusic = false;
 
     private void Awake()
     {
@@ -23,20 +26,40 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        PlayMusic("MenuMusic");
+        isPlayingMenuMusic = true;
     }
 
-    private void Gameplay()
+    private void Start()
     {
-        if (gameState == GameManager.GameState.Gameplay)
+
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
+    private void Update()
+    {
+        if (gameManager.gameState == GameManager.GameState.Gameplay)
         {
-            SoundManager.Instance.musicSource.Stop();
-            PlayMusic("GameplayMusic");
+            if (!isPlayingGameMusic)
+            {
+                SoundManager.Instance.musicSource.Stop();
+                PlayMusic("GameMusic");
+                isPlayingGameMusic = true;
+                isPlayingMenuMusic = false;
+            }
+
         }
 
-        else
+        else if (gameManager.gameState != GameManager.GameState.Gameplay)
         {
-            SoundManager.Instance.musicSource.Stop();
-            PlayMusic("MenuMusic");
+            if (!isPlayingMenuMusic)
+            {
+                SoundManager.Instance.musicSource.Stop();
+                PlayMusic("MenuMusic");
+                isPlayingMenuMusic = true;
+                isPlayingGameMusic = false;
+            }
         }
     }
 

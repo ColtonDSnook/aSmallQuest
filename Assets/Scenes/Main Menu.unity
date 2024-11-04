@@ -122,12 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!95 &8208114 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2023964327277468223, guid: 2c3a15933f2ab1140be13ba419f590d6,
-    type: 3}
-  m_PrefabInstance: {fileID: 6879987595786391693}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &13916312
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,7 +720,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 1191435979}
-  checkMark: {fileID: 1692341687}
+  checkMark: {fileID: 0}
 --- !u!114 &92505051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -878,7 +872,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 319051144}
-  checkMark: {fileID: 695407820}
+  checkMark: {fileID: 0}
 --- !u!114 &100406238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1326,7 +1320,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 1986032697}
-  checkMark: {fileID: 1619231518}
+  checkMark: {fileID: 0}
 --- !u!114 &166723692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1966,7 +1960,7 @@ MonoBehaviour:
   abilityRadial: {fileID: 532169568}
   abilityColor: {fileID: 21300000, guid: f578f68268f6ec440ae3f9219eb958a0, type: 3}
   abilityGrey: {fileID: 21300000, guid: 36444d499ca078c4699791e76dabf74d, type: 3}
-  animator: {fileID: 8208114}
+  animator: {fileID: 0}
   timerText: {fileID: 649383309}
   timeRemaining: 0
   maxCountDownTime: 8
@@ -2178,7 +2172,7 @@ RectTransform:
   m_Father: {fileID: 1174804936}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 80, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2276,7 +2270,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 1175682911}
-  checkMark: {fileID: 104078540}
+  checkMark: {fileID: 0}
 --- !u!114 &223937808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2921,7 +2915,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 1683993102}
-  checkMark: {fileID: 870079357}
+  checkMark: {fileID: 0}
 --- !u!114 &319051145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3254,7 +3248,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 223937807}
-  checkMark: {fileID: 563870695}
+  checkMark: {fileID: 0}
 --- !u!114 &336534101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3386,7 +3380,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 1153283001}
-  checkMark: {fileID: 1571770812}
+  checkMark: {fileID: 0}
 --- !u!114 &354787413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3906,7 +3900,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 0
   previousUpgrade: {fileID: 0}
-  checkMark: {fileID: 691598079}
+  checkMark: {fileID: 0}
 --- !u!114 &398656708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4044,7 +4038,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 2028783663}
-  checkMark: {fileID: 822378572}
+  checkMark: {fileID: 0}
 --- !u!114 &426818717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5127,7 +5121,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 0
   previousUpgrade: {fileID: 0}
-  checkMark: {fileID: 13916312}
+  checkMark: {fileID: 0}
 --- !u!1 &513271178
 GameObject:
   m_ObjectHideFlags: 0
@@ -5537,7 +5531,7 @@ MonoBehaviour:
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &532169569
@@ -6236,7 +6230,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 92505050}
-  checkMark: {fileID: 1498393836}
+  checkMark: {fileID: 0}
 --- !u!114 &566171045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6749,7 +6743,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 0
   previousUpgrade: {fileID: 0}
-  checkMark: {fileID: 536265607}
+  checkMark: {fileID: 0}
 --- !u!114 &622248726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8426,7 +8420,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 354787412}
-  checkMark: {fileID: 1445702565}
+  checkMark: {fileID: 0}
 --- !u!114 &926903846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8673,7 +8667,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 166723691}
-  checkMark: {fileID: 1803451223}
+  checkMark: {fileID: 0}
 --- !u!114 &941292732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9083,7 +9077,7 @@ MonoBehaviour:
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &977077146
@@ -9732,7 +9726,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 622248725}
-  checkMark: {fileID: 772958205}
+  checkMark: {fileID: 0}
 --- !u!114 &1083269652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10033,7 +10027,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 1783298975}
-  checkMark: {fileID: 1642194490}
+  checkMark: {fileID: 0}
 --- !u!114 &1153283002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10401,7 +10395,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 398656707}
-  checkMark: {fileID: 980583866}
+  checkMark: {fileID: 0}
 --- !u!114 &1170687258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10688,7 +10682,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 1426989785}
-  checkMark: {fileID: 467565821}
+  checkMark: {fileID: 0}
 --- !u!114 &1175682912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10973,7 +10967,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 488630324}
-  checkMark: {fileID: 1302071376}
+  checkMark: {fileID: 0}
 --- !u!114 &1191435980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11416,7 +11410,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 0
   previousUpgrade: {fileID: 0}
-  checkMark: {fileID: 1322443614}
+  checkMark: {fileID: 0}
 --- !u!114 &1278697679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12129,7 +12123,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 2078056973}
-  checkMark: {fileID: 951482163}
+  checkMark: {fileID: 0}
 --- !u!114 &1381367487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12660,7 +12654,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 1278697678}
-  checkMark: {fileID: 812151415}
+  checkMark: {fileID: 0}
 --- !u!114 &1426989786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13522,7 +13516,7 @@ MonoBehaviour:
   abilityRadial: {fileID: 977077145}
   abilityColor: {fileID: 21300000, guid: 482275b4dc9b32a43b04982fbc373c9c, type: 3}
   abilityGrey: {fileID: 21300000, guid: 79aa46f8756eb5447816da662ca3fb8a, type: 3}
-  animator: {fileID: 8208114}
+  animator: {fileID: 0}
   timerText: {fileID: 2088308556}
   timeRemaining: 0
   maxCountDownTime: 5
@@ -13904,7 +13898,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 1083269651}
-  checkMark: {fileID: 456231206}
+  checkMark: {fileID: 0}
 --- !u!114 &1683993103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14686,7 +14680,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 0
   previousUpgrade: {fileID: 0}
-  checkMark: {fileID: 938978389}
+  checkMark: {fileID: 0}
 --- !u!114 &1783298976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15867,7 +15861,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 398656707}
-  checkMark: {fileID: 1199967235}
+  checkMark: {fileID: 0}
 --- !u!114 &1986032698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16807,7 +16801,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 1170687257}
-  checkMark: {fileID: 1298361857}
+  checkMark: {fileID: 0}
 --- !u!114 &2028783664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17227,7 +17221,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 1783298975}
-  checkMark: {fileID: 356853501}
+  checkMark: {fileID: 0}
 --- !u!114 &2078056974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17534,7 +17528,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 566171044}
-  checkMark: {fileID: 1310749879}
+  checkMark: {fileID: 0}
 --- !u!114 &2089510140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17686,7 +17680,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 1
   previousUpgrade: {fileID: 1381367486}
-  checkMark: {fileID: 609795234}
+  checkMark: {fileID: 0}
 --- !u!114 &2097554749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18072,7 +18066,7 @@ PrefabInstance:
     - target: {fileID: 1419272070678294235, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1470755331953410969, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
@@ -18244,7 +18238,7 @@ PrefabInstance:
     - target: {fileID: 4388407651280419639, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4418753496238487025, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}

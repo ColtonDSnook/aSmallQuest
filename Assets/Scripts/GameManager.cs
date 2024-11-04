@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI upgradesGoldText;
 
+    public TextMeshProUGUI versionNumber;
+
     public float gold = defaultGold; //#
     public float damage = defaultDamage; //#
     public float maxHealth = defaultMaxHealth; //#
@@ -76,6 +78,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        versionNumber.text = Application.version;
         combatManager = FindObjectOfType<CombatManager>();
         uiManager = FindObjectOfType<UIManager>();
         player = FindObjectOfType<PlayerMovement>();

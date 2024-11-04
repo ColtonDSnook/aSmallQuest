@@ -10,6 +10,11 @@ public class UpgradeButton : MonoBehaviour
     public UpgradeButton previousUpgrade;
     public GameObject checkMark;
 
+    public void Start()
+    {
+        checkMark = transform.GetChild(0).gameObject;
+    }
+
     public void OnButtonClick()
     {
         if (upgradeManager.upgrades[upgradeIndex].isPurchased)

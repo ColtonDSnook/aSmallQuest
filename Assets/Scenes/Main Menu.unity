@@ -2172,7 +2172,7 @@ RectTransform:
   m_Father: {fileID: 1174804936}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 80, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3900,7 +3900,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 534866859}
   isDisabled: 0
   previousUpgrade: {fileID: 0}
-  checkMark: {fileID: 0}
+  checkMark: {fileID: 691598079}
 --- !u!114 &398656708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5387,9 +5387,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Alpha 1.39
-
-'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0dbc043506bc144980e98490664f5d0, type: 2}
   m_sharedMaterial: {fileID: -5902311437037449532, guid: d0dbc043506bc144980e98490664f5d0,
@@ -13512,7 +13510,7 @@ MonoBehaviour:
   gameManager: {fileID: 448061847731428974}
   abilityUI: {fileID: 1572044305}
   player: {fileID: 1825759180}
-  ability: {fileID: 0}
+  ability: {fileID: 1572044309}
   abilityRadial: {fileID: 977077145}
   abilityColor: {fileID: 21300000, guid: 482275b4dc9b32a43b04982fbc373c9c, type: 3}
   abilityGrey: {fileID: 21300000, guid: 79aa46f8756eb5447816da662ca3fb8a, type: 3}
@@ -18066,7 +18064,7 @@ PrefabInstance:
     - target: {fileID: 1419272070678294235, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1470755331953410969, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
@@ -18238,7 +18236,7 @@ PrefabInstance:
     - target: {fileID: 4388407651280419639, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4418753496238487025, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
@@ -18664,6 +18662,11 @@ PrefabInstance:
       propertyPath: playerSprite
       value: 
       objectReference: {fileID: 1825759167}
+    - target: {fileID: 8846163470736910986, guid: f5979bbf107893c49a6a65eb03cd81eb,
+        type: 3}
+      propertyPath: versionNumber
+      value: 
+      objectReference: {fileID: 518142951}
     - target: {fileID: 8846163470736910986, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
       propertyPath: upgradeManager

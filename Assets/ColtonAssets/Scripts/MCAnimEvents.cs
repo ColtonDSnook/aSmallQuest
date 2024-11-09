@@ -7,7 +7,20 @@ public class MCAnimEvents : MonoBehaviour
     public ParticleSystem spinSlash;
     public ParticleSystem slash;
     public ParticleSystem stabAttack;
+    public ParticleSystem LeftFoot;
+    public ParticleSystem RightFoot;
 
+    void FootStepEvent(int whichFoot)
+    {
+        if (whichFoot == 0)
+        {
+            LeftFoot.Play();
+        }
+        else
+        {
+            RightFoot.Play();
+        }
+    }
     void MCAttackEvent()
     {
         slash.Play();

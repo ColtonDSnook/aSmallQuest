@@ -9,6 +9,8 @@ public abstract class Ability : MonoBehaviour
 {
     public string abilityName;
 
+    public bool isActive = true;
+
     public CombatManager combatManager;
     public GameManager gameManager;
 

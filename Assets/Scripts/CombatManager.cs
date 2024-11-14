@@ -236,7 +236,10 @@ public class CombatManager : MonoBehaviour
     {
         user.animator.Play(user.animPrefix + "_Attack");
         yield return new WaitForSeconds(user.attackAnimTime);
-        target.healthSystem.TakeDamage(damage);
+        if (user.healthSystem.GetCurrentHealth() >= 0)
+        {
+            target.healthSystem.TakeDamage(damage);
+        }
         Debug.Log("Attacked");
     }
 
@@ -269,11 +272,6 @@ public class CombatManager : MonoBehaviour
     {
         Combatant[] combatantsArray = FindObjectsOfType<Combatant>();
         combatants = combatantsArray.ToList<Combatant>();
-    }
-
-    public void ApplyDamage()
-    {
-        currentTarget.healthSystem.TakeDamage(4);
     }
 
     public void ResetCombatState()

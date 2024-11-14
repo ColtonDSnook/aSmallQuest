@@ -41,9 +41,8 @@ public class SpinAttack : Ability
     {
         if (timeRemaining == 0)
         {
-            if (combatManager.combatState == CombatManager.CombatState.InCombat)
+            if (combatManager.combatState == CombatManager.CombatState.InCombat && isActive)
             {
-                //spinAttackTimeline.Play();
                 ability.sprite = abilityGrey;
                 abilityRadial.fillAmount = 1;
             }
@@ -53,8 +52,6 @@ public class SpinAttack : Ability
             Debug.Log("Wait for cooldown to finish");
             return;
         }
-
-        // use spin attack timeline;
 
         if (timeRemaining > 0)
         {

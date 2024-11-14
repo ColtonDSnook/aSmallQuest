@@ -36,7 +36,7 @@ public class StabAttack : Ability
     {
         if (timeRemaining == 0)
         {
-            if (combatManager.combatState == CombatManager.CombatState.InCombat)
+            if (combatManager.combatState == CombatManager.CombatState.InCombat && isActive)
             {
                 animator.Play("MC_Stab");
                 ability.sprite = abilityGrey;

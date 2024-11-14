@@ -1960,7 +1960,7 @@ MonoBehaviour:
   abilityRadial: {fileID: 532169568}
   abilityColor: {fileID: 21300000, guid: f578f68268f6ec440ae3f9219eb958a0, type: 3}
   abilityGrey: {fileID: 21300000, guid: 36444d499ca078c4699791e76dabf74d, type: 3}
-  animator: {fileID: 0}
+  animator: {fileID: 1073219903}
   timerText: {fileID: 649383309}
   timeRemaining: 0
   maxCountDownTime: 8
@@ -9747,6 +9747,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048524532}
   m_CullTransparentMesh: 1
+--- !u!95 &1073219903 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2023964327277468223, guid: 2c3a15933f2ab1140be13ba419f590d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 6879987595786391693}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1083269649
 GameObject:
   m_ObjectHideFlags: 0
@@ -10918,6 +10924,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Main Menu
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1805031243}
+        m_TargetAssemblyTypeName: CombatManager, Assembly-CSharp
+        m_MethodName: ResetAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1183130799
@@ -13563,7 +13581,7 @@ MonoBehaviour:
   abilityRadial: {fileID: 977077145}
   abilityColor: {fileID: 21300000, guid: 482275b4dc9b32a43b04982fbc373c9c, type: 3}
   abilityGrey: {fileID: 21300000, guid: 79aa46f8756eb5447816da662ca3fb8a, type: 3}
-  animator: {fileID: 0}
+  animator: {fileID: 1073219903}
   timerText: {fileID: 2088308556}
   timeRemaining: 0
   maxCountDownTime: 5
@@ -17057,6 +17075,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Main Menu
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1805031243}
+        m_TargetAssemblyTypeName: CombatManager, Assembly-CSharp
+        m_MethodName: ResetAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2052205690

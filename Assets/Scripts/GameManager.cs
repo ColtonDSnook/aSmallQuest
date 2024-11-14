@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     private UIManager uiManager;
     private PlayerMovement player;
+    public Combatant playerCombatant;
     public GameObject playerSprite;
     public GameObject spawnPoint;
 
@@ -163,7 +164,7 @@ public class GameManager : MonoBehaviour
     private void Pause()
     {
         Cursor.visible = true;
-        playerSprite.SetActive(true);
+        playerSprite.SetActive(false);
         uiManager.UIPause();
     }
 
@@ -214,6 +215,7 @@ public class GameManager : MonoBehaviour
         {
             gameState = previousGameState;
             Time.timeScale = 1;
+            playerCombatant.UnpauseTimer();
         }
     }
 

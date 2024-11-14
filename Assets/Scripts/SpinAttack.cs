@@ -46,6 +46,11 @@ public class SpinAttack : Ability
                 ability.sprite = abilityGrey;
                 abilityRadial.fillAmount = 1;
             }
+            else
+            {
+                Debug.Log("Cannot use ability while dead/dying");
+                return;
+            }
         }
         else
         {
@@ -102,6 +107,7 @@ public class SpinAttack : Ability
 
         timeRemaining = maxCountDownTime;
         player.cooldownTimer = player.maxCooldownTimer;
+        Debug.Log("Ability Completed");
     }
 
     public IEnumerator SpinAttackBursts(List<Combatant> selectedTargets)

@@ -1952,6 +1952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityName: Stab Attack
+  isActive: 1
   combatManager: {fileID: 1805031243}
   gameManager: {fileID: 448061847731428974}
   abilityUI: {fileID: 2015486422}
@@ -1998,7 +1999,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: 66465e08f1b10d642a5cf32c289c19b4,
       type: 3}
     m_PressedSprite: {fileID: 21300000, guid: f19dad170e0a6a044b0b4c3d22922e67, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 66465e08f1b10d642a5cf32c289c19b4, type: 3}
+    m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 21300000, guid: 36444d499ca078c4699791e76dabf74d, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -9697,16 +9698,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 448061847731428974}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: OpenUpgrades
-        m_Mode: 1
+      - m_Target: {fileID: 448061847731428977}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Gameplay
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1048524535
@@ -13497,7 +13498,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: a18cb245f9e3bf746a5b2e718c0be65d,
       type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 7cd0ed0da628298499989e2e7ca82da0, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: a18cb245f9e3bf746a5b2e718c0be65d, type: 3}
+    m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 21300000, guid: 79aa46f8756eb5447816da662ca3fb8a, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -13573,6 +13574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityName: Spin Attack
+  isActive: 1
   combatManager: {fileID: 1805031243}
   gameManager: {fileID: 448061847731428974}
   abilityUI: {fileID: 1572044305}
@@ -18770,6 +18772,11 @@ PrefabInstance:
       objectReference: {fileID: 1825759167}
     - target: {fileID: 8846163470736910986, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
+      propertyPath: combatManager
+      value: 
+      objectReference: {fileID: 1805031243}
+    - target: {fileID: 8846163470736910986, guid: f5979bbf107893c49a6a65eb03cd81eb,
+        type: 3}
       propertyPath: versionNumber
       value: 
       objectReference: {fileID: 518142951}
@@ -18778,6 +18785,11 @@ PrefabInstance:
       propertyPath: upgradeManager
       value: 
       objectReference: {fileID: 534866859}
+    - target: {fileID: 8846163470736910986, guid: f5979bbf107893c49a6a65eb03cd81eb,
+        type: 3}
+      propertyPath: playerCombatant
+      value: 
+      objectReference: {fileID: 1825759180}
     - target: {fileID: 8846163470736910986, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
       propertyPath: upgradesGoldText

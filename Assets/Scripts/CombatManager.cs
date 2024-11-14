@@ -209,6 +209,8 @@ public class CombatManager : MonoBehaviour
 
     public IEnumerator LoseCombat()
     {
+        spinAttack.isActive = false;
+        stabAttack.isActive = false;
         foreach (Combatant combatant in combatants)
         {
             combatant.PauseTimer();
@@ -298,6 +300,8 @@ public class CombatManager : MonoBehaviour
         player.UnpauseTimer();
         player.healthBarObject.SetActive(true);
         player.coolDownBarObject.SetActive(true);
+        spinAttack.isActive = true;
+        stabAttack.isActive = true;
     }
 
     public void DisplayEndResults(bool won)

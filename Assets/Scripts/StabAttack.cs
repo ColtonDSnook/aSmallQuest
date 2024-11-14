@@ -42,6 +42,11 @@ public class StabAttack : Ability
                 ability.sprite = abilityGrey;
                 abilityRadial.fillAmount = 1;
             }
+            else
+            {
+                Debug.Log("Cannot use ability while dead/dying");
+                return;
+            }
         }
         else
         {

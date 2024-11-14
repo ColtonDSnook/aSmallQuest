@@ -156,7 +156,7 @@ public class GameManager : MonoBehaviour
     private void Settings()
     {
         Cursor.visible = true;
-        playerSprite.SetActive(true);
+        playerSprite.SetActive(false);
         uiManager.UISettings();
     }
 

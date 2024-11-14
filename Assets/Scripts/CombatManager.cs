@@ -209,7 +209,10 @@ public class CombatManager : MonoBehaviour
 
     public IEnumerator LoseCombat()
     {
-        player.PauseTimer();
+        foreach (Combatant combatant in combatants)
+        {
+            combatant.PauseTimer();
+        }
         player.healthBarObject.SetActive(false);
         player.coolDownBarObject.SetActive(false);
         player.animator.Play("MC_Death");

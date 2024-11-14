@@ -19138,6 +19138,11 @@ PrefabInstance:
       objectReference: {fileID: 1805031243}
     - target: {fileID: 5672942193526491901, guid: 2c3a15933f2ab1140be13ba419f590d6,
         type: 3}
+      propertyPath: cooldownTimer
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672942193526491901, guid: 2c3a15933f2ab1140be13ba419f590d6,
+        type: 3}
       propertyPath: abilities.Array.size
       value: 2
       objectReference: {fileID: 0}

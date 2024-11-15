@@ -27,6 +27,8 @@ public class Combatant : MonoBehaviour
 
     public float attackAnimTime;
 
+    public ParticleSystem coin;
+
     public GameObject gold;
 
     public bool timersPaused = false;
@@ -112,7 +114,7 @@ public class Combatant : MonoBehaviour
         PauseTimer();
         coolDownBarObject.SetActive(false);
         healthBarObject.SetActive(false);
-        gold.SetActive(true);
+        coin.Play();
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
     }

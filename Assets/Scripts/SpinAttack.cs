@@ -7,6 +7,7 @@ using static GlobalVariables;
 
 public class SpinAttack : Ability
 {
+    public StabAttack stabAttack;
     public float numTargets;
     public float bursts = defaultBursts;
     private float baseDamage = spinAttackBaseDamage; //40%

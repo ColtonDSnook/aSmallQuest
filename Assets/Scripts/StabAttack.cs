@@ -6,6 +6,7 @@ using UnityEngine.Playables;
 public class StabAttack : Ability
 {
     public float baseDamage;
+    public SpinAttack spinAttack;
 
     public void Update()
     {

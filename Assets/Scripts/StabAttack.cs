@@ -70,11 +70,13 @@ public class StabAttack : Ability
     public IEnumerator Stab()
     {
         player.PauseTimer();
+        spinAttack.isActive = false;
         yield return new WaitForSeconds(0.5f);
         int targetNumber = Random.Range(0, combatManager.CountOtherCombatants() - 1);
         Combatant target = combatManager.combatants[targetNumber];
         float damage = target.healthSystem.TakeDamage(gameManager.damage * baseDamage);
         player.healthSystem.Heal(damage * gameManager.healing);
         player.UnpauseTimer();
+        spinAttack.isActive = true;
     }
 }

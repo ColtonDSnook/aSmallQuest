@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     public GameObject playerSprite;
     public GameObject spawnPoint;
 
+    public SpinAttack spin;
+    public StabAttack stab;
+
     public TextMeshProUGUI damageText;
     public TextMeshProUGUI speedText;
     public TextMeshProUGUI goldText;
@@ -216,6 +219,8 @@ public class GameManager : MonoBehaviour
             gameState = previousGameState;
             Time.timeScale = 1;
             playerCombatant.UnpauseTimer();
+            spin.isActive = true;
+            stab.isActive = true;
         }
     }
 

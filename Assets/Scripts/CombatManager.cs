@@ -107,6 +107,8 @@ public class CombatManager : MonoBehaviour
             player.ResetCooldowns();
             lostCombat = false;
             player.UnpauseTimer();
+            spinAttack.isActive = true;
+            stabAttack.isActive = true;
             player.healthBarObject.SetActive(true);
             player.coolDownBarObject.SetActive(true);
         }
@@ -118,6 +120,8 @@ public class CombatManager : MonoBehaviour
             abilitiesUI.SetActive(true);
             CheckAbilities();
             player.UnpauseTimer();
+            spinAttack.isActive = true;
+            stabAttack.isActive = true;
             Debug.Log("Combat Started");
             combatState = CombatState.InCombat;
         }
@@ -142,6 +146,8 @@ public class CombatManager : MonoBehaviour
             playerHealth.SetCurrentHealth();
             player.ResetCooldowns();
             player.UnpauseTimer();
+            spinAttack.isActive = true;
+            stabAttack.isActive = true;
             player.healthBarObject.SetActive(true);
             player.coolDownBarObject.SetActive(true);
         }
@@ -153,6 +159,8 @@ public class CombatManager : MonoBehaviour
             combatState = CombatState.None;
             abilitiesUI.SetActive(false);
             player.UnpauseTimer();
+            spinAttack.isActive = true;
+            stabAttack.isActive = true;
             //playerHealth.SetCurrentHealth();
             //levelManager.LoadScene("Post-Run");
         }

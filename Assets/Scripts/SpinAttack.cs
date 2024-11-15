@@ -114,6 +114,7 @@ public class SpinAttack : Ability
     public IEnumerator SpinAttackBursts(List<Combatant> selectedTargets)
     {
         player.PauseTimer();
+        stabAttack.isActive = false;
         for (int i = 0; i < bursts; i++)
         {
             animator.Play("MC_SpinSlash");
@@ -132,5 +133,6 @@ public class SpinAttack : Ability
             yield return new WaitForSeconds(0.35f);
         }
         player.UnpauseTimer();
+        stabAttack.isActive = true;
     }
 }

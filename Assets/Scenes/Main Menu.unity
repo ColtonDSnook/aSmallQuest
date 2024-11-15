@@ -1967,6 +1967,7 @@ MonoBehaviour:
   maxCountDownTime: 8
   key: 119
   baseDamage: 10
+  spinAttack: {fileID: 1572044311}
 --- !u!114 &189279632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13588,6 +13589,7 @@ MonoBehaviour:
   timeRemaining: 0
   maxCountDownTime: 5
   key: 113
+  stabAttack: {fileID: 189279631}
   numTargets: 2
   bursts: 1
 --- !u!114 &1591561893 stripped
@@ -18725,6 +18727,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 325
       objectReference: {fileID: 0}
+    - target: {fileID: 8846163470736910986, guid: f5979bbf107893c49a6a65eb03cd81eb,
+        type: 3}
+      propertyPath: spin
+      value: 
+      objectReference: {fileID: 1572044311}
+    - target: {fileID: 8846163470736910986, guid: f5979bbf107893c49a6a65eb03cd81eb,
+        type: 3}
+      propertyPath: stab
+      value: 
+      objectReference: {fileID: 189279631}
     - target: {fileID: 8846163470736910986, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
       propertyPath: bursts

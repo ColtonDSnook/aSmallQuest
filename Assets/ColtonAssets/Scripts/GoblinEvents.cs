@@ -10,5 +10,19 @@ public class GoblinEvents : MonoBehaviour
     {
         goblinAttack.Play();
     }
+    void GoblinAttackS()
+    {
+        SoundManager.Instance.PlaySFX("GoblinAttack");
+    }
+
+    void GoblinHurtS()
+    {
+        SoundManager.Instance.PlaySFX("GoblinHurt");
+    }
+
+    void GoblinDeathS()
+    {
+        SoundManager.Instance.PlaySFX("GoblinDeath");
+    }
 }
 

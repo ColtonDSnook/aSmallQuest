@@ -115,6 +115,7 @@ public class Combatant : MonoBehaviour
         coolDownBarObject.SetActive(false);
         healthBarObject.SetActive(false);
         coin.Play();
+        SoundManager.Instance.PlaySFX("Coin");
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
     }

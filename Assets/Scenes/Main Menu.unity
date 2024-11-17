@@ -1119,6 +1119,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 528ac6e37c86da045ad61aed967c1f35, type: 3}
   - clipName: MCHurt
     clip: {fileID: 8300000, guid: ebe79d88bc83385418651420ddf6b858, type: 3}
+  - clipName: GoblinAttack
+    clip: {fileID: 8300000, guid: aa046e853fd8fea41a44e73c54f10a12, type: 3}
+  - clipName: GoblinDeath
+    clip: {fileID: 8300000, guid: f1b45d079bac5a24889e9d149c1356e0, type: 3}
+  - clipName: GoblinHurt
+    clip: {fileID: 8300000, guid: d64babd874c8e314c94d8510a6b8fe79, type: 3}
+  - clipName: Coin
+    clip: {fileID: 8300000, guid: 44f0e48bb88908f4d8f87f5a903c138a, type: 3}
   musicSource: {fileID: 1352847505}
   sfxSource: {fileID: 916172588}
   gameManager: {fileID: 0}

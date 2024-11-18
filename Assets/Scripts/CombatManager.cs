@@ -30,7 +30,7 @@ public class CombatManager : MonoBehaviour
 
     public GameManager gameManager;
 
-    public GameObject abilitiesUI;
+    //public GameObject abilitiesUI;
 
     public GameObject spinAttackUI;
     public GameObject stabAttackUI;
@@ -83,7 +83,7 @@ public class CombatManager : MonoBehaviour
         combatState = CombatState.None;
         levelManager = FindObjectOfType<LevelManager>();
         currencyDropper = FindObjectOfType<CurrencyDropper>();
-        abilitiesUI.SetActive(false);
+        //abilitiesUI.SetActive(false);
         lostCombat = false;
         encountersCompleted = 0;
         progressBar.value = 0;
@@ -117,7 +117,7 @@ public class CombatManager : MonoBehaviour
         if (combatState == CombatState.Start)
         {
             InitializeCombatants();
-            abilitiesUI.SetActive(true);
+            //abilitiesUI.SetActive(true);
             CheckAbilities();
             player.UnpauseTimer();
             spinAttack.isActive = true;
@@ -157,7 +157,7 @@ public class CombatManager : MonoBehaviour
             combatants.Clear();
             previousCombatState = combatState;
             combatState = CombatState.None;
-            abilitiesUI.SetActive(false);
+            //abilitiesUI.SetActive(false);
             player.UnpauseTimer();
             spinAttack.isActive = true;
             stabAttack.isActive = true;

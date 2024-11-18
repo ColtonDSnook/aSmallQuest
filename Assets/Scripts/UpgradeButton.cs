@@ -1,5 +1,7 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static Upgrade;
 
 public class UpgradeButton : MonoBehaviour
 {
@@ -9,10 +11,13 @@ public class UpgradeButton : MonoBehaviour
     public bool isDisabled = true;
     public UpgradeButton previousUpgrade;
     public GameObject checkMark;
+    public GameManager gameManager;
 
     public void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         checkMark = transform.GetChild(0).gameObject;
+        //6AFF51 hexcode for purchasable upgrade
     }
 
     public void OnButtonClick()
@@ -53,6 +58,17 @@ public class UpgradeButton : MonoBehaviour
         // Ensure the upgradeIndex is within the bounds of the upgrades list
         if (upgradeIndex >= 0 && upgradeIndex < upgradeManager.upgrades.Count)
         {
+
+            if (!upgradeManager.upgrades[upgradeIndex].isPurchased && !isDisabled)
+            {
+                if (gameManager.gold >= upgradeManager.upgrades[upgradeIndex].cost)
+                {
+                    //Debug.Log(gameManager.gold >= upgradeManager.upgrades[upgradeIndex].cost);
+                    GetComponent<Image>().color = Color.green;
+                    //GetComponent<Image>().color = new Color(106, 255, 81, 255);
+                }
+            }
+
             if (!upgradeManager.upgrades[upgradeIndex].isPurchased)
             {
                 checkMark.SetActive(false);
@@ -67,7 +83,7 @@ public class UpgradeButton : MonoBehaviour
             {
                 GetComponent<Image>().color = Color.gray;
             }
-            else if (!isDisabled)
+            else if (!isDisabled && gameManager.gold < upgradeManager.upgrades[upgradeIndex].cost)
             {
                 GetComponent<Image>().color = Color.white;
             }

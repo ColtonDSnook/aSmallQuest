@@ -6,6 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using static GlobalVariables;
 
 public class GameManager : MonoBehaviour
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     public SpinAttack spin;
     public StabAttack stab;
+
+    public Button playButton;
 
     public TextMeshProUGUI damageText;
     public TextMeshProUGUI speedText;
@@ -82,6 +85,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playButton.Select();
         versionNumber.text = Application.version;
         combatManager = FindObjectOfType<CombatManager>();
         uiManager = FindObjectOfType<UIManager>();
@@ -406,5 +410,3 @@ public class GameManager : MonoBehaviour
     }
 
 }
-
-//SELECT PLAY BUTTON

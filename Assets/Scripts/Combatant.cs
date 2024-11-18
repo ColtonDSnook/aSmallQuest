@@ -29,8 +29,6 @@ public class Combatant : MonoBehaviour
 
     public ParticleSystem coin;
 
-    public GameObject gold;
-
     public bool timersPaused = false;
 
     public GameObject healthBarObject;
@@ -50,10 +48,6 @@ public class Combatant : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!player)
-        {
-            gold.SetActive(false);
-        }
         animator = GetComponentInChildren<Animator>();
         combatManager = FindObjectOfType<CombatManager>();
         healthSystem = GetComponent<Health>();

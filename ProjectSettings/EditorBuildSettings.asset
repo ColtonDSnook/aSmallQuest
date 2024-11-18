@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 69980f4584a93b641ab40434a48ec1ad
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Intro.unity
     guid: f3de0c8445723d941be23e9c8d02484e
   - enabled: 1
@@ -19,7 +19,7 @@ EditorBuildSettings:
     guid: 3dc8bcfb4f87d714bbc2d90338879b9c
   - enabled: 1
     path: Assets/Scenes/Post-Run.unity
-    guid: 5792b9bf3903dd14baf0087533090fce
+    guid: 00979dc39399fb24ea2d4180d2d9d61d
   - enabled: 0
     path: Assets/Scenes/ColtonDev.unity
     guid: adc8de94fd70ccb4da8679da0122cbee

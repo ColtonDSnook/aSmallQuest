@@ -1138,6 +1138,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1805031241}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &127506302 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8598065787117851300, guid: f5979bbf107893c49a6a65eb03cd81eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 448061847731428973}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &135878531
 GameObject:
   m_ObjectHideFlags: 0
@@ -18730,7 +18742,7 @@ PrefabInstance:
     - target: {fileID: 7300796832222217886, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7984210094911437765, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
@@ -18960,6 +18972,11 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 985514393}
+    - target: {fileID: 8846163470736910986, guid: f5979bbf107893c49a6a65eb03cd81eb,
+        type: 3}
+      propertyPath: playButton
+      value: 
+      objectReference: {fileID: 127506302}
     - target: {fileID: 8846163470736910986, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
       propertyPath: stabDamage

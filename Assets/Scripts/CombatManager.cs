@@ -134,22 +134,9 @@ public class CombatManager : MonoBehaviour
         if (combatState == CombatState.Lost)
         {
             DisplayEndResults(false);
-
-            lostCombat = false;
-            encountersCompleted = 0;
-            progressBar.value = 0;
             levelManager.LoadScene("Post-Run", false);
-            combatants.Clear();
-            gameManager.Save();
-            previousCombatState = combatState;
-            combatState = CombatState.None;
-            playerHealth.SetCurrentHealth();
-            player.ResetCooldowns();
-            player.UnpauseTimer();
-            spinAttack.isActive = true;
-            stabAttack.isActive = true;
-            player.healthBarObject.SetActive(true);
-            player.coolDownBarObject.SetActive(true);
+
+            ResetAll();
         }
 
         if (combatState == CombatState.Won)

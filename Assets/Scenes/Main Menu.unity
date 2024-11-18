@@ -721,6 +721,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 1191435979}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &92505051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -873,6 +874,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 319051144}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &100406238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1329,6 +1331,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 1986032697}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &166723692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2281,6 +2284,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 1175682911}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &223937808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2926,6 +2930,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 1683993102}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &319051145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3259,6 +3264,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 223937807}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &336534101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3391,6 +3397,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 1153283001}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &354787413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3915,6 +3922,7 @@ MonoBehaviour:
   isDisabled: 0
   previousUpgrade: {fileID: 0}
   checkMark: {fileID: 691598079}
+  gameManager: {fileID: 0}
 --- !u!114 &398656708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4053,6 +4061,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 2028783663}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &426818717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5136,6 +5145,7 @@ MonoBehaviour:
   isDisabled: 0
   previousUpgrade: {fileID: 0}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!1 &507971781
 GameObject:
   m_ObjectHideFlags: 0
@@ -6380,6 +6390,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 92505050}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &566171045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6893,6 +6904,7 @@ MonoBehaviour:
   isDisabled: 0
   previousUpgrade: {fileID: 0}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &622248726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8645,6 +8657,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 354787412}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &926903846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8892,6 +8905,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 166723691}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &941292732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9856,6 +9870,18 @@ MonoBehaviour:
           m_StringArgument: Gameplay
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1805031243}
+        m_TargetAssemblyTypeName: CombatManager, Assembly-CSharp
+        m_MethodName: ResetAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1048524535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9957,6 +9983,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 622248725}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &1083269652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10307,6 +10334,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 1783298975}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &1153283002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10675,6 +10703,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 398656707}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &1170687258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10883,6 +10912,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 1426989785}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &1175682912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11180,6 +11210,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 488630324}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &1191435980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11623,6 +11654,7 @@ MonoBehaviour:
   isDisabled: 0
   previousUpgrade: {fileID: 0}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &1278697679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12336,6 +12368,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 2078056973}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &1381367487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12867,6 +12900,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 1278697678}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &1426989786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14115,6 +14149,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 1083269651}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &1683993103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14897,6 +14932,7 @@ MonoBehaviour:
   isDisabled: 0
   previousUpgrade: {fileID: 0}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &1783298976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16078,6 +16114,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 398656707}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &1986032698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17018,6 +17055,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 1170687257}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &2028783664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17462,6 +17500,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 1783298975}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &2078056974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17769,6 +17808,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 566171044}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &2089510140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17921,6 +17961,7 @@ MonoBehaviour:
   isDisabled: 1
   previousUpgrade: {fileID: 1381367486}
   checkMark: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &2097554749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18923,6 +18964,11 @@ PrefabInstance:
         type: 3}
       propertyPath: stabDamage
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846163470736910986, guid: f5979bbf107893c49a6a65eb03cd81eb,
+        type: 3}
+      propertyPath: attackSpeed
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 8846163470736910986, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}

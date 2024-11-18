@@ -5,20 +5,20 @@ using UnityEngine;
 public static class GlobalVariables
 {
     // Player Variables
-    public const int defaultPlayerCooldown = 3;
+    public const int defaultPlayerCooldown = 2; // seconds
 
-    public const float defaultGold = 0;
-    public const float defaultMaxHealth = 100;
-    public const float defaultDamage = 10;
-    public const float defaultAttackSpeed = 1;
+    public const float defaultGold = 0; // g
+    public const float defaultMaxHealth = 100; // hp
+    public const float defaultDamage = 10; // #
+    public const float defaultAttackSpeed = 1; // %
 
     public const bool defaultSpinAttack = false;
-    public const float defaultNumTargets = 2;
-    public const float defaultBursts = 1;
+    public const float defaultNumTargets = 2; // #
+    public const float defaultBursts = 1; // #
 
     public const bool defaultStabAttack = false;
-    public const float defaultStabDamage = 3;
-    public const float defaultHealing = 0;
+    public const float defaultStabDamage = 3; // %
+    public const float defaultHealing = 0; // %
 
     public const float spinAttackBaseDamage = 0.5f; // 50%
 

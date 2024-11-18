@@ -19,16 +19,18 @@ public class UpgradeButton : MonoBehaviour
     {
         if (upgradeManager.upgrades[upgradeIndex].isPurchased)
         {
-            Debug.Log("Cannot Repurchase");
+            StartCoroutine(upgradeManager.ShowErrorMessage("Cannot Repurchase"));
+            //Debug.Log("Cannot Repurchase");
         }
         else if (isDisabled)
         {
-            Debug.Log("Purchase previous upgrades to unlock this upgrade");
+            StartCoroutine(upgradeManager.ShowErrorMessage("Purchase previous upgrades to unlock this upgrade"));
+            //Debug.Log("Purchase previous upgrades to unlock this upgrade");
         }
         else if (!isDisabled)
         {
             upgradeManager.ShowUpgradeDescription(upgradeIndex);
-            Debug.Log("Clicked");
+            //Debug.Log("Clicked");
         }
     }
 

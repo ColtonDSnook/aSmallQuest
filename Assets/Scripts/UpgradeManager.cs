@@ -31,28 +31,26 @@ public class UpgradeManager : MonoBehaviour
 
     private int selectedUpgradeIndex = -1;
 
+    public GameObject errorTextObject;
+    public TextMeshProUGUI errorText;
+
     //private string saveFilePath;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
-
-        //if (playerStats == null)
-        //    playerStats = new PlayerStats();
-
-        //if (playerSkills == null)
-        //    playerSkills = new PlayerSkills();
-
-
-        //saveFilePath = Application.persistentDataPath + "/playerInfo.dat";
-
+        errorTextObject.SetActive(false);
+        errorText = errorTextObject.GetComponent<TextMeshProUGUI>();
         descriptionUI.SetActive(false);
     }
 
-    private void Update()
+    public IEnumerator ShowErrorMessage(string message)
     {
-        //Debug.LogWarning("Gold: " + playerStats.currency);
+        errorTextObject.SetActive(true);
+        errorText.text = message;
+        yield return new WaitForSeconds(2);
+        errorTextObject.SetActive(false);
     }
 
     public void ShowUpgradeDescription(int upgradeIndex)
@@ -94,6 +92,7 @@ public class UpgradeManager : MonoBehaviour
             }
             else
             {
+                StartCoroutine(ShowErrorMessage("Cannot Afford Upgrade"));
                 Debug.Log("Cannot Afford Upgrade");
             }
 

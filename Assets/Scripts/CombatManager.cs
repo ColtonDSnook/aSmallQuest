@@ -296,6 +296,7 @@ public class CombatManager : MonoBehaviour
         foreach (Combatant combatant in combatants)
         {
             combatant.ResetCooldowns();
+            combatant.healthSystem.damageText.gameObject.SetActive(false);
         }
         player.ResetCooldowns();
         stabAttack.RefreshAbility();

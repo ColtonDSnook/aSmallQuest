@@ -20,6 +20,7 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        damageText.gameObject.SetActive(false);
         combatant = GetComponent<Combatant>();
         damageText.text = "";
         if (CompareTag("Enemy"))
@@ -124,9 +125,11 @@ public class Health : MonoBehaviour
 
     public IEnumerator ShowDamageNumbers(float damage)
     {
+        damageText.gameObject.SetActive(true);
         //Debug.Log("showing damage numbers");
         damageText.text = damage.ToString();
         yield return new WaitForSeconds(0.5f);
         damageText.text = "";
+        damageText.gameObject.SetActive(false);
     }
 }

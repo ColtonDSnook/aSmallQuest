@@ -29,12 +29,8 @@ public class UpgradeManager : MonoBehaviour
     public TextMeshProUGUI costText;
     public Button confirmButton;
 
-    private int selectedUpgradeIndex = -1;
-
     public GameObject errorTextObject;
     public TextMeshProUGUI errorText;
-
-    //private string saveFilePath;
 
     // Start is called before the first frame update
     void Start()
@@ -60,16 +56,20 @@ public class UpgradeManager : MonoBehaviour
             Upgrade upgrade = upgrades[upgradeIndex];
             descriptionText.text = upgrade.description;
             costText.text = upgrade.cost.ToString() + "g";
-            selectedUpgradeIndex = upgradeIndex;
             descriptionUI.SetActive(true);
         }
     }
 
-    public void ConfirmUpgrade()
+    public void HideUpgradeDescription()
     {
-        if (selectedUpgradeIndex >= 0 && selectedUpgradeIndex < upgrades.Count)
+        descriptionUI.SetActive(false);
+    }
+
+    public void ConfirmUpgrade(int upgradeIndex)
+    {
+        if (upgradeIndex >= 0 && upgradeIndex < upgrades.Count)
         {
-            Upgrade upgrade = upgrades[selectedUpgradeIndex];
+            Upgrade upgrade = upgrades[upgradeIndex];
             if (gameManager.gold >= upgrade.cost)
             {
                 switch (upgrade.upgradeType)
@@ -77,8 +77,8 @@ public class UpgradeManager : MonoBehaviour
                     case UpgradeType.Stat:
                         ApplyStatUpgrade(upgrade);
                         gameManager.gold -= upgrade.cost;
-                        //Debug.Log("upgraded" + upgrade.description);
                         break;
+
                     case UpgradeType.Skill:
                         ApplySkillUpgrade(upgrade);
                         gameManager.gold -= upgrade.cost;

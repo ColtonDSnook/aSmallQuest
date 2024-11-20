@@ -408,5 +408,4 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("Save file failed to delete");
         }
     }
-
 }

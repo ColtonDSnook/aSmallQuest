@@ -1,9 +1,10 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using static Upgrade;
 
-public class UpgradeButton : MonoBehaviour
+public class UpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public int upgradeIndex; // The index of the upgrade this button applies
     public UpgradeManager upgradeManager;
@@ -20,6 +21,17 @@ public class UpgradeButton : MonoBehaviour
         //6AFF51 hexcode for purchasable upgrade
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        //Debug.Log("HOVERED OBJECT");
+        upgradeManager.ShowUpgradeDescription(upgradeIndex);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        upgradeManager.HideUpgradeDescription();
+    }
+
     public void OnButtonClick()
     {
         if (upgradeManager.upgrades[upgradeIndex].isPurchased)
@@ -34,7 +46,7 @@ public class UpgradeButton : MonoBehaviour
         }
         else if (!isDisabled)
         {
-            upgradeManager.ShowUpgradeDescription(upgradeIndex);
+            upgradeManager.ConfirmUpgrade(upgradeIndex);
             //Debug.Log("Clicked");
         }
     }

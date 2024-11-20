@@ -28,10 +28,12 @@ public class MCAnimEvents : MonoBehaviour
     void MCSpinEvent()
     {
         spinSlash.Play();
+        SoundManager.Instance.PlaySFX("Spin");
     }
     void MCStabEvent()
     {
         stabAttack.Play();
+        SoundManager.Instance.PlaySFX("Stab");
     }
     void MCAttackS()
     {

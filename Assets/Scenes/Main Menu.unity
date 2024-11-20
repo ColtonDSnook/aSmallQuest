@@ -1381,6 +1381,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: d64babd874c8e314c94d8510a6b8fe79, type: 3}
   - clipName: Coin
     clip: {fileID: 8300000, guid: 44f0e48bb88908f4d8f87f5a903c138a, type: 3}
+  - clipName: Spin
+    clip: {fileID: 8300000, guid: 4d08f1046c88f9b41ab5f8ea704ebb65, type: 3}
+  - clipName: Stab
+    clip: {fileID: 8300000, guid: a52de1ec8e6fa8341b1b59c5e516c67e, type: 3}
   musicSource: {fileID: 1352847505}
   sfxSource: {fileID: 916172588}
   gameManager: {fileID: 0}

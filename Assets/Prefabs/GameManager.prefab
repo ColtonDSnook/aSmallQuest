@@ -1700,12 +1700,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeManager: {fileID: 0}
+  combatManager: {fileID: 7926784377501861341, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
+    type: 3}
+  playerCombatant: {fileID: 0}
   playerSprite: {fileID: 0}
   spawnPoint: {fileID: 0}
+  spin: {fileID: 0}
+  stab: {fileID: 0}
+  playButton: {fileID: 0}
   damageText: {fileID: 0}
   speedText: {fileID: 0}
   goldText: {fileID: 0}
+  healthText: {fileID: 0}
   upgradesGoldText: {fileID: 0}
+  versionNumber: {fileID: 0}
   gold: 0
   damage: 10
   maxHealth: 100

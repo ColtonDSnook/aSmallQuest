@@ -55,10 +55,10 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     // Start is called before the first frame update
     void Start()
     {
+        combatManager = FindObjectOfType<CombatManager>();
         stabAttack = FindObjectOfType<StabAttack>();
         combatManager.enemyStatsUI.SetActive(false);
         animator = GetComponentInChildren<Animator>();
-        combatManager = FindObjectOfType<CombatManager>();
         healthSystem = GetComponent<Health>();
 
         switch (combatantType)
@@ -119,7 +119,14 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         {
             if (this == combatManager.hoveredOver)
             {
-                combatManager.nameText.text = "Name: " + name;
+                if (combatManager.hoveredOver.name == "Player")
+                {
+                    combatManager.nameText.text = "Name: " + name;
+                }
+                else
+                {
+                    combatManager.nameText.text = "Name: " + TrimString(name);
+                }
                 combatManager.healthText.text = "Health: " + healthSystem.GetCurrentHealth() + "/" + healthSystem.maxHealth;
                 combatManager.damageText.text = "Damage: " + damage;
                 combatManager.attackSpeedText.text = "Atk Spd: " + attackSpeed;
@@ -174,7 +181,15 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             // ui popup
             combatManager.enemyStatsUI.SetActive(true);
             combatManager.hoveredOver = this;
-            combatManager.nameText.text = "Name: " + name;
+
+            if (this.name == "Player")
+            {
+                combatManager.nameText.text = "Name: " + name;
+            }
+            else
+            {
+                combatManager.nameText.text = "Name: " + TrimString(name);
+            }
             combatManager.healthText.text = "Health: " + healthSystem.GetCurrentHealth() + "/" + healthSystem.maxHealth;
             combatManager.damageText.text = "Damage: " + damage;
             combatManager.attackSpeedText.text = "Atk Spd: " + attackSpeed;
@@ -202,5 +217,18 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             stabAttack.selectionMade = true;
         }
         Debug.Log("Clicked On:" + this.name);
+    }
+
+    public string TrimString(string str)
+    {
+        char[] stringArray = str.ToCharArray();
+        Array.Reverse(stringArray);
+        string reversedStr = new string(stringArray);
+        string trimmedReverseStr = reversedStr.Remove(0, 7);
+        char[] trimmedStrArr = trimmedReverseStr.ToCharArray();
+        Array.Reverse(trimmedStrArr);
+        string rightString = new string(trimmedStrArr);
+
+        return rightString;
     }
 }

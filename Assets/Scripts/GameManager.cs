@@ -223,9 +223,14 @@ public class GameManager : MonoBehaviour
             gameState = previousGameState;
             previousGameState = GameState.Pause;
             Time.timeScale = 1;
-            playerCombatant.UnpauseTimer();
             spin.isActive = true;
             stab.isActive = true;
+            foreach (Combatant combatant in combatManager.combatants)
+            {
+                combatant.UnpauseTimer();
+            }
+            stab.timersPaused = false;
+            spin.timersPaused = false;
         }
     }
 

@@ -45,5 +45,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatState: 0
+  previousCombatState: 0
   combatants: []
-  player: {fileID: -1310169095303373817, guid: 2c3a15933f2ab1140be13ba419f590d6, type: 3}
+  currencyDropper: {fileID: 0}
+  upgradeManager: {fileID: 0}
+  gameManager: {fileID: 0}
+  spinAttackUI: {fileID: 0}
+  stabAttackUI: {fileID: 0}
+  player: {fileID: 0}
+  playerHealth: {fileID: 0}
+  levelManager: {fileID: 0}
+  playerStats:
+    maxHealth: 0
+    damage: 0
+    attackSpeed: 0
+    currency: 0
+    numTargets: 0
+    bursts: 0
+    healing: 0
+    stabDamage: 0
+  spinAttack: {fileID: 0}
+  stabAttack: {fileID: 0}
+  coinsGainedCurrentRun: 0
+  enemiesDefeatedCurrentRun: 0
+  coinsTotal: 0
+  coinsGainedText: {fileID: 0}
+  enemiesDefeatedText: {fileID: 0}
+  coinsTotalText: {fileID: 0}
+  coinsGainedWonText: {fileID: 0}
+  enemiesDefeatedWonText: {fileID: 0}
+  coinsTotalWonText: {fileID: 0}
+  currentTarget: {fileID: 0}
+  encountersCompleted: 0
+  encountersText: {fileID: 0}
+  progressBar: {fileID: 0}
+  enemyStatsUI: {fileID: 7880646047920100083}
+  nameText: {fileID: 0}
+  healthText: {fileID: 0}
+  damageText: {fileID: 0}
+  attackSpeedText: {fileID: 0}
+  lostCombat: 0
+  selection: 0
+  hoveredOver: {fileID: 0}

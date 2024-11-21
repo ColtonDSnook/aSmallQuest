@@ -68,8 +68,16 @@ public class CombatManager : MonoBehaviour
 
     public Slider progressBar;
 
+    public GameObject enemyStatsUI;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI healthText;
+    public TextMeshProUGUI damageText;
+    public TextMeshProUGUI attackSpeedText;
+
     public bool lostCombat = false;
     public bool selection = false;
+
+    public Combatant hoveredOver;
 
     // when an ability is used, block the player from using any other ability until ability use is over.
 

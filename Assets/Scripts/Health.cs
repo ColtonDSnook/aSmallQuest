@@ -58,6 +58,7 @@ public class Health : MonoBehaviour
     {
         if (CompareTag("Player"))
         {
+            maxHealth = GameManager.manager.maxHealth;
             healthBar.fillAmount = (float)GetCurrentHealth() / GameManager.manager.maxHealth;
         }
 

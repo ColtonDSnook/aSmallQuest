@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,6 +13,7 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     [SerializeField] public float cooldownTimer;
     public float maxCooldownTimer;
     public float damage;
+    public float attackSpeed;
 
     public float defaultCooldownTimer = defaultPlayerCooldown;
     public bool player;
@@ -33,7 +35,6 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public bool timersPaused = false;
 
-    public GameObject test;
 
     public GameObject healthBarObject;
     public GameObject coolDownBarObject;
@@ -55,7 +56,7 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     void Start()
     {
         stabAttack = FindObjectOfType<StabAttack>();
-        test.SetActive(false);
+        combatManager.enemyStatsUI.SetActive(false);
         animator = GetComponentInChildren<Animator>();
         combatManager = FindObjectOfType<CombatManager>();
         healthSystem = GetComponent<Health>();
@@ -64,24 +65,28 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         {
             case CombatantType.Slime:
                 maxCooldownTimer = defaultCooldownTimer / defaultSlimeAttackSpeed;
+                attackSpeed = defaultSlimeAttackSpeed;
                 damage = defaultSlimeDamage;
                 animPrefix = slimeAnimPrefix;
                 attackAnimTime = defaultSlimeAttackAnimTime;
                 break;
             case CombatantType.Goblin:
                 maxCooldownTimer = defaultCooldownTimer / defaultGoblinAttackSpeed;
+                attackSpeed = defaultGoblinAttackSpeed;
                 damage = defaultGoblinDamage;
                 animPrefix = goblinAnimPrefix;
                 attackAnimTime = defaultGoblinAttackAnimTime;
                 break;
             case CombatantType.Kobold:
                 maxCooldownTimer = defaultCooldownTimer / defaultKoboldAttackSpeed;
+                attackSpeed = defaultKoboldAttackSpeed;
                 damage = defaultKoboldDamage;
                 animPrefix = koboldAnimPrefix;
                 attackAnimTime = defaultKoboldAttackAnimTime;
                 break;
             case CombatantType.DungeonMaster:
                 maxCooldownTimer = defaultCooldownTimer / defaultDungeonMasterAttackSpeed;
+                attackSpeed = defaultDungeonMasterAttackSpeed;
                 damage = defaultDungeonMasterDamage;
                 animPrefix = dungeonMasterAnimPrefix;
                 attackAnimTime = defaultDungeonMasterAttackAnimTime;
@@ -97,6 +102,7 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         {
             maxCooldownTimer = defaultCooldownTimer / GameManager.manager.attackSpeed;
             damage = GameManager.manager.damage;
+            attackSpeed = GameManager.manager.attackSpeed;
         }
 
         if (combatManager.combatState == CombatManager.CombatState.InCombat)
@@ -108,6 +114,17 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         }
 
         cooldownBar.fillAmount = (float)cooldownTimer / maxCooldownTimer;
+
+        if (combatManager.hoveredOver != null)
+        {
+            if (this == combatManager.hoveredOver)
+            {
+                combatManager.nameText.text = "Name: " + name;
+                combatManager.healthText.text = "Health: " + healthSystem.GetCurrentHealth() + "/" + healthSystem.maxHealth;
+                combatManager.damageText.text = "Damage: " + damage;
+                combatManager.attackSpeedText.text = "Atk Spd: " + attackSpeed;
+            }
+        }
     }
 
     public IEnumerator Kill()
@@ -155,7 +172,12 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         else
         {
             // ui popup
-            test.SetActive(true);
+            combatManager.enemyStatsUI.SetActive(true);
+            combatManager.hoveredOver = this;
+            combatManager.nameText.text = "Name: " + name;
+            combatManager.healthText.text = "Health: " + healthSystem.GetCurrentHealth() + "/" + healthSystem.maxHealth;
+            combatManager.damageText.text = "Damage: " + damage;
+            combatManager.attackSpeedText.text = "Atk Spd: " + attackSpeed;
         }
     }
 
@@ -168,7 +190,7 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         else
         {
             // ui popup closed
-            test.SetActive(false);
+            combatManager.enemyStatsUI.SetActive(false);
         }
     }
 

@@ -5277,7 +5277,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -463.375, y: -325.1827}
+  m_AnchoredPosition: {x: -463.53, y: -325.1827}
   m_SizeDelta: {x: 2, y: 0.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2436285468925315616
@@ -5691,6 +5691,7 @@ MonoBehaviour:
   cooldownTimer: 3
   maxCooldownTimer: 3
   damage: 0
+  attackSpeed: 0
   defaultCooldownTimer: 3
   player: 0
   cooldownBar: {fileID: 7935593162169116220}
@@ -5703,8 +5704,6 @@ MonoBehaviour:
   attackAnimTime: 0
   coin: {fileID: 8056070937589607154}
   timersPaused: 0
-  enemyStatsUI: {fileID: 6835680024569556825, guid: 1f87fef0c1d49ae4bb13a293c69e0d94,
-    type: 3}
   healthBarObject: {fileID: 1841071620177079501}
   coolDownBarObject: {fileID: 6776805442450912485}
   stabAttack: {fileID: 0}

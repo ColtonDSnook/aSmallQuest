@@ -170,7 +170,7 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         // if attack selection is active, do one thing,
         // if not, show stats popup for combatant
-
+        Debug.Log("Hobered");
         if (combatManager.selection)
         {
             // selction ui up like an outline or something around them and if clicked

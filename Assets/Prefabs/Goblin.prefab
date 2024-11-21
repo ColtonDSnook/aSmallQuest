@@ -27,14 +27,14 @@ RectTransform:
   m_GameObject: {fileID: 1061709178067955335}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.23, y: 14.64, z: 1}
+  m_LocalScale: {x: 95.9, y: 102.49, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2940117326932662560}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -463.5, y: -325.36}
+  m_AnchoredPosition: {x: -463.5, y: -326.25}
   m_SizeDelta: {x: 2, y: 0.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &100905243684212085
@@ -326,8 +326,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 20, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 8.22, y: 1.5}
-  m_SizeDelta: {x: 5, y: 2.5}
+  m_AnchoredPosition: {x: 5.950012, y: 1.5}
+  m_SizeDelta: {x: 2.63, y: 2.5}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &247660533412535151
 CanvasRenderer:
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 4
+  m_text: 20
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -420,7 +420,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 1.3021307, y: 0, z: 0, w: 1.9536948}
+  m_margin: {x: 0.38563514, y: 0, z: 1.0134629, w: 1.3250701}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5596,6 +5596,7 @@ GameObject:
   - component: {fileID: 6602273137392704589}
   - component: {fileID: -3301884364226067057}
   - component: {fileID: 7744868142104667523}
+  - component: {fileID: 905661686982775320}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Enemy
@@ -5611,7 +5612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7919278818258867303}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5621,7 +5622,7 @@ Transform:
   - {fileID: 11977316831754206}
   - {fileID: 3532231671612383432}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &-3301884364226067057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5672,7 +5673,7 @@ MonoBehaviour:
   combatManager: {fileID: 7926784377501861341, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
     type: 3}
   healthSystem: {fileID: -3301884364226067057}
-  animator: {fileID: 0}
+  animator: {fileID: 2455790939609285947}
   animPrefix: 
   attackAnimTime: 0
   coin: {fileID: 1638874851726054484}
@@ -5681,6 +5682,29 @@ MonoBehaviour:
   coolDownBarObject: {fileID: 6380591932848965123}
   stabAttack: {fileID: 0}
   combatantType: 2
+--- !u!136 &905661686982775320
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7919278818258867303}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.8178203
+  m_Direction: 1
+  m_Center: {x: -0, y: 0.90891016, z: -0}
 --- !u!1001 &611659968788249686
 PrefabInstance:
   m_ObjectHideFlags: 0

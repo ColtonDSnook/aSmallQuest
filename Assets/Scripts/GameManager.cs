@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
         uiManager = FindObjectOfType<UIManager>();
         player = FindObjectOfType<PlayerMovement>();
         gameState = GameState.MainMenu;
+        stab.selectText.SetActive(false);
 
         saveFilePath = Application.persistentDataPath + "/playerInfo.dat";
 
@@ -229,6 +230,7 @@ public class GameManager : MonoBehaviour
             {
                 combatant.UnpauseTimer();
             }
+            stab.selectText.SetActive(false);
             stab.timersPaused = false;
             spin.timersPaused = false;
         }

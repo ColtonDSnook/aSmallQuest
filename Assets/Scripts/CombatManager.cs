@@ -86,7 +86,6 @@ public class CombatManager : MonoBehaviour
     {
         coinsGainedCurrentRun = 0;
         enemiesDefeatedCurrentRun = 0;
-
         upgradeManager = FindObjectOfType<UpgradeManager>();
         //combatants.Add(player);
         combatState = CombatState.None;
@@ -103,7 +102,7 @@ public class CombatManager : MonoBehaviour
     {
         progressBar.value = encountersCompleted;
         //encountersText.text = "Encounters Completed: " + encountersCompleted + "/" + encountersRequired;
-
+        CheckAbilities();
         if (encountersCompleted >= encountersRequired)
         {
             DisplayEndResults(true);
@@ -127,7 +126,6 @@ public class CombatManager : MonoBehaviour
         {
             InitializeCombatants();
             //abilitiesUI.SetActive(true);
-            CheckAbilities();
             player.UnpauseTimer();
             spinAttack.isActive = true;
             stabAttack.isActive = true;

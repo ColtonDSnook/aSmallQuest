@@ -10,6 +10,7 @@ public class StabAttack : Ability
     public bool selectionMade = false;
     public Combatant selection;
     public bool timersPaused = false;
+    public GameObject selectText;
 
     public void Update()
     {
@@ -75,6 +76,7 @@ public class StabAttack : Ability
 
     public IEnumerator Stab(Combatant target)
     {
+        selectText.SetActive(false);
         animator.Play("MC_Stab");
         player.PauseTimer();
         spinAttack.isActive = false;
@@ -95,6 +97,7 @@ public class StabAttack : Ability
 
     public IEnumerator WaitForSelection()
     {
+        selectText.SetActive(true);
         foreach (Combatant combatant in combatManager.combatants)
         {
             combatant.PauseTimer();

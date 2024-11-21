@@ -241,7 +241,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -750.4, y: 20}
+  m_AnchoredPosition: {x: -769.14, y: 20}
   m_SizeDelta: {x: 297.4, y: 599.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &16491084
@@ -2953,7 +2953,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 37.5, y: -360}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &237291615
 MonoBehaviour:
@@ -2975,7 +2975,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'SPD:'
+  m_text: 'ATK SPD:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0dbc043506bc144980e98490664f5d0, type: 2}
   m_sharedMaterial: {fileID: -5902311437037449532, guid: d0dbc043506bc144980e98490664f5d0,
@@ -3011,7 +3011,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3374,7 +3374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &273532846
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4953,12 +4953,12 @@ GameObject:
   - component: {fileID: 441237096}
   - component: {fileID: 441237095}
   m_Layer: 5
-  m_Name: ControlsText
+  m_Name: How To Play Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &441237094
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6830,7 +6830,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -7249,7 +7249,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -10723,7 +10723,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -20431,7 +20431,7 @@ PrefabInstance:
     - target: {fileID: 1419272070678294235, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1470755331953410969, guid: f5979bbf107893c49a6a65eb03cd81eb,
         type: 3}

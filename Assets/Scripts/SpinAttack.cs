@@ -11,6 +11,7 @@ public class SpinAttack : Ability
     public float numTargets;
     public float bursts = defaultBursts;
     private float baseDamage = spinAttackBaseDamage; //40%
+    public bool timersPaused = false;
 
     public void Update()
     {
@@ -19,17 +20,20 @@ public class SpinAttack : Ability
 
         if (timeRemaining > 0)
         {
-            if (timeRemaining < 1)
+            if (!timersPaused)
             {
-                timerText.text = timeRemaining.ToString("N1");
-                timeRemaining -= Time.deltaTime;
-                abilityRadial.fillAmount = timeRemaining / maxCountDownTime;
-            }
-            else
-            {
-                timerText.text = timeRemaining.ToString("N0");
-                timeRemaining -= Time.deltaTime;
-                abilityRadial.fillAmount = timeRemaining / maxCountDownTime;
+                if (timeRemaining < 1)
+                {
+                    timerText.text = timeRemaining.ToString("N1");
+                    timeRemaining -= Time.deltaTime;
+                    abilityRadial.fillAmount = timeRemaining / maxCountDownTime;
+                }
+                else
+                {
+                    timerText.text = timeRemaining.ToString("N0");
+                    timeRemaining -= Time.deltaTime;
+                    abilityRadial.fillAmount = timeRemaining / maxCountDownTime;
+                }
             }
         }
         else

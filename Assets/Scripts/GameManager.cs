@@ -171,7 +171,7 @@ public class GameManager : MonoBehaviour
     private void Pause()
     {
         Cursor.visible = true;
-        playerSprite.SetActive(false);
+        playerSprite.SetActive(true);
         uiManager.UIPause();
     }
 
@@ -221,6 +221,7 @@ public class GameManager : MonoBehaviour
         else if (gameState == GameState.Pause || gameState == GameState.Settings)
         {
             gameState = previousGameState;
+            previousGameState = GameState.Pause;
             Time.timeScale = 1;
             playerCombatant.UnpauseTimer();
             spin.isActive = true;
@@ -244,16 +245,19 @@ public class GameManager : MonoBehaviour
 
     public void OpenCredits()
     {
+        previousGameState = gameState;
         gameState = GameState.Credits;
     }
 
     public void OpenUpgrades()
     {
+        previousGameState = gameState;
         gameState = GameState.Upgrades;
     }
 
     public void OpenIntro()
     {
+        previousGameState = gameState;
         gameState = GameState.Intro;
     }
 
@@ -265,7 +269,7 @@ public class GameManager : MonoBehaviour
 
     public void Back()
     {
-        if (gameState == GameState.Upgrades)
+        if (gameState == GameState.Upgrades || gameState == GameState.Credits)
         {
             gameState = GameState.MainMenu;
         }
@@ -288,7 +292,7 @@ public class GameManager : MonoBehaviour
     public void UpdateText()
     {
         damageText.text = "DMG: " + damage.ToString();
-        speedText.text = "SPD: " + attackSpeed.ToString();
+        speedText.text = "ATK SPD: " + attackSpeed.ToString();
         upgradesGoldText.text = "GLD: " + gold.ToString();
         healthText.text = "HP: " + maxHealth.ToString();
 

@@ -23,7 +23,6 @@ public class UpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //Debug.Log("HOVERED OBJECT");
         upgradeManager.ShowUpgradeDescription(upgradeIndex);
     }
 

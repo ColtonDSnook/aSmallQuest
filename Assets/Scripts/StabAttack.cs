@@ -7,6 +7,9 @@ public class StabAttack : Ability
 {
     public float baseDamage;
     public SpinAttack spinAttack;
+    public bool selectionMade = false;
+    public Combatant selection;
+    public bool timersPaused = false;
 
     public void Update()
     {
@@ -14,17 +17,20 @@ public class StabAttack : Ability
 
         if (timeRemaining > 0)
         {
-            if (timeRemaining < 1)
+            if (!timersPaused)
             {
-                timerText.text = timeRemaining.ToString("N1");
-                timeRemaining -= Time.deltaTime;
-                abilityRadial.fillAmount = timeRemaining / maxCountDownTime;
-            }
-            else
-            {
-                timerText.text = timeRemaining.ToString("N0");
-                timeRemaining -= Time.deltaTime;
-                abilityRadial.fillAmount = timeRemaining / maxCountDownTime;
+                if (timeRemaining < 1)
+                {
+                    timerText.text = timeRemaining.ToString("N1");
+                    timeRemaining -= Time.deltaTime;
+                    abilityRadial.fillAmount = timeRemaining / maxCountDownTime;
+                }
+                else
+                {
+                    timerText.text = timeRemaining.ToString("N0");
+                    timeRemaining -= Time.deltaTime;
+                    abilityRadial.fillAmount = timeRemaining / maxCountDownTime;
+                }
             }
         }
         else
@@ -39,9 +45,9 @@ public class StabAttack : Ability
         {
             if (combatManager.combatState == CombatManager.CombatState.InCombat && isActive)
             {
-                animator.Play("MC_Stab");
                 ability.sprite = abilityGrey;
-                abilityRadial.fillAmount = 1;
+                abilityRadial.fillAmount = 1; // this can stay as long as the actual cooldown is paused until the end of the attack
+                combatManager.selection = true;
             }
             else
             {
@@ -61,22 +67,50 @@ public class StabAttack : Ability
             return;
         }
 
-        StartCoroutine(Stab());
+        StartCoroutine(WaitForSelection());
 
         timeRemaining = maxCountDownTime;
         player.cooldownTimer = player.maxCooldownTimer;
     }
 
-    public IEnumerator Stab()
+    public IEnumerator Stab(Combatant target)
     {
+        animator.Play("MC_Stab");
         player.PauseTimer();
         spinAttack.isActive = false;
         yield return new WaitForSeconds(0.5f);
-        int targetNumber = Random.Range(0, combatManager.CountOtherCombatants() - 1);
-        Combatant target = combatManager.combatants[targetNumber];
         float damage = target.healthSystem.TakeDamage(gameManager.damage * baseDamage);
         player.healthSystem.Heal(damage * gameManager.healing);
-        player.UnpauseTimer();
+        foreach (Combatant combatant in combatManager.combatants)
+        {
+            combatant.UnpauseTimer();
+        }
         spinAttack.isActive = true;
+        selection = null;
+        combatManager.selection = false;
+        selectionMade = false;
+        spinAttack.timersPaused = false;
+        timersPaused = false;
+    }
+
+    public IEnumerator WaitForSelection()
+    {
+        foreach (Combatant combatant in combatManager.combatants)
+        {
+            combatant.PauseTimer();
+        }
+        timeRemaining = maxCountDownTime;
+        timersPaused = true;
+        spinAttack.timersPaused = true;
+        spinAttack.isActive = false;
+        // pause everything
+        yield return new WaitUntil(() => selectionMade);
+        StartCoroutine(Stab(selection));
     }
 }
+
+
+// step 1: click the stab attack button
+// step 2: pause every cooldown both enemy and player both autp attack and abilities
+// step 3: allow player to make a selection of an enemy to target with the attack (combatManager.selection = true)
+// step 4: once enemy is clicked, it takes the clicked enemy and applies StartCoroutine(Stab()) on it (stab will have a new argument when calling it

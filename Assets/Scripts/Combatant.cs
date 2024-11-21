@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using static GlobalVariables;
 
-public class Combatant : MonoBehaviour
+public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] public float cooldownTimer;
     public float maxCooldownTimer;
@@ -31,8 +33,12 @@ public class Combatant : MonoBehaviour
 
     public bool timersPaused = false;
 
+    public GameObject test;
+
     public GameObject healthBarObject;
     public GameObject coolDownBarObject;
+
+    public StabAttack stabAttack;
 
     public enum CombatantType
     {
@@ -48,6 +54,8 @@ public class Combatant : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        stabAttack = FindObjectOfType<StabAttack>();
+        test.SetActive(false);
         animator = GetComponentInChildren<Animator>();
         combatManager = FindObjectOfType<CombatManager>();
         healthSystem = GetComponent<Health>();
@@ -134,4 +142,43 @@ public class Combatant : MonoBehaviour
         }
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        // if attack selection is active, do one thing,
+        // if not, show stats popup for combatant
+
+        if (combatManager.selection)
+        {
+            // selction ui up like an outline or something around them and if clicked
+            // this.Combatant should be passed into a function where it is the target of the attack
+        }
+        else
+        {
+            // ui popup
+            test.SetActive(true);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (combatManager.selection)
+        {
+            // remove outline around selected combatant
+        }
+        else
+        {
+            // ui popup closed
+            test.SetActive(false);
+        }
+    }
+
+    public void OnMouseDown()
+    {
+        if (combatManager.selection)
+        {
+            stabAttack.selection = this;
+            stabAttack.selectionMade = true;
+        }
+        Debug.Log("Clicked On:" + this.name);
+    }
 }

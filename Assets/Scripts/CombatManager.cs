@@ -69,6 +69,7 @@ public class CombatManager : MonoBehaviour
     public Slider progressBar;
 
     public bool lostCombat = false;
+    public bool selection = false;
 
     // when an ability is used, block the player from using any other ability until ability use is over.
 

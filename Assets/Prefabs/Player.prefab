@@ -30680,6 +30680,7 @@ MonoBehaviour:
   cooldownTimer: 0
   maxCooldownTimer: 2
   damage: 0
+  attackSpeed: 0
   defaultCooldownTimer: 2
   player: 1
   cooldownBar: {fileID: 9187105532848578013}
@@ -30692,10 +30693,10 @@ MonoBehaviour:
   attackAnimTime: 0
   coin: {fileID: 0}
   timersPaused: 0
-  enemyStats: {fileID: 0}
   healthBarObject: {fileID: 6115463253270359144}
   coolDownBarObject: {fileID: 4317424296335225727}
   stabAttack: {fileID: 0}
+  selectionShader: {fileID: 0}
   combatantType: 0
 --- !u!1 &8428179554080330985
 GameObject:
@@ -40853,9 +40854,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7607411283026417194, guid: 951b9c894a884b64bb3b4d00d2dc66ad,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7607411283026417194, guid: 951b9c894a884b64bb3b4d00d2dc66ad,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7399cb3fc6d36914094c76aa24ea754c, type: 2}
+    - target: {fileID: -7607411283026417194, guid: 951b9c894a884b64bb3b4d00d2dc66ad,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d2d24a7b351bea0459766b1f03f03374, type: 2}
     - target: {fileID: -2234727435652479836, guid: 951b9c894a884b64bb3b4d00d2dc66ad,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -40873,9 +40884,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5505397835767961780, guid: 951b9c894a884b64bb3b4d00d2dc66ad,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505397835767961780, guid: 951b9c894a884b64bb3b4d00d2dc66ad,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7399cb3fc6d36914094c76aa24ea754c, type: 2}
+    - target: {fileID: 5505397835767961780, guid: 951b9c894a884b64bb3b4d00d2dc66ad,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d2d24a7b351bea0459766b1f03f03374, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -40900,7 +40921,30 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3947284521354344357}
+    - targetCorrespondingSourceObject: {fileID: -1634946780783921801, guid: 951b9c894a884b64bb3b4d00d2dc66ad,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 319892524389339232}
   m_SourcePrefab: {fileID: 100100000, guid: 951b9c894a884b64bb3b4d00d2dc66ad, type: 3}
+--- !u!1 &1502684705735930133 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1634946780783921801, guid: 951b9c894a884b64bb3b4d00d2dc66ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 9049169089137329250}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &319892524389339232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502684705735930133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db27dba44d8da54ca3c209f3ddfe7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialIndex: 1
 --- !u!4 &3213130484052288062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3386057721775937956, guid: 951b9c894a884b64bb3b4d00d2dc66ad,

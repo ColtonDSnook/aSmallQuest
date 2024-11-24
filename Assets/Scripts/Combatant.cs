@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -41,6 +42,8 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public StabAttack stabAttack;
 
+    public SelectionShader selectionShader;
+
     public enum CombatantType
     {
         Player,
@@ -60,6 +63,7 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         combatManager.enemyStatsUI.SetActive(false);
         animator = GetComponentInChildren<Animator>();
         healthSystem = GetComponent<Health>();
+        selectionShader = GetComponentInChildren<SelectionShader>();
 
         switch (combatantType)
         {
@@ -175,11 +179,13 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         {
             // selction ui up like an outline or something around them and if clicked
             // this.Combatant should be passed into a function where it is the target of the attack
+            selectionShader.SelectionOn();
         }
         else
         {
             // ui popup
             combatManager.enemyStatsUI.SetActive(true);
+            selectionShader.SelectionOn();
             combatManager.hoveredOver = this;
 
             if (this.name == "Player")
@@ -201,11 +207,13 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         if (combatManager.selection)
         {
             // remove outline around selected combatant
+            selectionShader.SelectionOff();
         }
         else
         {
             // ui popup closed
             combatManager.enemyStatsUI.SetActive(false);
+            selectionShader.SelectionOff();
         }
     }
 

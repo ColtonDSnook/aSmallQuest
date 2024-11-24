@@ -382,6 +382,7 @@ MonoBehaviour:
   healthBarObject: {fileID: 3920378632329514477}
   coolDownBarObject: {fileID: 3343595160304728402}
   stabAttack: {fileID: 0}
+  selectionShader: {fileID: 0}
   combatantType: 3
 --- !u!23 &8089923754784115203
 MeshRenderer:
@@ -10795,9 +10796,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3680951394419377828, guid: 3f6424302d32ecc4e9d9ca7ea7c2b3a3,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3680951394419377828, guid: 3f6424302d32ecc4e9d9ca7ea7c2b3a3,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6639b9c50d7929d40aa491ae7305c111, type: 2}
+    - target: {fileID: -3680951394419377828, guid: 3f6424302d32ecc4e9d9ca7ea7c2b3a3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d2d24a7b351bea0459766b1f03f03374, type: 2}
     - target: {fileID: -3403346777641218308, guid: 3f6424302d32ecc4e9d9ca7ea7c2b3a3,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10825,6 +10836,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5571590943087171070}
+    - targetCorrespondingSourceObject: {fileID: -2363626060198672310, guid: 3f6424302d32ecc4e9d9ca7ea7c2b3a3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 81450351552686029}
   m_SourcePrefab: {fileID: 100100000, guid: 3f6424302d32ecc4e9d9ca7ea7c2b3a3, type: 3}
 --- !u!4 &2589454159335642140 stripped
 Transform:
@@ -10872,3 +10887,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slashKobold: {fileID: 3775237574203786978}
+--- !u!1 &8887740841811393469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2363626060198672310, guid: 3f6424302d32ecc4e9d9ca7ea7c2b3a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2622554773255533559}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &81450351552686029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8887740841811393469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db27dba44d8da54ca3c209f3ddfe7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialIndex: 1

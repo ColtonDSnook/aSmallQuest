@@ -5707,6 +5707,7 @@ MonoBehaviour:
   healthBarObject: {fileID: 1841071620177079501}
   coolDownBarObject: {fileID: 6776805442450912485}
   stabAttack: {fileID: 0}
+  selectionShader: {fileID: 0}
   combatantType: 1
 --- !u!114 &-6477555972206425958
 MonoBehaviour:
@@ -10897,9 +10898,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3887185075125053422, guid: ba3dd1b43f2840a4da54a9245fa5530d,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: ba3dd1b43f2840a4da54a9245fa5530d,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1037e940d4cd51e4ea319f50fa5cc9bb, type: 2}
+    - target: {fileID: -3887185075125053422, guid: ba3dd1b43f2840a4da54a9245fa5530d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d2d24a7b351bea0459766b1f03f03374, type: 2}
     - target: {fileID: -3887185075125053422, guid: ba3dd1b43f2840a4da54a9245fa5530d,
         type: 3}
       propertyPath: m_BlendShapeWeights.Array.data[0]
@@ -10932,6 +10943,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1473427684937864111}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ba3dd1b43f2840a4da54a9245fa5530d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 119121431980952631}
   m_SourcePrefab: {fileID: 100100000, guid: ba3dd1b43f2840a4da54a9245fa5530d, type: 3}
 --- !u!1 &8570217537119355043 stripped
 GameObject:
@@ -10973,6 +10988,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slimeAttack: {fileID: 5828607023719986762}
+--- !u!114 &119121431980952631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8570217537119355043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db27dba44d8da54ca3c209f3ddfe7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialIndex: 1
 --- !u!4 &9053457761670715929 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ba3dd1b43f2840a4da54a9245fa5530d,

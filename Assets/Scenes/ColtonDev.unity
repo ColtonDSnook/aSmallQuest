@@ -143,7 +143,7 @@ PrefabInstance:
     - target: {fileID: 3597002063833401798, guid: ac3397cd9bbf61f4c85dec89b0ce5a2f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 4.33
       objectReference: {fileID: 0}
     - target: {fileID: 3597002063833401798, guid: ac3397cd9bbf61f4c85dec89b0ce5a2f,
         type: 3}
@@ -899,6 +899,25 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42d0ff8cb9f760146af41626008f2726, type: 3}
+--- !u!1 &604147638 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7877998436234782334, guid: ac3397cd9bbf61f4c85dec89b0ce5a2f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1732634811}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &604147640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604147638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db27dba44d8da54ca3c209f3ddfe7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialIndex: 1
 --- !u!1001 &713077019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41106,7 +41125,7 @@ PrefabInstance:
     - target: {fileID: 3597002063833401798, guid: ac3397cd9bbf61f4c85dec89b0ce5a2f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.81
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 3597002063833401798, guid: ac3397cd9bbf61f4c85dec89b0ce5a2f,
         type: 3}
@@ -41171,7 +41190,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7877998436234782334, guid: ac3397cd9bbf61f4c85dec89b0ce5a2f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 604147640}
   m_SourcePrefab: {fileID: 100100000, guid: ac3397cd9bbf61f4c85dec89b0ce5a2f, type: 3}
 --- !u!1 &1738347478
 GameObject:

@@ -342,6 +342,7 @@ public class GameManager : MonoBehaviour
     public void LoadGame()
     {
         Load();
+        OpenUpgrades();
     }
 
     public void OpenSelectionScreen()

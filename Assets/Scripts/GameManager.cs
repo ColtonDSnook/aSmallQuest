@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     public SpinAttack spin;
     public StabAttack stab;
 
+    public GameObject choicePrompt;
+
     public Button playButton;
 
     public TextMeshProUGUI damageText;
@@ -85,6 +87,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        choicePrompt.SetActive(false);
         playButton.Select();
         versionNumber.text = Application.version;
         combatManager = FindObjectOfType<CombatManager>();
@@ -323,8 +326,6 @@ public class GameManager : MonoBehaviour
     {
         if (File.Exists(saveFilePath))
         {
-            // ask if player wants to load or make new game
-            // two buttons with NewGame() and LoadGame() on them
             OpenSelectionScreen();
         }
         else
@@ -337,17 +338,19 @@ public class GameManager : MonoBehaviour
     {
         DeleteSave();
         OpenIntro();
+        choicePrompt.SetActive(false);
     }
 
     public void LoadGame()
     {
         Load();
         OpenUpgrades();
+        choicePrompt.SetActive(false);
     }
 
     public void OpenSelectionScreen()
     {
-
+        choicePrompt.SetActive(true);
     }
 
     public void Save()

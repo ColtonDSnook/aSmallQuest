@@ -94,15 +94,6 @@ public class GameManager : MonoBehaviour
         stab.selectText.SetActive(false);
 
         saveFilePath = Application.persistentDataPath + "/playerInfo.dat";
-
-        if (File.Exists(saveFilePath))
-        {
-            Load();
-        }
-        else
-        {
-            upgradeManager.InitializeUpgrades();
-        }
     }
 
     // Update is called once per frame
@@ -147,6 +138,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    #region GameStates
     private void MainMenu()
     {
         Cursor.visible = true;
@@ -210,7 +202,9 @@ public class GameManager : MonoBehaviour
         playerSprite.SetActive(false);
         uiManager.UIIntro();
     }
+    #endregion
 
+    #region State Changers
     public void PauseGame()
     {
         if (gameState != GameState.Pause && gameState == GameState.Gameplay)
@@ -268,12 +262,6 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Intro;
     }
 
-    public void MovePlayerToSpawnPoint()
-    {
-        player.transform.position = spawnPoint.transform.position;
-        Time.timeScale = 1;
-    }
-
     public void Back()
     {
         if (gameState == GameState.Upgrades || gameState == GameState.Credits)
@@ -295,6 +283,14 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
         }
     }
+    #endregion
+
+    public void MovePlayerToSpawnPoint()
+    {
+        player.transform.position = spawnPoint.transform.position;
+        Time.timeScale = 1;
+    }
+
 
     public void UpdateText()
     {
@@ -321,6 +317,36 @@ public class GameManager : MonoBehaviour
 
         numTargets = defaultNumTargets;
         bursts = defaultBursts;
+    }
+
+    public void PlayGame()
+    {
+        if (File.Exists(saveFilePath))
+        {
+            // ask if player wants to load or make new game
+            // two buttons with NewGame() and LoadGame() on them
+            OpenSelectionScreen();
+        }
+        else
+        {
+            NewGame();
+        }
+    }
+
+    public void NewGame()
+    {
+        DeleteSave();
+        OpenIntro();
+    }
+
+    public void LoadGame()
+    {
+        Load();
+    }
+
+    public void OpenSelectionScreen()
+    {
+
     }
 
     public void Save()

@@ -438,15 +438,15 @@ public class GameManager : MonoBehaviour
         if (File.Exists(saveFilePath))
         {
             File.Delete(saveFilePath);
-
-            ResetValues();
-
-            upgradeManager.upgrades.Clear();
-            upgradeManager.InitializeUpgrades();
         }
         else
         {
             Debug.LogWarning("Save file failed to delete");
         }
+
+        ResetValues();
+
+        upgradeManager.upgrades.Clear();
+        upgradeManager.InitializeUpgrades();
     }
 }

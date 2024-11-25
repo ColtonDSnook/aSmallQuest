@@ -142,7 +142,7 @@ public class CombatManager : MonoBehaviour
         {
             DisplayEndResults(false);
             levelManager.LoadScene("Post-Run", false);
-
+            gameManager.Save();
             ResetAll();
         }
 

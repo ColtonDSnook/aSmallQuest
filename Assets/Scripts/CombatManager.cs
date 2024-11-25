@@ -228,11 +228,13 @@ public class CombatManager : MonoBehaviour
     public IEnumerator Attack(Combatant target)
     {
         player.PauseTimer();
+        stabAttack.isActive = false;
         player.animator.Play("MC_Slash");
         yield return new WaitForSeconds(0.5f);
         target.healthSystem.TakeDamage(gameManager.damage);
         currentTarget = target;
         player.UnpauseTimer();
+        stabAttack.isActive = true;
         Debug.Log("Attacked");
     }
 

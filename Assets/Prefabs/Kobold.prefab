@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6515230444627101866}
   - component: {fileID: 3625536816803776270}
   - component: {fileID: 3038014528792229289}
+  - component: {fileID: 2648937955024131464}
   m_Layer: 5
   m_Name: CooldownBar
   m_TagString: Untagged
@@ -75,6 +76,19 @@ MonoBehaviour:
   m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2648937955024131464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304553350399117530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf369213389f1f45bec43111d502d88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  billboardType: 1
 --- !u!1 &1050178527894350036
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,6 +100,7 @@ GameObject:
   - component: {fileID: 2243357360147549676}
   - component: {fileID: 184517647174935903}
   - component: {fileID: 74039157872890585}
+  - component: {fileID: 1892692433133622367}
   m_Layer: 5
   m_Name: HealthBar Background
   m_TagString: Untagged
@@ -150,6 +165,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1892692433133622367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050178527894350036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf369213389f1f45bec43111d502d88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  billboardType: 1
 --- !u!1 &1139294290450019807
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,6 +189,7 @@ GameObject:
   - component: {fileID: 1027549003098411446}
   - component: {fileID: 3886835251908313853}
   - component: {fileID: 6925572516770324310}
+  - component: {fileID: 3930731254083624299}
   m_Layer: 5
   m_Name: Damage Text
   m_TagString: Untagged
@@ -284,6 +313,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3930731254083624299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139294290450019807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf369213389f1f45bec43111d502d88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  billboardType: 1
 --- !u!1 &1275595652522921980
 GameObject:
   m_ObjectHideFlags: 0
@@ -5440,6 +5482,7 @@ GameObject:
   - component: {fileID: 4076190364290529563}
   - component: {fileID: 4080502262827693390}
   - component: {fileID: 9037801126784788074}
+  - component: {fileID: 6677599896918603287}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -5504,6 +5547,19 @@ MonoBehaviour:
   m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6677599896918603287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3946370557535982919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf369213389f1f45bec43111d502d88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  billboardType: 1
 --- !u!1 &4736974637835152214
 GameObject:
   m_ObjectHideFlags: 0
@@ -10517,6 +10573,7 @@ GameObject:
   - component: {fileID: 7131580682242108217}
   - component: {fileID: 1105004468452694085}
   - component: {fileID: 51918943992994508}
+  - component: {fileID: 3167900204483793022}
   m_Layer: 5
   m_Name: CooldownBar Background
   m_TagString: Untagged
@@ -10581,6 +10638,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3167900204483793022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6150740873158825708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf369213389f1f45bec43111d502d88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  billboardType: 1
 --- !u!1 &8290756474026932832
 GameObject:
   m_ObjectHideFlags: 0

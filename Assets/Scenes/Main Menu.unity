@@ -2785,7 +2785,7 @@ RectTransform:
   m_Father: {fileID: 1174804936}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 80, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7508,7 +7508,7 @@ RectTransform:
   m_GameObject: {fileID: 587943522}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4149788, y: 0.4149788, z: 0.4149788}
+  m_LocalScale: {x: 0.42, y: 0.42, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1480216335}
@@ -17310,6 +17310,11 @@ PrefabInstance:
       objectReference: {fileID: 189279631}
     - target: {fileID: 7926784377501861341, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
         type: 3}
+      propertyPath: tweenSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7926784377501861341, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
+        type: 3}
       propertyPath: abilitiesUI
       value: 
       objectReference: {fileID: 2015486422}
@@ -17335,6 +17340,11 @@ PrefabInstance:
       objectReference: {fileID: 8683865681615497591}
     - target: {fileID: 7926784377501861341, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
         type: 3}
+      propertyPath: newCoinScale
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7926784377501861341, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
+        type: 3}
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 1825759177}
@@ -17348,6 +17358,11 @@ PrefabInstance:
       propertyPath: stabAttackUI
       value: 
       objectReference: {fileID: 189279629}
+    - target: {fileID: 7926784377501861341, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
+        type: 3}
+      propertyPath: coinCounterUI
+      value: 
+      objectReference: {fileID: 587943523}
     - target: {fileID: 7926784377501861341, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
         type: 3}
       propertyPath: slashTimeline
@@ -17388,6 +17403,16 @@ PrefabInstance:
       propertyPath: coinsTotalWonText
       value: 
       objectReference: {fileID: 1684884366}
+    - target: {fileID: 7926784377501861341, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
+        type: 3}
+      propertyPath: coinCounterScale.x
+      value: 0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 7926784377501861341, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
+        type: 3}
+      propertyPath: coinCounterScale.y
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 7926784377501861341, guid: 696364c4c43fb1f48b4573aefa3e6dfe,
         type: 3}
       propertyPath: coinsGainedWonText
@@ -20943,7 +20968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1990703515266720045
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21377,7 +21402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &4250547127096376738
 MonoBehaviour:
   m_ObjectHideFlags: 0

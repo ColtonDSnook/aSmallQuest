@@ -1,7 +1,9 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.UI;
@@ -78,6 +80,11 @@ public class CombatManager : MonoBehaviour
     public bool selection = false;
 
     public Combatant hoveredOver;
+
+    public RectTransform coinCounterUI;
+    public float coinCounterScale = 0.42f;
+    public float newCoinScale = 0.5f;
+    public float tweenSpeed = 0.5f;
 
     // when an ability is used, block the player from using any other ability until ability use is over.
 
@@ -197,6 +204,8 @@ public class CombatManager : MonoBehaviour
                     coinsGainedCurrentRun += currencyDropper.DropCurrency();
                     enemiesDefeatedCurrentRun++;
                     StartCoroutine(combatant.Kill());
+                    coinCounterUI.DOScale(new Vector3(newCoinScale, newCoinScale, 0f), tweenSpeed).From(coinCounterScale);
+                    coinCounterUI.DOScale(new Vector3(coinCounterScale, coinCounterScale, 0f), tweenSpeed).From(newCoinScale);
                 }
             }
         }

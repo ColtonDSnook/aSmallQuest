@@ -32,9 +32,11 @@ public class UpgradeManager : MonoBehaviour
 
     public GameObject errorTextObject;
     public TextMeshProUGUI errorText;
+    public RectTransform errorBlip;
     public RectTransform healthIcon;
     public RectTransform damageIcon;
     public RectTransform speedIcon;
+    public RectTransform upgradeDescription;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +51,8 @@ public class UpgradeManager : MonoBehaviour
     {
         errorTextObject.SetActive(true);
         errorText.text = message;
+        errorBlip.DOScale(new Vector3(1.02f, 1.02f, 1.0f), 0.3f).From(1.0f);
+        errorBlip.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.3f).From(1.02f);
         yield return new WaitForSeconds(2);
         errorTextObject.SetActive(false);
     }
@@ -61,6 +65,8 @@ public class UpgradeManager : MonoBehaviour
             descriptionText.text = upgrade.description;
             costText.text = upgrade.cost.ToString() + "g";
             descriptionUI.SetActive(true);
+            upgradeDescription.DOScale(new Vector3(1.02f, 1.02f, 1.0f), 0.3f).From(1.0f);
+            upgradeDescription.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.3f).From(1.02f);
         }
     }
 
@@ -194,15 +200,15 @@ public class UpgradeManager : MonoBehaviour
         upgrades.Add(new Upgrade("Unlock Large Stab Attack", "Unlock the Large Stab Attack skill", "LargeStab", 100)); // 16
 
         // Spin Attack upgrades
-        upgrades.Add(new Upgrade("Targets Increase", "Increase amount of targets attacked by the spin attack", StatType.NumTargets, 1, 150)); // 17
-        upgrades.Add(new Upgrade("Targets Increase", "Increase amount of targets attacked by the spin attack", StatType.NumTargets, 1, 170)); // 18
-        upgrades.Add(new Upgrade("Targets Increase", "Increase amount of targets attacked by the spin attack", StatType.NumTargets, 1, 200)); // 19
-        upgrades.Add(new Upgrade("Bursts Increase", "Increase amount of bursts of damage done by the spin attack", StatType.Bursts, 1, 150)); // 20
-        upgrades.Add(new Upgrade("Bursts Increase", "Increase amount of bursts of damage done by the spin attack", StatType.Bursts, 1, 170)); // 21
-        upgrades.Add(new Upgrade("Bursts Increase", "Increase amount of bursts of damage done by the spin attack", StatType.Bursts, 1, 200)); // 22
+        upgrades.Add(new Upgrade("Targets Increase", "Increase targets attacked by 1", StatType.NumTargets, 1, 150)); // 17
+        upgrades.Add(new Upgrade("Targets Increase", "Increase targets attacked by 1", StatType.NumTargets, 1, 170)); // 18
+        upgrades.Add(new Upgrade("Targets Increase", "Increase targets attacked by 1", StatType.NumTargets, 1, 200)); // 19
+        upgrades.Add(new Upgrade("Bursts Increase", "Increase amount of spins by 1", StatType.Bursts, 1, 150)); // 20
+        upgrades.Add(new Upgrade("Bursts Increase", "Increase amount of spins by 1", StatType.Bursts, 1, 170)); // 21
+        upgrades.Add(new Upgrade("Bursts Increase", "Increase amount of spins by 1", StatType.Bursts, 1, 200)); // 22
 
         // Stab Attack upgrades
-        upgrades.Add(new Upgrade("Healing", "Heals player for 10% of damage dealt by stab attack", StatType.Healing, 0.1f, 150)); // 10%  23
+        upgrades.Add(new Upgrade("Healing", "Heals player for 10% of stab damage", StatType.Healing, 0.1f, 150)); // 10%  23
         upgrades.Add(new Upgrade("Increase Healing", "Increase healing by 10%", StatType.Healing, 0.1f, 170)); // 10%  24
         upgrades.Add(new Upgrade("Increase Healing", "Increase healing by 10%", StatType.Healing, 0.1f, 200)); // 10%  25
         upgrades.Add(new Upgrade("Stab Damage Increase", "Increases stab damage by 200%", StatType.StabDamage, 2, 150)); // 200%  26

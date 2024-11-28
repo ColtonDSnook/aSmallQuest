@@ -1521,8 +1521,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Gain gold from slain enemies to purchase upgrades that will increase the
-    player's attributes!
+  m_text: Gain gold from killing enemies
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0dbc043506bc144980e98490664f5d0, type: 2}
   m_sharedMaterial: {fileID: -5902311437037449532, guid: d0dbc043506bc144980e98490664f5d0,
@@ -17651,7 +17650,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Each character attacks automatically when their cooldown bar is emptied.
+  m_text: Characters attack when cooldown bar is empty
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0dbc043506bc144980e98490664f5d0, type: 2}
   m_sharedMaterial: {fileID: -5902311437037449532, guid: d0dbc043506bc144980e98490664f5d0,
@@ -18903,8 +18902,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Click on the ability icons to use an amazing ability to turn the tides
-    of battle!
+  m_text: Click buttons to use abilities
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0dbc043506bc144980e98490664f5d0, type: 2}
   m_sharedMaterial: {fileID: -5902311437037449532, guid: d0dbc043506bc144980e98490664f5d0,

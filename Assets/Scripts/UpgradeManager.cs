@@ -9,6 +9,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.SocialPlatforms.Impl;
 using System.Linq;
+using DG.Tweening;
 
 public class UpgradeManager : MonoBehaviour
 {
@@ -31,6 +32,9 @@ public class UpgradeManager : MonoBehaviour
 
     public GameObject errorTextObject;
     public TextMeshProUGUI errorText;
+    public RectTransform healthIcon;
+    public RectTransform damageIcon;
+    public RectTransform speedIcon;
 
     // Start is called before the first frame update
     void Start()
@@ -105,14 +109,17 @@ public class UpgradeManager : MonoBehaviour
         {
             case StatType.Health:
                 gameManager.maxHealth += upgrade.value;
+                HealthBlip();
                 break;
             case StatType.Damage:
                 Debug.Log(playerStats.damage);
                 gameManager.damage += upgrade.value;
+                DamageBlip();
                 Debug.Log(playerStats.damage);
                 break;
             case StatType.AttackSpeed:
                 gameManager.attackSpeed += upgrade.value;
+                SpeedBlip();
                 break;
             case StatType.NumTargets:
                 gameManager.numTargets += upgrade.value;
@@ -131,6 +138,21 @@ public class UpgradeManager : MonoBehaviour
             //    break;
         }
         gameManager.Save();
+    }
+    public void DamageBlip()
+    {
+        damageIcon.DOScale(new Vector3( 3.0f, 3.0f, 1.0f), 0.5f).From(2.5f);
+        damageIcon.DOScale(new Vector3(2.5f, 2.5f, 1.0f), 0.5f).From(3.0f);
+    }
+    public void HealthBlip()
+    {
+        healthIcon.DOScale(new Vector3(3.0f, 3.0f, 1.0f), 0.5f).From(2.5f);
+        healthIcon.DOScale(new Vector3(2.5f, 2.5f, 1.0f), 0.5f).From(3.0f);
+    }
+    public void SpeedBlip()
+    {
+        speedIcon.DOScale(new Vector3(3.5f, 3.5f, 1.0f), 0.5f).From(3.0f);
+        speedIcon.DOScale(new Vector3(3.0f, 3.0f, 1.0f), 0.5f).From(3.5f);
     }
 
     public void ApplySkillUpgrade(Upgrade upgrade)

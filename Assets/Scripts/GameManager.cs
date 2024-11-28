@@ -297,10 +297,10 @@ public class GameManager : MonoBehaviour
 
     public void UpdateText()
     {
-        damageText.text = "DMG: " + damage.ToString();
-        speedText.text = "ATK SPD: " + attackSpeed.ToString();
-        upgradesGoldText.text = "GLD: " + gold.ToString();
-        healthText.text = "HP: " + maxHealth.ToString();
+        damageText.text = ": " + damage.ToString();
+        speedText.text = ": " + attackSpeed.ToString();
+        upgradesGoldText.text = ": " + gold.ToString();
+        healthText.text = ": " + maxHealth.ToString();
 
         goldText.text = combatManager.coinsGainedCurrentRun.ToString();
     }

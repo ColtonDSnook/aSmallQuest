@@ -23,12 +23,10 @@ public class CombatTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         AddPositions();
-        Debug.Log(positions[1]);
         InstantiateEnemies();
 
         combatManager.combatState = CombatManager.CombatState.Start;
         Destroy(this);
-        Debug.Log("In Combat");
     }
 
     void AddPositions()

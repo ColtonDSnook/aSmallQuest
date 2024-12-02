@@ -68,32 +68,16 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         switch (combatantType)
         {
             case CombatantType.Slime:
-                maxCooldownTimer = defaultCooldownTimer / defaultSlimeAttackSpeed;
-                attackSpeed = defaultSlimeAttackSpeed;
-                damage = defaultSlimeDamage;
-                animPrefix = slimeAnimPrefix;
-                attackAnimTime = defaultSlimeAttackAnimTime;
+                InitEnemyStats(defaultSlimeAttackSpeed, defaultSlimeDamage, slimeAnimPrefix, defaultSlimeAttackAnimTime);
                 break;
             case CombatantType.Goblin:
-                maxCooldownTimer = defaultCooldownTimer / defaultGoblinAttackSpeed;
-                attackSpeed = defaultGoblinAttackSpeed;
-                damage = defaultGoblinDamage;
-                animPrefix = goblinAnimPrefix;
-                attackAnimTime = defaultGoblinAttackAnimTime;
+                InitEnemyStats(defaultGoblinAttackSpeed, defaultGoblinAttackSpeed, goblinAnimPrefix, defaultGoblinAttackAnimTime);
                 break;
             case CombatantType.Kobold:
-                maxCooldownTimer = defaultCooldownTimer / defaultKoboldAttackSpeed;
-                attackSpeed = defaultKoboldAttackSpeed;
-                damage = defaultKoboldDamage;
-                animPrefix = koboldAnimPrefix;
-                attackAnimTime = defaultKoboldAttackAnimTime;
+                InitEnemyStats(defaultKoboldAttackSpeed, defaultKoboldAttackSpeed, koboldAnimPrefix, defaultKoboldAttackAnimTime);
                 break;
             case CombatantType.DungeonMaster:
-                maxCooldownTimer = defaultCooldownTimer / defaultDungeonMasterAttackSpeed;
-                attackSpeed = defaultDungeonMasterAttackSpeed;
-                damage = defaultDungeonMasterDamage;
-                animPrefix = dungeonMasterAnimPrefix;
-                attackAnimTime = defaultDungeonMasterAttackAnimTime;
+                InitEnemyStats(defaultDungeonMasterAttackSpeed, defaultDungeonMasterDamage, dungeonMasterAnimPrefix, defaultDungeonMasterAttackAnimTime);
                 break;
         }
         cooldownTimer = maxCooldownTimer;
@@ -123,17 +107,7 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         {
             if (this == combatManager.hoveredOver)
             {
-                if (combatManager.hoveredOver.name == "Player")
-                {
-                    combatManager.nameText.text = "Name: " + name;
-                }
-                else
-                {
-                    combatManager.nameText.text = "Name: " + TrimString(name);
-                }
-                combatManager.healthText.text = "Health: " + healthSystem.GetCurrentHealth() + "/" + healthSystem.maxHealth;
-                combatManager.damageText.text = "Damage: " + damage;
-                combatManager.attackSpeedText.text = "Atk Spd: " + attackSpeed;
+                HandleHover();
             }
         }
     }
@@ -174,7 +148,6 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         // if attack selection is active, do one thing,
         // if not, show stats popup for combatant
-        Debug.Log("Hobered");
         if (combatManager.selection)
         {
             // selction ui up like an outline or something around them and if clicked
@@ -188,17 +161,7 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             selectionShader.SelectionOn();
             combatManager.hoveredOver = this;
 
-            if (this.name == "Player")
-            {
-                combatManager.nameText.text = "Name: " + name;
-            }
-            else
-            {
-                combatManager.nameText.text = "Name: " + TrimString(name);
-            }
-            combatManager.healthText.text = "Health: " + healthSystem.GetCurrentHealth() + "/" + healthSystem.maxHealth;
-            combatManager.damageText.text = "Damage: " + damage;
-            combatManager.attackSpeedText.text = "Atk Spd: " + attackSpeed;
+            HandleHover();
         }
     }
 
@@ -225,6 +188,30 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             stabAttack.selectionMade = true;
         }
         Debug.Log("Clicked On:" + this.name);
+    }
+
+    public void InitEnemyStats(float attackSpeed, float damage, string animPrefix, float attackAnimTime)
+    {
+        maxCooldownTimer = defaultCooldownTimer / attackSpeed;
+        this.attackSpeed = attackSpeed;
+        this.damage = damage;
+        this.animPrefix = animPrefix;
+        this.attackAnimTime = attackAnimTime;
+    }
+
+    public void HandleHover()
+    {
+        if (this.name == "Player")
+        {
+            combatManager.nameText.text = "Name: " + name;
+        }
+        else
+        {
+            combatManager.nameText.text = "Name: " + TrimString(name);
+        }
+        combatManager.healthText.text = "Health: " + healthSystem.GetCurrentHealth() + "/" + healthSystem.maxHealth;
+        combatManager.damageText.text = "Damage: " + damage;
+        combatManager.attackSpeedText.text = "Atk Spd: " + attackSpeed;
     }
 
     public string TrimString(string str)

@@ -30736,6 +30736,7 @@ MonoBehaviour:
     healing: 0
     stabDamage: 0
   combatant: {fileID: 0}
+  damageNumber: {fileID: 83831241767874712}
 --- !u!114 &5672942193526491901
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static GlobalVariables;
+using DG.Tweening;
 
 public class Health : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Health : MonoBehaviour
     public Image healthBar;
     public PlayerStats playerStats;
     public Combatant combatant;
+    public RectTransform damageNumber;
+
 
     // Start is called before the first frame update
     void Start()
@@ -129,6 +132,8 @@ public class Health : MonoBehaviour
         damageText.gameObject.SetActive(true);
         //Debug.Log("showing damage numbers");
         damageText.text = damage.ToString();
+        damageNumber.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 0.2f).From(1.0f);
+        damageNumber.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.2f).From(1.2f);
         yield return new WaitForSeconds(0.5f);
         damageText.text = "";
         damageText.gameObject.SetActive(false);

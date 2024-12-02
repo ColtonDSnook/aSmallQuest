@@ -132,7 +132,15 @@ public class CombatManager : MonoBehaviour
         if (combatState == CombatState.Start)
         {
             InitializeCombatants();
-            //abilitiesUI.SetActive(true);
+            foreach (Combatant combatant in combatants)
+            {
+                int i = 0;
+                if (!combatant.player)
+                {
+                    combatant.cooldownTimer -= 2 * i;
+                }
+                i++;
+            }
             player.UnpauseTimer();
             spinAttack.isActive = true;
             stabAttack.isActive = true;
@@ -158,12 +166,9 @@ public class CombatManager : MonoBehaviour
             combatants.Clear();
             previousCombatState = combatState;
             combatState = CombatState.None;
-            //abilitiesUI.SetActive(false);
             player.UnpauseTimer();
             spinAttack.isActive = true;
             stabAttack.isActive = true;
-            //playerHealth.SetCurrentHealth();
-            //levelManager.LoadScene("Post-Run");
         }
         // when attacking the timer will pause for all entities and will let the entity attack.
         // combat will occur automatically when the player encounters an enemy "group".
@@ -244,7 +249,6 @@ public class CombatManager : MonoBehaviour
         currentTarget = target;
         player.UnpauseTimer();
         stabAttack.isActive = true;
-        Debug.Log("Attacked");
     }
 
     public IEnumerator EnemyAttack(Combatant user, Combatant target, float damage)
@@ -255,7 +259,6 @@ public class CombatManager : MonoBehaviour
         {
             target.healthSystem.TakeDamage(damage);
         }
-        Debug.Log("Attacked");
     }
 
     public Combatant GetPlayer()

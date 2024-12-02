@@ -22,6 +22,8 @@ public class CombatTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // when triggered, add the enemies for the next area, but start combat with the current ones (SOMEHOW)
+
         AddPositions();
         InstantiateEnemies();
 

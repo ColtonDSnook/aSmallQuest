@@ -21,15 +21,13 @@ public class CombatManager : MonoBehaviour
     }
 
     public CombatState combatState;
-
     public CombatState previousCombatState;
 
     public List<Combatant> combatants;
 
     public CurrencyDropper currencyDropper;
-
     public UpgradeManager upgradeManager;
-
+    public LevelManager levelManager;
     public GameManager gameManager;
 
     //public GameObject abilitiesUI;
@@ -38,11 +36,7 @@ public class CombatManager : MonoBehaviour
     public GameObject stabAttackUI;
 
     public Combatant player;
-
     public Health playerHealth;
-
-    public LevelManager levelManager;
-
     public PlayerStats playerStats;
 
     public Ability spinAttack;
@@ -61,8 +55,6 @@ public class CombatManager : MonoBehaviour
     public TextMeshProUGUI coinsGainedWonText;
     public TextMeshProUGUI enemiesDefeatedWonText;
     public TextMeshProUGUI coinsTotalWonText;
-
-    [SerializeField] private Combatant currentTarget;
 
     [SerializeField] private int encountersCompleted = 0;
     private int encountersRequired = defaultEncountersRequired;
@@ -89,91 +81,70 @@ public class CombatManager : MonoBehaviour
     // when an ability is used, block the player from using any other ability until ability use is over.
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        coinsGainedCurrentRun = 0;
-        enemiesDefeatedCurrentRun = 0;
-        upgradeManager = FindObjectOfType<UpgradeManager>();
-        //combatants.Add(player);
+        InitializeManagers();
+        ResetRunStats();
+
         combatState = CombatState.None;
-        levelManager = FindObjectOfType<LevelManager>();
-        currencyDropper = FindObjectOfType<CurrencyDropper>();
-        //abilitiesUI.SetActive(false);
         lostCombat = false;
-        encountersCompleted = 0;
         progressBar.value = 0;
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         progressBar.value = encountersCompleted;
-        //encountersText.text = "Encounters Completed: " + encountersCompleted + "/" + encountersRequired;
         CheckAbilities();
-        if (encountersCompleted >= encountersRequired)
-        {
-            DisplayEndResults(true);
-
-            encountersCompleted = 0;
-            progressBar.value = 0;
-            levelManager.LoadScene("Post-Run", true);
-            gameManager.Save();
-            playerHealth.SetCurrentHealth();
-            player.ResetCooldowns();
-            lostCombat = false;
-            player.UnpauseTimer();
-            spinAttack.isActive = true;
-            stabAttack.isActive = true;
-            player.healthBarObject.SetActive(true);
-            player.coolDownBarObject.SetActive(true);
-        }
-
-        //Debug.Log(player.healthSystem.GetCurrentHealth());
-        if (combatState == CombatState.Start)
-        {
-            InitializeCombatants();
-            foreach (Combatant combatant in combatants)
-            {
-                int i = 0;
-                if (!combatant.player)
-                {
-                    combatant.cooldownTimer -= 2 * i;
-                }
-                i++;
-            }
-            player.UnpauseTimer();
-            spinAttack.isActive = true;
-            stabAttack.isActive = true;
-            Debug.Log("Combat Started");
-            combatState = CombatState.InCombat;
-        }
-
-        if (combatState == CombatState.InCombat)
-        {
-            InCombat();
-        }
-
-        if (combatState == CombatState.Lost)
-        {
-            DisplayEndResults(false);
-            levelManager.LoadScene("Post-Run", false);
-            gameManager.Save();
-            ResetAll();
-        }
-
-        if (combatState == CombatState.Won)
-        {
-            combatants.Clear();
-            previousCombatState = combatState;
-            combatState = CombatState.None;
-            player.UnpauseTimer();
-            spinAttack.isActive = true;
-            stabAttack.isActive = true;
-        }
+        WinGame();
+        HandleCombatState();
         // when attacking the timer will pause for all entities and will let the entity attack.
         // combat will occur automatically when the player encounters an enemy "group".
         // this will be performed by a cooldown that will fill a bar adding the attacking entity to the attack queue.
         // this queue will be interrupted when the player uses an active ability.
+    }
+
+    public void HandleCombatState()
+    {
+        switch (combatState)
+        {
+            case CombatState.Start:
+                StartCombat();
+                break;
+            case CombatState.InCombat:
+                InCombat();
+                break;
+            case CombatState.Lost:
+                LostCombat();
+                break;
+            case CombatState.Won:
+                WonCombat();
+                break;
+        }
+    }
+
+    public void HandleCombatantDeath(Combatant combatant)
+    {
+        if (combatant.player && !lostCombat)
+        {
+            StartCoroutine(LoseCombat());
+        }
+        else if (!combatant.player)
+        {
+            combatants.Remove(combatant);
+            coinsGainedCurrentRun += currencyDropper.DropCurrency();
+            enemiesDefeatedCurrentRun++;
+            StartCoroutine(combatant.Kill());
+            AnimateCoinCounter();
+        }
+    }
+
+    public void StartCombat()
+    {
+        InitializeCombatants();
+        player.UnpauseTimer();
+        EnableAbilities();
+        combatState = CombatState.InCombat;
     }
 
     public void InCombat()
@@ -197,36 +168,57 @@ public class CombatManager : MonoBehaviour
 
             if (combatant.healthSystem.GetCurrentHealth() <= 0)
             {
-                //Debug.Log(combatant.healthSystem.GetCurrentHealth());
-                if (combatant.player && !lostCombat)
-                {
-                    StartCoroutine(LoseCombat());
-                    //upgradeManager.Save();
-                }
-                else if (!combatant.player)
-                {
-                    combatants.Remove(combatant);
-                    coinsGainedCurrentRun += currencyDropper.DropCurrency();
-                    enemiesDefeatedCurrentRun++;
-                    StartCoroutine(combatant.Kill());
-                    coinCounterUI.DOScale(new Vector3(newCoinScale, newCoinScale, 0f), tweenSpeed).From(coinCounterScale);
-                    coinCounterUI.DOScale(new Vector3(coinCounterScale, coinCounterScale, 0f), tweenSpeed).From(newCoinScale);
-                }
+                HandleCombatantDeath(combatant);
             }
         }
         if (CountOtherCombatants() == 0)
         {
             combatState = CombatState.Won;
             encountersCompleted++;
-            //Debug.Log(playerStats.GetStat("Health"));
+        }
+    }
 
+    public void WonCombat()
+    {
+        combatants.Clear();
+        previousCombatState = combatState;
+        combatState = CombatState.None;
+        player.UnpauseTimer();
+        EnableAbilities();
+    }
+
+    public void LostCombat()
+    {
+        DisplayEndResults(false);
+        levelManager.LoadScene("Post-Run", false);
+        gameManager.Save();
+        ResetAll();
+    }
+
+    public void WinGame()
+    {
+        if (encountersCompleted >= encountersRequired)
+        {
+            DisplayEndResults(true);
+
+            encountersCompleted = 0;
+            progressBar.value = 0;
+            levelManager.LoadScene("Post-Run", true);
+            gameManager.Save();
+            playerHealth.SetCurrentHealth();
+            player.ResetCooldowns();
+            lostCombat = false;
+            player.UnpauseTimer();
+            spinAttack.isActive = true;
+            stabAttack.isActive = true;
+            player.healthBarObject.SetActive(true);
+            player.coolDownBarObject.SetActive(true);
         }
     }
 
     public IEnumerator LoseCombat()
     {
-        spinAttack.isActive = false;
-        stabAttack.isActive = false;
+        DisableAbilities();
         foreach (Combatant combatant in combatants)
         {
             combatant.PauseTimer();
@@ -246,7 +238,6 @@ public class CombatManager : MonoBehaviour
         player.animator.Play("MC_Slash");
         yield return new WaitForSeconds(0.5f);
         target.healthSystem.TakeDamage(gameManager.damage);
-        currentTarget = target;
         player.UnpauseTimer();
         stabAttack.isActive = true;
     }
@@ -286,10 +277,23 @@ public class CombatManager : MonoBehaviour
         return count;
     }
 
+    public void InitializeManagers()
+    {
+        levelManager = FindObjectOfType<LevelManager>();
+        currencyDropper = FindObjectOfType<CurrencyDropper>();
+        upgradeManager = FindObjectOfType<UpgradeManager>();
+    }
+
     public void InitializeCombatants()
     {
-        Combatant[] combatantsArray = FindObjectsOfType<Combatant>();
-        combatants = combatantsArray.ToList<Combatant>();
+        combatants = FindObjectsOfType<Combatant>().ToList();
+    }
+
+    public void ResetRunStats()
+    {
+        coinsGainedCurrentRun = 0;
+        enemiesDefeatedCurrentRun = 0;
+        encountersCompleted = 0;
     }
 
     public void ResetCombatState()
@@ -317,8 +321,7 @@ public class CombatManager : MonoBehaviour
         player.UnpauseTimer();
         player.healthBarObject.SetActive(true);
         player.coolDownBarObject.SetActive(true);
-        spinAttack.isActive = true;
-        stabAttack.isActive = true;
+        EnableAbilities();
     }
 
     public void DisplayEndResults(bool won)
@@ -341,22 +344,25 @@ public class CombatManager : MonoBehaviour
 
     public void CheckAbilities()
     {
-        if (gameManager.spinAttack)
-        {
-            spinAttackUI.SetActive(true);
-        }
-        else
-        {
-            spinAttackUI.SetActive(false);
-        }
+        spinAttackUI.SetActive(gameManager.spinAttack);
+        stabAttackUI.SetActive(gameManager.stabAttack);
+    }
 
-        if (gameManager.stabAttack)
-        {
-            stabAttackUI.SetActive(true);
-        }
-        else
-        {
-            stabAttackUI.SetActive(false);
-        }
+    public void EnableAbilities()
+    {
+        spinAttack.isActive = true;
+        stabAttack.isActive = true;
+    }
+
+    public void DisableAbilities()
+    {
+        spinAttack.isActive = false;
+        stabAttack.isActive = false;
+    }
+
+    public void AnimateCoinCounter()
+    {
+        coinCounterUI.DOScale(new Vector3(newCoinScale, newCoinScale, 0f), tweenSpeed).From(coinCounterScale);
+        coinCounterUI.DOScale(new Vector3(coinCounterScale, coinCounterScale, 0f), tweenSpeed).From(newCoinScale);
     }
 }

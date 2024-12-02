@@ -57,7 +57,7 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public CombatantType combatantType;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         combatManager = FindObjectOfType<CombatManager>();
         stabAttack = FindObjectOfType<StabAttack>();
@@ -85,7 +85,7 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if (player)
         {

@@ -5,19 +5,32 @@ using UnityEngine;
 public class SelectionShader : MonoBehaviour
 {
     private Material[] materials;
-    public int materialIndex = 1;
+    private int selection = 1;
+    private int target = 2;
     void Start()
     {
         materials = GetComponent<SkinnedMeshRenderer>().materials;
         SelectionOff();
+        TargetOff();
     }
 
     public void SelectionOn()
     {
-        materials[materialIndex].SetFloat("_Visability", 5);
+        materials[selection].SetFloat("_Visability", 5);
     }
     public void SelectionOff()
     {
-        materials[materialIndex].SetFloat("_Visability", 0);
+        materials[selection].SetFloat("_Visability", 0);
     }
+    public void TargetOn()
+    {
+        materials[target].SetFloat("_Visability", 5);
+        Debug.Log("ononon");
+    }
+    public void TargetOff()
+    {
+        materials[target].SetFloat("_Visability", 0);
+        Debug.Log("oooofffff");
+    }
+
 }

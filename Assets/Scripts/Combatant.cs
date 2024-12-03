@@ -195,6 +195,7 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         else if (!this.player) 
         {
             this.isTargeted = true;
+            selectionShader.TargetOn();
             // only one target can be selected at a time
             // if another target is selected, the previous target is deselected
             foreach (Combatant combatant in combatManager.combatants)
@@ -202,6 +203,8 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
                 if (combatant != this)
                 {
                     combatant.isTargeted = false;
+                    selectionShader.TargetOff();
+                    Debug.Log("untargeted: " + this.name);
                 }
             }
             Debug.Log("Targeted: " + this.name);

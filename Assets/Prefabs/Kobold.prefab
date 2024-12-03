@@ -278,6 +278,7 @@ MonoBehaviour:
   coolDownBarObject: {fileID: 3343595160304728402}
   stabAttack: {fileID: 0}
   selectionShader: {fileID: 0}
+  isTargeted: 0
   combatantType: 3
 --- !u!23 &8089923754784115203
 MeshRenderer:
@@ -10869,7 +10870,7 @@ PrefabInstance:
     - target: {fileID: -3680951394419377828, guid: 3f6424302d32ecc4e9d9ca7ea7c2b3a3,
         type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -3680951394419377828, guid: 3f6424302d32ecc4e9d9ca7ea7c2b3a3,
         type: 3}
@@ -10881,6 +10882,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: d2d24a7b351bea0459766b1f03f03374, type: 2}
+    - target: {fileID: -3680951394419377828, guid: 3f6424302d32ecc4e9d9ca7ea7c2b3a3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: e1cbd6fb0fbe4f742a4b86a7c81926c4, type: 2}
     - target: {fileID: -3403346777641218308, guid: 3f6424302d32ecc4e9d9ca7ea7c2b3a3,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

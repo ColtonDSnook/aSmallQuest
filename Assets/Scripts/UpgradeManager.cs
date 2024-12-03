@@ -10,6 +10,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.SocialPlatforms.Impl;
 using System.Linq;
 using DG.Tweening;
+using System;
 
 public class UpgradeManager : MonoBehaviour
 {
@@ -51,10 +52,15 @@ public class UpgradeManager : MonoBehaviour
     {
         errorTextObject.SetActive(true);
         errorText.text = message;
-        errorBlip.DOScale(new Vector3(1.02f, 1.02f, 1.0f), 0.3f).From(1.0f);
-        errorBlip.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.3f).From(1.02f);
+        AnimateErrorMessage();
         yield return new WaitForSeconds(2);
         errorTextObject.SetActive(false);
+    }
+
+    private void AnimateErrorMessage()
+    {
+        errorBlip.DOScale(new Vector3(1.02f, 1.02f, 1.0f), 0.3f).From(1.0f);
+        errorBlip.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.3f).From(1.02f);
     }
 
     public void ShowUpgradeDescription(int upgradeIndex)
@@ -65,9 +71,14 @@ public class UpgradeManager : MonoBehaviour
             descriptionText.text = upgrade.description;
             costText.text = upgrade.cost.ToString() + "g";
             descriptionUI.SetActive(true);
-            upgradeDescription.DOScale(new Vector3(1.02f, 1.02f, 1.0f), 0.3f).From(1.0f);
-            upgradeDescription.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.3f).From(1.02f);
+            AnimateUpgradeDescription();
         }
+    }
+
+    private void AnimateUpgradeDescription()
+    {
+        upgradeDescription.DOScale(new Vector3(1.02f, 1.02f, 1.0f), 0.3f).From(1.0f);
+        upgradeDescription.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.3f).From(1.02f);
     }
 
     public void HideUpgradeDescription()
@@ -103,7 +114,6 @@ public class UpgradeManager : MonoBehaviour
             else
             {
                 StartCoroutine(ShowErrorMessage("Cannot Afford Upgrade"));
-                Debug.Log("Cannot Afford Upgrade");
             }
 
         }
@@ -139,9 +149,6 @@ public class UpgradeManager : MonoBehaviour
             case StatType.StabDamage:
                 gameManager.stabDamage += upgrade.value;
                 break;
-            //case StatType.Defense:
-            //    playerStats.defense += upgrade.value;
-            //    break;
         }
         gameManager.Save();
     }

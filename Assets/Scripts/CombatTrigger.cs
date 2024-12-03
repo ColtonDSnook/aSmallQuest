@@ -14,6 +14,14 @@ public class CombatTrigger : MonoBehaviour
 
     public List<Vector3> positions;
 
+    public enum TriggerType
+    {
+        Spawning,
+        Combat
+    }
+
+    public TriggerType triggerType;
+
     private void Start()
     {
         combatManager = FindObjectOfType<CombatManager>();
@@ -22,25 +30,35 @@ public class CombatTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // when triggered, add the enemies for the next area, but start combat with the current ones (SOMEHOW)
-
-        AddPositions();
-        InstantiateEnemies();
-
-        combatManager.combatState = CombatManager.CombatState.Start;
-        Destroy(this);
+        if (other.gameObject.tag == "Player")
+        {
+            if (triggerType == TriggerType.Spawning)
+            {
+                AddPositions();
+                SpawnEnemies();
+            }
+            else if (triggerType == TriggerType.Combat)
+            {
+                combatManager.combatState = CombatManager.CombatState.Start;
+            }
+            this.enabled = false;
+        }
     }
 
     void AddPositions()
     {
-        positions.Add(player.transform.position + new Vector3(5.13f, height, 0));
-        positions.Add(player.transform.position + new Vector3(7.04f, height, -2.74f));
-        positions.Add(player.transform.position + new Vector3(7.84f, height, 2.74f));
-        positions.Add(player.transform.position + new Vector3(3.28f, height, -3.84f));
-        positions.Add(player.transform.position + new Vector3(3.14f, height, 4.5f));
+        Vector3 offset = new Vector3(19, 0, 0); // calculate this differently later.
+
+        positions.Clear();
+        positions.Add(player.transform.position + offset + new Vector3(5.13f, height, 0));
+        positions.Add(player.transform.position + offset + new Vector3(7.04f, height, -2.74f));
+        positions.Add(player.transform.position + offset + new Vector3(7.84f, height, 2.74f));
+        positions.Add(player.transform.position + offset + new Vector3(3.28f, height, -3.84f));
+        positions.Add(player.transform.position + offset + new Vector3(3.14f, height, 4.5f));
     }
 
-    void InstantiateEnemies()
+
+    void SpawnEnemies()
     {
         int numEnemies;
         if (enemyPrefab.name == "DungeonMaster")

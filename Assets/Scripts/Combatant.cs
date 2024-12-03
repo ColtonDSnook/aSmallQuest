@@ -161,6 +161,8 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             combatManager.enemyStatsUI.SetActive(true);
             selectionShader.SelectionOn();
             combatManager.hoveredOver = this;
+            combatManager.enemyStatsUI.transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 0.25f).From(1.0f);
+            combatManager.enemyStatsUI.transform.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.25f).From(1.2f);
 
             HandleHover();
         }

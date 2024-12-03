@@ -45,6 +45,8 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public SelectionShader selectionShader;
 
+    public bool isTargeted = false;
+
     public enum CombatantType
     {
         Player,
@@ -187,6 +189,21 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         {
             stabAttack.selection = this;
             stabAttack.selectionMade = true;
+        }
+        else if (!this.player) 
+        {
+            this.isTargeted = true;
+            // only one target can be selected at a time
+            // if another target is selected, the previous target is deselected
+            foreach (Combatant combatant in combatManager.combatants)
+            {
+                if (combatant != this)
+                {
+                    combatant.isTargeted = false;
+                }
+            }
+            Debug.Log("Targeted: " + this.name);
+            // any combatant that is selcected will have be attacked by the player during combatManager.Attack()
         }
         Debug.Log("Clicked On:" + this.name);
     }

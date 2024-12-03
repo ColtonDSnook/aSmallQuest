@@ -96,12 +96,11 @@ public class CombatManager : MonoBehaviour
     {
         progressBar.value = encountersCompleted;
         CheckAbilities();
-        WinGame();
+        if (encountersCompleted >= encountersRequired)
+        {
+            WinGame();
+        }
         HandleCombatState();
-        // when attacking the timer will pause for all entities and will let the entity attack.
-        // combat will occur automatically when the player encounters an enemy "group".
-        // this will be performed by a cooldown that will fill a bar adding the attacking entity to the attack queue.
-        // this queue will be interrupted when the player uses an active ability.
     }
 
     public void HandleCombatState()
@@ -175,10 +174,8 @@ public class CombatManager : MonoBehaviour
                 }
                 else
                 {
-                    int targetNumber = Random.Range(0, CountOtherCombatants() - 1);
-                    StartCoroutine(Attack(combatants[targetNumber]));
+                    HandleCombatTargeting();
                 }
-                //this attack will be in the form of a timeline that will send a signal to deal damage to the opposing force.
                 combatant.cooldownTimer = combatant.maxCooldownTimer;
             }
 
@@ -187,6 +184,7 @@ public class CombatManager : MonoBehaviour
                 HandleCombatantDeath(combatant);
             }
         }
+
         if (CountOtherCombatants() == 0)
         {
             combatState = CombatState.Won;
@@ -213,23 +211,20 @@ public class CombatManager : MonoBehaviour
 
     public void WinGame()
     {
-        if (encountersCompleted >= encountersRequired)
-        {
-            DisplayEndResults(true);
+        DisplayEndResults(true);
 
-            encountersCompleted = 0;
-            progressBar.value = 0;
-            levelManager.LoadScene("Post-Run", true);
-            gameManager.Save();
-            playerHealth.SetCurrentHealth();
-            player.ResetCooldowns();
-            lostCombat = false;
-            player.UnpauseTimer();
-            spinAttack.isActive = true;
-            stabAttack.isActive = true;
-            player.healthBarObject.SetActive(true);
-            player.coolDownBarObject.SetActive(true);
-        }
+        encountersCompleted = 0;
+        progressBar.value = 0;
+        levelManager.LoadScene("Post-Run", true);
+        gameManager.Save();
+        playerHealth.SetCurrentHealth();
+        player.ResetCooldowns();
+        lostCombat = false;
+        player.UnpauseTimer();
+        spinAttack.isActive = true;
+        stabAttack.isActive = true;
+        player.healthBarObject.SetActive(true);
+        player.coolDownBarObject.SetActive(true);
     }
 
     public IEnumerator LoseCombat()
@@ -265,6 +260,25 @@ public class CombatManager : MonoBehaviour
         if (user.healthSystem.GetCurrentHealth() >= 0)
         {
             target.healthSystem.TakeDamage(damage);
+        }
+    }
+
+    public void HandleCombatTargeting()
+    {
+        if (combatants.Any(c => c.isTargeted))
+        {
+            foreach (Combatant otherCombatant in combatants)
+            {
+                if (otherCombatant.isTargeted)
+                {
+                    StartCoroutine(Attack(otherCombatant));
+                }
+            }
+        }
+        else
+        {
+            int targetNumber = Random.Range(0, CountOtherCombatants() - 1);
+            StartCoroutine(Attack(combatants[targetNumber]));
         }
     }
 

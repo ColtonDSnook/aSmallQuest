@@ -142,9 +142,25 @@ public class CombatManager : MonoBehaviour
     public void StartCombat()
     {
         InitializeCombatants();
+        StaggerCooldowns();
         player.UnpauseTimer();
         EnableAbilities();
         combatState = CombatState.InCombat;
+    }
+
+    private void StaggerCooldowns()
+    {
+        float staggerInterval = 2f;
+        float currentStagger = 0f;
+
+        foreach (Combatant combatant in combatants)
+        {
+            if (!combatant.player)
+            {
+                combatant.cooldownTimer += currentStagger;
+                currentStagger += staggerInterval;
+            }
+        }
     }
 
     public void InCombat()

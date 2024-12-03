@@ -87,16 +87,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        choicePrompt.SetActive(false);
-        playButton.Select();
-        versionNumber.text = Application.version;
-        combatManager = FindObjectOfType<CombatManager>();
-        uiManager = FindObjectOfType<UIManager>();
-        player = FindObjectOfType<PlayerMovement>();
-        gameState = GameState.MainMenu;
-        stab.selectText.SetActive(false);
-
-        saveFilePath = Application.persistentDataPath + "/playerInfo.dat";
+        InitializeGame();
     }
 
     // Update is called once per frame
@@ -109,6 +100,11 @@ public class GameManager : MonoBehaviour
             PauseGame();
         }
 
+        HandleGameState();
+    }
+
+    void HandleGameState()
+    {
         switch (gameState)
         {
             case GameState.MainMenu:
@@ -139,6 +135,20 @@ public class GameManager : MonoBehaviour
                 Intro();
                 break;
         }
+    }
+
+    void InitializeGame()
+    {
+        choicePrompt.SetActive(false);
+        playButton.Select();
+        versionNumber.text = Application.version;
+        combatManager = FindObjectOfType<CombatManager>();
+        uiManager = FindObjectOfType<UIManager>();
+        player = FindObjectOfType<PlayerMovement>();
+        gameState = GameState.MainMenu;
+        stab.selectText.SetActive(false);
+
+        saveFilePath = Application.persistentDataPath + "/playerInfo.dat";
     }
 
     #region GameStates

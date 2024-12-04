@@ -78,7 +78,7 @@ public class Health : MonoBehaviour
         if (CompareTag("Enemy"))
         {
             animator.Play(combatant.animPrefix + "_Hurt");
-            if (damage > maxHealth)
+            if (damage > currentHealth)
             {
                 currentHealth = 0;
                 StartCoroutine(ShowDamageNumbers(startingHealth - currentHealth));

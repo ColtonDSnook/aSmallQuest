@@ -27,7 +27,8 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (combatManager.combatState == CombatManager.CombatState.None || combatManager.combatState == CombatManager.CombatState.Won)
         {
-            rb.AddForce(new Vector3(1, 0, 0) * moveSpeed * Time.deltaTime);
+            rb.velocity = new Vector3(moveSpeed, 0, 0) * Time.deltaTime;
+            //rb.AddForce(new Vector3(1, 0, 0) * moveSpeed * Time.deltaTime);
         }
         // the player move script will move the player forward and stop it when it encounters the enemy.
         // the player will not be able to move the player character manually

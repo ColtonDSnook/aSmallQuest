@@ -9747,7 +9747,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyPrefab: {fileID: 7286844961674179435, guid: ac3397cd9bbf61f4c85dec89b0ce5a2f,
     type: 3}
-  height: -1
+  height: -0.5
   positions: []
   triggerType: 0
 --- !u!65 &1418084411

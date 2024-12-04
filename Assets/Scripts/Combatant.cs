@@ -113,6 +113,10 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
                 HandleHover();
             }
         }
+        if (!this.isTargeted)
+        {
+            selectionShader.TargetOff();
+        }
     }
 
     public IEnumerator Kill()
@@ -123,6 +127,7 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         healthBarObject.SetActive(false);
         coin.Play();
         SoundManager.Instance.PlaySFX("Coin");
+        selectionShader.TargetOff();
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
     }
@@ -203,10 +208,11 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
                 if (combatant != this)
                 {
                     combatant.isTargeted = false;
-                    selectionShader.TargetOff();
+                    //selectionShader.TargetOff();
                     Debug.Log("untargeted: " + this.name);
                 }
             }
+            
             Debug.Log("Targeted: " + this.name);
             // any combatant that is selcected will have be attacked by the player during combatManager.Attack()
         }

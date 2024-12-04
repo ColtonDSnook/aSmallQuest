@@ -74,10 +74,10 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
                 InitEnemyStats(defaultSlimeAttackSpeed, defaultSlimeDamage, slimeAnimPrefix, defaultSlimeAttackAnimTime);
                 break;
             case CombatantType.Goblin:
-                InitEnemyStats(defaultGoblinAttackSpeed, defaultGoblinAttackSpeed, goblinAnimPrefix, defaultGoblinAttackAnimTime);
+                InitEnemyStats(defaultGoblinAttackSpeed, defaultGoblinDamage, goblinAnimPrefix, defaultGoblinAttackAnimTime);
                 break;
             case CombatantType.Kobold:
-                InitEnemyStats(defaultKoboldAttackSpeed, defaultKoboldAttackSpeed, koboldAnimPrefix, defaultKoboldAttackAnimTime);
+                InitEnemyStats(defaultKoboldAttackSpeed, defaultKoboldDamage, koboldAnimPrefix, defaultKoboldAttackAnimTime);
                 break;
             case CombatantType.DungeonMaster:
                 InitEnemyStats(defaultDungeonMasterAttackSpeed, defaultDungeonMasterDamage, dungeonMasterAnimPrefix, defaultDungeonMasterAttackAnimTime);

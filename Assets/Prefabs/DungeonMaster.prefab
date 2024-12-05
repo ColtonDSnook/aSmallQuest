@@ -10622,7 +10622,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4696880088842994090}
@@ -10930,7 +10930,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db27dba44d8da54ca3c209f3ddfe7fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialIndex: 1
 --- !u!1001 &7363251552108847737
 PrefabInstance:
   m_ObjectHideFlags: 0

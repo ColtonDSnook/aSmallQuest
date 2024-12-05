@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -13,6 +14,17 @@ public class UIManager : MonoBehaviour
     public GameObject UpgradesUI;
     public GameObject RunWinUI;
     public GameObject IntroUI;
+
+    public GameManager gameManager;
+    public CombatManager combatManager;
+
+    public GameObject choicePrompt;
+
+    public TextMeshProUGUI damageText;
+    public TextMeshProUGUI speedText;
+    public TextMeshProUGUI goldText;
+    public TextMeshProUGUI upgradesGoldText;
+    public TextMeshProUGUI healthText;
 
     public void UIMainMenu()
     {
@@ -130,5 +142,21 @@ public class UIManager : MonoBehaviour
         RunWinUI.SetActive(false);
         RunEndUI.SetActive(false);
         IntroUI.SetActive(true);
+    }
+
+    public void OpenSelectionScreen()
+    {
+        choicePrompt.SetActive(true);
+    }
+
+
+    public void UpdateText()
+    {
+        damageText.text = ": " + gameManager.damage.ToString();
+        speedText.text = ": " + gameManager.attackSpeed.ToString();
+        upgradesGoldText.text = ": " + gameManager.gold.ToString();
+        healthText.text = ": " + gameManager.maxHealth.ToString();
+
+        goldText.text = combatManager.coinsGainedCurrentRun.ToString();
     }
 }

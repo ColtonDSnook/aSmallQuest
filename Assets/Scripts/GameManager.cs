@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
 
     public UpgradeManager upgradeManager;
     public CombatManager combatManager;
+    public UIManager uiManager;
 
-    private UIManager uiManager;
     private PlayerMovement player;
     public Combatant playerCombatant;
     public GameObject playerSprite;
@@ -25,16 +25,7 @@ public class GameManager : MonoBehaviour
     public SpinAttack spin;
     public StabAttack stab;
 
-    public GameObject choicePrompt;
-
     public Button playButton;
-
-    public TextMeshProUGUI damageText;
-    public TextMeshProUGUI speedText;
-    public TextMeshProUGUI goldText;
-    public TextMeshProUGUI healthText;
-
-    public TextMeshProUGUI upgradesGoldText;
 
     public TextMeshProUGUI versionNumber;
 
@@ -99,7 +90,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateText();
+        uiManager.UpdateText();
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -146,7 +137,7 @@ public class GameManager : MonoBehaviour
 
     void InitializeGame()
     {
-        choicePrompt.SetActive(false);
+        uiManager.choicePrompt.SetActive(false);
         playButton.Select();
         versionNumber.text = Application.version;
         combatManager = FindObjectOfType<CombatManager>();
@@ -341,16 +332,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void UpdateText()
-    {
-        damageText.text = ": " + damage.ToString();
-        speedText.text = ": " + attackSpeed.ToString();
-        upgradesGoldText.text = ": " + gold.ToString();
-        healthText.text = ": " + maxHealth.ToString();
-
-        goldText.text = combatManager.coinsGainedCurrentRun.ToString();
-    }
-
     public void ResetValues()
     {
         gold = defaultGold;
@@ -372,7 +353,7 @@ public class GameManager : MonoBehaviour
     {
         if (File.Exists(saveFilePath))
         {
-            OpenSelectionScreen();
+            uiManager.OpenSelectionScreen();
         }
         else
         {
@@ -384,19 +365,14 @@ public class GameManager : MonoBehaviour
     {
         DeleteSave();
         OpenIntro();
-        choicePrompt.SetActive(false);
+        uiManager.choicePrompt.SetActive(false);
     }
 
     public void LoadGame()
     {
         Load();
         OpenUpgrades();
-        choicePrompt.SetActive(false);
-    }
-
-    public void OpenSelectionScreen()
-    {
-        choicePrompt.SetActive(true);
+        uiManager.choicePrompt.SetActive(false);
     }
 
     public void Save()

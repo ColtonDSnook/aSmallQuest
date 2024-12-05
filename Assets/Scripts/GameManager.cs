@@ -262,6 +262,11 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void OpenMainMenu()
+    {
+        gameState = GameState.MainMenu;
+    }
+
     public void OpenSettings()
     {
         if (gameState != GameState.Pause)

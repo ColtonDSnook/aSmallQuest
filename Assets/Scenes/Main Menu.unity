@@ -12585,7 +12585,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9003882228498871527}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: OpenControls
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28378,6 +28378,15 @@ MonoBehaviour:
   UpgradesUI: {fileID: 7162537506251528435}
   RunWinUI: {fileID: 3000394564545419804}
   IntroUI: {fileID: 273532845}
+  ControlsUI: {fileID: 842462625}
+  gameManager: {fileID: 9003882228498871527}
+  combatManager: {fileID: 1805031243}
+  choicePrompt: {fileID: 1259894245}
+  damageText: {fileID: 542473849}
+  speedText: {fileID: 237291615}
+  goldText: {fileID: 1480216336}
+  upgradesGoldText: {fileID: 581301029}
+  healthText: {fileID: 985514393}
 --- !u!1 &6640362659547672916
 GameObject:
   m_ObjectHideFlags: 0
@@ -29376,18 +29385,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeManager: {fileID: 534866859}
   combatManager: {fileID: 1805031243}
+  uiManager: {fileID: 6550332874346132479}
   playerCombatant: {fileID: 1825759180}
   playerSprite: {fileID: 1825759167}
   spawnPoint: {fileID: 0}
   spin: {fileID: 1572044311}
   stab: {fileID: 189279631}
-  choicePrompt: {fileID: 1259894245}
   playButton: {fileID: 8171115937143360713}
-  damageText: {fileID: 542473849}
-  speedText: {fileID: 237291615}
-  goldText: {fileID: 1480216336}
-  healthText: {fileID: 985514393}
-  upgradesGoldText: {fileID: 581301029}
   versionNumber: {fileID: 518142951}
   speedupImage: {fileID: 548145463}
   speedupSprite: {fileID: 21300000, guid: ccc2f2a010febfb49a94cefc1d66f3fc, type: 3}

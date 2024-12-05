@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     public GameObject UpgradesUI;
     public GameObject RunWinUI;
     public GameObject IntroUI;
+    public GameObject ControlsUI;
 
     public GameManager gameManager;
     public CombatManager combatManager;
@@ -37,6 +38,7 @@ public class UIManager : MonoBehaviour
         UpgradesUI.SetActive(false);
         RunEndUI.SetActive(false);
         IntroUI.SetActive(false);
+        ControlsUI.SetActive(false);
     }
 
     public void UIPause()
@@ -51,6 +53,7 @@ public class UIManager : MonoBehaviour
         RunWinUI.SetActive(false);
         RunEndUI.SetActive(false);
         IntroUI.SetActive(false);
+        ControlsUI.SetActive(false);
     }
 
     public void UIGameplay()
@@ -64,6 +67,7 @@ public class UIManager : MonoBehaviour
         RunWinUI.SetActive(false);
         RunEndUI.SetActive(false);
         IntroUI.SetActive(false);
+        ControlsUI.SetActive(false);
     }
 
     public void UISettings()
@@ -77,6 +81,7 @@ public class UIManager : MonoBehaviour
         RunWinUI.SetActive(false);
         RunEndUI.SetActive(false);
         IntroUI.SetActive(false);
+        ControlsUI.SetActive(false);
     }
 
     public void UIRunEnd()
@@ -90,6 +95,7 @@ public class UIManager : MonoBehaviour
         RunEndUI.SetActive(true);
         RunWinUI.SetActive(false);
         IntroUI.SetActive(false);
+        ControlsUI.SetActive(false);
     }
 
     public void UICredits()
@@ -103,6 +109,7 @@ public class UIManager : MonoBehaviour
         RunWinUI.SetActive(false);
         RunEndUI.SetActive(false);
         IntroUI.SetActive(false);
+        ControlsUI.SetActive(false);
     }
 
     public void UIRunWin()
@@ -116,6 +123,7 @@ public class UIManager : MonoBehaviour
         RunWinUI.SetActive(true);
         RunEndUI.SetActive(false);
         IntroUI.SetActive(false);
+        ControlsUI.SetActive(false);
     }
 
     public void UIUpgrades()
@@ -129,6 +137,7 @@ public class UIManager : MonoBehaviour
         RunWinUI.SetActive(false);
         RunEndUI.SetActive(false);
         IntroUI.SetActive(false);
+        ControlsUI.SetActive(false);
     }
 
     public void UIIntro()
@@ -142,6 +151,21 @@ public class UIManager : MonoBehaviour
         RunWinUI.SetActive(false);
         RunEndUI.SetActive(false);
         IntroUI.SetActive(true);
+        ControlsUI.SetActive(false);
+    }
+
+    public void UIControls()
+    {
+        MainMenuUI.SetActive(false);
+        PauseUI.SetActive(false);
+        GameplayUI.SetActive(false);
+        SettingsUI.SetActive(false);
+        CreditsUI.SetActive(false);
+        UpgradesUI.SetActive(false);
+        RunWinUI.SetActive(false);
+        RunEndUI.SetActive(false);
+        IntroUI.SetActive(false);
+        ControlsUI.SetActive(true);
     }
 
     public void OpenSelectionScreen()

@@ -60,7 +60,8 @@ public class GameManager : MonoBehaviour
         Upgrades,
         RunWin,
         Settings,
-        Intro
+        Intro,
+        Controls
     }
 
     public GameState previousGameState;
@@ -131,6 +132,9 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Intro:
                 Intro();
+                break;
+            case GameState.Controls:
+                Controls();
                 break;
         }
     }
@@ -213,6 +217,14 @@ public class GameManager : MonoBehaviour
         playerSprite.SetActive(false);
         uiManager.UIIntro();
     }
+
+    private void Controls()
+    {
+        Cursor.visible = true;
+        playerSprite.SetActive(false);
+        uiManager.UIControls();
+    }
+
     #endregion
 
     #region State Changers
@@ -273,6 +285,12 @@ public class GameManager : MonoBehaviour
     {
         previousGameState = gameState;
         gameState = GameState.Intro;
+    }
+
+    public void OpenControls()
+    {
+        previousGameState = gameState;
+        gameState = GameState.Controls;
     }
 
     public void Back()

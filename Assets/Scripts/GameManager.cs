@@ -103,6 +103,7 @@ public class GameManager : MonoBehaviour
         }
 
         HandleGameState();
+        HandleSpeedupButtonChanges();
     }
 
     void HandleGameState()
@@ -324,6 +325,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void HandleSpeedupButtonChanges()
+    {
+        if (isSpedUp)
+        {
+            //display one button
+        }
+        if (!isSpedUp)
+        {
+            //display the other button
+        }
+    }
 
     public void UpdateText()
     {

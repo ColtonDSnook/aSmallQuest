@@ -27,6 +27,7 @@ public class CombatManager : MonoBehaviour
     public UpgradeManager upgradeManager;
     public LevelManager levelManager;
     public GameManager gameManager;
+    public SaveManager saveManager;
 
     //public GameObject abilitiesUI;
 
@@ -214,7 +215,7 @@ public class CombatManager : MonoBehaviour
     {
         DisplayEndResults(false);
         levelManager.LoadScene("Post-Run", false);
-        gameManager.Save();
+        saveManager.Save();
         ResetAll();
     }
 
@@ -225,7 +226,7 @@ public class CombatManager : MonoBehaviour
         encountersCompleted = 0;
         progressBar.value = 0;
         levelManager.LoadScene("Post-Run", true);
-        gameManager.Save();
+        saveManager.Save();
         playerHealth.SetCurrentHealth();
         player.ResetCooldowns();
         lostCombat = false;
@@ -305,6 +306,7 @@ public class CombatManager : MonoBehaviour
         levelManager = FindObjectOfType<LevelManager>();
         currencyDropper = FindObjectOfType<CurrencyDropper>();
         upgradeManager = FindObjectOfType<UpgradeManager>();
+        saveManager = FindObjectOfType<SaveManager>();
     }
 
     public void InitializeCombatants()

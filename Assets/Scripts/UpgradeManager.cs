@@ -23,6 +23,7 @@ public class UpgradeManager : MonoBehaviour
     public PlayerSkills playerSkills;
 
     public GameManager gameManager;
+    public SaveManager saveManager;
 
     public List<Upgrade> upgrades;
 
@@ -43,6 +44,7 @@ public class UpgradeManager : MonoBehaviour
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        saveManager = FindObjectOfType<SaveManager>();
         errorTextObject.SetActive(false);
         errorText = errorTextObject.GetComponent<TextMeshProUGUI>();
         descriptionUI.SetActive(false);
@@ -107,7 +109,7 @@ public class UpgradeManager : MonoBehaviour
                 }
 
                 upgrade.isPurchased = true;
-                gameManager.Save();
+                saveManager.Save();
                 descriptionText.text = "";
                 descriptionUI.SetActive(false);
             }
@@ -150,7 +152,7 @@ public class UpgradeManager : MonoBehaviour
                 gameManager.stabDamage += upgrade.value;
                 break;
         }
-        gameManager.Save();
+        saveManager.Save();
     }
     public void DamageBlip()
     {

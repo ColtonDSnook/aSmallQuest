@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public UpgradeManager upgradeManager;
     public CombatManager combatManager;
     public UIManager uiManager;
+    public SaveManager saveManager;
 
     private PlayerMovement player;
     public Combatant playerCombatant;
@@ -147,6 +148,7 @@ public class GameManager : MonoBehaviour
         combatManager = FindObjectOfType<CombatManager>();
         uiManager = FindObjectOfType<UIManager>();
         player = FindObjectOfType<PlayerMovement>();
+        saveManager = FindObjectOfType<SaveManager>();
         gameState = GameState.MainMenu;
         stab.selectText.SetActive(false);
 
@@ -381,112 +383,15 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
-        DeleteSave();
+        saveManager.DeleteSave();
         OpenIntro();
         uiManager.choicePrompt.SetActive(false);
     }
 
     public void LoadGame()
     {
-        Load();
+        saveManager.Load();
         OpenUpgrades();
         uiManager.choicePrompt.SetActive(false);
-    }
-
-    public void Save()
-    {
-        try
-        {
-            // Create a BinaryFormatter and use a 'using' statement to ensure the file is closed properly
-            BinaryFormatter bf = new BinaryFormatter();
-
-            // Ensure the file stream is closed properly after saving data
-            using (FileStream file = File.Create(saveFilePath))
-            {
-                // Create a new SaveData object and set its properties
-                SaveData saveData = new SaveData();
-                saveData.playerStats = new PlayerStats(); // Ensure playerStats is initialized
-                saveData.playerSkills = new PlayerSkills();
-                saveData.playerStats.currency = gold;
-                saveData.playerStats.damage = damage;
-                saveData.playerStats.attackSpeed = attackSpeed;
-                saveData.playerStats.maxHealth = maxHealth;
-                saveData.playerStats.stabDamage = stabDamage;
-                saveData.playerStats.healing = healing;
-                saveData.playerStats.bursts = bursts;
-                saveData.playerStats.numTargets = numTargets;
-                saveData.playerSkills.spinAttack = spinAttack;
-                saveData.playerSkills.largeStab = stabAttack;
-                saveData.upgrades = upgradeManager.upgrades;
-
-                Debug.Log("Saving: Health - " + saveData.playerStats.maxHealth + ", Damage - " + saveData.playerStats.damage + ", Gold - " + saveData.playerStats.currency);
-
-                // Serialize the save data
-                bf.Serialize(file, saveData);
-            } // File is automatically closed here
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError("Failed to save data: " + ex.Message);
-        }
-    }
-
-    public void Load()
-    {
-        if (File.Exists(saveFilePath))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(saveFilePath, FileMode.Open);
-
-
-
-            if (file.Length > 0)
-            {
-                SaveData saveData = (SaveData)bf.Deserialize(file);
-
-                // Load the data from saveData
-                stabAttack = saveData.playerSkills.largeStab;
-                spinAttack = saveData.playerSkills.spinAttack;
-                healing = saveData.playerStats.healing;
-                stabDamage = saveData.playerStats.stabDamage;
-                bursts = saveData.playerStats.bursts;
-                numTargets = saveData.playerStats.numTargets;
-                gold = saveData.playerStats.currency;
-                damage = saveData.playerStats.damage;
-                maxHealth = saveData.playerStats.maxHealth;
-                attackSpeed = saveData.playerStats.attackSpeed;
-                upgradeManager.upgrades = saveData.upgrades;
-
-                Debug.Log("Game Loaded Successfully");
-            }
-            else
-            {
-                Debug.LogError("The save file is empty. Unable to load data.");
-            }
-
-            file.Close();
-            //Debug.Log("Loaded: Health - " + playerStats.maxHealth + ", Damage - " + playerStats.damage + ", Gold - " + saveData.playerStats.currency);
-        }
-        else
-        {
-            Debug.LogWarning("Save file not found");
-        }
-    }
-
-    public void DeleteSave()
-    {
-        if (File.Exists(saveFilePath))
-        {
-            File.Delete(saveFilePath);
-        }
-        else
-        {
-            Debug.LogWarning("Save file failed to delete");
-        }
-
-        ResetValues();
-
-        upgradeManager.upgrades.Clear();
-        upgradeManager.InitializeUpgrades();
     }
 }

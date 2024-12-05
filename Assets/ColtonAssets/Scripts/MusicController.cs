@@ -8,8 +8,14 @@ public class MusicController: MonoBehaviour
 {
     public Slider _musicSlider;
 
+    public void Awake()
+    {
+        _musicSlider.value = PlayerPrefs.GetFloat("music");
+    }
+
     public void MusicVolume()
     {
         SoundManager.Instance.MusicVolume(_musicSlider.value);
+        PlayerPrefs.SetFloat("music", _musicSlider.value);
     }
 }

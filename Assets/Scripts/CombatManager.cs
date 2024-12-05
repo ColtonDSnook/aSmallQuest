@@ -333,7 +333,7 @@ public class CombatManager : MonoBehaviour
         foreach (Combatant combatant in combatants)
         {
             combatant.ResetCooldowns();
-            combatant.healthSystem.damageText.gameObject.SetActive(false);
+            combatant.healthSystem.damageText.gameObject.SetActive(false); // !
         }
         player.ResetCooldowns();
         stabAttack.RefreshAbility();
@@ -344,8 +344,8 @@ public class CombatManager : MonoBehaviour
         progressBar.value = 0;
         lostCombat = false;
         player.UnpauseTimer();
-        player.healthBarObject.SetActive(true);
-        player.coolDownBarObject.SetActive(true);
+        player.healthBarObject.SetActive(true); // !
+        player.coolDownBarObject.SetActive(true); // !
         EnableAbilities();
     }
 

@@ -126,7 +126,10 @@ public class CombatManager : MonoBehaviour
     {
         if (combatant.player && !lostCombat)
         {
-            StopCoroutine(player.attackInst);
+            if (player.attackInst != null)
+            {
+                StopCoroutine(player.attackInst);
+            }
             StartCoroutine(LoseCombat());
         }
         else if (!combatant.player)
@@ -134,7 +137,10 @@ public class CombatManager : MonoBehaviour
             combatants.Remove(combatant);
             coinsGainedCurrentRun += currencyDropper.DropCurrency();
             enemiesDefeatedCurrentRun++;
-            StopCoroutine(combatant.attackInst);
+            if (combatant.attackInst != null)
+            {
+                StopCoroutine(combatant.attackInst);
+            }
             StartCoroutine(combatant.Kill());
             AnimateCoinCounter();
         }
@@ -236,7 +242,10 @@ public class CombatManager : MonoBehaviour
         foreach (Combatant combatant in combatants)
         {
             combatant.PauseTimer();
-            StopCoroutine(combatant.attackInst);
+            if (combatant.attackInst != null)
+            {
+                StopCoroutine(combatant.attackInst);
+            }
         }
         player.healthBarObject.SetActive(false);
         player.coolDownBarObject.SetActive(false);

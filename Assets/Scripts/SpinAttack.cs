@@ -45,7 +45,10 @@ public class SpinAttack : Ability
 
         if (combatManager.combatState != CombatManager.CombatState.InCombat || combatManager.lostCombat)
         {
-            StopCoroutine(inst);
+            if (inst != null)
+            {
+                StopCoroutine(inst);
+            }
         }
     }
 

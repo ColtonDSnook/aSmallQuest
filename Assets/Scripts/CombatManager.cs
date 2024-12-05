@@ -126,6 +126,7 @@ public class CombatManager : MonoBehaviour
     {
         if (combatant.player && !lostCombat)
         {
+            StopCoroutine(player.attackInst);
             StartCoroutine(LoseCombat());
         }
         else if (!combatant.player)
@@ -133,6 +134,7 @@ public class CombatManager : MonoBehaviour
             combatants.Remove(combatant);
             coinsGainedCurrentRun += currencyDropper.DropCurrency();
             enemiesDefeatedCurrentRun++;
+            StopCoroutine(combatant.attackInst);
             StartCoroutine(combatant.Kill());
             AnimateCoinCounter();
         }
@@ -171,7 +173,7 @@ public class CombatManager : MonoBehaviour
             {
                 if (!combatant.player)
                 {
-                    StartCoroutine(EnemyAttack(combatant, GetPlayer(), combatant.damage));
+                    combatant.attackInst = StartCoroutine(combatant.Attack(GetPlayer(), combatant.damage));
                 }
                 else
                 {
@@ -243,27 +245,6 @@ public class CombatManager : MonoBehaviour
         combatState = CombatState.Lost;
     }
 
-    public IEnumerator Attack(Combatant target)
-    {
-        player.PauseTimer();
-        stabAttack.isActive = false;
-        player.animator.Play("MC_Slash");
-        yield return new WaitForSeconds(0.5f);
-        target.healthSystem.TakeDamage(gameManager.damage);
-        player.UnpauseTimer();
-        stabAttack.isActive = true;
-    }
-
-    public IEnumerator EnemyAttack(Combatant user, Combatant target, float damage)
-    {
-        user.animator.Play(user.animPrefix + "_Attack");
-        yield return new WaitForSeconds(user.attackAnimTime);
-        if (user.healthSystem.GetCurrentHealth() >= 0)
-        {
-            target.healthSystem.TakeDamage(damage);
-        }
-    }
-
     public void HandleCombatTargeting()
     {
         if (combatants.Any(c => c.isTargeted))
@@ -272,14 +253,14 @@ public class CombatManager : MonoBehaviour
             {
                 if (otherCombatant.isTargeted)
                 {
-                    StartCoroutine(Attack(otherCombatant));
+                    player.attackInst = StartCoroutine(player.Attack(otherCombatant, gameManager.damage));
                 }
             }
         }
         else
         {
             int targetNumber = Random.Range(0, CountOtherCombatants() - 1);
-            StartCoroutine(Attack(combatants[targetNumber]));
+            player.attackInst = StartCoroutine(player.Attack(combatants[targetNumber], gameManager.damage));
         }
     }
 

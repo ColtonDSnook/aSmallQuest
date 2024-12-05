@@ -1,4 +1,5 @@
 using DG.Tweening;
+using DG.Tweening.Core.Easing;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -37,6 +38,7 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public bool timersPaused = false;
 
+    public Coroutine attackInst = null;
 
     public GameObject healthBarObject;
     public GameObject coolDownBarObject;
@@ -81,6 +83,10 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
                 break;
             case CombatantType.DungeonMaster:
                 InitEnemyStats(defaultDungeonMasterAttackSpeed, defaultDungeonMasterDamage, dungeonMasterAnimPrefix, defaultDungeonMasterAttackAnimTime);
+                break;
+            case CombatantType.Player:
+                animPrefix = "MC";
+                attackAnimTime = 0.5f;
                 break;
         }
         cooldownTimer = maxCooldownTimer;
@@ -173,6 +179,26 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             combatManager.enemyStatsUI.transform.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.25f).From(1.2f);
 
             HandleHover();
+        }
+    }
+
+    public IEnumerator Attack(Combatant target, float damage)
+    {
+        if (player)
+        {
+            PauseTimer();
+            stabAttack.isActive = false;
+        }
+        animator.Play(animPrefix + "_Attack");
+        yield return new WaitForSeconds(attackAnimTime);
+        if (healthSystem.GetCurrentHealth() > 0)
+        {
+            target.healthSystem.TakeDamage(damage);
+        }
+        if (player)
+        {
+            UnpauseTimer();
+            stabAttack.isActive = true;
         }
     }
 

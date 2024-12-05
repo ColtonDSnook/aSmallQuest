@@ -5764,7 +5764,8 @@ MonoBehaviour:
   timersPaused: 0
   healthBarObject: {fileID: 1841071620177079501}
   coolDownBarObject: {fileID: 6776805442450912485}
-  stabAttack: {fileID: 0}
+  stabAttack: {fileID: 7333055665760200362, guid: d7949dde4c7bfb040b7ca9c5ef2ae929,
+    type: 3}
   selectionShader: {fileID: 0}
   isTargeted: 0
   combatantType: 1
@@ -11266,7 +11267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db27dba44d8da54ca3c209f3ddfe7fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialIndex: 1
 --- !u!4 &9053457761670715929 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ba3dd1b43f2840a4da54a9245fa5530d,

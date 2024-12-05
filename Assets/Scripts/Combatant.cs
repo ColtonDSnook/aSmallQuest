@@ -64,7 +64,6 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void Start()
     {
         combatManager = FindObjectOfType<CombatManager>();
-        //stabAttack = FindObjectOfType<StabAttack>();
         combatManager.enemyStatsUI.SetActive(false);
         animator = GetComponentInChildren<Animator>();
         healthSystem = GetComponent<Health>();
@@ -95,6 +94,8 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     // Update is called once per frame
     public void Update()
     {
+        stabAttack = FindObjectOfType<StabAttack>(); // i had to do this it was working fine before but it suddenly stopped so it has to go here
+
         if (player)
         {
             maxCooldownTimer = defaultCooldownTimer / GameManager.manager.attackSpeed;

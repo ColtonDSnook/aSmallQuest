@@ -10689,7 +10689,8 @@ MonoBehaviour:
   timersPaused: 0
   healthBarObject: {fileID: 1308463423884340519}
   coolDownBarObject: {fileID: 6797335878161136409}
-  stabAttack: {fileID: 0}
+  stabAttack: {fileID: 7333055665760200362, guid: d7949dde4c7bfb040b7ca9c5ef2ae929,
+    type: 3}
   selectionShader: {fileID: 0}
   isTargeted: 0
   combatantType: 4

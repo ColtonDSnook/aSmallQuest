@@ -39,6 +39,7 @@ public class LevelManager : MonoBehaviour
             {
                 gameManager.gameState = GameManager.GameState.RunEnd;
                 Time.timeScale = 1;
+                gameManager.isSpedUp = false;
             }
         }
         if (levelName == "Settings")
@@ -48,6 +49,7 @@ public class LevelManager : MonoBehaviour
         if (levelName == "Main Menu")
         {
             Time.timeScale = 1;
+            gameManager.isSpedUp = false;
             gameManager.gameState = GameManager.GameState.MainMenu;
         }
         SceneManager.LoadScene(levelName);
@@ -71,6 +73,7 @@ public class LevelManager : MonoBehaviour
             {
                 gameManager.gameState = GameManager.GameState.RunEnd;
                 Time.timeScale = 1;
+                gameManager.isSpedUp = false;
             }
 
             if (won)
@@ -89,6 +92,7 @@ public class LevelManager : MonoBehaviour
         if (levelName == "Main Menu")
         {
             Time.timeScale = 1;
+            gameManager.isSpedUp = false;
             gameManager.gameState = GameManager.GameState.MainMenu;
         }
         SceneManager.LoadScene(levelName);
@@ -111,6 +115,7 @@ public class LevelManager : MonoBehaviour
         {
             gameManager.gameState = GameManager.GameState.Gameplay;
             Time.timeScale = 1;
+            gameManager.isSpedUp = false;
         }
         if (previousScene == "MainMenu")
         {

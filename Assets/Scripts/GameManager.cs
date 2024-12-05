@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI versionNumber;
 
+    public bool isSpedUp = false;
+
     public float gold = defaultGold; //#
     public float damage = defaultDamage; //#
     public float maxHealth = defaultMaxHealth; //#
@@ -225,12 +227,14 @@ public class GameManager : MonoBehaviour
             previousGameState = gameState;
             gameState = GameState.Pause;
             Time.timeScale = 0;
+            isSpedUp = false;
         }
         else if (gameState == GameState.Pause || gameState == GameState.Settings)
         {
             gameState = previousGameState;
             previousGameState = GameState.Pause;
             Time.timeScale = 1;
+            isSpedUp = false;
             spin.isActive = true;
             stab.isActive = true;
             foreach (Combatant combatant in combatManager.combatants)
@@ -294,6 +298,7 @@ public class GameManager : MonoBehaviour
         {
             gameState = previousGameState;
             Time.timeScale = 1;
+            isSpedUp = false;
         }
     }
     #endregion
@@ -302,6 +307,21 @@ public class GameManager : MonoBehaviour
     {
         player.transform.position = spawnPoint.transform.position;
         Time.timeScale = 1;
+        isSpedUp = false;
+    }
+
+    public void ToggleGameSpeedUp()
+    {
+        if (isSpedUp)
+        {
+            Time.timeScale = 1;
+            isSpedUp = false;
+        }
+        else
+        {
+            Time.timeScale = 3;
+            isSpedUp = true;
+        }
     }
 
 

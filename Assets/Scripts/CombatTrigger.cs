@@ -67,10 +67,10 @@ public class CombatTrigger : MonoBehaviour
         }
         else
         {
-            numEnemies = Random.Range(2, 5);
+            numEnemies = Random.Range(2, 6);
         }
 
-        for (int i = 1; i <= numEnemies; i++)
+        for (int i = 0; i < numEnemies; i++)
         {
             Instantiate(enemyPrefab, positions[i], Quaternion.identity);
             //Combatant enemyCombatant = enemy.GetComponent<Combatant>();

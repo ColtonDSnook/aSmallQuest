@@ -92,7 +92,9 @@ public class CombatManager : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        progressBar.value = encountersCompleted;
+        //IMPORTANT
+        //increment progress bar by one at the beginning of each encounter
+        //increment the amount of encounters completed at the end of each encounter
         CheckAbilities();
         if (encountersCompleted >= encountersRequired)
         {
@@ -142,6 +144,7 @@ public class CombatManager : MonoBehaviour
         StaggerCooldowns();
         player.UnpauseTimer();
         EnableAbilities();
+        progressBar.value++;
         combatState = CombatState.InCombat;
     }
 

@@ -122,6 +122,7 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public IEnumerator Kill()
     {
         animator.Play(animPrefix + "_Death");
+        Destroy(GetComponent<Collider>());
         PauseTimer();
         coolDownBarObject.SetActive(false);
         healthBarObject.SetActive(false);

@@ -43,7 +43,9 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public GameObject healthBarObject;
     public GameObject coolDownBarObject;
 
-    public StabAttack stabAttack;
+    public Ability stabAttack;
+
+    public StabAttack stab;
 
     public SelectionShader selectionShader;
 
@@ -65,6 +67,7 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         combatManager = FindObjectOfType<CombatManager>();
         combatManager.enemyStatsUI.SetActive(false);
+        stabAttack = combatManager.stabAttack;
         animator = GetComponentInChildren<Animator>();
         healthSystem = GetComponent<Health>();
         selectionShader = GetComponentInChildren<SelectionShader>();
@@ -94,7 +97,10 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     // Update is called once per frame
     public void Update()
     {
-        stabAttack = FindObjectOfType<StabAttack>(); // i had to do this it was working fine before but it suddenly stopped so it has to go here
+        if (GameManager.manager.stabAttack)
+        {
+            stab = GameManager.manager.stab;
+        }
 
         if (player)
         {
@@ -222,8 +228,8 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         if (combatManager.selection)
         {
-            stabAttack.selection = this;
-            stabAttack.selectionMade = true;
+            stab.selection = this;
+            stab.selectionMade = true;
         }
         else if (!this.player) 
         {

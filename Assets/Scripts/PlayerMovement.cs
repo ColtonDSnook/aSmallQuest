@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         if (combatManager.combatState == CombatManager.CombatState.InCombat)
@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (combatManager.combatState == CombatManager.CombatState.None || combatManager.combatState == CombatManager.CombatState.Won)
         {
-            rb.velocity = new Vector3(moveSpeed, 0, 0) * Time.deltaTime;
+            rb.velocity = new Vector3(moveSpeed * 100, 0, 0) * Time.fixedDeltaTime;
             //rb.AddForce(new Vector3(1, 0, 0) * moveSpeed * Time.deltaTime);
         }
         // the player move script will move the player forward and stop it when it encounters the enemy.

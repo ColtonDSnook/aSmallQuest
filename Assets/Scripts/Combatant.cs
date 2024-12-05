@@ -64,7 +64,7 @@ public class Combatant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void Start()
     {
         combatManager = FindObjectOfType<CombatManager>();
-        stabAttack = FindObjectOfType<StabAttack>();
+        //stabAttack = FindObjectOfType<StabAttack>();
         combatManager.enemyStatsUI.SetActive(false);
         animator = GetComponentInChildren<Animator>();
         healthSystem = GetComponent<Health>();

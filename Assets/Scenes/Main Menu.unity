@@ -26066,6 +26066,11 @@ PrefabInstance:
       objectReference: {fileID: 6640362659547672916}
     - target: {fileID: 5672942193526491901, guid: 2c3a15933f2ab1140be13ba419f590d6,
         type: 3}
+      propertyPath: stabAttack
+      value: 
+      objectReference: {fileID: 189279631}
+    - target: {fileID: 5672942193526491901, guid: 2c3a15933f2ab1140be13ba419f590d6,
+        type: 3}
       propertyPath: enemyStatsUI
       value: 
       objectReference: {fileID: 0}

@@ -269,7 +269,8 @@ public class CombatManager : MonoBehaviour
         }
         else
         {
-            int targetNumber = Random.Range(0, CountOtherCombatants() - 1);
+            int targetNumber = Random.Range(0, CountOtherCombatants());
+            Debug.Log(targetNumber);
             player.attackInst = StartCoroutine(player.Attack(combatants[targetNumber], gameManager.damage));
         }
     }

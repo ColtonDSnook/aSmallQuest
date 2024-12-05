@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
 
     public Button playButton;
 
+    public Slider musicSlider;
+    public Slider volumeSlider;
+
     public TextMeshProUGUI versionNumber;
 
     public Image speedupImage;
@@ -142,6 +145,9 @@ public class GameManager : MonoBehaviour
 
     void InitializeGame()
     {
+        musicSlider.value = PlayerPrefs.GetFloat("music");
+        volumeSlider.value = PlayerPrefs.GetFloat("volume");
+
         uiManager.choicePrompt.SetActive(false);
         playButton.Select();
         versionNumber.text = Application.version;

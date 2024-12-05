@@ -38,6 +38,10 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI versionNumber;
 
+    public Image speedupImage;
+    public Sprite speedupSprite;
+    public Sprite normalSpeedSprite;
+
     public bool isSpedUp = false;
 
     public float gold = defaultGold; //#
@@ -329,11 +333,11 @@ public class GameManager : MonoBehaviour
     {
         if (isSpedUp)
         {
-            //display one button
+            speedupImage.sprite = normalSpeedSprite;
         }
         if (!isSpedUp)
         {
-            //display the other button
+            speedupImage.sprite = speedupSprite;
         }
     }
 

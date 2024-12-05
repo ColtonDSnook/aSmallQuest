@@ -13,6 +13,8 @@ public class SpinAttack : Ability
     private float baseDamage = spinAttackBaseDamage; //40%
     public bool timersPaused = false;
 
+    Coroutine inst = null;
+
     public void Update()
     {
         numTargets = gameManager.numTargets;
@@ -39,6 +41,11 @@ public class SpinAttack : Ability
         else
         {
             RefreshAbility();
+        }
+
+        if (combatManager.combatState != CombatManager.CombatState.InCombat || combatManager.lostCombat)
+        {
+            StopCoroutine(inst);
         }
     }
 
@@ -108,7 +115,7 @@ public class SpinAttack : Ability
             }
         }
 
-        StartCoroutine(SpinAttackBursts(selectedTargets));
+        inst = StartCoroutine(SpinAttackBursts(selectedTargets));
 
         timeRemaining = maxCountDownTime;
         player.cooldownTimer = player.maxCooldownTimer;

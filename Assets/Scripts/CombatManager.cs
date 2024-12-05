@@ -236,6 +236,7 @@ public class CombatManager : MonoBehaviour
         foreach (Combatant combatant in combatants)
         {
             combatant.PauseTimer();
+            StopCoroutine(combatant.attackInst);
         }
         player.healthBarObject.SetActive(false);
         player.coolDownBarObject.SetActive(false);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -82,7 +83,7 @@ public class StabAttack : Ability
         spinAttack.isActive = false;
         yield return new WaitForSeconds(0.5f);
         float damage = target.healthSystem.TakeDamage(gameManager.damage * baseDamage);
-        player.healthSystem.Heal(damage * gameManager.healing);
+        player.healthSystem.Heal((float)Math.Round(damage * gameManager.healing));
         foreach (Combatant combatant in combatManager.combatants)
         {
             combatant.UnpauseTimer();

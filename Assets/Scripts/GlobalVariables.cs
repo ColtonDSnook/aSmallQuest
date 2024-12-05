@@ -41,9 +41,9 @@ public static class GlobalVariables
     public const float defaultKoboldAttackAnimTime = 0.5f;
     public const string koboldAnimPrefix = "Kobold";
 
-    public const float defaultDungeonMasterHealth = 600;
-    public const float defaultDungeonMasterDamage = 25;
-    public const float defaultDungeonMasterAttackSpeed = 0.75f;
+    public const float defaultDungeonMasterHealth = 1000;
+    public const float defaultDungeonMasterDamage = 30;
+    public const float defaultDungeonMasterAttackSpeed = 0.25f;
     public const float defaultDungeonMasterAttackAnimTime = 1f;
     public const string dungeonMasterAnimPrefix = "DM";
 

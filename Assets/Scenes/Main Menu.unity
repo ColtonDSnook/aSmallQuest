@@ -26842,7 +26842,7 @@ MonoBehaviour:
   upgradesGoldText: {fileID: 581301029}
   versionNumber: {fileID: 518142951}
   speedupImage: {fileID: 548145463}
-  speedupSprite: {fileID: 21300000, guid: d717b5c7719251e4db0ba738c7f9486a, type: 3}
+  speedupSprite: {fileID: 21300000, guid: ccc2f2a010febfb49a94cefc1d66f3fc, type: 3}
   normalSpeedSprite: {fileID: 21300000, guid: 5751bad560d370c41aa06d5f63ba7645, type: 3}
   isSpedUp: 0
   gold: 0

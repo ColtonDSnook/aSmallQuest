@@ -203,16 +203,16 @@ public class UpgradeManager : MonoBehaviour
         upgrades.Add(new Upgrade("Attack Speed Boost", "Increase attack speed by 20%", StatType.AttackSpeed, 0.2f, 100)); // 20%  14
 
         // Ability unlocks
-        upgrades.Add(new Upgrade("Unlock Spin Attack", "Unlock the Spin Attack skill", "SpinAttack", 100)); // 15
+        upgrades.Add(new Upgrade("Unlock Spin Attack", "Unlock the Spin Attack skill", "SpinAttack", 50)); // 15
         upgrades.Add(new Upgrade("Unlock Large Stab Attack", "Unlock the Large Stab Attack skill", "LargeStab", 100)); // 16
 
         // Spin Attack upgrades
         upgrades.Add(new Upgrade("Targets Increase", "Increase targets attacked by 1", StatType.NumTargets, 1, 150)); // 17
         upgrades.Add(new Upgrade("Targets Increase", "Increase targets attacked by 1", StatType.NumTargets, 1, 170)); // 18
         upgrades.Add(new Upgrade("Targets Increase", "Increase targets attacked by 1", StatType.NumTargets, 1, 200)); // 19
-        upgrades.Add(new Upgrade("Bursts Increase", "Increase amount of spins by 1", StatType.Bursts, 1, 150)); // 20
-        upgrades.Add(new Upgrade("Bursts Increase", "Increase amount of spins by 1", StatType.Bursts, 1, 170)); // 21
-        upgrades.Add(new Upgrade("Bursts Increase", "Increase amount of spins by 1", StatType.Bursts, 1, 200)); // 22
+        upgrades.Add(new Upgrade("Bursts Increase", "Increase amount of spins by 1", StatType.Bursts, 1, 200)); // 20
+        upgrades.Add(new Upgrade("Bursts Increase", "Increase amount of spins by 1", StatType.Bursts, 1, 300)); // 21
+        upgrades.Add(new Upgrade("Bursts Increase", "Increase amount of spins by 1", StatType.Bursts, 1, 400)); // 22
 
         // Stab Attack upgrades
         upgrades.Add(new Upgrade("Healing", "Heals player for 10% of stab damage", StatType.Healing, 0.1f, 150)); // 10%  23

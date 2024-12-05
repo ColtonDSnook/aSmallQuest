@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class VolumeController : MonoBehaviour, IEndDragHandler
+public class VolumeController : MonoBehaviour, IPointerClickHandler
 {
     public Slider _sfxSlider;
 
@@ -12,7 +12,8 @@ public class VolumeController : MonoBehaviour, IEndDragHandler
     {
         SoundManager.Instance.SFXVolume(_sfxSlider.value);
     }
-    public void OnEndDrag(PointerEventData data)
+
+    public void OnPointerClick(PointerEventData data)
     {
         SoundManager.Instance.PlaySFX("MCHurt");
     }

@@ -77,7 +77,7 @@ public class StabAttack : Ability
 
     public IEnumerator Stab(Combatant target)
     {
-        selectText.SetActive(false);
+        gameManager.uiManager.HideSelectText(this);
         animator.Play("MC_Stab");
         player.PauseTimer();
         spinAttack.isActive = false;
@@ -98,7 +98,7 @@ public class StabAttack : Ability
 
     public IEnumerator WaitForSelection()
     {
-        selectText.SetActive(true);
+        gameManager.uiManager.ShowSelectText(this);
         foreach (Combatant combatant in combatManager.combatants)
         {
             combatant.PauseTimer();

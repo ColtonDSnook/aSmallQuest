@@ -33,10 +33,6 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI versionNumber;
 
-    public Image speedupImage;
-    public Sprite speedupSprite;
-    public Sprite normalSpeedSprite;
-
     public bool isSpedUp = false;
 
     public float gold = defaultGold; //#
@@ -103,7 +99,7 @@ public class GameManager : MonoBehaviour
         }
 
         HandleGameState();
-        HandleSpeedupButtonChanges();
+        uiManager.HandleSpeedupButtonChanges(isSpedUp);
     }
 
     void HandleGameState()
@@ -148,7 +144,7 @@ public class GameManager : MonoBehaviour
         musicSlider.value = PlayerPrefs.GetFloat("music");
         volumeSlider.value = PlayerPrefs.GetFloat("volume");
 
-        uiManager.choicePrompt.SetActive(false);
+        uiManager.CloseSelectionScreen();
         playButton.Select();
         versionNumber.text = Application.version;
         combatManager = FindObjectOfType<CombatManager>();
@@ -156,7 +152,7 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<PlayerMovement>();
         saveManager = FindObjectOfType<SaveManager>();
         gameState = GameState.MainMenu;
-        stab.selectText.SetActive(false);
+        uiManager.HideSelectText(stab);
 
         saveFilePath = Application.persistentDataPath + "/playerInfo.dat";
     }
@@ -257,7 +253,7 @@ public class GameManager : MonoBehaviour
             {
                 combatant.UnpauseTimer();
             }
-            stab.selectText.SetActive(false);
+            uiManager.HideSelectText(stab);
             stab.timersPaused = false;
             spin.timersPaused = false;
         }
@@ -351,18 +347,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void HandleSpeedupButtonChanges()
-    {
-        if (isSpedUp)
-        {
-            speedupImage.sprite = normalSpeedSprite;
-        }
-        if (!isSpedUp)
-        {
-            speedupImage.sprite = speedupSprite;
-        }
-    }
-
     public void ResetValues()
     {
         gold = defaultGold;
@@ -396,13 +380,13 @@ public class GameManager : MonoBehaviour
     {
         saveManager.DeleteSave();
         OpenIntro();
-        uiManager.choicePrompt.SetActive(false);
+        uiManager.CloseSelectionScreen();
     }
 
     public void LoadGame()
     {
         saveManager.Load();
         OpenUpgrades();
-        uiManager.choicePrompt.SetActive(false);
+        uiManager.CloseSelectionScreen();
     }
 }

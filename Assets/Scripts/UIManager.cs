@@ -1,7 +1,9 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -21,11 +23,31 @@ public class UIManager : MonoBehaviour
 
     public GameObject choicePrompt;
 
+    public GameObject spinAttackUI;
+    public GameObject stabAttackUI;
+
+    public Image speedupImage;
+    public Sprite speedupSprite;
+    public Sprite normalSpeedSprite;
+
+    public RectTransform coinCounterUI;
+    public float coinCounterScale = 0.42f;
+    public float newCoinScale = 0.5f;
+    public float tweenSpeed = 0.5f;
+
     public TextMeshProUGUI damageText;
     public TextMeshProUGUI speedText;
     public TextMeshProUGUI goldText;
     public TextMeshProUGUI upgradesGoldText;
     public TextMeshProUGUI healthText;
+
+    public TextMeshProUGUI coinsGainedText;
+    public TextMeshProUGUI enemiesDefeatedText;
+    public TextMeshProUGUI coinsTotalText;
+
+    public TextMeshProUGUI coinsGainedWonText;
+    public TextMeshProUGUI enemiesDefeatedWonText;
+    public TextMeshProUGUI coinsTotalWonText;
 
     public void UIMainMenu()
     {
@@ -173,6 +195,20 @@ public class UIManager : MonoBehaviour
         choicePrompt.SetActive(true);
     }
 
+    public void CloseSelectionScreen()
+    {
+        choicePrompt.SetActive(false);
+    }
+
+    public void ShowSelectText(StabAttack stabAttack)
+    {
+        stabAttack.selectText.SetActive(true);
+    }
+
+    public void HideSelectText(StabAttack stabAttack)
+    {
+        stabAttack.selectText.SetActive(false);
+    }
 
     public void UpdateText()
     {
@@ -182,5 +218,47 @@ public class UIManager : MonoBehaviour
         healthText.text = ": " + gameManager.maxHealth.ToString();
 
         goldText.text = combatManager.coinsGainedCurrentRun.ToString();
+    }
+
+    public void DisplayEndResults(bool won, int coinsGained, int enemiesDefeated, float coinsTotal)
+    {
+        if (!won)
+        {
+            coinsGainedText.text = "Coins Collected: " + coinsGained;
+            enemiesDefeatedText.text = "Enemies Defeated: " + enemiesDefeated;
+            coinsTotal = gameManager.gold;
+            coinsTotalText.text = "Coins Total: " + "\n" + coinsTotal;
+        }
+        else if (won)
+        {
+            coinsGainedWonText.text = "Coins Collected: " + coinsGained;
+            enemiesDefeatedWonText.text = "Enemies Defeated: " + enemiesDefeated;
+            coinsTotal = gameManager.gold;
+            coinsTotalWonText.text = "Coins Total: " + "\n" + coinsTotal;
+        }
+    }
+
+    public void CheckAbilities(bool spinAttackActive, bool stabAttackActive)
+    {
+        spinAttackUI.SetActive(spinAttackActive);
+        stabAttackUI.SetActive(stabAttackActive);
+    }
+
+    public void HandleSpeedupButtonChanges(bool isSpedUp)
+    {
+        if (isSpedUp)
+        {
+            speedupImage.sprite = normalSpeedSprite;
+        }
+        if (!isSpedUp)
+        {
+            speedupImage.sprite = speedupSprite;
+        }
+    }
+
+    public void AnimateCoinCounter()
+    {
+        coinCounterUI.DOScale(new Vector3(newCoinScale, newCoinScale, 0f), tweenSpeed).From(coinCounterScale);
+        coinCounterUI.DOScale(new Vector3(coinCounterScale, coinCounterScale, 0f), tweenSpeed).From(newCoinScale);
     }
 }

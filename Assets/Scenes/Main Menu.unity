@@ -28735,11 +28735,26 @@ MonoBehaviour:
   gameManager: {fileID: 9003882228498871527}
   combatManager: {fileID: 1805031243}
   choicePrompt: {fileID: 1259894245}
+  spinAttackUI: {fileID: 1572044305}
+  stabAttackUI: {fileID: 189279629}
+  speedupImage: {fileID: 548145463}
+  speedupSprite: {fileID: 21300000, guid: ccc2f2a010febfb49a94cefc1d66f3fc, type: 3}
+  normalSpeedSprite: {fileID: 21300000, guid: 5751bad560d370c41aa06d5f63ba7645, type: 3}
+  coinCounterUI: {fileID: 587943523}
+  coinCounterScale: 0.42
+  newCoinScale: 0.5
+  tweenSpeed: 0.5
   damageText: {fileID: 542473849}
   speedText: {fileID: 237291615}
   goldText: {fileID: 1480216336}
   upgradesGoldText: {fileID: 581301029}
   healthText: {fileID: 985514393}
+  coinsGainedText: {fileID: 1229880822}
+  enemiesDefeatedText: {fileID: 188701637}
+  coinsTotalText: {fileID: 796029928}
+  coinsGainedWonText: {fileID: 443853358}
+  enemiesDefeatedWonText: {fileID: 977060708}
+  coinsTotalWonText: {fileID: 1684884366}
 --- !u!1 &6640362659547672916
 GameObject:
   m_ObjectHideFlags: 0
@@ -29750,9 +29765,6 @@ MonoBehaviour:
   musicSlider: {fileID: 1598343994}
   volumeSlider: {fileID: 2146755728}
   versionNumber: {fileID: 518142951}
-  speedupImage: {fileID: 548145463}
-  speedupSprite: {fileID: 21300000, guid: ccc2f2a010febfb49a94cefc1d66f3fc, type: 3}
-  normalSpeedSprite: {fileID: 21300000, guid: 5751bad560d370c41aa06d5f63ba7645, type: 3}
   isSpedUp: 0
   gold: 0
   damage: 10

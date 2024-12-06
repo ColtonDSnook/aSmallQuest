@@ -28,11 +28,7 @@ public class CombatManager : MonoBehaviour
     public LevelManager levelManager;
     public GameManager gameManager;
     public SaveManager saveManager;
-
-    //public GameObject abilitiesUI;
-
-    public GameObject spinAttackUI;
-    public GameObject stabAttackUI;
+    public UIManager uiManager;
 
     public Combatant player;
     public Health playerHealth;
@@ -71,11 +67,6 @@ public class CombatManager : MonoBehaviour
     public bool selection = false;
 
     public Combatant hoveredOver;
-
-    public RectTransform coinCounterUI;
-    public float coinCounterScale = 0.42f;
-    public float newCoinScale = 0.5f;
-    public float tweenSpeed = 0.5f;
 
     // when an ability is used, block the player from using any other ability until ability use is over.
 
@@ -143,7 +134,7 @@ public class CombatManager : MonoBehaviour
                 StopCoroutine(combatant.attackInst);
             }
             StartCoroutine(combatant.Kill());
-            AnimateCoinCounter();
+            uiManager.AnimateCoinCounter();
         }
     }
 
@@ -307,6 +298,7 @@ public class CombatManager : MonoBehaviour
         currencyDropper = FindObjectOfType<CurrencyDropper>();
         upgradeManager = FindObjectOfType<UpgradeManager>();
         saveManager = FindObjectOfType<SaveManager>();
+        uiManager = FindObjectOfType<UIManager>();
     }
 
     public void InitializeCombatants()
@@ -351,26 +343,12 @@ public class CombatManager : MonoBehaviour
 
     public void DisplayEndResults(bool won)
     {
-        if (!won)
-        {
-            coinsGainedText.text = "Coins Collected: " + coinsGainedCurrentRun;
-            enemiesDefeatedText.text = "Enemies Defeated: " + enemiesDefeatedCurrentRun;
-            coinsTotal = gameManager.gold;
-            coinsTotalText.text = "Coins Total: " + "\n" + coinsTotal;
-        }
-        else if (won)
-        {
-            coinsGainedWonText.text = "Coins Collected: " + coinsGainedCurrentRun;
-            enemiesDefeatedWonText.text = "Enemies Defeated: " + enemiesDefeatedCurrentRun;
-            coinsTotal = gameManager.gold;
-            coinsTotalWonText.text = "Coins Total: " + "\n" + coinsTotal;
-        }
+        uiManager.DisplayEndResults(won, coinsGainedCurrentRun, enemiesDefeatedCurrentRun, gameManager.gold);
     }
 
     public void CheckAbilities()
     {
-        spinAttackUI.SetActive(gameManager.spinAttack);
-        stabAttackUI.SetActive(gameManager.stabAttack);
+        uiManager.CheckAbilities(gameManager.spinAttack, gameManager.stabAttack);
     }
 
     public void EnableAbilities()
@@ -383,11 +361,5 @@ public class CombatManager : MonoBehaviour
     {
         spinAttack.isActive = false;
         stabAttack.isActive = false;
-    }
-
-    public void AnimateCoinCounter()
-    {
-        coinCounterUI.DOScale(new Vector3(newCoinScale, newCoinScale, 0f), tweenSpeed).From(coinCounterScale);
-        coinCounterUI.DOScale(new Vector3(coinCounterScale, coinCounterScale, 0f), tweenSpeed).From(newCoinScale);
     }
 }

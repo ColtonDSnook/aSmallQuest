@@ -28,8 +28,6 @@ public class UpgradeManager : MonoBehaviour
 
     public List<Upgrade> upgrades;
 
-    public TextMeshProUGUI descriptionText;
-    public TextMeshProUGUI costText;
     public Button confirmButton;
 
     // Start is called before the first frame update
@@ -66,7 +64,7 @@ public class UpgradeManager : MonoBehaviour
 
                 upgrade.isPurchased = true;
                 saveManager.Save();
-                descriptionText.text = "";
+                uiManager.descriptionText.text = "";
                 uiManager.ShowUpgradeDescription();
             }
             else

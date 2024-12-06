@@ -996,6 +996,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 7
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 1191435979}
   checkMark: {fileID: 0}
@@ -1203,6 +1204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 14
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 319051144}
   checkMark: {fileID: 0}
@@ -2246,6 +2248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 21
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 1986032697}
   checkMark: {fileID: 0}
@@ -3218,6 +3221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 3
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 1175682911}
   checkMark: {fileID: 0}
@@ -3973,6 +3977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 13
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 1683993102}
   checkMark: {fileID: 0}
@@ -4319,6 +4324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 4
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 223937807}
   checkMark: {fileID: 0}
@@ -4464,6 +4470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 24
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 1153283001}
   checkMark: {fileID: 0}
@@ -5077,6 +5084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 15
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 0
   previousUpgrade: {fileID: 0}
   checkMark: {fileID: 691598079}
@@ -5448,6 +5456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 19
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 2028783663}
   checkMark: {fileID: 0}
@@ -7089,6 +7098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 5
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 0
   previousUpgrade: {fileID: 0}
   checkMark: {fileID: 0}
@@ -7910,18 +7920,11 @@ MonoBehaviour:
     largeStab: 0
   gameManager: {fileID: 9003882228498871527}
   saveManager: {fileID: 0}
+  uiManager: {fileID: 0}
   upgrades: []
-  descriptionUI: {fileID: 1882937295}
   descriptionText: {fileID: 1790626536}
   costText: {fileID: 839735074}
   confirmButton: {fileID: 513271180}
-  errorTextObject: {fileID: 507971781}
-  errorText: {fileID: 507971783}
-  errorBlip: {fileID: 507971782}
-  healthIcon: {fileID: 425031835}
-  damageIcon: {fileID: 757248364}
-  speedIcon: {fileID: 457352337}
-  upgradeDescription: {fileID: 1882937296}
 --- !u!1 &536034407
 GameObject:
   m_ObjectHideFlags: 0
@@ -8621,6 +8624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 8
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 92505050}
   checkMark: {fileID: 0}
@@ -9147,6 +9151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 10
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 0
   previousUpgrade: {fileID: 0}
   checkMark: {fileID: 0}
@@ -11865,6 +11870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 25
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 354787412}
   checkMark: {fileID: 0}
@@ -12125,6 +12131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 22
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 166723691}
   checkMark: {fileID: 0}
@@ -14682,6 +14689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 11
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 622248725}
   checkMark: {fileID: 0}
@@ -15328,6 +15336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 23
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 1783298975}
   checkMark: {fileID: 0}
@@ -15784,6 +15793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 17
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 398656707}
   checkMark: {fileID: 0}
@@ -16005,6 +16015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 2
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 1426989785}
   checkMark: {fileID: 0}
@@ -16328,6 +16339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 6
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 488630324}
   checkMark: {fileID: 0}
@@ -17219,6 +17231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 0
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 0
   previousUpgrade: {fileID: 0}
   checkMark: {fileID: 0}
@@ -18516,6 +18529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 27
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 2078056973}
   checkMark: {fileID: 0}
@@ -19219,6 +19233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 1
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 1278697678}
   checkMark: {fileID: 0}
@@ -21285,6 +21300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 12
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 1083269651}
   checkMark: {fileID: 0}
@@ -22193,6 +22209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 16
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 0
   previousUpgrade: {fileID: 0}
   checkMark: {fileID: 0}
@@ -24329,6 +24346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 20
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 398656707}
   checkMark: {fileID: 0}
@@ -25706,6 +25724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 18
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 1170687257}
   checkMark: {fileID: 0}
@@ -26164,6 +26183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 26
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 1783298975}
   checkMark: {fileID: 0}
@@ -26559,6 +26579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 9
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 566171044}
   checkMark: {fileID: 0}
@@ -26724,6 +26745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 28
   upgradeManager: {fileID: 534866859}
+  uiManager: {fileID: 0}
   isDisabled: 1
   previousUpgrade: {fileID: 1381367486}
   checkMark: {fileID: 0}
@@ -28744,6 +28766,7 @@ MonoBehaviour:
   coinCounterScale: 0.42
   newCoinScale: 0.5
   tweenSpeed: 0.5
+  descriptionUI: {fileID: 1882937295}
   damageText: {fileID: 542473849}
   speedText: {fileID: 237291615}
   goldText: {fileID: 1480216336}
@@ -28755,6 +28778,15 @@ MonoBehaviour:
   coinsGainedWonText: {fileID: 443853358}
   enemiesDefeatedWonText: {fileID: 977060708}
   coinsTotalWonText: {fileID: 1684884366}
+  upgradeDescription: {fileID: 1882937296}
+  descriptionText: {fileID: 1790626536}
+  costText: {fileID: 839735074}
+  healthIcon: {fileID: 425031835}
+  damageIcon: {fileID: 757248364}
+  speedIcon: {fileID: 457352337}
+  errorBlip: {fileID: 507971782}
+  errorTextObject: {fileID: 507971781}
+  errorText: {fileID: 507971783}
 --- !u!1 &6640362659547672916
 GameObject:
   m_ObjectHideFlags: 0

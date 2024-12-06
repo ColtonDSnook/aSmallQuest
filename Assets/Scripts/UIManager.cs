@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,6 +36,8 @@ public class UIManager : MonoBehaviour
     public float newCoinScale = 0.5f;
     public float tweenSpeed = 0.5f;
 
+    public GameObject descriptionUI;
+
     public TextMeshProUGUI damageText;
     public TextMeshProUGUI speedText;
     public TextMeshProUGUI goldText;
@@ -48,6 +51,18 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI coinsGainedWonText;
     public TextMeshProUGUI enemiesDefeatedWonText;
     public TextMeshProUGUI coinsTotalWonText;
+
+    public RectTransform upgradeDescription;
+    public TextMeshProUGUI descriptionText;
+    public TextMeshProUGUI costText;
+
+    public RectTransform healthIcon;
+    public RectTransform damageIcon;
+    public RectTransform speedIcon;
+
+    public RectTransform errorBlip;
+    public GameObject errorTextObject;
+    public TextMeshProUGUI errorText;
 
     public void UIMainMenu()
     {
@@ -260,5 +275,65 @@ public class UIManager : MonoBehaviour
     {
         coinCounterUI.DOScale(new Vector3(newCoinScale, newCoinScale, 0f), tweenSpeed).From(coinCounterScale);
         coinCounterUI.DOScale(new Vector3(coinCounterScale, coinCounterScale, 0f), tweenSpeed).From(newCoinScale);
+    }
+
+    public void AnimateUpgradeDescription()
+    {
+        upgradeDescription.DOScale(new Vector3(1.02f, 1.02f, 1.0f), 0.3f).From(1.0f);
+        upgradeDescription.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.3f).From(1.02f);
+    }
+
+    public void DamageBlip()
+    {
+        damageIcon.DOScale(new Vector3(3.0f, 3.0f, 1.0f), 0.5f).From(2.5f);
+        damageIcon.DOScale(new Vector3(2.5f, 2.5f, 1.0f), 0.5f).From(3.0f);
+    }
+    public void HealthBlip()
+    {
+        healthIcon.DOScale(new Vector3(3.0f, 3.0f, 1.0f), 0.5f).From(2.5f);
+        healthIcon.DOScale(new Vector3(2.5f, 2.5f, 1.0f), 0.5f).From(3.0f);
+    }
+    public void SpeedBlip()
+    {
+        speedIcon.DOScale(new Vector3(3.5f, 3.5f, 1.0f), 0.5f).From(3.0f);
+        speedIcon.DOScale(new Vector3(3.0f, 3.0f, 1.0f), 0.5f).From(3.5f);
+    }
+
+    public void AnimateErrorMessage()
+    {
+        errorBlip.DOScale(new Vector3(1.02f, 1.02f, 1.0f), 0.3f).From(1.0f);
+        errorBlip.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.3f).From(1.02f);
+    }
+
+    public IEnumerator ShowErrorMessage(string message)
+    {
+        errorTextObject.SetActive(true);
+        errorText.text = message;
+        AnimateErrorMessage();
+        yield return new WaitForSeconds(2);
+        errorTextObject.SetActive(false);
+    }
+
+
+    public void PopulateUpgradeDescription(int upgradeIndex, List<Upgrade> upgrades)
+    {
+        if (upgradeIndex >= 0 && upgradeIndex < upgrades.Count)
+        {
+            Upgrade upgrade = upgrades[upgradeIndex];
+            descriptionText.text = upgrade.description;
+            costText.text = upgrade.cost.ToString() + "g";
+            ShowUpgradeDescription();
+            AnimateUpgradeDescription();
+        }
+    }
+
+    public void ShowUpgradeDescription()
+    {
+        descriptionUI.SetActive(true);
+    }
+
+    public void HideUpgradeDescription()
+    {
+        descriptionUI.SetActive(false);
     }
 }

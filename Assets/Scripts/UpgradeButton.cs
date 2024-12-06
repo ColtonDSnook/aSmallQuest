@@ -8,6 +8,7 @@ public class UpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 {
     public int upgradeIndex; // The index of the upgrade this button applies
     public UpgradeManager upgradeManager;
+    public UIManager uiManager;
 
     public bool isDisabled = true;
     public UpgradeButton previousUpgrade;
@@ -17,30 +18,32 @@ public class UpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        upgradeManager = FindObjectOfType<UpgradeManager>();
+        uiManager = FindObjectOfType<UIManager>();
         checkMark = transform.GetChild(0).gameObject;
         //6AFF51 hexcode for purchasable upgrade
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        upgradeManager.ShowUpgradeDescription(upgradeIndex);
+        uiManager.PopulateUpgradeDescription(upgradeIndex, upgradeManager.upgrades);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        upgradeManager.HideUpgradeDescription();
+        uiManager.HideUpgradeDescription();
     }
 
     public void OnButtonClick()
     {
         if (upgradeManager.upgrades[upgradeIndex].isPurchased)
         {
-            StartCoroutine(upgradeManager.ShowErrorMessage("Cannot Repurchase"));
+            StartCoroutine(uiManager.ShowErrorMessage("Cannot Repurchase"));
             //Debug.Log("Cannot Repurchase");
         }
         else if (isDisabled)
         {
-            StartCoroutine(upgradeManager.ShowErrorMessage("Purchase previous upgrades to unlock this upgrade"));
+            StartCoroutine(uiManager.ShowErrorMessage("Purchase previous upgrades to unlock this upgrade"));
             //Debug.Log("Purchase previous upgrades to unlock this upgrade");
         }
         else if (!isDisabled)

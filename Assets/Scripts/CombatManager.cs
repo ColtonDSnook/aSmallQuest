@@ -320,6 +320,8 @@ public class CombatManager : MonoBehaviour
 
     public void ResetAll()
     {
+        Time.timeScale = 1;
+        gameManager.isSpedUp = false;
         ResetCombatState();
         playerHealth.SetCurrentHealth();
         foreach (Combatant combatant in combatants)

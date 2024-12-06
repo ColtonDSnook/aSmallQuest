@@ -24,68 +24,24 @@ public class UpgradeManager : MonoBehaviour
 
     public GameManager gameManager;
     public SaveManager saveManager;
+    public UIManager uiManager;
 
     public List<Upgrade> upgrades;
 
-    public GameObject descriptionUI;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI costText;
     public Button confirmButton;
-
-    public GameObject errorTextObject;
-    public TextMeshProUGUI errorText;
-    public RectTransform errorBlip;
-    public RectTransform healthIcon;
-    public RectTransform damageIcon;
-    public RectTransform speedIcon;
-    public RectTransform upgradeDescription;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
         saveManager = FindObjectOfType<SaveManager>();
-        errorTextObject.SetActive(false);
-        errorText = errorTextObject.GetComponent<TextMeshProUGUI>();
-        descriptionUI.SetActive(false);
-    }
+        uiManager = FindObjectOfType<UIManager>();
 
-    public IEnumerator ShowErrorMessage(string message)
-    {
-        errorTextObject.SetActive(true);
-        errorText.text = message;
-        AnimateErrorMessage();
-        yield return new WaitForSeconds(2);
-        errorTextObject.SetActive(false);
-    }
-
-    private void AnimateErrorMessage()
-    {
-        errorBlip.DOScale(new Vector3(1.02f, 1.02f, 1.0f), 0.3f).From(1.0f);
-        errorBlip.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.3f).From(1.02f);
-    }
-
-    public void ShowUpgradeDescription(int upgradeIndex)
-    {
-        if (upgradeIndex >= 0 && upgradeIndex < upgrades.Count)
-        {
-            Upgrade upgrade = upgrades[upgradeIndex];
-            descriptionText.text = upgrade.description;
-            costText.text = upgrade.cost.ToString() + "g";
-            descriptionUI.SetActive(true);
-            AnimateUpgradeDescription();
-        }
-    }
-
-    private void AnimateUpgradeDescription()
-    {
-        upgradeDescription.DOScale(new Vector3(1.02f, 1.02f, 1.0f), 0.3f).From(1.0f);
-        upgradeDescription.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.3f).From(1.02f);
-    }
-
-    public void HideUpgradeDescription()
-    {
-        descriptionUI.SetActive(false);
+        uiManager.errorTextObject.SetActive(false);
+        uiManager.errorText = uiManager.errorTextObject.GetComponent<TextMeshProUGUI>();
+        uiManager.HideUpgradeDescription();
     }
 
     public void ConfirmUpgrade(int upgradeIndex)
@@ -111,11 +67,11 @@ public class UpgradeManager : MonoBehaviour
                 upgrade.isPurchased = true;
                 saveManager.Save();
                 descriptionText.text = "";
-                descriptionUI.SetActive(false);
+                uiManager.ShowUpgradeDescription();
             }
             else
             {
-                StartCoroutine(ShowErrorMessage("Cannot Afford Upgrade"));
+                StartCoroutine(uiManager.ShowErrorMessage("Cannot Afford Upgrade"));
             }
 
         }
@@ -127,17 +83,17 @@ public class UpgradeManager : MonoBehaviour
         {
             case StatType.Health:
                 gameManager.maxHealth += upgrade.value;
-                HealthBlip();
+                uiManager.HealthBlip();
                 break;
             case StatType.Damage:
                 Debug.Log(playerStats.damage);
                 gameManager.damage += upgrade.value;
-                DamageBlip();
+                uiManager.DamageBlip();
                 Debug.Log(playerStats.damage);
                 break;
             case StatType.AttackSpeed:
                 gameManager.attackSpeed += upgrade.value;
-                SpeedBlip();
+                uiManager.SpeedBlip();
                 break;
             case StatType.NumTargets:
                 gameManager.numTargets += upgrade.value;
@@ -153,21 +109,6 @@ public class UpgradeManager : MonoBehaviour
                 break;
         }
         saveManager.Save();
-    }
-    public void DamageBlip()
-    {
-        damageIcon.DOScale(new Vector3( 3.0f, 3.0f, 1.0f), 0.5f).From(2.5f);
-        damageIcon.DOScale(new Vector3(2.5f, 2.5f, 1.0f), 0.5f).From(3.0f);
-    }
-    public void HealthBlip()
-    {
-        healthIcon.DOScale(new Vector3(3.0f, 3.0f, 1.0f), 0.5f).From(2.5f);
-        healthIcon.DOScale(new Vector3(2.5f, 2.5f, 1.0f), 0.5f).From(3.0f);
-    }
-    public void SpeedBlip()
-    {
-        speedIcon.DOScale(new Vector3(3.5f, 3.5f, 1.0f), 0.5f).From(3.0f);
-        speedIcon.DOScale(new Vector3(3.0f, 3.0f, 1.0f), 0.5f).From(3.5f);
     }
 
     public void ApplySkillUpgrade(Upgrade upgrade)
